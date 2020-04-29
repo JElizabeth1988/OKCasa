@@ -1,0 +1,5 @@
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\bin\Debug\BibliotecaClases.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\bin\Debug\BibliotecaClases.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\obj\Debug\BibliotecaClases.csprojResolveAssemblyReference.cache
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\obj\Debug\BibliotecaClases.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\obj\Debug\BibliotecaClases.pdb

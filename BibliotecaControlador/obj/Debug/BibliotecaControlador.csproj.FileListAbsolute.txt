@@ -1,0 +1,4 @@
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaControlador.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaControlador.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaControlador.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaControlador.pdb
