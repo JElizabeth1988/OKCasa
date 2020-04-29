@@ -16,7 +16,7 @@
         </LinearGradientBrush>
     </Controls:MetroWindow.Background>
     <Grid>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="619" VerticalAlignment="Top" Width="1151" Source="Imagenes/bg_2.jpg" Margin="-13,0,0,0"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="619" VerticalAlignment="Top" Width="1151" Source="Imagenes/bg_3.jpg" Margin="-9,0,-4,0"/>
     
         <Controls:Tile x:Name="Tile_Click_1" Background="#FFAFF7F7" Click="Tile_Click_1_Click" Margin="712,268,269,295" Height="Auto" Width="Auto">
             <Grid Height="136" Width="174">

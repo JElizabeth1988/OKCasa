@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BibliotecaClases;
 
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
@@ -27,6 +28,18 @@ namespace Vista
         {
             InitializeComponent();
             this.DataContext = this;
+
+            cbComuna.ItemsSource = Enum.GetValues(typeof
+                (Comuna));
+            cbComuna.SelectedIndex = 0;
+
+            cbTipoV.ItemsSource = Enum.GetValues(typeof
+                (TipoVivienda));
+            cbTipoV.SelectedIndex = 0;
+
+            cbTipoAg.ItemsSource = Enum.GetValues(typeof
+                (TipoAgrupamiento));
+            cbTipoAg.SelectedIndex = 0;
         }
 
 
