@@ -16,68 +16,90 @@
         <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" Margin="-6,0,6.334,103">
             <Grid Height="1065" Width="820">
 
-                <GroupBox x:Name="ContenedorPrincipal" Header="                                                                                                                          Informe Técnico" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Height="1026" Width="761" Background="#CC0C5395" Controls:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10" TextOptions.TextHintingMode="Animated">
+                <GroupBox x:Name="ContenedorPrincipal" Header="                                                                                                                          Informe Técnico" HorizontalAlignment="Left" Margin="35,18,0,0" VerticalAlignment="Top" Height="1026" Width="761" Background="#CC0C5395" Controls:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10" TextOptions.TextHintingMode="Animated">
                     <Grid HorizontalAlignment="Left" Height="976" Margin="10,0,0,0" VerticalAlignment="Top" Width="741">
-                        <Label x:Name="label" Content="Fecha Solicitud:" HorizontalAlignment="Left" Margin="20,8,0,0" VerticalAlignment="Top"/>
-                        <DatePicker x:Name="dtfechaSol"  HorizontalAlignment="Left" Margin="143,8,0,0" VerticalAlignment="Top"  SelectedDate="{x:Static sys:DateTime.Now}" FontWeight="Normal"/>
-                        <Label x:Name="label1" Content="Fecha Inspección:" HorizontalAlignment="Left" Margin="340,8,0,0" VerticalAlignment="Top"/>
-                        <DatePicker x:Name="dtfechaIns"  HorizontalAlignment="Left" Margin="470,8,0,0" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Now}" FontWeight="Normal"/>
-                        <GroupBox x:Name="groupBox1" Header="Datos del Cliente" HorizontalAlignment="Left" Margin="28,41,0,0" VerticalAlignment="Top" Height="100" Width="652" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10" FontSize="13.333">
-                            <Grid HorizontalAlignment="Left" Height="71" Margin="10,0,0,0" VerticalAlignment="Top" Width="620">
+                        <Label x:Name="label" Content="Fecha Solicitud:" HorizontalAlignment="Left" Margin="34,5,0,0" VerticalAlignment="Top"/>
+                        <DatePicker x:Name="dtfechaSol"  HorizontalAlignment="Left" Margin="143,5,0,0" VerticalAlignment="Top"  SelectedDate="{x:Static sys:DateTime.Now}" FontWeight="Normal"/>
+                        <Label x:Name="label1" Content="Fecha Inspección:" HorizontalAlignment="Left" Margin="353,5,0,0" VerticalAlignment="Top"/>
+                        <DatePicker x:Name="dtfechaIns"  HorizontalAlignment="Left" Margin="470,5,0,0" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Now}" FontWeight="Normal"/>
+                        <GroupBox x:Name="groupBox1" Header="Datos del Cliente" HorizontalAlignment="Left" Margin="28,37,0,0" VerticalAlignment="Top" Height="92" Width="391" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10" FontSize="13.333">
+                            <Grid HorizontalAlignment="Left" Height="60" Margin="10,0,0,-6.667" VerticalAlignment="Top" Width="620">
 
-                                <Label x:Name="label2" Content="Rut:" HorizontalAlignment="Left" Margin="14,2,0,0" VerticalAlignment="Top" FontSize="12"/>
-                                <TextBox x:Name="txtNombreCliente" mah:TextBoxHelper.Watermark="Ingrese Nombre" Height="8" Margin="97,36,369,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
-                                <Label x:Name="label3" Content="Nombre:" HorizontalAlignment="Left" Margin="14,36,0,9" FontSize="12" FontWeight="Bold"/>
-                                <TextBox x:Name="txtRutCliente" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Rut" Height="8" Margin="98,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
-                                <Button x:Name="btnBuscarRutC" Content="Buscar" HorizontalAlignment="Left" Margin="271,2,0,0" VerticalAlignment="Top" Width="75"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
+                                <Label x:Name="label2" Content="Rut:" HorizontalAlignment="Left" Margin="14,1,0,0" VerticalAlignment="Top" FontSize="12"/>
+                                <TextBox x:Name="txtNombreCliente" mah:TextBoxHelper.Watermark="" Height="8" Margin="97,32,274,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" IsEnabled="False"/>
+                                <Label x:Name="label3" Content="Nombre:" HorizontalAlignment="Left" Margin="14,29,0,5" FontSize="12" FontWeight="Bold"/>
+                                <TextBox x:Name="txtRutCliente" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Rut" Height="8" Margin="98,1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
+                                <Button x:Name="btnBuscarRutC" Content="Buscar" HorizontalAlignment="Left" Margin="271,0,0,0" VerticalAlignment="Top" Width="75"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
                             </Grid>
                         </GroupBox>
 
-                        <GroupBox x:Name="groupBox2" Header="Identificación de la Vivienda" Margin="28,147,61,0" VerticalAlignment="Top" Height="167" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10">
+                        <GroupBox x:Name="groupBox2" Header="Identificación de la Vivienda" Margin="28,135,44,0" VerticalAlignment="Top" Height="152" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10">
                             <Grid Margin="0,0,0,3.667">
-                                <Label x:Name="label4" Content="Dirección:" HorizontalAlignment="Left" Margin="22,3,0,0" VerticalAlignment="Top"/>
-                                <TextBox x:Name="txtDireccion" mah:TextBoxHelper.Watermark="Ingrese Dirección" Height="8" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"  mah:TextBoxHelper.ClearTextButton="True" Margin="137,3,233,0"/>
-                                <Label x:Name="label5" Content="Constructora:" HorizontalAlignment="Left" Margin="22,99,0,6"/>
-                                <TextBox x:Name="txtNumero" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese nombre Constructora" Height="8" TextWrapping="Wrap" VerticalAlignment="Top" Width="315" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" Margin="137,99,0,0"/>
-                                <Label x:Name="label6" Content="Comuna:" HorizontalAlignment="Left" Margin="22,35,0,0" VerticalAlignment="Top"/>
-                                <ComboBox x:Name="cbComuna" Margin="137,35,362,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label7" Content="Tipo de Vivienda:" Margin="22,67,512,0" VerticalAlignment="Top"/>
-                                <ComboBox x:Name="cbTipoV" Margin="137,67,362,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label8" Content="Tipo de Agrupamiento:" Margin="302,67,200,0" VerticalAlignment="Top"/>
-                                <ComboBox x:Name="cbTipoAg" Margin="458,67,50,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label9" Content="N°:" HorizontalAlignment="Left" Margin="425,3,0,0" VerticalAlignment="Top"/>
-                                <TextBox x:Name="txtNCasa" Height="23" Margin="457,3,127,0" TextWrapping="Wrap" VerticalAlignment="Top" mah:TextBoxHelper.ClearTextButton="True" FontWeight="Normal"/>
-                                <Label x:Name="label10" Content="Dpto:" HorizontalAlignment="Left" Margin="520,3,0,0" VerticalAlignment="Top"/>
-                                <TextBox x:Name="txtDepto" HorizontalAlignment="Left" Height="23" Margin="564,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" mah:TextBoxHelper.ClearTextButton="True" FontWeight="Normal"/>
-                                <Label x:Name="label8_Copy" Content="N° de Habitaciones:" Margin="304,35,215,0" VerticalAlignment="Top"/>
-                                <ComboBox x:Name="cbHabita" Margin="424,35,161,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label8_Copy1" Content="N° de Pisos:" Margin="488,35,77,0" VerticalAlignment="Top"/>
-                                <ComboBox x:Name="cbPisos" Margin="565,35,20,0" VerticalAlignment="Top" FontWeight="Normal"/>
+
+                                <Label x:Name="label4" Content="Dirección:" HorizontalAlignment="Left" Margin="20,2,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="txtDireccion" mah:TextBoxHelper.Watermark="Ingrese Dirección" Height="8" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"  mah:TextBoxHelper.ClearTextButton="True" Margin="133,2,238.667,0"/>
+                                <Label x:Name="label5" Content="Constructora:" HorizontalAlignment="Left" Margin="20,92,0,-1.667"/>
+                                <TextBox x:Name="txtNumero" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese nombre Constructora" Height="8" TextWrapping="Wrap" VerticalAlignment="Top" Width="315" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" Margin="133,92,0,-1.667"/>
+                                <Label x:Name="label6" Content="Comuna:" HorizontalAlignment="Left" Margin="20,32,0,0" VerticalAlignment="Top"/>
+                                <ComboBox x:Name="cbComuna" Margin="133,32,340,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label7" Content="Tipo de Vivienda:" Margin="20,63,488,0" VerticalAlignment="Top"/>
+                                <ComboBox x:Name="cbTipoV" Margin="133,63,340,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label8" Content="Tipo de Agrupamiento:" Margin="336,63,139.333,0" VerticalAlignment="Top"/>
+                                <ComboBox x:Name="cbTipoAg" Margin="486,63,23.333,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label9" Content="N°:" HorizontalAlignment="Left" Margin="425,2,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="txtNCasa" Height="23" Margin="457,2,139.667,0" TextWrapping="Wrap" VerticalAlignment="Top" mah:TextBoxHelper.ClearTextButton="True" FontWeight="Normal"/>
+                                <Label x:Name="label10" Content="Dpto:" HorizontalAlignment="Left" Margin="524,2,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="txtDepto" HorizontalAlignment="Left" Height="23" Margin="578,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" mah:TextBoxHelper.ClearTextButton="True" FontWeight="Normal"/>
+                                <Label x:Name="label8_Copy" Content="N° de Habitaciones:" Margin="336,32,156.333,0" VerticalAlignment="Top"/>
+                                <ComboBox x:Name="cbHabita" Margin="457,32,158.667,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label8_Copy1" Content="N° de Pisos:" Margin="504,32,77.333,0" VerticalAlignment="Top"/>
+                                <ComboBox x:Name="cbPisos" Margin="578,32,19.667,0" VerticalAlignment="Top" FontWeight="Normal"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox3" Header=" Datos de Responsable" Margin="28,319,61,0" VerticalAlignment="Top" Height="136" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10" FontSize="13.333">
+                        <GroupBox x:Name="groupBox3" Header=" Datos de Responsable" Margin="28,292,44,0" VerticalAlignment="Top" Height="98" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10" FontSize="13.333">
                             <Grid HorizontalAlignment="Left" Height="102" Margin="10,0,0,0" VerticalAlignment="Top" Width="620">
 
                                 <Label x:Name="lbl1" Content="Rut:" HorizontalAlignment="Left" Margin="14,2,0,0" VerticalAlignment="Top" FontSize="12"/>
-                                <TextBox x:Name="txtNombreTec" mah:TextBoxHelper.Watermark="Ingrese Nombre" Height="8" Margin="97,34,369,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
+                                <TextBox x:Name="txtNombreTec" mah:TextBoxHelper.Watermark="" Height="8" Margin="84,34,382,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" IsEnabled="False"/>
                                 <Label x:Name="lbl2" Content="Nombre:" HorizontalAlignment="Left" Margin="14,34,0,42" FontSize="12" FontWeight="Bold"/>
-                                <TextBox x:Name="txtRutTecnico" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Rut" Height="8" Margin="98,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
-                                <Button x:Name="btnBuscarRutT" Content="Buscar" HorizontalAlignment="Left" Margin="271,2,0,0" VerticalAlignment="Top" Width="75"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
-                                <Label x:Name="lbl2_Copy" Content="Equipo:" HorizontalAlignment="Left" Margin="14,65,0,11" FontSize="12" FontWeight="Bold"/>
-                                <TextBox x:Name="txtEquipo" mah:TextBoxHelper.Watermark="Ingrese Equipo" Height="8" Margin="97,66,369,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
-                                <Label x:Name="lbl2_Copy1" Content="Insumos:" HorizontalAlignment="Left" Margin="285,34,0,42" FontSize="12" FontWeight="Bold"/>
-                                <RadioButton x:Name="rbSi" Content="Si" HorizontalAlignment="Left" Margin="376,40,0,0" VerticalAlignment="Top" GroupName="Insumos" IsChecked="True"/>
-                                <RadioButton x:Name="rbNo" Content="No" HorizontalAlignment="Left" Margin="433,40,0,0" VerticalAlignment="Top" GroupName="Insumos"/>
-                                <ComboBox x:Name="cbHerramientas" Margin="376,66,110,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="lbl2_Copy2" Content="Detalle:" HorizontalAlignment="Left" Margin="285,65,0,11" FontSize="12" FontWeight="Bold"/>
+                                <TextBox x:Name="txtRutTecnico" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Rut" Height="8" Margin="84,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
+                                <Button x:Name="btnBuscarRutT" Content="Buscar" HorizontalAlignment="Left" Margin="258,2,0,0" VerticalAlignment="Top" Width="75"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
+                                <Label x:Name="lbl2_Copy" Content="Equipo:" HorizontalAlignment="Left" Margin="373,2,0,74" FontSize="12" FontWeight="Bold"/>
+                                <TextBox x:Name="txtEquipo" mah:TextBoxHelper.Watermark="Ingrese Equipo" Height="8" Margin="433,2,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
+                                <Label x:Name="lbl2_Copy1" Content="Insumos:" HorizontalAlignment="Left" Margin="257,34,0,42" FontSize="12" FontWeight="Bold"/>
+                                <RadioButton x:Name="rbSi" Content="Si" HorizontalAlignment="Left" Margin="339,39,0,0" VerticalAlignment="Top" GroupName="Insumos" IsChecked="True"/>
+                                <RadioButton x:Name="rbNo" Content="No" HorizontalAlignment="Left" Margin="391,39,0,0" VerticalAlignment="Top" GroupName="Insumos"/>
+                                <ComboBox x:Name="cbHerramientas" Margin="450,36,36,0" VerticalAlignment="Top" FontWeight="Normal"/>
                             </Grid>
                         </GroupBox>
 
-                        <GroupBox x:Name="groupBox" Header="Verificación de Instalaciones y Terminaciones" Margin="28,460,61,0" VerticalAlignment="Top" Height="231" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10">
-                            <Grid>
-                                
+                        <GroupBox x:Name="groupBox" Header="Verificación de Instalaciones y Terminaciones" Margin="28,395,44,0" VerticalAlignment="Top" Height="516" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10">
+                            <Grid HorizontalAlignment="Left" Height="318" Margin="0,-1,0,0" VerticalAlignment="Top" Width="659">
+                                <Label x:Name="label11" Content="La vivienda cumple con las Siguientes normas de habitabilidad (ART. 4.1.1, 4.1.2, 4.1.3):" HorizontalAlignment="Left" Margin="57,-3,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label12" Content="• Atura mínima piso a cielo de 2,30 m." HorizontalAlignment="Left" Margin="12,26,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <CheckBox x:Name="chbAltura" Content="" HorizontalAlignment="Left" Margin="282,30,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label12_Copy" Content="• Locales habitables que no contemplan ventana &#10;  poseen ductos de ventilación de aire" HorizontalAlignment="Left" Margin="319,68,0,0" VerticalAlignment="Top" Height="50" Width="268" FontWeight="Normal"/>
+                                <CheckBox x:Name="chbLocal" Content="" HorizontalAlignment="Left" Margin="601,79,0,0" VerticalAlignment="Top" />
+                                <Label x:Name="label13" Content="• Locales habitables poseen al menos una ventana &#10;  que permita entrada de luz y aire" HorizontalAlignment="Left" Margin="320,26,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="276"/>
+                                <CheckBox x:Name="checkBox" Content="" HorizontalAlignment="Left" Margin="601,30,0,0" VerticalAlignment="Top"/>
+                                <CheckBox x:Name="checkBox1" Content="" HorizontalAlignment="Left" Margin="282,55,0,0" VerticalAlignment="Top"/>
+                                <CheckBox x:Name="checkBox2" Content="" HorizontalAlignment="Left" Margin="282,87,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label12_Copy1" Content="• Baño y cocinas contemplan ventana al exterior " HorizontalAlignment="Left" Margin="12,48,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="268"/>
+                                <Label x:Name="label12_Copy2" Content="• Baños y cocinas que no contemplan ventana &#10;  al exterior poseen ductos de ventilación de aire" HorizontalAlignment="Left" Margin="12,76,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="268"/>
+                                <Label x:Name="label11_Copy" Content="La vivienda cumple con la Exigencia Térmica (ART. 4.1.10):" HorizontalAlignment="Left" Margin="129,120,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label12_Copy3" Content="• Aislación para techumbre de espesor mínimo &#10;  60 mm." HorizontalAlignment="Left" Margin="12,143,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy4" Content="• Muros de albañilería de ladrillo o bloque de &#10;  hormigón" HorizontalAlignment="Left" Margin="12,180,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy5" Content="• Tabiques exteriores con aislación de espesor &#10;   mínimo 30 mm." HorizontalAlignment="Left" Margin="319,143,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy6" Content="• Aislación para pisos ventilados mínimo 50 mm." HorizontalAlignment="Left" Margin="13,220,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy7" Content="• La superficie de ventanas no sobrepasa el 40% &#10;  de la superficie de muros" HorizontalAlignment="Left" Margin="319,182,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <CheckBox x:Name="checkBox2_Copy" Content="" HorizontalAlignment="Left" Margin="282,151,0,0" VerticalAlignment="Top"/>
+                                <CheckBox x:Name="checkBox2_Copy1" Content="" HorizontalAlignment="Left" Margin="282,227,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
+                                <CheckBox x:Name="checkBox2_Copy2" Content="" HorizontalAlignment="Left" Margin="601,152,0,0" VerticalAlignment="Top"/>
+                                <CheckBox x:Name="checkBox2_Copy3" Content="" HorizontalAlignment="Left" Margin="282,188,0,0" VerticalAlignment="Top"/>
+                                <CheckBox x:Name="checkBox2_Copy4" Content="" HorizontalAlignment="Left" Margin="601,188,0,0" VerticalAlignment="Top"/>
                             </Grid>
                         </GroupBox>
+                        <Image x:Name="image" HorizontalAlignment="Left" Height="57" Margin="511,54,0,0" VerticalAlignment="Top" Width="166" Source="Imagenes/logo11.png"/>
                     </Grid>
                 </GroupBox>
 

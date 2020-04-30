@@ -60,6 +60,8 @@ namespace BibliotecaClases
         Termómetro_Infrarrojo
 
     }
+
+    
     public class Formulario
     {
     }

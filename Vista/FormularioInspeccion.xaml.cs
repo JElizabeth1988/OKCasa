@@ -29,8 +29,6 @@ namespace Vista
             InitializeComponent();
             this.DataContext = this;
 
-
-
             cbComuna.ItemsSource = Enum.GetValues(typeof
                 (Comuna));
             cbComuna.SelectedIndex = 0;
@@ -54,8 +52,10 @@ namespace Vista
             cbHerramientas.ItemsSource = Enum.GetValues(typeof
                (Herramientas));
             cbHerramientas.SelectedIndex = 0;
+
+           
         }
 
-
+      
     }
 }
