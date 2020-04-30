@@ -23,7 +23,42 @@ namespace BibliotecaClases
 
     public enum TipoAgrupamiento
     {
-        Pareada, Aislada, Continua
+        Pareada, Aislada, Continua, Otro
+    }
+
+    public enum Habitaciones
+    {
+        _1, _2 , _3, _4, _5, _6, _7, _8, _9, _10, Otro
+    }
+
+    public enum Pisos
+    {
+        _1, _2, _3, _4, _5, Otro
+    }
+
+    public enum Herramientas
+    {
+        Analizador_de_CO,
+        Antiparras,
+        Calibre,
+        Nivel,
+        Cámara_Infrarroja,
+        Cinta_Métrica,
+        Detector_Gas_Combustible,
+        Escalera_Telescópica,
+        Espectoscopio,
+        Guantes,
+        Indicador_Voltaje,
+        Kit_Herramientas_Básicas,
+        Linterna,
+        Medidor_Humedad,
+        Monitor_de_Radón,
+        Plomada,
+        Probador_AFCI,
+        Probador_Eléctrico,
+        Respirador,
+        Termómetro_Infrarrojo
+
     }
     public class Formulario
     {

@@ -29,6 +29,8 @@ namespace Vista
             InitializeComponent();
             this.DataContext = this;
 
+
+
             cbComuna.ItemsSource = Enum.GetValues(typeof
                 (Comuna));
             cbComuna.SelectedIndex = 0;
@@ -40,6 +42,18 @@ namespace Vista
             cbTipoAg.ItemsSource = Enum.GetValues(typeof
                 (TipoAgrupamiento));
             cbTipoAg.SelectedIndex = 0;
+
+            cbHabita.ItemsSource = Enum.GetValues(typeof
+                (Habitaciones));
+            cbHabita .SelectedIndex = 0;
+
+            cbPisos.ItemsSource = Enum.GetValues(typeof
+               (Pisos));
+            cbPisos.SelectedIndex = 0;
+
+            cbHerramientas.ItemsSource = Enum.GetValues(typeof
+               (Herramientas));
+            cbHerramientas.SelectedIndex = 0;
         }
 
 
