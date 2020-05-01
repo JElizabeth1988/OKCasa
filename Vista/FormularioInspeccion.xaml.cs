@@ -53,9 +53,33 @@ namespace Vista
                (Herramientas));
             cbHerramientas.SelectedIndex = 0;
 
-           
+            cbAlcanta.ItemsSource = Enum.GetValues(typeof
+               (Alcantarillado));
+            cbAlcanta.SelectedIndex = 0;
+
+            cbElectrica.ItemsSource = Enum.GetValues(typeof
+               (Electrica));
+            cbElectrica.SelectedIndex = 0;
+
+            cbGas.ItemsSource = Enum.GetValues(typeof
+               (Gas));
+            cbGas.SelectedIndex = 0;
+
+            cbInstAgua.ItemsSource = Enum.GetValues(typeof
+               (InstAgua));
+            cbInstAgua.SelectedIndex = 0;
+
+            cbRedAgua.ItemsSource = Enum.GetValues(typeof
+               (RedAgua));
+            cbRedAgua.SelectedIndex = 0;
+
+            cbSanitario.ItemsSource = Enum.GetValues(typeof
+               (Sanitario));
+            cbSanitario.SelectedIndex = 0;
+
+
         }
 
-      
+   
     }
 }
