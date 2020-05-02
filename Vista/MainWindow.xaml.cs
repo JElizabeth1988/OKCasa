@@ -68,7 +68,8 @@ namespace Vista
 
         private void Tile_Click_4(object sender, RoutedEventArgs e)
         {
-
+            AdministracionCliente AdmCli = new AdministracionCliente();
+            AdmCli.ShowDialog();
         }
 
         private void Tile_Click_5(object sender, RoutedEventArgs e)

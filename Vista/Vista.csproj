@@ -155,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AdministracionCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Agenda.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -183,6 +187,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AdministracionCliente.xaml.cs">
+      <DependentUpon>AdministracionCliente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Agenda.xaml.cs">
       <DependentUpon>Agenda.xaml</DependentUpon>
     </Compile>
@@ -312,6 +319,14 @@
     <Resource Include="Imagenes\User-Profile.png" />
     <Resource Include="Imagenes\Verify.png" />
     <Resource Include="Imagenes\Worker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\ADmClientes.png" />
+    <Resource Include="Imagenes\Business-Man-Find 02.png" />
+    <Resource Include="Imagenes\Business-Man-Settings 02.png" />
+    <Resource Include="Imagenes\Document-Find-02.png" />
+    <Resource Include="Imagenes\Document-Settings.png" />
+    <Resource Include="Imagenes\ListadoClientes.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -51,9 +51,9 @@
                                 <Label x:Name="label8" Content="Tipo de Agrupamiento:" Margin="336,63,139.333,0" VerticalAlignment="Top"/>
                                 <ComboBox x:Name="cbTipoAg" Margin="486,63,23.333,0" VerticalAlignment="Top" FontWeight="Normal"/>
                                 <Label x:Name="label9" Content="N°:" HorizontalAlignment="Left" Margin="425,2,0,0" VerticalAlignment="Top"/>
-                                <TextBox x:Name="txtNCasa" Height="23" Margin="457,2,139.667,0" TextWrapping="Wrap" VerticalAlignment="Top" mah:TextBoxHelper.ClearTextButton="True" FontWeight="Normal"/>
+                                <TextBox x:Name="txtNCasa" Height="23" Margin="457,2,139.667,0" TextWrapping="Wrap" VerticalAlignment="Top" mah:TextBoxHelper.ClearTextButton="True" FontWeight="Normal" KeyDown="txtNCasa_KeyDown"/>
                                 <Label x:Name="label10" Content="Dpto:" HorizontalAlignment="Left" Margin="533,2,0,0" VerticalAlignment="Top"/>
-                                <TextBox x:Name="txtDepto" HorizontalAlignment="Left" Height="23" Margin="587,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" mah:TextBoxHelper.ClearTextButton="True" FontWeight="Normal"/>
+                                <TextBox x:Name="txtDepto" HorizontalAlignment="Left" Height="23" Margin="587,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" mah:TextBoxHelper.ClearTextButton="True" FontWeight="Normal" />
                                 <Label x:Name="label8_Copy" Content="N° de Habitaciones:" Margin="336,32,156.333,0" VerticalAlignment="Top"/>
                                 <ComboBox x:Name="cbHabita" Margin="457,32,158.667,0" VerticalAlignment="Top" FontWeight="Normal"/>
                                 <Label x:Name="label8_Copy1" Content="N° de Pisos:" Margin="504,32,77.333,0" VerticalAlignment="Top"/>
