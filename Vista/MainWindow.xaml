@@ -9,18 +9,108 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         Title=""  Height="648" Width="1143.334"  WindowTitleBrush="Black" ResizeMode="NoResize" Icon="imagenes/logo yo.jpg" WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" GlowBrush="Black" NonActiveBorderBrush="#FF0A0202" WindowTransitionsEnabled="False" BorderThickness="0" >
+  
+   
     <Controls:MetroWindow.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FF87A6DA" Offset="0"/>
             <GradientStop Color="#FFC6D6F2" Offset="0.994"/>
         </LinearGradientBrush>
     </Controls:MetroWindow.Background>
-    <Grid>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="619" VerticalAlignment="Top" Width="1151" Source="Imagenes/bg_3.jpg" Margin="-9,0,-4,0"/>
-    
-        <Controls:Tile x:Name="Tile_Click_1" Background="#FFAFF7F7" Click="Tile_Click_1_Click" Margin="712,268,269,295" Height="Auto" Width="Auto">
-            <Grid Height="136" Width="174">
-                <Label x:Name="label1" Content="Formulario,&#xD;&#xA; botón prueba" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="14.667" Margin="18,0,0,0" Height="56"/>
+    <Grid Margin="10,0,0,0">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="620" VerticalAlignment="Top" Width="1151" Source="Imagenes/bg_4.jpg" Margin="-17,0,-6,0"/>
+        <Controls:Tile Margin="174,185,814,295" Background="{x:Null}" Click="Tile_Click_2" >
+            <Grid Height="130" Width="130">
+                <Image x:Name="image3" HorizontalAlignment="Left" Height="131" Margin="0,-1,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/agenda.png">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.8"/>
+                    </Image.Effect>
+                </Image>
+
+            </Grid>
+        </Controls:Tile>
+
+        <Controls:Tile Margin="17,10,972,565" Height="Auto" Width="Auto" Background="{x:Null}"  BorderBrush="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Click="Tile_Click" BorderThickness="1" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" KeepDragging="False" ForceCursor="True">
+            <Controls:ControlsHelper.MouseOverBorderBrush>
+                
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF040528" Offset="1"/>
+                </LinearGradientBrush>
+            </Controls:ControlsHelper.MouseOverBorderBrush>
+            <Grid Width="142">
+                <Image x:Name="image1" Margin="7,6,99,10.333" Source="Imagenes/Logout.png" />
+                <Label x:Name="label" Content="Cerrar Sesión" HorizontalAlignment="Left" Margin="33,4,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14.667"/>
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile Margin="807,185,181,295" Background="{x:Null}" Click="Tile_Click_4">
+            <Grid Height="130" Width="130">
+                <Image x:Name="image4" HorizontalAlignment="Left" Height="131" Margin="0,-1,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/Clientes.png">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.8"/>
+                    </Image.Effect>
+                </Image>
+
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile Margin="389,367,599,113" Background="{x:Null}" Click="Tile_Click_6">
+            <Grid Height="130" Width="130">
+                <Image x:Name="image5" HorizontalAlignment="Left" Height="131" Margin="0,-1,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/Historial.png">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.8"/>
+                    </Image.Effect>
+                </Image>
+
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile Margin="604,367,384,113" Background="{x:Null}" Click="Tile_Click_7">
+            <Grid Height="130" Width="130">
+                <Image x:Name="image6" HorizontalAlignment="Left" Height="131" Margin="0,-1,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/Insumos.png">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.8"/>
+                    </Image.Effect>
+                </Image>
+
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile Margin="174,367,814,113" Background="{x:Null}" Click="Tile_Click_5">
+            <Grid Height="130" Width="130">
+                <Image x:Name="image7" HorizontalAlignment="Left" Height="131" Margin="0,-1,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/Seguimiento.png">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.8"/>
+                    </Image.Effect>
+                </Image>
+
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile Margin="389,185,599,295" Background="{x:Null}" Click="Tile_Click_3">
+            <Grid Height="130" Width="130">
+                <Image x:Name="image8" HorizontalAlignment="Left" Height="131" Margin="0,-1,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/Tecnicos.png">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.8"/>
+                    </Image.Effect>
+                </Image>
+
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile Margin="807,367,181,113" Background="{x:Null}" Click="Tile_Click_8">
+            <Grid Height="130" Width="130">
+                <Image x:Name="image9" HorizontalAlignment="Left" Height="131" Margin="0,-1,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/Servicios.png">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.8"/>
+                    </Image.Effect>
+                </Image>
+
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile Margin="604,185,384,295" Background="{x:Null}" Click="Tile_Click_1">
+            <Grid Height="130" Width="130">
+                <Image x:Name="image2" HorizontalAlignment="Left" Height="131" Margin="0,-1,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/Sin título 3.png">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.8"/>
+                    </Image.Effect>
+                </Image>
+
             </Grid>
         </Controls:Tile>
     </Grid>

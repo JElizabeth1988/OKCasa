@@ -286,6 +286,33 @@
   <ItemGroup>
     <Resource Include="Imagenes\Logo yo.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\bg_4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\agenda.png" />
+    <Resource Include="Imagenes\Calendar-Date-03.png" />
+    <Resource Include="Imagenes\Calendar-Date.png" />
+    <Resource Include="Imagenes\Clientes.png" />
+    <Resource Include="Imagenes\Command-Refresh-Black.png" />
+    <Resource Include="Imagenes\Command-Refresh-white.png" />
+    <Resource Include="Imagenes\Documents-02.png" />
+    <Resource Include="Imagenes\Documents.png" />
+    <Resource Include="Imagenes\Gear.png" />
+    <Resource Include="Imagenes\Historial.png" />
+    <Resource Include="Imagenes\Insumos.png" />
+    <Resource Include="Imagenes\Seguimiento.png" />
+    <Resource Include="Imagenes\Servicios.png" />
+    <Resource Include="Imagenes\Sin título 3.png" />
+    <Resource Include="Imagenes\Tecnicos.png" />
+    <Resource Include="Imagenes\Toolbox.png" />
+    <Resource Include="Imagenes\User-Profile.png" />
+    <Resource Include="Imagenes\Verify.png" />
+    <Resource Include="Imagenes\Worker.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
