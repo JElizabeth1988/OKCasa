@@ -9,8 +9,8 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         Title=""  Height="648" Width="1143.334"  WindowTitleBrush="Black" ResizeMode="NoResize" Icon="imagenes/logo yo.jpg" WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" GlowBrush="Black" NonActiveBorderBrush="#FF0A0202" WindowTransitionsEnabled="False" BorderThickness="0" >
-  
-   
+
+
     <Controls:MetroWindow.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FF87A6DA" Offset="0"/>
@@ -19,20 +19,10 @@
     </Controls:MetroWindow.Background>
     <Grid Margin="10,0,0,0">
         <Image x:Name="image" HorizontalAlignment="Left" Height="620" VerticalAlignment="Top" Width="1151" Source="Imagenes/bg_4.jpg" Margin="-17,0,-6,0"/>
-        <Controls:Tile Margin="174,185,814,295" Background="{x:Null}" Click="Tile_Click_2" >
-            <Grid Height="130" Width="130">
-                <Image x:Name="image3" HorizontalAlignment="Left" Height="131" Margin="0,-1,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/agenda.png">
-                    <Image.Effect>
-                        <DropShadowEffect Opacity="0.8"/>
-                    </Image.Effect>
-                </Image>
-
-            </Grid>
-        </Controls:Tile>
 
         <Controls:Tile Margin="17,10,972,565" Height="Auto" Width="Auto" Background="{x:Null}"  BorderBrush="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Click="Tile_Click" BorderThickness="1" Controls:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" KeepDragging="False" ForceCursor="True">
             <Controls:ControlsHelper.MouseOverBorderBrush>
-                
+
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
                     <GradientStop Color="#FF040528" Offset="1"/>
@@ -43,76 +33,330 @@
                 <Label x:Name="label" Content="Cerrar Sesión" HorizontalAlignment="Left" Margin="33,4,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14.667"/>
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="807,185,181,295" Background="{x:Null}" Click="Tile_Click_4">
-            <Grid Height="130" Width="130">
-                <Image x:Name="image4" HorizontalAlignment="Left" Height="131" Margin="0,-1,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/Clientes.png">
+        <Controls:Tile Margin="175,175,843,217" Click="Tile_Click_4" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF11233F" Width="Auto">
+            <Controls:Tile.Effect>
+                <DropShadowEffect BlurRadius="6" Color="#FF11233F"/>
+            </Controls:Tile.Effect>
+            <Controls:Tile.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0,0">
+                    <GradientStop Color="#FF00E5FF" Offset="1"/>
+                    <GradientStop Color="#FF1200FF" Offset="0.151"/>
+                </LinearGradientBrush>
+            </Controls:Tile.Background>
+            <Grid Height="228" Width="110">
+                <Image x:Name="image4" HorizontalAlignment="Left" Height="72" Margin="25,58,0,0" VerticalAlignment="Top" Width="69" Source="Img/Adm-Cliente-Blanco.png">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.8"/>
                     </Image.Effect>
                 </Image>
+                <Label x:Name="label3" Content="Administrar &#10;   Clientes" HorizontalAlignment="Left" Margin="9,145,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="14" BorderThickness="1">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="6" Opacity="0.9" ShadowDepth="2"/>
+                    </Label.Effect>
+                </Label>
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="389,367,599,113" Background="{x:Null}" Click="Tile_Click_6">
-            <Grid Height="130" Width="130">
-                <Image x:Name="image5" HorizontalAlignment="Left" Height="131" Margin="0,-1,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/Historial.png">
+        <Controls:Tile Margin="320,303,708,217"  Width="100" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_9">
+            <Controls:Tile.Effect>
+                <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
+            </Controls:Tile.Effect>
+            <Controls:Tile.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                    <GradientStop Color="#FFFFE53B" Offset="0.987"/>
+                    <GradientStop Color="#FFFF2525" Offset="0.067"/>
+                </LinearGradientBrush>
+            </Controls:Tile.Background>
+            <Grid Height="100" Width="108">
+                <Image x:Name="image8" HorizontalAlignment="Left" Margin="24,8,0,41" Width="65" Source="Imagenes/BancoE-Blanco.png">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.8"/>
                     </Image.Effect>
                 </Image>
+                <Label x:Name="label2" Content="Consultar &#10;  Cliente" HorizontalAlignment="Left" Margin="18,54,0,0" VerticalAlignment="Top" Width="78" Foreground="White" FontSize="13.5" FontWeight="Bold" BorderThickness="1" Height="45">
+                    <Label.Effect>
+                        <DropShadowEffect Opacity="0.9" ShadowDepth="2" BlurRadius="6"/>
+                    </Label.Effect>
+                </Label>
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="604,367,384,113" Background="{x:Null}" Click="Tile_Click_7">
-            <Grid Height="130" Width="130">
-                <Image x:Name="image6" HorizontalAlignment="Left" Height="131" Margin="0,-1,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/Insumos.png">
+        <Controls:Tile Margin="455,175,445,345" Click="Tile_Click_1" Height="Auto" Width="Auto" BorderThickness="1" Controls:ControlsHelper.MouseOverBorderBrush="#FF321D71">
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FF321D71" BlurRadius="6"/>
+            </Controls:Tile.Effect>
+            <Controls:Tile.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                    <GradientStop Color="#FF8A64EB" Offset="0.397"/>
+                    <GradientStop Color="#FF64E8DE" Offset="1"/>
+                </LinearGradientBrush>
+            </Controls:Tile.Background>
+            <Grid Height="90" Width="231">
+                <Image x:Name="image2" HorizontalAlignment="Left" Height="52" Margin="148,17,0,0" VerticalAlignment="Top" Width="63" Source="Img/Adm-Form-Blanco.png">
+                    <Image.Effect>
+                        <DropShadowEffect/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label1" Content="     Administrar &#10; Informe Técnico" HorizontalAlignment="Left" Margin="13,20,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="14" BorderThickness="1">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="6" ShadowDepth="2" Opacity="0.9"/>
+                    </Label.Effect>
+                </Label>
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile Margin="854,175,174,345" Click="Tile_Click_3" Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto">
+            <Controls:Tile.Effect>
+                <DropShadowEffect BlurRadius="6" Color="#FF211104"/>
+            </Controls:Tile.Effect>
+            <Controls:Tile.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                    <GradientStop Color="#FF983409" Offset="0.013"/>
+                    <GradientStop Color="#FFF5D961" Offset="1"/>
+                    <GradientStop Color="#FFD5A143" Offset="0.582"/>
+                </LinearGradientBrush>
+            </Controls:Tile.Background>
+            <Grid Height="100" Width="100">
+                <Image x:Name="image10" HorizontalAlignment="Left" Height="55" Margin="23,8,0,0" VerticalAlignment="Top" Width="55" Source="Img/Técnico-Blanco.png">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.8"/>
                     </Image.Effect>
                 </Image>
+                <Label x:Name="label4" Content="Administrar &#xA; Inspectores" HorizontalAlignment="Left" Margin="6,54,0,0" VerticalAlignment="Top" Width="94" Foreground="White" FontSize="13" FontWeight="Bold" BorderThickness="1" Height="46">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="6" ShadowDepth="2" Opacity="0.9"/>
+                    </Label.Effect>
+                </Label>
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="174,367,814,113" Background="{x:Null}" Click="Tile_Click_5">
-            <Grid Height="130" Width="130">
-                <Image x:Name="image7" HorizontalAlignment="Left" Height="131" Margin="0,-1,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/Seguimiento.png">
+        <Controls:Tile Margin="320,175,708,345"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_10">
+            <Controls:Tile.Effect>
+                <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
+            </Controls:Tile.Effect>
+            <Controls:Tile.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                    <GradientStop Color="Cyan" Offset="0.013"/>
+                    <GradientStop Color="#FFFFE53B" Offset="0.972"/>
+                    <GradientStop Color="#FFA6ED7E" Offset="0.597"/>
+                    <GradientStop Color="#FF79F1A0" Offset="0.372"/>
+                </LinearGradientBrush>
+            </Controls:Tile.Background>
+            <Grid Height="93" Width="99">
+                <Image x:Name="image11" HorizontalAlignment="Left" Height="49" Margin="29,12,0,0" VerticalAlignment="Top" Width="54" Source="Img/Listar-Cliente-Blanco.png">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.8"/>
                     </Image.Effect>
                 </Image>
+                <Label x:Name="label5" Content="Listar Clientes" HorizontalAlignment="Left" Margin="-3,60,-16,0" VerticalAlignment="Top" Width="118" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="1">
+                    <Label.Effect>
+                        <DropShadowEffect Opacity="0.9" ShadowDepth="2" BlurRadius="6"/>
+                    </Label.Effect>
+                </Label>
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="389,185,599,295" Background="{x:Null}" Click="Tile_Click_3">
-            <Grid Height="130" Width="130">
-                <Image x:Name="image8" HorizontalAlignment="Left" Height="131" Margin="0,-1,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/Tecnicos.png">
+        <Controls:Tile Margin="455,303,573,217"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_17">
+            <Controls:Tile.Effect>
+                <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
+            </Controls:Tile.Effect>
+            <Controls:Tile.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                    <GradientStop Color="#FFC6EA8D" Offset="0.987"/>
+                    <GradientStop Color="#FFFF769D"/>
+                    <GradientStop Color="#FFEE9798" Offset="0.385"/>
+                    <GradientStop Color="#FFDCBA93" Offset="0.736"/>
+                </LinearGradientBrush>
+            </Controls:Tile.Background>
+            <Grid Height="100" Width="107">
+                <Image x:Name="image12" HorizontalAlignment="Left" Height="64" Margin="23,5,0,0" VerticalAlignment="Top" Width="60" Source="Img/Historial-Blanco.png">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.8"/>
                     </Image.Effect>
                 </Image>
+                <Label x:Name="label6" Content="Historial" HorizontalAlignment="Left" Margin="20,68,0,0" VerticalAlignment="Top" Width="82" Foreground="White" FontSize="13.5" FontWeight="Bold" BorderThickness="1">
+                    <Label.Effect>
+                        <DropShadowEffect Opacity="0.9" ShadowDepth="2" BlurRadius="6"/>
+                    </Label.Effect>
+                </Label>
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="807,367,181,113" Background="{x:Null}" Click="Tile_Click_8">
-            <Grid Height="130" Width="130">
-                <Image x:Name="image9" HorizontalAlignment="Left" Height="131" Margin="0,-1,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/Servicios.png">
+        <Controls:Tile Margin="583,303,445,217"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_18">
+            <Controls:Tile.Effect>
+                <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
+            </Controls:Tile.Effect>
+            <Controls:Tile.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                    <GradientStop Color="#FF74276C"/>
+                    <GradientStop Color="#FFFD8263" Offset="1"/>
+                    <GradientStop Color="#FFC53364" Offset="0.469"/>
+                </LinearGradientBrush>
+            </Controls:Tile.Background>
+            <Grid Height="90" Width="105">
+                <Image x:Name="image13" HorizontalAlignment="Left" Height="61" Margin="29,6,0,0" VerticalAlignment="Top" Width="47" Source="Img/Seguimiento.png">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.8"/>
                     </Image.Effect>
                 </Image>
+                <Label x:Name="label7" Content="Seguimiento" HorizontalAlignment="Left" Margin="4,58,-2,-8" VerticalAlignment="Top" Width="103" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="1" Height="40">
+                    <Label.Effect>
+                        <DropShadowEffect Opacity="0.9" ShadowDepth="2" BlurRadius="6"/>
+                    </Label.Effect>
+                </Label>
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="604,185,384,295" Background="{x:Null}" Click="Tile_Click_1">
-            <Grid Height="130" Width="130">
-                <Image x:Name="image2" HorizontalAlignment="Left" Height="131" Margin="0,-1,0,0" VerticalAlignment="Top" Width="130" Source="Imagenes/Sin título 3.png">
+        <Controls:Tile Margin="718,175,300,217"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_12">
+            <Controls:Tile.Effect>
+                <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
+            </Controls:Tile.Effect>
+            <Controls:Tile.Background>
+                <LinearGradientBrush EndPoint="2,1" StartPoint="0,0">
+                    <GradientStop Color="#FF050A3F" Offset="0.879"/>
+                    <GradientStop Color="#FF0DF906" Offset="0.013"/>
+                    <GradientStop Color="#FF007BB6" Offset="0.418"/>
+                </LinearGradientBrush>
+            </Controls:Tile.Background>
+            <Grid Height="228" Width="117">
+                <Image x:Name="image14" HorizontalAlignment="Left" Height="68" Margin="25,121,0,0" VerticalAlignment="Top" Width="78" Source="Img/Equipo-Blanco.png">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.8"/>
                     </Image.Effect>
                 </Image>
+                <Label x:Name="label8" Content="Administrar &#10;    Equipo &#10;   Técnico  " HorizontalAlignment="Left" Margin="16,34,0,0" VerticalAlignment="Top" Width="93" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="1">
+                    <Label.Effect>
+                        <DropShadowEffect Opacity="0.9" ShadowDepth="2" BlurRadius="6"/>
+                    </Label.Effect>
+                </Label>
 
             </Grid>
         </Controls:Tile>
+        <Controls:Tile Margin="854,304,174,217"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_11">
+            <Controls:Tile.Effect>
+                <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
+            </Controls:Tile.Effect>
+            <Controls:Tile.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                    <GradientStop Color="#FF272974"/>
+                    <GradientStop Color="#FFF59CD4" Offset="1"/>
+                    <GradientStop Color="#FF8E62A4" Offset="0.621"/>
+                </LinearGradientBrush>
+            </Controls:Tile.Background>
+            <Grid Height="100" Width="102">
+                <Image x:Name="image5" HorizontalAlignment="Left" Height="51" Margin="26,10,0,0" VerticalAlignment="Top" Width="59" Source="Img/Listado-Tecnico-Blanco.png">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.8"/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label9" Content="     Listar &#10;Inspectores" HorizontalAlignment="Left" Margin="8,53,0,0" VerticalAlignment="Top" Width="90" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="1" Height="47">
+                    <Label.Effect>
+                        <DropShadowEffect Opacity="0.9" ShadowDepth="2" BlurRadius="6"/>
+                    </Label.Effect>
+                </Label>
+
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile Margin="175,433,843,87"  Width="110" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_16">
+            <Controls:Tile.Effect>
+                <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
+            </Controls:Tile.Effect>
+            <Controls:Tile.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                    <GradientStop Color="#FF3BFF65" Offset="0.987"/>
+                    <GradientStop Color="#FFFF2525" Offset="0.005"/>
+                    <GradientStop Color="#FFBF6B39" Offset="0.295"/>
+                    <GradientStop Color="#FF9A9445" Offset="0.762"/>
+                </LinearGradientBrush>
+            </Controls:Tile.Background>
+            <Grid Height="100" Width="108">
+                <Image x:Name="image16" HorizontalAlignment="Left" Margin="28,8,0,41" Width="65" Source="Img/Toolbox.png">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.8"/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label12" Content="Administrar &#xA;  Insumos" HorizontalAlignment="Left" Margin="8,49,0,-11" VerticalAlignment="Top" Width="96" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="1" Height="62">
+                    <Label.Effect>
+                        <DropShadowEffect Opacity="0.9" ShadowDepth="2" BlurRadius="6"/>
+                    </Label.Effect>
+                </Label>
+
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile Margin="854,433,174,87"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_13" >
+            <Controls:Tile.Effect>
+                <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
+            </Controls:Tile.Effect>
+            <Controls:Tile.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                    <GradientStop Color="#FFCBCBCA" Offset="0.013"/>
+                    <GradientStop Color="#FF232523" Offset="0.974"/>
+                </LinearGradientBrush>
+            </Controls:Tile.Background>
+            <Grid Height="100" Width="108">
+                <Image x:Name="image17" HorizontalAlignment="Left" Margin="29,8,0,41" Width="60" Source="Img/Servicios-Blanco.png">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.8"/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label13" Content="Administrar &#xA;  Servicios" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="90" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="1" Height="50">
+                    <Label.Effect>
+                        <DropShadowEffect Opacity="0.9" ShadowDepth="2" BlurRadius="6"/>
+                    </Label.Effect>
+                </Label>
+
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile Margin="320,433,573,87" Height="Auto" Width="Auto" BorderThickness="1" Controls:ControlsHelper.MouseOverBorderBrush="#FF321D71" Click="Tile_Click_15">
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FF321D71" BlurRadius="6"/>
+            </Controls:Tile.Effect>
+            <Controls:Tile.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                    <GradientStop Color="#FF71308E" Offset="0.997"/>
+                    <GradientStop Color="#FFF930B0"/>
+                    <GradientStop Color="#FFA64DA5" Offset="0.628"/>
+                </LinearGradientBrush>
+            </Controls:Tile.Background>
+            <Grid Height="90" Width="231">
+                <Image x:Name="image7" HorizontalAlignment="Left" Height="52" Margin="142,15,0,0" VerticalAlignment="Top" Width="63" Source="Img/Agenda-Blanco.png">
+                    <Image.Effect>
+                        <DropShadowEffect/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label10" Content="Administrar &#xA;   Agenda" HorizontalAlignment="Left" Margin="22,20,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="14" BorderThickness="1">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="6" ShadowDepth="2" Opacity="0.9"/>
+                    </Label.Effect>
+                </Label>
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile Margin="584,433,300,87"  Height="Auto" Width="Auto" BorderThickness="1" Controls:ControlsHelper.MouseOverBorderBrush="#FF321D71" Click="Tile_Click_14">
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FF321D71" BlurRadius="6"/>
+            </Controls:Tile.Effect>
+            <Controls:Tile.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                    <GradientStop Color="#FF8C1717" Offset="0.003"/>
+                    <GradientStop Color="#FFF5B886" Offset="1"/>
+                    <GradientStop Color="#FF9F342B" Offset="0.274"/>
+                    <GradientStop Color="#FFB85B46" Offset="0.469"/>
+                    <GradientStop Color="#FFCC7A5B" Offset="0.749"/>
+                </LinearGradientBrush>
+            </Controls:Tile.Background>
+            <Grid Height="90" Width="231">
+                <Image x:Name="image3" HorizontalAlignment="Left" Height="52" Margin="142,15,0,0" VerticalAlignment="Top" Width="63" Source="Img/Calendar.png">
+                    <Image.Effect>
+                        <DropShadowEffect/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label11" Content="Consultar &#xA; Agenda" HorizontalAlignment="Left" Margin="22,20,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="14" BorderThickness="1">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="6" ShadowDepth="2" Opacity="0.9"/>
+                    </Label.Effect>
+                </Label>
+            </Grid>
+        </Controls:Tile>
+
     </Grid>
 
 </Controls:MetroWindow>

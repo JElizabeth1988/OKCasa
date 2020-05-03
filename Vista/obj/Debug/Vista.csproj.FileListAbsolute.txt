@@ -103,10 +103,6 @@ C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Cliente.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\EquiposInspeccion.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\FormularioInspeccion.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Insumos.baml
-C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\AdministracionCliente.g.cs
-C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\AdministracionCliente.baml
-C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\AdministradorFormulario.g.cs
-C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\AdministradorFormulario.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ListadoFormulario.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ListadoCliente.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ListadoCliente.baml

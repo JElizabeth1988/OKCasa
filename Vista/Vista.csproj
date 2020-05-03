@@ -155,9 +155,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AdministradorTecnico.xaml.cs">
-      <DependentUpon>AdministradorTecnico.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ConsultarBanco.xaml.cs">
       <DependentUpon>ConsultarBanco.xaml</DependentUpon>
     </Compile>
@@ -176,18 +173,6 @@
     <Compile Include="Tecnico.xaml.cs">
       <DependentUpon>Tecnico.xaml</DependentUpon>
     </Compile>
-    <Page Include="AdministracionCliente.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AdministradorFormulario.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AdministradorTecnico.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Agenda.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -236,12 +221,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AdministracionCliente.xaml.cs">
-      <DependentUpon>AdministracionCliente.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AdministradorFormulario.xaml.cs">
-      <DependentUpon>AdministradorFormulario.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Agenda.xaml.cs">
       <DependentUpon>Agenda.xaml</DependentUpon>
     </Compile>
@@ -319,7 +298,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <Resource Include="Imagenes\logo2.jpg" />
     <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>
@@ -332,13 +310,6 @@
     <Resource Include="Resources\Entypo-license.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\bg_1.jpg" />
-    <Resource Include="Imagenes\logo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\Business-Man02.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BibliotecaClases\BibliotecaClases.csproj">
       <Project>{bf432429-8ad0-4cbb-94e4-8cf940ee6644}</Project>
       <Name>BibliotecaClases</Name>
@@ -349,98 +320,79 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Business-Man03.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\bg_2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\bg_3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\logo11.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\Logo yo.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\Logout.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Imagenes\bg_4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="Imagenes\ADmClientes.png" />
+    <Resource Include="Imagenes\AdmEquipo.png" />
+    <Resource Include="Imagenes\AdmForm.png" />
+    <Resource Include="Imagenes\AdminClientes.png" />
+    <Resource Include="Imagenes\AdmInsp.png" />
     <Resource Include="Imagenes\agenda.png" />
-    <Resource Include="Imagenes\Calendar-Date-03.png" />
-    <Resource Include="Imagenes\Calendar-Date.png" />
+    <Resource Include="Imagenes\BancoE.png" />
+    <Resource Include="Imagenes\bg_1.jpg" />
+    <Resource Include="Imagenes\bg_2.jpg" />
+    <Resource Include="Imagenes\bg_3.jpg" />
+    <Resource Include="Imagenes\bg_4.jpg" />
+    <Resource Include="Imagenes\Business-Man02.png" />
+    <Resource Include="Imagenes\Business-Man03.png" />
     <Resource Include="Imagenes\Clientes.png" />
     <Resource Include="Imagenes\Command-Refresh-Black.png" />
+    <Resource Include="Imagenes\Command-Refresh-blue.png" />
     <Resource Include="Imagenes\Command-Refresh-white.png" />
-    <Resource Include="Imagenes\Documents-02.png" />
-    <Resource Include="Imagenes\Documents.png" />
-    <Resource Include="Imagenes\Gear.png" />
     <Resource Include="Imagenes\Historial.png" />
     <Resource Include="Imagenes\Insumos.png" />
+    <Resource Include="Imagenes\ListadoClientes.png" />
+    <Resource Include="Imagenes\ListadoForm.png" />
+    <Resource Include="Imagenes\ListadoTecnico.png" />
+    <Resource Include="Imagenes\Logo yo.jpg" />
+    <Resource Include="Imagenes\logo.jpg" />
+    <Resource Include="Imagenes\logo11.png" />
+    <Resource Include="Imagenes\logo2.jpg" />
+    <Resource Include="Imagenes\Logout.png" />
     <Resource Include="Imagenes\Seguimiento.png" />
     <Resource Include="Imagenes\Servicios.png" />
     <Resource Include="Imagenes\Sin título 3.png" />
     <Resource Include="Imagenes\Tecnicos.png" />
-    <Resource Include="Imagenes\Toolbox.png" />
-    <Resource Include="Imagenes\User-Profile.png" />
-    <Resource Include="Imagenes\Verify.png" />
-    <Resource Include="Imagenes\Worker.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\ADmClientes.png" />
-    <Resource Include="Imagenes\Business-Man-Find 02.png" />
-    <Resource Include="Imagenes\Business-Man-Settings 02.png" />
-    <Resource Include="Imagenes\Document-Find-02.png" />
-    <Resource Include="Imagenes\Document-Settings.png" />
-    <Resource Include="Imagenes\ListadoClientes.png" />
+    <Resource Include="Img\Adm-Cliente-Blanco.png" />
+    <Resource Include="Img\Adm-Form-Blanco.png" />
+    <Resource Include="Img\Admin-Clientes-Blanco.png" />
+    <Resource Include="Img\Agenda-Blanco.png" />
+    <Resource Include="Img\BE-Blanco.png" />
+    <Resource Include="Img\BE.png" />
+    <Resource Include="Img\Business-Man-Find 02.png" />
+    <Resource Include="Img\Business-Man-Settings 02.png" />
+    <Resource Include="Img\Calendar-Date-03.png" />
+    <Resource Include="Img\Document-Find-02.png" />
+    <Resource Include="Img\Document-Settings.png" />
+    <Resource Include="Img\Documents-02.png" />
+    <Resource Include="Img\Documents.png" />
+    <Resource Include="Img\Engineer.png" />
+    <Resource Include="Img\Equipo-Blanco.png" />
+    <Resource Include="Img\Gear.png" />
+    <Resource Include="Img\Group-Add.png" />
+    <Resource Include="Img\Listado-Tecnico-Blanco.png" />
+    <Resource Include="Img\Listar-Cliente-Blanco.png" />
+    <Resource Include="Img\Seguimiento.png" />
+    <Resource Include="Img\Toolbox.png" />
+    <Resource Include="Img\Técnico-Blanco.png" />
+    <Resource Include="Img\User-Profile.png" />
+    <Resource Include="Img\Verify.png" />
+    <Resource Include="Img\Worker.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\AdmForm.png" />
-    <Resource Include="Imagenes\ListadoForm.png" />
+    <Resource Include="Imagenes\BancoE-Blanco.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\Archive.png" />
-    <Resource Include="Imagenes\Branch-Engineering.png" />
-    <Resource Include="Imagenes\Business-Man-01.png" />
-    <Resource Include="Imagenes\Calendar.png" />
-    <Resource Include="Imagenes\CheckBox.png" />
-    <Resource Include="Imagenes\Clock-01.png" />
-    <Resource Include="Imagenes\Command-Refresh-blue.png" />
-    <Resource Include="Imagenes\Date.png" />
-    <Resource Include="Imagenes\Document-Add-01.png" />
-    <Resource Include="Imagenes\Document-Add-02.png" />
-    <Resource Include="Imagenes\Document-Delete-01.png" />
-    <Resource Include="Imagenes\Engineer.png" />
-    <Resource Include="Imagenes\Follow.png" />
-    <Resource Include="Imagenes\House.png" />
-    <Resource Include="Imagenes\Real-Time.png" />
-    <Resource Include="Imagenes\Screw-Driver.png" />
-    <Resource Include="Imagenes\Spanner.png" />
-    <Resource Include="Imagenes\Tab-History.png" />
-    <Resource Include="Imagenes\Tools-02.png" />
-    <Resource Include="Imagenes\Tools.png" />
-    <Resource Include="Imagenes\User-Add%281%29.png" />
-    <Resource Include="Imagenes\User-Add.png" />
-    <Resource Include="Imagenes\User-Delete.png" />
-    <Resource Include="Imagenes\User-Modify.png" />
-    <Resource Include="Imagenes\Wire-Stripper.png" />
+    <Resource Include="Img\Historial-Blanco.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\AdminClientes.png" />
+    <Resource Include="Img\Calendar.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\AdmEquipo.png" />
-    <Resource Include="Imagenes\AdmInsp.png" />
-    <Resource Include="Imagenes\Group-Add.png" />
-    <Resource Include="Imagenes\ListadoTecnico.png" />
+    <Resource Include="Img\Servicios.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\BancoE.png" />
-    <Resource Include="Imagenes\BE.png" />
+    <Resource Include="Img\Servicios-Blanco.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

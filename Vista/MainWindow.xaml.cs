@@ -52,8 +52,8 @@ namespace Vista
 
         private void Tile_Click_1(object sender, RoutedEventArgs e)
         {
-            AdministradorFormulario admForm = new AdministradorFormulario();
-            admForm.ShowDialog();
+            FormularioInspeccion formu = new FormularioInspeccion();
+            formu.ShowDialog();
         }
 
         private void Tile_Click_2(object sender, RoutedEventArgs e)
@@ -64,14 +64,14 @@ namespace Vista
 
         private void Tile_Click_3(object sender, RoutedEventArgs e)
         {
-            AdministradorTecnico admTec = new AdministradorTecnico();
-            admTec.ShowDialog();
+            Tecnico Tec = new Tecnico();
+            Tec.ShowDialog();
         }
 
         private void Tile_Click_4(object sender, RoutedEventArgs e)
         {
-            AdministracionCliente AdmCli = new AdministracionCliente();
-            AdmCli.ShowDialog();
+            Cliente cli = new Cliente();
+            cli.ShowDialog();
         }
 
         private void Tile_Click_5(object sender, RoutedEventArgs e)
@@ -90,6 +90,63 @@ namespace Vista
         }
 
         private void Tile_Click_8(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Tile_Click_9(object sender, RoutedEventArgs e)
+        {
+            ConsultarBanco be = new ConsultarBanco();
+            be.ShowDialog();
+        }
+
+        private void Tile_Click_10(object sender, RoutedEventArgs e)
+        {
+            ListadoCliente liCli = new ListadoCliente();
+            liCli.ShowDialog();
+        }
+
+        private void Tile_Click_11(object sender, RoutedEventArgs e)
+        {
+            ListadoInspectores liIns = new ListadoInspectores();
+            liIns.ShowDialog();
+        }
+
+        private void Tile_Click_12(object sender, RoutedEventArgs e)
+        {
+            EquiposInspeccion equi = new EquiposInspeccion();
+            equi.ShowDialog();
+        }
+        //Click Servicios
+        private void Tile_Click_13(object sender, RoutedEventArgs e)
+        {
+
+        }
+        //Click Consultar Agenda
+        private void Tile_Click_14(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Tile_Click_15(object sender, RoutedEventArgs e)
+        {
+            Agenda ag = new Agenda();
+            ag.ShowDialog();
+        }
+
+        private void Tile_Click_16(object sender, RoutedEventArgs e)
+        {
+            Insumos ins = new Insumos();
+            ins.ShowDialog();
+        }
+
+        //Historial
+        private void Tile_Click_17(object sender, RoutedEventArgs e)
+        {
+
+        }
+        //Seguimiento
+        private void Tile_Click_18(object sender, RoutedEventArgs e)
         {
 
         }
