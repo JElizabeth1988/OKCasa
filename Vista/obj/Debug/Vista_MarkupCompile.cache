@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\App.xaml
-131777652530
+16516951177
 
-15857044894
+182129662149
 40-57793217
-AdministracionCliente.xaml;AdministradorFormulario.xaml;Agenda.xaml;Cliente.xaml;EquiposInspeccion.xaml;FormularioInspeccion.xaml;Insumos.xaml;ListadoCliente.xaml;ListadoFormulario.xaml;Login.xaml;MainWindow.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;
+AdministracionCliente.xaml;AdministradorFormulario.xaml;AdministradorTecnico.xaml;Agenda.xaml;Cliente.xaml;EquiposInspeccion.xaml;FormularioInspeccion.xaml;Insumos.xaml;ListadoCliente.xaml;ListadoFormulario.xaml;ListadoInspectores.xaml;Login.xaml;MainWindow.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;Tecnico.xaml;
 
 False
 

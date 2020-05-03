@@ -12,16 +12,30 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using MahApps.Metro.Behaviours;
+
 namespace Vista
 {
     /// <summary>
     /// Lógica de interacción para EquiposInspeccion.xaml
     /// </summary>
-    public partial class EquiposInspeccion : Window
+    public partial class EquiposInspeccion : MetroWindow
     {
         public EquiposInspeccion()
         {
             InitializeComponent();
+        }
+
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnRefrescar_Click(object sender, RoutedEventArgs e)
+        {
+            dgLista.Items.Refresh();
         }
     }
 }

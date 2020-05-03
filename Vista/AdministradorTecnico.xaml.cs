@@ -37,18 +37,21 @@ namespace Vista
         {
             EquiposInspeccion equi = new EquiposInspeccion();
             equi.ShowDialog();
+            Close();
         }
 
         private void Tile_Click_1(object sender, RoutedEventArgs e)
         {
             Tecnico tec = new Tecnico();
             tec.ShowDialog();
+            Close();
         }
 
         private void Tile_Click_2(object sender, RoutedEventArgs e)
         {
             ListadoInspectores insp = new ListadoInspectores();
             insp.ShowDialog();
+            Close();
         }
     }
 }

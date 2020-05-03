@@ -49,7 +49,8 @@ namespace Vista
 
         private void btnPregunta_Click(object sender, RoutedEventArgs e)
         {
-
+            ListadoInspectores list = new ListadoInspectores();
+            list.ShowDialog();
         }
     }
 }

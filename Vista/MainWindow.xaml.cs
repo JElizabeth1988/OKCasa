@@ -63,7 +63,8 @@ namespace Vista
 
         private void Tile_Click_3(object sender, RoutedEventArgs e)
         {
-
+            AdministradorTecnico admTec = new AdministradorTecnico();
+            admTec.ShowDialog();
         }
 
         private void Tile_Click_4(object sender, RoutedEventArgs e)

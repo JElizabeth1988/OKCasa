@@ -13,7 +13,7 @@
         mc:Ignorable="d"
         Title="Lista de Informes" Height="503.166" Width="724.667" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Icon="Imagenes/logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal">
     <Grid Background="#FFD2DBEC">
-        <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="41,171,0,0" VerticalAlignment="Top" Height="198" Width="637" >
+        <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="41,171,0,0" VerticalAlignment="Top" Height="198" Width="637" FontWeight="Normal" >
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridCell}">
@@ -30,9 +30,9 @@
         <GroupBox x:Name="gbFiltrar" Header="Filtrar Información" HorizontalAlignment="Left" Margin="41,21,0,0" VerticalAlignment="Top" Height="124" Width="448"  Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
             <Grid HorizontalAlignment="Left" Height="80" Margin="10,4,0,0" VerticalAlignment="Top" Width="428">
                 <Label x:Name="label" Content="Rut Cliente:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,39,0,0"/>
-                <TextBox x:Name="txtFiltroRut"  Controls:TextBoxHelper.Watermark="Ej. 11.111.111-1" HorizontalAlignment="Left" Height="23" Margin="116,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontWeight="Bold" Controls:TextBoxHelper.ClearTextButton="True"/>
+                <TextBox x:Name="txtFiltroRut"  Controls:TextBoxHelper.Watermark="Ej. 11.111.111-1" HorizontalAlignment="Left" Height="23" Margin="116,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
                 <Button x:Name="btnFiltrarNumero" Content="Filtrar" HorizontalAlignment="Left" Margin="299,3,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
-                <TextBox x:Name="txtFiltroNumero"  Controls:TextBoxHelper.Watermark="Ingrese número" HorizontalAlignment="Left" Height="23" Margin="116,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontWeight="Bold" Controls:TextBoxHelper.ClearTextButton="True"/>
+                <TextBox x:Name="txtFiltroNumero"  Controls:TextBoxHelper.Watermark="Ingrese número" HorizontalAlignment="Left" Height="23" Margin="116,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
                 <Label x:Name="label_Copy" Content="N° Informe:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,5,0,0"/>
                 <Button x:Name="btnFiltrarRut" Content="Filtrar" HorizontalAlignment="Left" Margin="299,39,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
                 <Button x:Name="btnListCliente" Content="?" HorizontalAlignment="Left" Margin="390,38,0,0" VerticalAlignment="Top" Width="27" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnListCliente_Click"/>

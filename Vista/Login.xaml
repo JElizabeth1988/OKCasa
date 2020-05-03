@@ -9,18 +9,12 @@
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
         Title="" Height="333.561" Width="297.544" TitleCharacterCasing="Normal" WindowTitleBrush="Black" Icon="Imagenes/logo yo.jpg" BorderThickness="0" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" GlowBrush="Black" NonActiveBorderBrush="#FF0A0202" WindowTransitionsEnabled="False"   >
-    <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FF89A8DE" Offset="0"/>
-                <GradientStop Color="White" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+    <Grid Background="#FFD2DBEC">
 
         <TextBox x:Name="txtUsuario" Controls:TextBoxHelper.Watermark="Ingrese Nombre de Usuario" Controls:TextBoxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="23" Margin="46,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" BorderBrush="Black"/>
         <PasswordBox x:Name="pbContrasenia" Controls:TextBoxHelper.Watermark="Ingrese Contraseña" Controls:TextBoxHelper.ClearTextButton="True" HorizontalAlignment="Left" Margin="46,190,0,0" VerticalAlignment="Top" Width="207" BorderBrush="Black"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="130" Margin="91,21,0,0" VerticalAlignment="Top" Width="112" Source="Imagenes/Business-Man03.png" />
-        <Button x:Name="btnLogin" Content="Ingresar" HorizontalAlignment="Left" Margin="111,244,0,0" VerticalAlignment="Top" Width="75" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Click="btnLogin_Click" Background="#FF3064BD"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="180" Margin="81,16,0,0" VerticalAlignment="Top" Width="135" Source="Imagenes/Business-Man02.png" />
+        <Button x:Name="btnLogin" Content="Ingresar" HorizontalAlignment="Left" Margin="111,244,0,0" VerticalAlignment="Top" Width="75" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Click="btnLogin_Click" Background="#CC0C5395"/>
 
     </Grid>
 </Controls:MetroWindow>

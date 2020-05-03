@@ -42,8 +42,8 @@
             <TextBox x:Name="txtApeMaterno" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Apellido Materno" Height="8" Margin="156,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
             <Label x:Name="label_Copy5" Content="Título:" HorizontalAlignment="Left" Margin="23,264,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy6" Content="Equipo Técnico:" HorizontalAlignment="Left" Margin="23,299,0,0" VerticalAlignment="Top"/>
-            <ComboBox x:Name="cbTitulo" HorizontalAlignment="Left" Margin="156,264,0,0" VerticalAlignment="Top" Width="184"/>
-            <ComboBox x:Name="cbEquipo" HorizontalAlignment="Left" Margin="156,299,0,0" VerticalAlignment="Top" Width="184"/>
+            <ComboBox x:Name="cbTitulo" HorizontalAlignment="Left" Margin="156,264,0,0" VerticalAlignment="Top" Width="184" FontWeight="Normal"/>
+            <ComboBox x:Name="cbEquipo" HorizontalAlignment="Left" Margin="156,299,0,0" VerticalAlignment="Top" Width="184" FontWeight="Normal"/>
 
         </Grid>
     </GroupBox>
