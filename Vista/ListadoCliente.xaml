@@ -15,7 +15,7 @@
     <Grid Background="#FFD2DBEC">
 
         <Button x:Name="btnPasar" Content="Traspasar" HorizontalAlignment="Left" Margin="98,402,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
-        <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="41,132,0,0" VerticalAlignment="Top" Height="178" Width="637" FontWeight="Normal" >
+        <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="41,132,0,0" VerticalAlignment="Top" Height="212" Width="637" FontWeight="Normal" >
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridCell}">
@@ -45,7 +45,6 @@
         <Button x:Name="btnPasarAContrato" Content="Traspasar" HorizontalAlignment="Left" Margin="294,402,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
         <Button x:Name="btnCrear" Content="Nuevo cliente " HorizontalAlignment="Left" Margin="393,401,0,0" VerticalAlignment="Top" Width="91" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnCrear_Click"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="64" Margin="527,39,0,0" VerticalAlignment="Top" Width="149" Source="Imagenes/logo11.png"/>
-        <Button x:Name="btnBanco" Content="Consultar con &#xA;Banco Estado" HorizontalAlignment="Left" Margin="488,339,0,0" VerticalAlignment="Top" Height="44" Width="95" Cursor="Arrow" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CCCBB538" FontSize="12"/>
 
     </Grid>
 </Controls:MetroWindow>

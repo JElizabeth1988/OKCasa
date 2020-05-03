@@ -158,6 +158,9 @@
     <Compile Include="AdministradorTecnico.xaml.cs">
       <DependentUpon>AdministradorTecnico.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConsultarBanco.xaml.cs">
+      <DependentUpon>ConsultarBanco.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Historial.xaml.cs">
       <DependentUpon>Historial.xaml</DependentUpon>
     </Compile>
@@ -190,6 +193,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Cliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConsultarBanco.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -430,6 +437,10 @@
     <Resource Include="Imagenes\AdmInsp.png" />
     <Resource Include="Imagenes\Group-Add.png" />
     <Resource Include="Imagenes\ListadoTecnico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\BancoE.png" />
+    <Resource Include="Imagenes\BE.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

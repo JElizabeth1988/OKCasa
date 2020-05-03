@@ -16,7 +16,7 @@
                 <DropShadowEffect BlurRadius="2" Color="#FF96A9CE" Direction="300" ShadowDepth="2"/>
             </GroupBox.Effect>
             <Grid HorizontalAlignment="Left" Height="197" VerticalAlignment="Top" Width="491" Margin="0,-2,0,-0.333" Background="#FFD2DBEC">
-                <Controls:Tile Background="{x:Null}" Height="Auto" Margin="110,53,256,26" Width="Auto" Click="Tile_Click" >
+                <Controls:Tile Background="{x:Null}" Height="Auto" Margin="37,53,329,26" Width="Auto" Click="Tile_Click" >
                     <Grid Height="108" Width="115">
                         <Image x:Name="image3" HorizontalAlignment="Left" Height="109" Margin="0,-1,0,0" VerticalAlignment="Top" Width="115" Source="Imagenes/ListadoClientes.png">
                             <Image.Effect>
@@ -27,9 +27,19 @@
                     </Grid>
                 </Controls:Tile>
                 <Image x:Name="image" HorizontalAlignment="Left" Height="46" Margin="368,0,0,0" VerticalAlignment="Top" Width="113" Source="Imagenes/Logo11.png"/>
-                <mah:Tile Background="{x:Null}" Height="Auto" Margin="257,54,110,26" Width="Auto" Click="Tile_Click_1" >
+                <mah:Tile Background="{x:Null}" Height="Auto" Margin="186,54,181,26" Width="Auto" Click="Tile_Click_1" >
                     <Grid Height="108" Width="115">
                         <Image x:Name="image2" HorizontalAlignment="Left" Height="109" Margin="0,-1,0,0" VerticalAlignment="Top" Width="115" Source="Imagenes/AdminClientes.png">
+                            <Image.Effect>
+                                <DropShadowEffect Opacity="0.8"/>
+                            </Image.Effect>
+                        </Image>
+
+                    </Grid>
+                </mah:Tile>
+                <mah:Tile Background="{x:Null}" Height="Auto" Margin="331,54,37,27" Width="Auto" Click="Tile_Click_2" >
+                    <Grid Height="108" Width="115">
+                        <Image x:Name="image1" HorizontalAlignment="Left" Height="109" Margin="0,-1,0,0" VerticalAlignment="Top" Width="115" Source="Imagenes/BancoE.png">
                             <Image.Effect>
                                 <DropShadowEffect Opacity="0.8"/>
                             </Image.Effect>

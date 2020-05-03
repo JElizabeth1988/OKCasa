@@ -47,5 +47,11 @@ namespace Vista
             liCli.ShowDialog();
             Close();
         }
+
+        private void Tile_Click_2(object sender, RoutedEventArgs e)
+        {
+            ConsultarBanco be = new ConsultarBanco();
+            be.ShowDialog();
+        }
     }
 }
