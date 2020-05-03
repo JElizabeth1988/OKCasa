@@ -9,9 +9,9 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="Administrar Cliente" Height="487.784" Width="545.124" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/Logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDCDDDF" >
+        Title="Administrar Cliente" Height="487.784" Width="545.124" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/Logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFD2DBEC" >
     <GroupBox x:Name="groupBox" Header="Información de Cliente" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" Height="428" Width="502" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
-        <Grid HorizontalAlignment="Left" Height="414" VerticalAlignment="Top" Width="491" Margin="0,-2,0,-1.333" Background="#FFDCDDDF">
+        <Grid HorizontalAlignment="Left" Height="414" VerticalAlignment="Top" Width="491" Margin="0,-2,0,-1.333" Background="#FFD2DBEC">
             <Label x:Name="label" Content="Rut:" HorizontalAlignment="Left" Margin="23,19,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy" Content="Apellido Paterno:" HorizontalAlignment="Left" Margin="23,59,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy1" Content="Nombre:" HorizontalAlignment="Left" Margin="23,139,0,0" VerticalAlignment="Top"/>

@@ -8,11 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/admclientes.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/business-man-find%2002.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/business-man-settings%2002.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/document-find-02.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/document-settings.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/listadoclientes.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("imagenes/adminclientes.png")]
 
 

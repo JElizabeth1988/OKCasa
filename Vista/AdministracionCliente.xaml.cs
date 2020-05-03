@@ -40,5 +40,12 @@ namespace Vista
             cli.ShowDialog();
             Close();
         }
+
+        private void Tile_Click(object sender, RoutedEventArgs e)
+        {
+            ListadoCliente liCli = new ListadoCliente();
+            liCli.ShowDialog();
+            Close();
+        }
     }
 }

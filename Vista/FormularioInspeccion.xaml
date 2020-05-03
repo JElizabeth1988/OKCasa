@@ -13,7 +13,7 @@
         Title="Informe"  Height="648" Width="850"  WindowTitleBrush="Black" ResizeMode="NoResize" Icon="imagenes/logo yo.jpg" WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" GlowBrush="Black" NonActiveBorderBrush="#FF0A0202" WindowTransitionsEnabled="False" BorderThickness="0" FontWeight="Bold" >
 
     <Grid Background="#FFDCDDDF" Margin="0,0,-4.333,-1631">
-        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" Margin="-6,0,7,1654">
+        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" Margin="-6,0,7,1634">
             <Grid Height="2220" Width="820">
                 <GroupBox x:Name="ContenedorPrincipal" Header="                                                                                                                          Informe Técnico" HorizontalAlignment="Left" Margin="35,2,0,0" VerticalAlignment="Top" Height="2161" Width="761" Background="#CC0C5395" Controls:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10" TextOptions.TextHintingMode="Animated">
                     <Grid HorizontalAlignment="Left" Height="2120" Margin="10,0,0,0" VerticalAlignment="Top" Width="741">

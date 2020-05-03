@@ -9,11 +9,14 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="Módulo Cliente" Height="327.757" Width="545.124" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/Logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDCDDDF" >
-    <Grid Margin="0,0,0,6">
+        Title="Módulo Cliente" Height="327.757" Width="545.124" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/Logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFD2DBEC" >
+    <Grid Margin="0,0,0,-1">
         <GroupBox x:Name="groupBox" Header="¿Qué Acción Desea realizar?" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" Height="230" Width="502" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
-            <Grid HorizontalAlignment="Left" Height="197" VerticalAlignment="Top" Width="491" Margin="0,-2,0,-0.333" Background="#FFDCDDDF">
-                <Controls:Tile Background="{x:Null}" Height="Auto" Margin="110,53,256,26" Width="Auto" >
+            <GroupBox.Effect>
+                <DropShadowEffect BlurRadius="2" Color="#FF96A9CE" Direction="300" ShadowDepth="2"/>
+            </GroupBox.Effect>
+            <Grid HorizontalAlignment="Left" Height="197" VerticalAlignment="Top" Width="491" Margin="0,-2,0,-0.333" Background="#FFD2DBEC">
+                <Controls:Tile Background="{x:Null}" Height="Auto" Margin="110,53,256,26" Width="Auto" Click="Tile_Click" >
                     <Grid Height="108" Width="115">
                         <Image x:Name="image3" HorizontalAlignment="Left" Height="109" Margin="0,-1,0,0" VerticalAlignment="Top" Width="115" Source="Imagenes/ListadoClientes.png">
                             <Image.Effect>
@@ -26,7 +29,7 @@
                 <Image x:Name="image" HorizontalAlignment="Left" Height="46" Margin="368,0,0,0" VerticalAlignment="Top" Width="113" Source="Imagenes/Logo11.png"/>
                 <mah:Tile Background="{x:Null}" Height="Auto" Margin="257,54,110,26" Width="Auto" Click="Tile_Click_1" >
                     <Grid Height="108" Width="115">
-                        <Image x:Name="image2" HorizontalAlignment="Left" Height="109" Margin="0,-1,0,0" VerticalAlignment="Top" Width="115" Source="Imagenes/ADmClientes.png">
+                        <Image x:Name="image2" HorizontalAlignment="Left" Height="109" Margin="0,-1,0,0" VerticalAlignment="Top" Width="115" Source="Imagenes/AdminClientes.png">
                             <Image.Effect>
                                 <DropShadowEffect Opacity="0.8"/>
                             </Image.Effect>

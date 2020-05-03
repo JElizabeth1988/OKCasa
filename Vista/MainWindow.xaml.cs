@@ -52,8 +52,8 @@ namespace Vista
 
         private void Tile_Click_1(object sender, RoutedEventArgs e)
         {
-            FormularioInspeccion form = new FormularioInspeccion();
-            form.ShowDialog();
+            AdministradorFormulario admForm = new AdministradorFormulario();
+            admForm.ShowDialog();
         }
 
         private void Tile_Click_2(object sender, RoutedEventArgs e)
