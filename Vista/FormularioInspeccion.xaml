@@ -33,7 +33,7 @@
                                 <Label x:Name="label3" Content="Nombre:" HorizontalAlignment="Left" Margin="14,29,0,5" FontSize="12" FontWeight="Bold"/>
                                 <TextBox x:Name="txtRutCliente" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Rut" Height="8" Margin="98,1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
                                 <Button x:Name="btnBuscarRutC" Content="Buscar" HorizontalAlignment="Left" Margin="315,0,0,0" VerticalAlignment="Top" Width="75"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
-                                <Button x:Name="btnListarCliente" Content="?" HorizontalAlignment="Left" Margin="271,0,0,0" VerticalAlignment="Top" Width="29"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
+                                <Button x:Name="btnListarCliente" Content="?" HorizontalAlignment="Left" Margin="271,0,0,32" Width="29"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnListarCliente_Click"/>
                             </Grid>
                         </GroupBox>
 
@@ -260,9 +260,9 @@
                                 <Label x:Name="label19" Content="Rut Cliente:" HorizontalAlignment="Left" Margin="8,29,0,5" FontSize="12" FontWeight="Bold"/>
                                 <TextBox x:Name="txtRutCliBuscar" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Rut" Height="8" Margin="106,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
                                 <Button x:Name="btnBuscarForm" Content="Buscar" HorizontalAlignment="Left" Margin="317,0,0,0" VerticalAlignment="Top" Width="75"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
-                                <Button x:Name="btnListarForm" Content="?" HorizontalAlignment="Left" Margin="273,0,0,0" VerticalAlignment="Top" Width="29"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
+                                <Button x:Name="btnListarForm" Content="?" HorizontalAlignment="Left" Margin="273,0,0,32" VerticalAlignment="Bottom" Width="29"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnListarForm_Click"/>
                                 <TextBox x:Name="txtNFormBuscar" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese número" Height="8" Margin="106,1,0,33" TextWrapping="Wrap" Width="153" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
-                                <Button x:Name="btnListarCli" Content="?" HorizontalAlignment="Left" Margin="273,32,0,0" VerticalAlignment="Top" Width="29"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
+                                <Button x:Name="btnListarCli" Content="?" HorizontalAlignment="Left" Margin="273,32,0,0" VerticalAlignment="Top" Width="29"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnListarCli_Click"/>
                                 <Button x:Name="btnBuscarCli" Content="Buscar" HorizontalAlignment="Left" Margin="317,34,0,-2" VerticalAlignment="Top" Width="75"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
                             </Grid>
                         </GroupBox>
@@ -288,7 +288,7 @@
 
             </Grid>
         </ScrollViewer>
-       
+
 
     </Grid>
 </Controls:MetroWindow>

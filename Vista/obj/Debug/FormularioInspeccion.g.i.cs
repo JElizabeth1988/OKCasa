@@ -1981,6 +1981,12 @@ namespace Vista {
             return;
             case 15:
             this.btnListarCliente = ((System.Windows.Controls.Button)(target));
+            
+            #line 36 "..\..\FormularioInspeccion.xaml"
+            this.btnListarCliente.Click += new System.Windows.RoutedEventHandler(this.btnListarCliente_Click);
+            
+            #line default
+            #line hidden
             return;
             case 16:
             this.groupBox2 = ((System.Windows.Controls.GroupBox)(target));
@@ -2590,12 +2596,24 @@ namespace Vista {
             return;
             case 216:
             this.btnListarForm = ((System.Windows.Controls.Button)(target));
+            
+            #line 263 "..\..\FormularioInspeccion.xaml"
+            this.btnListarForm.Click += new System.Windows.RoutedEventHandler(this.btnListarForm_Click);
+            
+            #line default
+            #line hidden
             return;
             case 217:
             this.txtNFormBuscar = ((System.Windows.Controls.TextBox)(target));
             return;
             case 218:
             this.btnListarCli = ((System.Windows.Controls.Button)(target));
+            
+            #line 265 "..\..\FormularioInspeccion.xaml"
+            this.btnListarCli.Click += new System.Windows.RoutedEventHandler(this.btnListarCli_Click);
+            
+            #line default
+            #line hidden
             return;
             case 219:
             this.btnBuscarCli = ((System.Windows.Controls.Button)(target));

@@ -99,6 +99,24 @@ namespace Vista
 
         }
 
+        private void btnListarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            ListadoCliente liCli = new ListadoCliente();
+            liCli.ShowDialog();
+        }
+
+        private void btnListarCli_Click(object sender, RoutedEventArgs e)
+        {
+            ListadoCliente liCli = new ListadoCliente();
+            liCli.ShowDialog();
+        }
+
+        private void btnListarForm_Click(object sender, RoutedEventArgs e)
+        {
+            ListadoFormulario liForm = new ListadoFormulario();
+            liForm.ShowDialog();
+        }
+
         /*private void txtDepto_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
@@ -112,6 +130,6 @@ namespace Vista
             }
 
         }*/
-        
+
     }
 }

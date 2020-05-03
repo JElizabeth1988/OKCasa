@@ -19,11 +19,11 @@ using MahApps.Metro.Behaviours;
 namespace Vista
 {
     /// <summary>
-    /// Lógica de interacción para Cliente.xaml
+    /// Lógica de interacción para Tecnico.xaml
     /// </summary>
-    public partial class Cliente : MetroWindow
+    public partial class Tecnico : MetroWindow
     {
-        public Cliente()
+        public Tecnico()
         {
             InitializeComponent();
         }
@@ -49,8 +49,7 @@ namespace Vista
 
         private void btnPregunta_Click(object sender, RoutedEventArgs e)
         {
-            ListadoCliente liCli = new ListadoCliente();
-            liCli.ShowDialog();
+
         }
     }
 }

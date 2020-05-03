@@ -155,11 +155,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdministradorTecnico.xaml.cs">
+      <DependentUpon>AdministradorTecnico.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListadoInspectores.xaml.cs">
+      <DependentUpon>ListadoInspectores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Tecnico.xaml.cs">
+      <DependentUpon>Tecnico.xaml</DependentUpon>
+    </Compile>
     <Page Include="AdministracionCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdministradorFormulario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdministradorTecnico.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,6 +201,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ListadoFormulario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListadoInspectores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -244,6 +261,10 @@
     <Page Include="Resources\IconsNonShared.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Tecnico.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -382,6 +403,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\AdminClientes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\AdmEquipo.png" />
+    <Resource Include="Imagenes\AdmInsp.png" />
+    <Resource Include="Imagenes\Group-Add.png" />
+    <Resource Include="Imagenes\ListadoTecnico.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
