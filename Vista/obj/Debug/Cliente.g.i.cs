@@ -237,6 +237,14 @@ namespace Vista {
         #line default
         #line hidden
         
+        
+        #line 43 "..\..\Cliente.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btnBanco;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -356,6 +364,9 @@ namespace Vista {
             return;
             case 24:
             this.txtApeMaterno = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 25:
+            this.btnBanco = ((System.Windows.Controls.Button)(target));
             return;
             }
             this._contentLoaded = true;
