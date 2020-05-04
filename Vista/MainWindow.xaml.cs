@@ -151,5 +151,11 @@ namespace Vista
             ListadoFormulario lf = new ListadoFormulario();
             lf.ShowDialog();
         }
+
+        //MovimientoInsumos
+        private void Tile_Click_19(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -164,6 +164,9 @@
     <Compile Include="ListadoInspectores.xaml.cs">
       <DependentUpon>ListadoInspectores.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MovimientoInsumos.xaml.cs">
+      <DependentUpon>MovimientoInsumos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Seguimiento.xaml.cs">
       <DependentUpon>Seguimiento.xaml</DependentUpon>
     </Compile>
@@ -253,6 +256,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MovimientoInsumos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -393,6 +400,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Img\Servicios-Blanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\horsEditor-960x600.png" />
+    <Resource Include="Img\Tools-02.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

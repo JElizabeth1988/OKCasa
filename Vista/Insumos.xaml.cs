@@ -12,16 +12,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using MahApps.Metro.Behaviours;
+
 namespace Vista
 {
     /// <summary>
     /// Lógica de interacción para Insumos.xaml
     /// </summary>
-    public partial class Insumos : Window
+    public partial class Insumos : MetroWindow
     {
         public Insumos()
         {
             InitializeComponent();
+
+            btnActualizar.Visibility = Visibility.Hidden;
+        }
+
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

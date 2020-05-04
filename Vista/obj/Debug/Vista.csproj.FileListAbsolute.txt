@@ -119,3 +119,5 @@ C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Seguimiento.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Servicio.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ConsultarBanco.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ConsultarBanco.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\MovimientoInsumos.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\MovimientoInsumos.baml

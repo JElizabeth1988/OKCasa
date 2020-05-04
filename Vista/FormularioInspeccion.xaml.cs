@@ -30,6 +30,13 @@ namespace Vista
             this.DataContext = this;
 
             btnActualizar.Visibility = Visibility.Hidden;
+            btnInsumos.Visibility = Visibility.Hidden;
+
+            /*if (rbSi.IsChecked == true)
+            {
+                btnInsumos.Visibility = Visibility.Visible;
+
+            }*/
 
             cbComuna.ItemsSource = Enum.GetValues(typeof
                 (Comuna));
@@ -50,10 +57,6 @@ namespace Vista
             cbPisos.ItemsSource = Enum.GetValues(typeof
                (Pisos));
             cbPisos.SelectedIndex = 0;
-
-            cbHerramientas.ItemsSource = Enum.GetValues(typeof
-               (Herramientas));
-            cbHerramientas.SelectedIndex = 0;
 
             cbAlcanta.ItemsSource = Enum.GetValues(typeof
                (Alcantarillado));
@@ -117,6 +120,12 @@ namespace Vista
         {
             ListadoFormulario liForm = new ListadoFormulario(this);
             liForm.ShowDialog();
+        }
+
+        private void btnInsumos_Click(object sender, RoutedEventArgs e)
+        {
+            Insumos ins = new Insumos();
+            ins.ShowDialog();
         }
 
         /*private void txtDepto_KeyDown(object sender, KeyEventArgs e)

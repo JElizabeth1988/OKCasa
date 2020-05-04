@@ -159,7 +159,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="854,432,174,88"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_17">
+        <Controls:Tile Margin="449,432,579,88"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_17">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
             </Controls:Tile.Effect>
@@ -261,7 +261,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="439,432,579,88"  Width="110" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_16">
+        <Controls:Tile Margin="718,432,300,88"  Width="110" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_16">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
             </Controls:Tile.Effect>
@@ -287,7 +287,15 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="175,432,724,88"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_13" >
+        <Controls:Tile Margin="583,433,445,87"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_13" RenderTransformOrigin="0.5,0.5" >
+            <Controls:Tile.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.331"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.661"/>
+                </TransformGroup>
+            </Controls:Tile.RenderTransform>
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
             </Controls:Tile.Effect>
@@ -299,13 +307,13 @@
                     <GradientStop Color="#FF4D4F4D" Offset="0.785"/>
                 </LinearGradientBrush>
             </Controls:Tile.Background>
-            <Grid Height="100" Width="219">
-                <Image x:Name="image17" HorizontalAlignment="Left" Margin="20,12,0,20" Width="79" Source="Img/Servicios-Blanco.png">
+            <Grid Height="100" Width="108">
+                <Image x:Name="image17" HorizontalAlignment="Left" Margin="24,2,0,42" Width="76" Source="Img/Servicios-Blanco.png">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.8"/>
                     </Image.Effect>
                 </Image>
-                <Label x:Name="label13" Content="Administrar &#xA;  Servicios" HorizontalAlignment="Left" Margin="109,26,0,0" VerticalAlignment="Top" Width="90" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="1" Height="50">
+                <Label x:Name="label13" Content="Administrar &#xA;  Servicios" HorizontalAlignment="Left" Margin="10,54,0,-4" VerticalAlignment="Top" Width="90" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="1" Height="50">
                     <Label.Effect>
                         <DropShadowEffect Opacity="0.9" ShadowDepth="2" BlurRadius="6"/>
                     </Label.Effect>
@@ -313,7 +321,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="584,432,300,88"  Height="Auto" Width="Auto" BorderThickness="1" Controls:ControlsHelper.MouseOverBorderBrush="#FF321D71" Click="Tile_Click_14">
+        <Controls:Tile Margin="175,432,709,88"  Height="Auto" Width="Auto" BorderThickness="1" Controls:ControlsHelper.MouseOverBorderBrush="#FF321D71" Click="Tile_Click_14">
             <Controls:Tile.Effect>
                 <DropShadowEffect Color="#FF321D71" BlurRadius="6"/>
             </Controls:Tile.Effect>
@@ -336,6 +344,30 @@
                         <DropShadowEffect BlurRadius="6" ShadowDepth="2" Opacity="0.9"/>
                     </Label.Effect>
                 </Label>
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile Margin="854,432,174,88"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_19" >
+            <Controls:Tile.Effect>
+                <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
+            </Controls:Tile.Effect>
+            <Controls:Tile.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                    <GradientStop Color="#FF3BF9FF" Offset="0.013"/>
+                    <GradientStop Color="#FF101C4B" Offset="0.997"/>
+                </LinearGradientBrush>
+            </Controls:Tile.Background>
+            <Grid Height="100" Width="108">
+                <Image x:Name="image6" HorizontalAlignment="Left" Margin="30,10,0,45" Width="45" Source="Img/Tools-02.png">
+                    <Image.Effect>
+                        <DropShadowEffect Opacity="0.8"/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label10" Content="Movimiento&#xA;de Insumos" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Width="96" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="1" Height="47">
+                    <Label.Effect>
+                        <DropShadowEffect Opacity="0.9" ShadowDepth="2" BlurRadius="6"/>
+                    </Label.Effect>
+                </Label>
+
             </Grid>
         </Controls:Tile>
 
