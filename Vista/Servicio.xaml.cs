@@ -12,16 +12,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using MahApps.Metro.Behaviours;
+
 namespace Vista
 {
     /// <summary>
     /// Lógica de interacción para Servicio.xaml
     /// </summary>
-    public partial class Servicio : Window
+    public partial class Servicio : MetroWindow
     {
         public Servicio()
         {
             InitializeComponent();
+            btnActualizar.Visibility = Visibility.Hidden;
+        }
+
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

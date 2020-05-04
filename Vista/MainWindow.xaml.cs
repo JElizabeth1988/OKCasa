@@ -120,7 +120,8 @@ namespace Vista
         //Click Servicios
         private void Tile_Click_13(object sender, RoutedEventArgs e)
         {
-
+            Servicio ser = new Servicio();
+            ser.ShowDialog();
         }
         //Click Consultar Agenda
         private void Tile_Click_14(object sender, RoutedEventArgs e)
