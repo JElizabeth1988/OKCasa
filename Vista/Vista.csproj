@@ -164,9 +164,6 @@
     <Compile Include="ListadoInspectores.xaml.cs">
       <DependentUpon>ListadoInspectores.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MovimientoInsumos.xaml.cs">
-      <DependentUpon>MovimientoInsumos.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Seguimiento.xaml.cs">
       <DependentUpon>Seguimiento.xaml</DependentUpon>
     </Compile>
@@ -256,10 +253,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MovimientoInsumos.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Resources\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
