@@ -43,7 +43,7 @@
                 <ImageBrush ImageSource="Imagenes/Command-Refresh-Blue.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnPasarAContrato" Content="Traspasar" HorizontalAlignment="Left" Margin="118,401,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
+        <Button x:Name="btnPasar" Content="Traspasar" HorizontalAlignment="Left" Margin="118,401,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
         <Button x:Name="btnCrear" Content="Nuevo Informe " HorizontalAlignment="Left" Margin="281,401,0,0" VerticalAlignment="Top" Width="91" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnCrear_Click"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="64" Margin="523,39,0,0" VerticalAlignment="Top" Width="149" Source="Imagenes/logo11.png"/>
 

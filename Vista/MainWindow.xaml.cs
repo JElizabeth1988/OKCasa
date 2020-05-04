@@ -140,15 +140,16 @@ namespace Vista
             ins.ShowDialog();
         }
 
-        //Historial
+        //Seguimiento
         private void Tile_Click_17(object sender, RoutedEventArgs e)
         {
 
         }
-        //Seguimiento
+        //Historial 
         private void Tile_Click_18(object sender, RoutedEventArgs e)
         {
-
+            ListadoFormulario lf = new ListadoFormulario();
+            lf.ShowDialog();
         }
     }
 }

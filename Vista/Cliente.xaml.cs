@@ -26,6 +26,8 @@ namespace Vista
         public Cliente()
         {
             InitializeComponent();
+
+            btnModificar.Visibility = Visibility.Hidden;//Botón Modificar no se ve
         }
 
         private void txtTelefono_KeyDown(object sender, KeyEventArgs e)
@@ -49,8 +51,14 @@ namespace Vista
 
         private void btnPregunta_Click(object sender, RoutedEventArgs e)
         {
-            ListadoCliente liCli = new ListadoCliente();
+            ListadoCliente liCli = new ListadoCliente(this);
             liCli.ShowDialog();
+        }
+
+        private void btnBanco_Click(object sender, RoutedEventArgs e)
+        {
+            ConsultarBanco be = new ConsultarBanco();
+            be.ShowDialog();
         }
     }
 }

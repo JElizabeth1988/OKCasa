@@ -23,10 +23,26 @@ namespace Vista
     /// </summary>
     public partial class ListadoFormulario : MetroWindow
     {
+        FormularioInspeccion formu;
+
         public ListadoFormulario()
         {
             InitializeComponent();
+
+            btnPasar.Visibility = Visibility.Hidden;
         }
+        //Llamado desde Formulario
+        public ListadoFormulario(FormularioInspeccion origen)
+        {
+            InitializeComponent();
+            formu = origen;
+
+            btnPasar.Visibility = Visibility.Visible;//el botón traspasar se ve
+            btnCrear.Visibility = Visibility.Hidden;
+
+        }
+
+
 
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {

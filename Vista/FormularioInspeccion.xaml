@@ -17,9 +17,9 @@
             <Grid Height="2220" Width="820">
                 <GroupBox x:Name="ContenedorPrincipal" Header="                                                                                                                          Informe Técnico" HorizontalAlignment="Left" Margin="35,2,0,0" VerticalAlignment="Top" Height="2161" Width="761" Background="#CC0C5395" Controls:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10" TextOptions.TextHintingMode="Animated">
                     <Grid HorizontalAlignment="Left" Height="2120" Margin="10,0,0,0" VerticalAlignment="Top" Width="741">
-                        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="547,131,0,0" VerticalAlignment="Top" Width="92" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC15561B" FontSize="12" Height="31"/>
-                        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="547,171,0,0" VerticalAlignment="Top" Width="92" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC978D29" FontSize="12" Height="31"/>
-                        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="547,211,0,0" VerticalAlignment="Top" Width="92" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC941928" FontSize="12" Height="31" Click="btnCancelar_Click"/>
+                        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="501,149,0,0" VerticalAlignment="Top" Width="92" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Height="31"/>
+                        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="501,198,0,0" VerticalAlignment="Top" Width="92" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Height="31"/>
+                        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="625,198,0,0" VerticalAlignment="Top" Width="92" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC941928" FontSize="12" Height="31" Click="btnCancelar_Click"/>
 
                         <Label x:Name="label" Content="Fecha Solicitud:" HorizontalAlignment="Left" Margin="28,26,0,0" VerticalAlignment="Top"/>
                         <DatePicker x:Name="dtfechaSol"  HorizontalAlignment="Left" Margin="131,27,0,0" VerticalAlignment="Top"  SelectedDate="{x:Static sys:DateTime.Now}" FontWeight="Normal"/>
@@ -266,6 +266,7 @@
                                 <Button x:Name="btnBuscarCli" Content="Buscar" HorizontalAlignment="Left" Margin="317,34,0,-2" VerticalAlignment="Top" Width="75"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
                             </Grid>
                         </GroupBox>
+                        <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="625,149,0,0" VerticalAlignment="Top" Width="92" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Height="31"/>
                     </Grid>
                 </GroupBox>
                 <GroupBox x:Name="groupBox6" Header="Termografía" HorizontalAlignment="Left" Margin="77,1841,0,0" VerticalAlignment="Top" Height="148" Width="679" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10">

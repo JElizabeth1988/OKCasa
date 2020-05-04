@@ -29,6 +29,8 @@ namespace Vista
             InitializeComponent();
             this.DataContext = this;
 
+            btnActualizar.Visibility = Visibility.Hidden;
+
             cbComuna.ItemsSource = Enum.GetValues(typeof
                 (Comuna));
             cbComuna.SelectedIndex = 0;
@@ -101,19 +103,19 @@ namespace Vista
 
         private void btnListarCliente_Click(object sender, RoutedEventArgs e)
         {
-            ListadoCliente liCli = new ListadoCliente();
+            ListadoCliente liCli = new ListadoCliente(this);
             liCli.ShowDialog();
         }
 
         private void btnListarCli_Click(object sender, RoutedEventArgs e)
         {
-            ListadoCliente liCli = new ListadoCliente();
+            ListadoCliente liCli = new ListadoCliente(this);
             liCli.ShowDialog();
         }
 
         private void btnListarForm_Click(object sender, RoutedEventArgs e)
         {
-            ListadoFormulario liForm = new ListadoFormulario();
+            ListadoFormulario liForm = new ListadoFormulario(this);
             liForm.ShowDialog();
         }
 

@@ -23,9 +23,52 @@ namespace Vista
     /// </summary>
     public partial class ListadoCliente : MetroWindow
     {
+        Cliente cli;
+        FormularioInspeccion form;
+        ListadoFormulario liForm;
+
         public ListadoCliente()
         {
             InitializeComponent();
+
+            btnPasar.Visibility = Visibility.Hidden;//el botón traspasar no se ve
+            btnPasarAForm.Visibility = Visibility.Hidden;//no se ve
+            
+            
+        }
+
+        public ListadoCliente(FormularioInspeccion origen)
+        {
+            InitializeComponent();
+            form = origen;
+
+            btnPasarAForm.Visibility = Visibility.Visible;//el botón traspasar se ve
+            btnEliminar.Visibility = Visibility.Hidden;//Botón eliminar no se ve
+            btnPasar.Visibility = Visibility.Hidden;
+            btnCrear.Visibility = Visibility.Hidden;
+            
+        }
+        //Llamado desde cliente
+        public ListadoCliente(Cliente origen)
+        {
+            InitializeComponent();
+            cli = origen;
+
+            btnPasar.Visibility = Visibility.Visible;//el botón traspasar se ve
+            btnEliminar.Visibility = Visibility.Hidden;//Botón eliminar no se ve
+            btnPasarAForm.Visibility = Visibility.Hidden;
+            btnCrear.Visibility = Visibility.Hidden;
+        }
+
+        public ListadoCliente(ListadoFormulario origen)
+        {
+            InitializeComponent();
+            liForm = origen;
+
+            btnPasar.Visibility = Visibility.Visible;//el botón traspasar se ve
+            btnEliminar.Visibility = Visibility.Hidden;//Botón eliminar no se ve
+            btnPasarAForm.Visibility = Visibility.Hidden;
+            btnCrear.Visibility = Visibility.Hidden;
         }
 
         private void btnCrear_Click(object sender, RoutedEventArgs e)
