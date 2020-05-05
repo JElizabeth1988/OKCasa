@@ -29,7 +29,7 @@
             </Grid>
         </GroupBox>
         <Image x:Name="image" HorizontalAlignment="Left" Height="73" Margin="476,82,0,0" VerticalAlignment="Top" Width="127" Source="Imagenes/logo11.png" Grid.ColumnSpan="2"/>
-        <GroupBox x:Name="groupBox" Header="Listado de Equipos" HorizontalAlignment="Left" Margin="41,232,0,0" VerticalAlignment="Top" Height="178" Width="530" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
+        <GroupBox x:Name="groupBox" Header="Listado de insumos" HorizontalAlignment="Left" Margin="41,232,0,0" VerticalAlignment="Top" Height="178" Width="530" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
             <Grid HorizontalAlignment="Left" Height="147" Margin="0,0,-0.667,-4.333" VerticalAlignment="Top" Width="520">
                 <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" Height="84" Width="470" FontWeight="Normal" >
 

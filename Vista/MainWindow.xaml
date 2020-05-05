@@ -33,7 +33,7 @@
                 <Label x:Name="label" Content="Cerrar Sesión" HorizontalAlignment="Left" Margin="33,4,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14.667"/>
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="175,175,843,217" Click="Tile_Click_4" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF11233F" Width="Auto">
+        <Controls:Tile Margin="175,175,843,217" Click="Tile_Click_AdmCliente" Height="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF11233F" Width="Auto">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF11233F"/>
             </Controls:Tile.Effect>
@@ -59,7 +59,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="320,304,579,216"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_9">
+        <Controls:Tile Margin="320,304,579,216"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_Banco">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
             </Controls:Tile.Effect>
@@ -85,7 +85,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="455,175,445,345" Click="Tile_Click_1" Height="Auto" Width="Auto" BorderThickness="1" Controls:ControlsHelper.MouseOverBorderBrush="#FF321D71">
+        <Controls:Tile Margin="455,175,445,345" Click="Tile_Click_Informe" Height="Auto" Width="Auto" BorderThickness="1" Controls:ControlsHelper.MouseOverBorderBrush="#FF321D71">
             <Controls:Tile.Effect>
                 <DropShadowEffect Color="#FF321D71" BlurRadius="6"/>
             </Controls:Tile.Effect>
@@ -108,7 +108,7 @@
                 </Label>
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="854,175,174,345" Click="Tile_Click_3" Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto">
+        <Controls:Tile Margin="854,175,174,345" Click="Tile_Click_Inspector" Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF211104"/>
             </Controls:Tile.Effect>
@@ -133,7 +133,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="320,175,708,345"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_10">
+        <Controls:Tile Margin="320,175,708,345"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_ListCliente">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
             </Controls:Tile.Effect>
@@ -159,7 +159,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="438,432,579,88"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_17">
+        <Controls:Tile Margin="438,432,579,88"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_Seguimiento">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
             </Controls:Tile.Effect>
@@ -185,7 +185,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="583,303,445,217"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_18">
+        <Controls:Tile Margin="583,303,445,217"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_Historial">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
             </Controls:Tile.Effect>
@@ -210,7 +210,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="718,175,300,217"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_12">
+        <Controls:Tile Margin="718,175,300,217"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_Equipo">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
             </Controls:Tile.Effect>
@@ -235,7 +235,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="854,304,174,217"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_11">
+        <Controls:Tile Margin="854,303,174,218"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_ListaInsp">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
             </Controls:Tile.Effect>
@@ -261,7 +261,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="854,432,174,88"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_16">
+        <Controls:Tile Margin="854,432,174,88"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_Insumos">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
             </Controls:Tile.Effect>
@@ -287,7 +287,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="583,432,302,88"  Width="Auto" BorderThickness="1" Controls:ControlsHelper.MouseOverBorderBrush="#FF321D71" Height="Auto" Click="Tile_Click_13" >
+        <Controls:Tile Margin="583,432,302,88"  Width="Auto" BorderThickness="1" Controls:ControlsHelper.MouseOverBorderBrush="#FF321D71" Height="Auto" Click="Tile_Click_Sevicio" >
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
             </Controls:Tile.Effect>
@@ -313,7 +313,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="175,432,705,88"  BorderThickness="1" Controls:ControlsHelper.MouseOverBorderBrush="#FF321D71" Click="Tile_Click_14" Width="Auto" Height="Auto">
+        <Controls:Tile Margin="175,432,705,88"  BorderThickness="1" Controls:ControlsHelper.MouseOverBorderBrush="#FF321D71" Click="Tile_Click_Agenda" Width="Auto" Height="Auto">
             <Controls:Tile.Effect>
                 <DropShadowEffect Color="#FF321D71" BlurRadius="6"/>
             </Controls:Tile.Effect>

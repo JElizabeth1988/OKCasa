@@ -12,16 +12,31 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using MahApps.Metro.Behaviours;
+
 namespace Vista
 {
     /// <summary>
     /// Lógica de interacción para Seguimiento.xaml
     /// </summary>
-    public partial class Seguimiento : Window
+    public partial class Seguimiento : MetroWindow
     {
         public Seguimiento()
         {
             InitializeComponent();
+        }
+
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnListCliente_Click(object sender, RoutedEventArgs e)
+        {
+            ListadoCliente lc = new ListadoCliente();
+            lc.ShowDialog();
         }
     }
 }

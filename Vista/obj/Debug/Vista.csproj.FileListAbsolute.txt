@@ -93,12 +93,10 @@ C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\BibliotecaClases.dll
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\BibliotecaControlador.dll
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\BibliotecaClases.pdb
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\BibliotecaControlador.pdb
-C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Agenda.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Cliente.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\EquiposInspeccion.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\FormularioInspeccion.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Insumos.g.cs
-C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Agenda.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Cliente.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\EquiposInspeccion.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\FormularioInspeccion.baml
@@ -119,3 +117,5 @@ C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Seguimiento.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Servicio.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ConsultarBanco.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ConsultarBanco.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Horario.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Horario.baml

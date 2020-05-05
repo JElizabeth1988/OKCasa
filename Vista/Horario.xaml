@@ -1,0 +1,112 @@
+﻿<Controls:MetroWindow x:Class="Vista.Horario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+                      
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      
+        xmlns:local="clr-namespace:Vista"
+        mc:Ignorable="d"
+        Title="Disponibilidad de Agenda" Height="650.333" Width="845" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Icon="Imagenes/logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal">
+
+    <Window.Resources>
+        <Style TargetType="StackPanel">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="AgnedaStyle"  TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="FontSize" Value="13.5"/>
+            <Setter Property="Background" Value="Coral"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#FFD2DBEC">
+        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="708,572,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
+        <GroupBox x:Name="gbFiltrar" Header="agenda Mensual de Inspecciones" HorizontalAlignment="Left" Margin="31,154,0,0" VerticalAlignment="Top" Height="405" Width="769"  Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
+            <Grid HorizontalAlignment="Left" Height="367" Margin="0,0,-21,0" VerticalAlignment="Top" Width="763">
+                <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="340" Margin="20,16,0,0" VerticalAlignment="Top" Width="719">
+                    <TabItem Header="Semana 1" Margin="0,0,2.333,1" Controls:ControlsHelper.HeaderFontSize="18">
+                        <Grid Background="#FFE5E5E5" Margin="0,0,2.667,1.667">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="109*"/>
+                                <ColumnDefinition Width="113*"/>
+                                <ColumnDefinition Width="124*"/>
+                                <ColumnDefinition Width="121*"/>
+                                <ColumnDefinition Width="125*"/>
+                                <ColumnDefinition Width="118*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="44*"/>
+                                <RowDefinition Height="63*"/>
+                                <RowDefinition Height="66*"/>
+                                <RowDefinition Height="59*"/>
+                                <RowDefinition Height="60*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,113,0" >Hora</TextBlock>
+                            <TextBlock Grid.Column="1" Grid.Row="0" >Lunes</TextBlock>
+                            <TextBlock Grid.Column="2" Grid.Row="0" >Martes</TextBlock>
+                            <TextBlock Grid.Column="3" Grid.Row="0" >Miércoles</TextBlock>
+                            <TextBlock Grid.Column="4" Grid.Row="0" >Jueves</TextBlock>
+                            <TextBlock Grid.Column="5" Grid.Row="0" >Viernes</TextBlock>
+
+                            <TextBlock Grid.Column="0" Grid.Row="1" >10:00 - 12:00</TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="2" >13:00 - 15:00</TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="3" >15:00 - 17:00</TextBlock>
+                            <TextBlock Grid.Column="0" Grid.Row="4" >17:00 - 19:00</TextBlock>
+
+                            <StackPanel Grid.Column="3" Grid.Row="2" Height="59" Margin="5,1.667,4.333,5.333" Background="Coral">
+                                <TextBlock > Visita</TextBlock>
+                                <TextBlock Style="{StaticResource AgnedaStyle}">Av.Siempre</TextBlock>
+                                <TextBlock Style="{StaticResource AgnedaStyle}">Viva 142</TextBlock>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="5" Height="59" Margin="5,43,4,5.333" Background="Coral" Grid.RowSpan="2">
+                                <TextBlock > Visita</TextBlock>
+                                <TextBlock Style="{StaticResource AgnedaStyle}">Av.Siempre</TextBlock>
+                                <TextBlock Style="{StaticResource AgnedaStyle}">Viva 142</TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Semana 2" Margin="1.667,0,-2.333,1" Controls:ControlsHelper.HeaderFontSize="18">
+                        <Grid Background="#FFE5E5E5"/>
+                    </TabItem>
+                    <TabItem Header="Semana 3" Margin="9,0,-8.667,1" Controls:ControlsHelper.HeaderFontSize="18">
+                        <Grid Background="#FFE5E5E5"/>
+                    </TabItem>
+                    <TabItem Header="Semana 4" Margin="14.667,0,-15,1" Controls:ControlsHelper.HeaderFontSize="18" HorizontalAlignment="Left" Width="111">
+                        <Grid Background="#FFE5E5E5"/>
+                    </TabItem>
+                    <TabItem Header="Semana 5" Margin="21,0,-20.667,1" Controls:ControlsHelper.HeaderFontSize="18">
+                        <Grid Background="#FFE5E5E5"/>
+                    </TabItem>
+                </TabControl>
+
+            </Grid>
+        </GroupBox>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="101" Margin="506,33,0,0" VerticalAlignment="Top" Width="217" Source="Imagenes/logo11.png"/>
+        <GroupBox x:Name="gbFiltrar_Copy" Header="Datos" HorizontalAlignment="Left" Margin="77,19,0,0" VerticalAlignment="Top" Height="122" Width="359"  Background="#CC0C5395" Controls:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
+            <Grid HorizontalAlignment="Left" Height="84" Margin="10,4,-0.333,0" VerticalAlignment="Top" Width="339">
+                <Label x:Name="label_Copy" Content="Equipo Técnico:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,9,0,0"/>
+                <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top" Width="156"/>
+                <Label x:Name="label_Copy3" Content="Fecha:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,51,0,0"/>
+                <DatePicker x:Name="dtfechaSol"  HorizontalAlignment="Left" Margin="155,45,0,0" VerticalAlignment="Top"  SelectedDate="{x:Static sys:DateTime.Now}" FontWeight="Normal" Height="17"/>
+
+            </Grid>
+        </GroupBox>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="586,572,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
+
+    </Grid>
+</Controls:MetroWindow>

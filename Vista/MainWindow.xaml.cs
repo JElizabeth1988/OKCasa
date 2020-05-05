@@ -49,114 +49,77 @@ namespace Vista
 
             }
         }
-
-        private void Tile_Click_1(object sender, RoutedEventArgs e)
-        {
-            FormularioInspeccion formu = new FormularioInspeccion();
-            formu.ShowDialog();
-        }
-
-        private void Tile_Click_2(object sender, RoutedEventArgs e)
-        {
-            Agenda age = new Agenda();
-            age.ShowDialog();
-        }
-
-        private void Tile_Click_3(object sender, RoutedEventArgs e)
-        {
-            Tecnico Tec = new Tecnico();
-            Tec.ShowDialog();
-        }
-
-        private void Tile_Click_4(object sender, RoutedEventArgs e)
+        //Cliente
+        private void Tile_Click_AdmCliente(object sender, RoutedEventArgs e)
         {
             Cliente cli = new Cliente();
             cli.ShowDialog();
         }
-
-        private void Tile_Click_5(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Tile_Click_6(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Tile_Click_7(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Tile_Click_8(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Tile_Click_9(object sender, RoutedEventArgs e)
-        {
-            ConsultarBanco be = new ConsultarBanco();
-            be.ShowDialog();
-        }
-
-        private void Tile_Click_10(object sender, RoutedEventArgs e)
+        //ListadoCleinte
+        private void Tile_Click_ListCliente(object sender, RoutedEventArgs e)
         {
             ListadoCliente liCli = new ListadoCliente();
             liCli.ShowDialog();
         }
-
-        private void Tile_Click_11(object sender, RoutedEventArgs e)
+        //Banco Estado
+        private void Tile_Click_Banco(object sender, RoutedEventArgs e)
         {
-            ListadoInspectores liIns = new ListadoInspectores();
-            liIns.ShowDialog();
+            ConsultarBanco be = new ConsultarBanco();
+            be.ShowDialog();
         }
-
-        private void Tile_Click_12(object sender, RoutedEventArgs e)
-        {
-            EquiposInspeccion equi = new EquiposInspeccion();
-            equi.ShowDialog();
-        }
-        //Click Servicios
-        private void Tile_Click_13(object sender, RoutedEventArgs e)
+        //Servicio
+        private void Tile_Click_Sevicio(object sender, RoutedEventArgs e)
         {
             Servicio ser = new Servicio();
             ser.ShowDialog();
         }
-        //Click Consultar Agenda
-        private void Tile_Click_14(object sender, RoutedEventArgs e)
+        //Seguimiento
+        private void Tile_Click_Seguimiento(object sender, RoutedEventArgs e)
         {
-
+            Seguimiento seg = new Seguimiento();
+            seg.ShowDialog();
         }
-
-        private void Tile_Click_15(object sender, RoutedEventArgs e)
+        //Agenda
+        private void Tile_Click_Agenda(object sender, RoutedEventArgs e)
         {
-            Agenda ag = new Agenda();
+            Horario ag = new Horario();
             ag.ShowDialog();
         }
-
-        private void Tile_Click_16(object sender, RoutedEventArgs e)
+        //Informe
+        private void Tile_Click_Informe(object sender, RoutedEventArgs e)
         {
-            Insumos ins = new Insumos();
-            ins.ShowDialog();
+            FormularioInspeccion formu = new FormularioInspeccion();
+            formu.ShowDialog();
         }
-
-        //Seguimiento
-        private void Tile_Click_17(object sender, RoutedEventArgs e)
-        {
-
-        }
-        //Historial 
-        private void Tile_Click_18(object sender, RoutedEventArgs e)
+        //Historial
+        private void Tile_Click_Historial(object sender, RoutedEventArgs e)
         {
             ListadoFormulario lf = new ListadoFormulario();
             lf.ShowDialog();
         }
-
-        //MovimientoInsumos
-        private void Tile_Click_19(object sender, RoutedEventArgs e)
+        //Equipo
+        private void Tile_Click_Equipo(object sender, RoutedEventArgs e)
         {
-
+            EquiposInspeccion equi = new EquiposInspeccion();
+            equi.ShowDialog();
+        }
+        //Técnico
+        private void Tile_Click_Inspector(object sender, RoutedEventArgs e)
+        {
+            Tecnico Tec = new Tecnico();
+            Tec.ShowDialog();
+        }
+        //ListadoInspectores
+        private void Tile_Click_ListaInsp(object sender, RoutedEventArgs e)
+        {
+            ListadoInspectores liIns = new ListadoInspectores();
+            liIns.ShowDialog();
+        }
+        //Insumos
+        private void Tile_Click_Insumos(object sender, RoutedEventArgs e)
+        {
+            Insumos ins = new Insumos();
+            ins.ShowDialog();
         }
     }
 }
