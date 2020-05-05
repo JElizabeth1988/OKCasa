@@ -395,6 +395,9 @@
     <Resource Include="Img\horsEditor-960x600.png" />
     <Resource Include="Img\Tools-02.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Solicitudes.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

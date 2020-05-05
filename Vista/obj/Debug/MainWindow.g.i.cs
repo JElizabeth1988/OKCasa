@@ -260,6 +260,22 @@ namespace Vista {
         #line default
         #line hidden
         
+        
+        #line 352 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Image image6;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 357 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label label10;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -474,6 +490,20 @@ namespace Vista {
             return;
             case 40:
             this.label11 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 41:
+            
+            #line 341 "..\..\MainWindow.xaml"
+            ((MahApps.Metro.Controls.Tile)(target)).Click += new System.Windows.RoutedEventHandler(this.Tile_Click_Solicitud);
+            
+            #line default
+            #line hidden
+            return;
+            case 42:
+            this.image6 = ((System.Windows.Controls.Image)(target));
+            return;
+            case 43:
+            this.label10 = ((System.Windows.Controls.Label)(target));
             return;
             }
             this._contentLoaded = true;

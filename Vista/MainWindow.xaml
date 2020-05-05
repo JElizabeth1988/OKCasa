@@ -159,7 +159,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="438,432,579,88"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_Seguimiento">
+        <Controls:Tile Margin="446,432,579,88"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_Seguimiento">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
             </Controls:Tile.Effect>
@@ -274,7 +274,7 @@
                 </LinearGradientBrush>
             </Controls:Tile.Background>
             <Grid Height="100" Width="108">
-                <Image x:Name="image16" HorizontalAlignment="Left" Margin="28,8,0,41" Width="65" Source="Img/Toolbox.png">
+                <Image x:Name="image16" HorizontalAlignment="Left" Margin="28,8,0,41" Width="65" Source="Img/Tools-02.png">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.8"/>
                     </Image.Effect>
@@ -313,7 +313,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="175,432,705,88"  BorderThickness="1" Controls:ControlsHelper.MouseOverBorderBrush="#FF321D71" Click="Tile_Click_Agenda" Width="Auto" Height="Auto">
+        <Controls:Tile Margin="175,432,843,88"  BorderThickness="1" Controls:ControlsHelper.MouseOverBorderBrush="#FF321D71" Click="Tile_Click_Agenda" Width="Auto" Height="Auto">
             <Controls:Tile.Effect>
                 <DropShadowEffect Color="#FF321D71" BlurRadius="6"/>
             </Controls:Tile.Effect>
@@ -325,13 +325,36 @@
                     <GradientStop Color="#FFCC7A5B" Offset="0.49"/>
                 </LinearGradientBrush>
             </Controls:Tile.Background>
-            <Grid Height="97" Width="222" >
-                <Image x:Name="image3" HorizontalAlignment="Left" Height="65" Margin="133,11,0,0" VerticalAlignment="Top" Width="70" Source="Img/Agenda-Blanco.png">
+            <Grid Height="97" Width="103" >
+                <Image x:Name="image3" HorizontalAlignment="Left" Height="41" Margin="28,6,0,0" VerticalAlignment="Top" Width="48" Source="Img/Agenda-Blanco.png">
                     <Image.Effect>
                         <DropShadowEffect/>
                     </Image.Effect>
                 </Image>
-                <Label x:Name="label11" Content="Consultar &#xA; Agenda" HorizontalAlignment="Left" Margin="22,20,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="14" BorderThickness="1">
+                <Label x:Name="label11" Content="Administrar &#xA;    Agenda" HorizontalAlignment="Left" Margin="6,48,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="14" BorderThickness="1" Width="93">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="6" ShadowDepth="2" Opacity="0.9"/>
+                    </Label.Effect>
+                </Label>
+            </Grid>
+        </Controls:Tile>
+        <Controls:Tile Margin="320,432,708,88"  BorderThickness="1" Controls:ControlsHelper.MouseOverBorderBrush="#FF321D71" Click="Tile_Click_Solicitud" Width="Auto" Height="Auto">
+            <Controls:Tile.Effect>
+                <DropShadowEffect Color="#FF321D71" BlurRadius="6"/>
+            </Controls:Tile.Effect>
+            <Controls:Tile.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                    <GradientStop Color="#FF178C3E" Offset="0.997"/>
+                    <GradientStop Color="#FFAB74FF"/>
+                </LinearGradientBrush>
+            </Controls:Tile.Background>
+            <Grid Height="97" Width="103" >
+                <Image x:Name="image6" HorizontalAlignment="Left" Height="51" Margin="25,3,0,0" VerticalAlignment="Top" Width="53" Source="Img/Solicitudes.png">
+                    <Image.Effect>
+                        <DropShadowEffect/>
+                    </Image.Effect>
+                </Image>
+                <Label x:Name="label10" Content="       Ver &#xA; Solicitudes" HorizontalAlignment="Left" Margin="8,48,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" FontSize="14" BorderThickness="1">
                     <Label.Effect>
                         <DropShadowEffect BlurRadius="6" ShadowDepth="2" Opacity="0.9"/>
                     </Label.Effect>

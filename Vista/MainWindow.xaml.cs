@@ -121,5 +121,10 @@ namespace Vista
             Insumos ins = new Insumos();
             ins.ShowDialog();
         }
+        //Solicitud
+        private void Tile_Click_Solicitud(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
