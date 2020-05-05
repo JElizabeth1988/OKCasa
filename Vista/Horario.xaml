@@ -74,9 +74,9 @@
                             </StackPanel>
 
                             <StackPanel Grid.Column="5" Height="59" Margin="5,43,4,5.333" Background="Coral" Grid.RowSpan="2">
-                                <TextBlock > Visita</TextBlock>
-                                <TextBlock Style="{StaticResource AgnedaStyle}">Av.Siempre</TextBlock>
-                                <TextBlock Style="{StaticResource AgnedaStyle}">Viva 142</TextBlock>
+                                <TextBlock > 2da. Visita</TextBlock>
+                                <TextBlock Style="{StaticResource AgnedaStyle}">Calle el Sol</TextBlock>
+                                <TextBlock Style="{StaticResource AgnedaStyle}">443</TextBlock>
                             </StackPanel>
                         </Grid>
                     </TabItem>

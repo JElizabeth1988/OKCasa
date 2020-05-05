@@ -13,13 +13,13 @@
         Title="Informe"  Height="648" Width="850"  WindowTitleBrush="Black" ResizeMode="NoResize" Icon="imagenes/logo yo.jpg" WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" GlowBrush="Black" NonActiveBorderBrush="#FF0A0202" WindowTransitionsEnabled="False" BorderThickness="0" FontWeight="Bold" >
 
     <Grid Background="#FFDCDDDF" Margin="0,0,-4.333,-1631">
-        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" Margin="-6,0,7,1621">
+        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" Margin="-6,0,7,1635">
             <Grid Height="2220" Width="820">
                 <GroupBox x:Name="ContenedorPrincipal" Header="                                                                                                                          Informe Técnico" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Height="2201" Width="761" Background="#CC0C5395" Controls:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10" TextOptions.TextHintingMode="Animated">
                     <Grid HorizontalAlignment="Left" Height="2191" Margin="10,0,0,-23" VerticalAlignment="Top" Width="741">
                         <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="625,124,0,0" VerticalAlignment="Top" Width="92" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Height="31"/>
                         <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="625,204,0,0" VerticalAlignment="Top" Width="92" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Height="31"/>
-                        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="625,164,0,0" VerticalAlignment="Top" Width="92" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC941928" FontSize="12" Height="31" Click="btnCancelar_Click"/>
+                        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="625,164,0,0" VerticalAlignment="Top" Width="92" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Height="31" Click="btnCancelar_Click"/>
 
                         <Label x:Name="label" Content="Fecha Solicitud:" HorizontalAlignment="Left" Margin="28,26,0,0" VerticalAlignment="Top"/>
                         <DatePicker x:Name="dtfechaSol"  HorizontalAlignment="Left" Margin="131,27,0,0" VerticalAlignment="Top"  SelectedDate="{x:Static sys:DateTime.Now}" FontWeight="Normal"/>

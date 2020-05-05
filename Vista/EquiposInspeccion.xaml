@@ -14,7 +14,7 @@
         Title="Administrador Equipo" Height="503.166" Width="618.667" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Icon="Imagenes/logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal">
     <Grid Background="#FFD2DBEC">
 
-        <Button x:Name="btnSalir" Content="Cancelar" Margin="505,428,13.833,0" VerticalAlignment="Top"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
+        <Button x:Name="btnSalir" Content="Cancelar" Margin="489,428,43.333,0" VerticalAlignment="Top"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
         <GroupBox x:Name="gbFiltrar" Header="Administrar Equipo Técnico" HorizontalAlignment="Left" Margin="41,21,0,0" VerticalAlignment="Top" Height="177" Width="430"  Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
             <Grid HorizontalAlignment="Left" Height="142" Margin="2,2,0,-1.333" VerticalAlignment="Top" Width="401">
                 <Button x:Name="btnBuscar" Content="Buscar" Margin="301,4,27,0" VerticalAlignment="Top"  FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>

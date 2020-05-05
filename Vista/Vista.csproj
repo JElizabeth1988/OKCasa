@@ -162,9 +162,6 @@
     <Compile Include="ConsultarBanco.xaml.cs">
       <DependentUpon>ConsultarBanco.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Historial.xaml.cs">
-      <DependentUpon>Historial.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Horario.xaml.cs">
       <DependentUpon>Horario.xaml</DependentUpon>
     </Compile>
@@ -193,10 +190,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FormularioInspeccion.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Historial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

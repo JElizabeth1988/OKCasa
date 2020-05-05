@@ -109,10 +109,8 @@ C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ListadoInspectores.g.
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Tecnico.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ListadoInspectores.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Tecnico.baml
-C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Historial.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Seguimiento.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Servicio.g.cs
-C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Historial.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Seguimiento.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Servicio.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ConsultarBanco.g.cs
