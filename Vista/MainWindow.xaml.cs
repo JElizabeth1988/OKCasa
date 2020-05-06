@@ -124,7 +124,8 @@ namespace Vista
         //Solicitud
         private void Tile_Click_Solicitud(object sender, RoutedEventArgs e)
         {
-
+            Solicitud sol = new Solicitud();
+            sol.ShowDialog();
         }
     }
 }

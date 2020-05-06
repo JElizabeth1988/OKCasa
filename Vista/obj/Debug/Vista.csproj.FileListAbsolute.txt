@@ -117,3 +117,5 @@ C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ConsultarBanco.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\ConsultarBanco.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Horario.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Horario.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Solicitud.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Solicitud.baml
