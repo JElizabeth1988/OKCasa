@@ -276,6 +276,7 @@
                         <RadioButton x:Name="rbPrimera" Content="Primera Revisión" HorizontalAlignment="Left" Margin="138,61,0,0" VerticalAlignment="Top" FontWeight="Bold" IsChecked="True" GroupName="Estado"/>
                         <RadioButton x:Name="rbSegunda" Content="Segunda Revisión" HorizontalAlignment="Left" Margin="288,61,0,0" VerticalAlignment="Top" FontWeight="Bold" GroupName="Estado"/>
                         <RadioButton x:Name="rbCierre" Content="Cierre" HorizontalAlignment="Left" Margin="446,61,0,0" VerticalAlignment="Top" FontWeight="Bold" GroupName="Estado"/>
+                        <Button x:Name="btnEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="625,244,0,0" VerticalAlignment="Top" Width="92" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Height="31" Click="btnEnviar_Click"/>
                     </Grid>
                 </GroupBox>
                 <GroupBox x:Name="groupBox6" Header="Termografía" HorizontalAlignment="Left" Margin="77,1895,0,0" VerticalAlignment="Top" Height="148" Width="679" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10">
