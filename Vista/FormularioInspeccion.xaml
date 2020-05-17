@@ -12,10 +12,10 @@
         mc:Ignorable="d"
         Title="Informe"  Height="648" Width="850"  WindowTitleBrush="Black" ResizeMode="NoResize" Icon="imagenes/logo yo.jpg" WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" GlowBrush="Black" NonActiveBorderBrush="#FF0A0202" WindowTransitionsEnabled="False" BorderThickness="0" FontWeight="Bold" >
 
-    <Grid Background="#FFDCDDDF" Margin="0,0,-4.333,-1631">
-        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" Margin="-6,0,7,1635">
-            <Grid Height="2220" Width="820">
-                <GroupBox x:Name="ContenedorPrincipal" Header="                                                                                                                          Informe Técnico" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Height="2201" Width="761" Background="#CC0C5395" Controls:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10" TextOptions.TextHintingMode="Animated">
+    <Grid Background="#FFDCDDDF" Margin="0,0,-4.333,-1514">
+        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" Margin="-6,0,7,1527">
+            <Grid Height="2076" Width="820">
+                <GroupBox x:Name="ContenedorPrincipal" Header="                                                                                                                          Informe Técnico" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Height="2066" Width="761" Background="#CC0C5395" Controls:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10" TextOptions.TextHintingMode="Animated">
                     <Grid HorizontalAlignment="Left" Height="2191" Margin="10,0,0,-23" VerticalAlignment="Top" Width="741">
                         <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="625,124,0,0" VerticalAlignment="Top" Width="92" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Height="31"/>
                         <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="625,204,0,0" VerticalAlignment="Top" Width="92" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Height="31"/>
@@ -83,120 +83,67 @@
                             </Grid>
                         </GroupBox>
 
-                        <GroupBox x:Name="groupBox" Header="Verificación de Instalaciones y Terminaciones" Margin="28,571,35,0" VerticalAlignment="Top" Height="915" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10">
-                            <Grid HorizontalAlignment="Left" Height="906" Margin="0,-1,0,0" VerticalAlignment="Top" Width="659">
+                        <GroupBox x:Name="groupBox" Header="Verificación de Instalaciones y Terminaciones" Margin="28,571,35,0" VerticalAlignment="Top" Height="769" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10">
+                            <Grid HorizontalAlignment="Left" Height="738" Margin="0,-1,0,0" VerticalAlignment="Top" Width="659">
                                 <Label x:Name="label11" Content="La vivienda cumple con las Siguientes normas de habitabilidad (ART. 4.1.1, 4.1.2, 4.1.3):" HorizontalAlignment="Left" Margin="57,-3,0,0" VerticalAlignment="Top"/>
                                 <Label x:Name="label12" Content="• Atura mínima piso a cielo de 2,30 m." HorizontalAlignment="Left" Margin="57,26,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
                                 <CheckBox x:Name="chbAltura" Content="" HorizontalAlignment="Left" Margin="345,32,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label12_Copy" Content="• Locales habitables que no contemplan ventana &#10;  poseen ductos de ventilación de aire" HorizontalAlignment="Left" Margin="370,65,0,0" VerticalAlignment="Top" Height="50" Width="268" FontWeight="Normal"/>
-                                <CheckBox x:Name="chbLocal" Content="" HorizontalAlignment="Left" Margin="345,74,0,0" VerticalAlignment="Top" />
                                 <Label x:Name="label13" Content="• Locales habitables poseen al menos una ventana &#10;  que permita entrada de luz y aire" HorizontalAlignment="Left" Margin="370,26,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="276"/>
                                 <CheckBox x:Name="checkBox" Content="" HorizontalAlignment="Left" Margin="32,32,0,0" VerticalAlignment="Top"/>
                                 <CheckBox x:Name="checkBox1" Content="" HorizontalAlignment="Left" Margin="32,53,0,0" VerticalAlignment="Top"/>
-                                <CheckBox x:Name="checkBox2" Content="" HorizontalAlignment="Left" Margin="32,78,0,0" VerticalAlignment="Top"/>
                                 <Label x:Name="label12_Copy1" Content="• Baño y cocinas contemplan ventana al exterior " HorizontalAlignment="Left" Margin="57,48,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="268"/>
-                                <Label x:Name="label12_Copy2" Content="• Baños y cocinas que no contemplan ventana &#10;  al exterior poseen ductos de ventilación de aire" HorizontalAlignment="Left" Margin="57,72,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="268"/>
-                                <Label x:Name="label11_Copy" Content="La vivienda cumple con la Exigencia Térmica (ART. 4.1.10):" HorizontalAlignment="Left" Margin="129,111,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label12_Copy3" Content="• Aislación para techumbre de espesor mínimo &#10;  60 mm." HorizontalAlignment="Left" Margin="57,134,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy4" Content="• Muros de albañilería de ladrillo o bloque de &#10;  hormigón" HorizontalAlignment="Left" Margin="57,173,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy5" Content="• Tabiques exteriores con aislación de espesor &#10;   mínimo 30 mm." HorizontalAlignment="Left" Margin="370,134,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy6" Content="• Aislación para pisos ventilados mínimo 50 mm." HorizontalAlignment="Left" Margin="57,213,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy7" Content="• La superficie de ventanas no sobrepasa el 40% &#10;  de la superficie de muros" HorizontalAlignment="Left" Margin="370,172,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <CheckBox x:Name="checkBox2_Copy" Content="" HorizontalAlignment="Left" Margin="32,142,0,0" VerticalAlignment="Top"/>
-                                <CheckBox x:Name="checkBox2_Copy1" Content="" HorizontalAlignment="Left" Margin="32,218,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy2" Content="" HorizontalAlignment="Left" Margin="345,142,0,0" VerticalAlignment="Top"/>
-                                <CheckBox x:Name="checkBox2_Copy3" Content="" HorizontalAlignment="Left" Margin="32,181,0,0" VerticalAlignment="Top"/>
-                                <CheckBox x:Name="checkBox2_Copy4" Content="" HorizontalAlignment="Left" Margin="345,180,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label11_Copy1" Content="La vivienda cumple con la Resistencia al fuego (ART. 4.3.3):" HorizontalAlignment="Left" Margin="129,239,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label12_Copy8" Content="• Tabique metalcon" HorizontalAlignment="Left" Margin="107,352,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy9" Content="• Muros contrafuego con resistencia F-120 (si corresponde), albañilería ladrillo o bloques" HorizontalAlignment="Left" Margin="57,262,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="477"/>
-                                <Label x:Name="label12_Copy10" Content="• Yeso-cartón 15 mm." HorizontalAlignment="Left" Margin="275,308,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy11" Content="• Muros de adosamiento o divisorio hasta la cubierta F-60/ Art. 4.3.5. numeral 14" HorizontalAlignment="Left" Margin="57,288,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="477"/>
-                                <Label x:Name="label12_Copy12" Content="• Albañilería" HorizontalAlignment="Left" Margin="107,308,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy13" Content="• Tabique de madera" HorizontalAlignment="Left" Margin="107,330,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy14" Content="• Otro" HorizontalAlignment="Left" Margin="469,330,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy15" Content="• fibrocemento 8 mm." HorizontalAlignment="Left" Margin="469,308,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy16" Content="• Yeso-cartón RF" HorizontalAlignment="Left" Margin="275,330,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <CheckBox x:Name="checkBox2_Copy5" Content="" HorizontalAlignment="Left" Margin="252,334,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy6" Content="" HorizontalAlignment="Left" Margin="444,334,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy7" Content="" HorizontalAlignment="Left" Margin="252,312,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy8" Content="" HorizontalAlignment="Left" Margin="444,312,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy9" Content="" HorizontalAlignment="Left" Margin="85,312,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy10" Content="" HorizontalAlignment="Left" Margin="32,266,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy11" Content="" HorizontalAlignment="Left" Margin="85,334,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy12" Content="" HorizontalAlignment="Left" Margin="32,293,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy13" Content="" HorizontalAlignment="Left" Margin="85,356,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <Label x:Name="label12_Copy18" Content="• Techumbre incluido cielo falso F-15" HorizontalAlignment="Left" Margin="57,458,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="477"/>
-                                <Label x:Name="label12_Copy19" Content="• Muros estructurales F-15/Art. 4.3.5 numeral 14 (vivienda 1 o 2 pisos hasta 140 m2)" HorizontalAlignment="Left" Margin="57,373,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="477"/>
-                                <Label x:Name="label12_Copy20" Content="• Albañilería" HorizontalAlignment="Left" Margin="107,393,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy21" Content="• Tabique de madera" HorizontalAlignment="Left" Margin="107,413,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy22" Content="• Tabique metalcon" HorizontalAlignment="Left" Margin="107,434,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy23" Content="• Yeso-cartón 15 mm." HorizontalAlignment="Left" Margin="275,393,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy24" Content="• Yeso-cartón RF" HorizontalAlignment="Left" Margin="275,413,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy25" Content="• fibrocemento 8 mm." HorizontalAlignment="Left" Margin="469,393,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy26" Content="• Otro" HorizontalAlignment="Left" Margin="469,413,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <CheckBox x:Name="checkBox2_Copy14" Content="" HorizontalAlignment="Left" Margin="85,440,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy15" Content="" HorizontalAlignment="Left" Margin="85,418,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy16" Content="" HorizontalAlignment="Left" Margin="85,396,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy17" Content="" HorizontalAlignment="Left" Margin="252,418,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy18" Content="" HorizontalAlignment="Left" Margin="252,396,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy19" Content="" HorizontalAlignment="Left" Margin="444,418,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy20" Content="" HorizontalAlignment="Left" Margin="444,396,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy21" Content="" HorizontalAlignment="Left" Margin="32,379,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <Label x:Name="label12_Copy17" Content="• Cielo yeso-cartón 10 mm." HorizontalAlignment="Left" Margin="107,518,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy27" Content="• Otro" HorizontalAlignment="Left" Margin="469,496,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy28" Content="• Cubierta fibrocemento" HorizontalAlignment="Left" Margin="469,475,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy29" Content="• Cubierta acero galvanizado" HorizontalAlignment="Left" Margin="275,496,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy30" Content="• Cielo fibrocemento" HorizontalAlignment="Left" Margin="275,475,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy31" Content="• Estructura metalcon" HorizontalAlignment="Left" Margin="107,496,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy32" Content="• Estructura de madera" HorizontalAlignment="Left" Margin="107,475,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <CheckBox x:Name="checkBox2_Copy22" Content="" HorizontalAlignment="Left" Margin="32,377,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy23" Content="" HorizontalAlignment="Left" Margin="32,459,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy24" Content="" HorizontalAlignment="Left" Margin="85,479,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy25" Content="" HorizontalAlignment="Left" Margin="85,500,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy26" Content="" HorizontalAlignment="Left" Margin="252,500,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy27" Content="" HorizontalAlignment="Left" Margin="252,479,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy28" Content="" HorizontalAlignment="Left" Margin="444,479,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy29" Content="" HorizontalAlignment="Left" Margin="444,501,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy30" Content="" HorizontalAlignment="Left" Margin="85,521,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <Label x:Name="label11_Copy2" Content="La vivienda cumple con las siguientes normas estructurales título 5, capítulo 6:" HorizontalAlignment="Left" Margin="94,547,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label12_Copy33" Content="• Muros interiores de albañilería" HorizontalAlignment="Left" Margin="57,585,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="477"/>
-                                <Label x:Name="label12_Copy34" Content="• Muros exteriores de albañilería" HorizontalAlignment="Left" Margin="57,564,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
-                                <Label x:Name="label12_Copy35" Content="• Cadenas de H.A. con un ancho mínimo igual al &#10;  espesor del muro y una altura no inferior a 20 cm. &#10;  y una armadura mínima  de 4Ø10 mm. y estribos&#10;  Ø6@20 cm." HorizontalAlignment="Left" Margin="57,674,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="290"/>
-                                <Label x:Name="label12_Copy37" Content="• Pilares de H.A. sección mínima 20x20 cm. con &#10;  armadura 4Ø 10 mm. y estribillos Ø6@20 cm." HorizontalAlignment="Left" Margin="57,606,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="477"/>
-                                <Label x:Name="label12_Copy38" Content="• Pilares de H.A. de 15x15 cm. en contribución &#10;  de un piso" HorizontalAlignment="Left" Margin="57,640,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="268"/>
-                                <Label x:Name="label12_Copy39" Content="• Toda la madera estructural es impregnada" HorizontalAlignment="Left" Margin="370,564,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy40" Content="• La dimensión de la madera de tabiques &#xA;  estructurales es de 2x4''" HorizontalAlignment="Left" Margin="370,585,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy41" Content="• La dimensión de la madera estructural de &#xA;  techumbres es de 1x4''" HorizontalAlignment="Left" Margin="370,617,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy42" Content="• Para entremado de piso la dimensión de cementos&#10;  de madera es de 2x6''" HorizontalAlignment="Left" Margin="370,654,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy36" Content="• Las fundaciones tienen una dimensión mínima de&#xA;  30x60 cm. penetrando a lo menos 20 cm. de &#10; terreno no removido" HorizontalAlignment="Left" Margin="370,689,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <CheckBox x:Name="checkBox2_Copy31" Content="" HorizontalAlignment="Left" Margin="33,569,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy32" Content="" HorizontalAlignment="Left" Margin="33,593,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy33" Content="" HorizontalAlignment="Left" Margin="33,616,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy34" Content="" HorizontalAlignment="Left" Margin="32,650,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy35" Content="" HorizontalAlignment="Left" Margin="32,683,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy36" Content="" HorizontalAlignment="Left" Margin="345,569,0,0" VerticalAlignment="Top"/>
-                                <CheckBox x:Name="checkBox2_Copy37" Content="" HorizontalAlignment="Left" Margin="345,593,0,0" VerticalAlignment="Top"/>
-                                <CheckBox x:Name="checkBox2_Copy38" Content="" HorizontalAlignment="Left" Margin="345,625,0,0" VerticalAlignment="Top"/>
-                                <CheckBox x:Name="checkBox2_Copy39" Content="" HorizontalAlignment="Left" Margin="346,661,0,0" VerticalAlignment="Top"/>
-                                <CheckBox x:Name="checkBox2_Copy40" Content="" HorizontalAlignment="Left" Margin="345,698,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label11_Copy3" Content="La vivienda cumple con las siguientes instalaciones funcionando correctamente:" HorizontalAlignment="Left" Margin="94,741,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label12_Copy43" Content="• Instalación eléctrica" HorizontalAlignment="Left" Margin="93,759,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
-                                <Label x:Name="label12_Copy44" Content="• Otro" HorizontalAlignment="Left" Margin="93,800,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
-                                <Label x:Name="label12_Copy45" Content="• Instalación de gas" HorizontalAlignment="Left" Margin="350,779,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
-                                <Label x:Name="label12_Copy46" Content="• Instalación de agua potable" HorizontalAlignment="Left" Margin="93,779,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
-                                <Label x:Name="label12_Copy47" Content="• Instalación de alcantarillado" HorizontalAlignment="Left" Margin="350,757,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
-                                <CheckBox x:Name="checkBox2_Copy41" Content="" HorizontalAlignment="Left" Margin="324,762,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556" FontWeight="Bold"/>
-                                <CheckBox x:Name="checkBox2_Copy42" Content="" HorizontalAlignment="Left" Margin="324,784,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy43" Content="" HorizontalAlignment="Left" Margin="72,762,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy44" Content="" HorizontalAlignment="Left" Margin="72,783,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy45" Content="" HorizontalAlignment="Left" Margin="72,804,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <Label x:Name="label11_Copy6" Content="Observaciones:" HorizontalAlignment="Left" Margin="20,822,0,0" VerticalAlignment="Top"/>
-                                <TextBox x:Name="TxtObsVerificacion" HorizontalAlignment="Left" Height="50" Margin="120,826,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="505" FontWeight="Normal"/>
+                                <Label x:Name="label11_Copy" Content="La vivienda cumple con la Exigencia Térmica (ART. 4.1.10):" HorizontalAlignment="Left" Margin="133,81,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label12_Copy3" Content="• Aislación para techumbre de espesor mínimo &#10;  60 mm." HorizontalAlignment="Left" Margin="57,112,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy4" Content="• Muros de albañilería de ladrillo o bloque de &#10;  hormigón" HorizontalAlignment="Left" Margin="57,151,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy5" Content="• Tabiques exteriores con aislación de espesor &#10;   mínimo 30 mm." HorizontalAlignment="Left" Margin="370,112,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy6" Content="• Aislación para pisos ventilados mínimo 50 mm." HorizontalAlignment="Left" Margin="57,191,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy7" Content="• La superficie de ventanas no sobrepasa el 40% &#10;  de la superficie de muros" HorizontalAlignment="Left" Margin="370,152,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <CheckBox x:Name="checkBox2_Copy" Content="" HorizontalAlignment="Left" Margin="32,122,0,0" VerticalAlignment="Top"/>
+                                <CheckBox x:Name="checkBox2_Copy1" Content="" HorizontalAlignment="Left" Margin="32,198,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
+                                <CheckBox x:Name="checkBox2_Copy2" Content="" HorizontalAlignment="Left" Margin="345,122,0,0" VerticalAlignment="Top"/>
+                                <CheckBox x:Name="checkBox2_Copy3" Content="" HorizontalAlignment="Left" Margin="32,161,0,0" VerticalAlignment="Top"/>
+                                <CheckBox x:Name="checkBox2_Copy4" Content="" HorizontalAlignment="Left" Margin="345,162,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label11_Copy1" Content="La vivienda cumple con la Resistencia al fuego (ART. 4.3.3):" HorizontalAlignment="Left" Margin="133,219,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label12_Copy9" Content="• Muros contrafuego con resistencia F-120 (si corresponde), albañilería ladrillo o bloques" HorizontalAlignment="Left" Margin="57,250,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="477"/>
+                                <Label x:Name="label12_Copy11" Content="• Muros de adosamiento o divisorio hasta la cubierta F-60/ Art. 4.3.5. numeral 14" HorizontalAlignment="Left" Margin="57,280,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="477"/>
+                                <CheckBox x:Name="checkBox2_Copy10" Content="" HorizontalAlignment="Left" Margin="32,254,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
+                                <CheckBox x:Name="checkBox2_Copy12" Content="" HorizontalAlignment="Left" Margin="32,287,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
+                                <Label x:Name="label12_Copy18" Content="• Techumbre incluido cielo falso F-15" HorizontalAlignment="Left" Margin="57,340,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="227"/>
+                                <Label x:Name="label12_Copy19" Content="• Muros estructurales F-15/Art. 4.3.5 numeral 14 (vivienda 1 o 2 pisos hasta 140 m2)" HorizontalAlignment="Left" Margin="57,311,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="477"/>
+                                <CheckBox x:Name="checkBox2_Copy21" Content="" HorizontalAlignment="Left" Margin="32,313,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
+                                <CheckBox x:Name="checkBox2_Copy23" Content="" HorizontalAlignment="Left" Margin="32,345,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
+                                <Label x:Name="label11_Copy2" Content="La vivienda cumple con las siguientes normas estructurales título 5, capítulo 6:" HorizontalAlignment="Left" Margin="94,371,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label12_Copy33" Content="• Muros interiores de albañilería" HorizontalAlignment="Left" Margin="57,425,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="268"/>
+                                <Label x:Name="label12_Copy34" Content="• Muros exteriores de albañilería" HorizontalAlignment="Left" Margin="57,398,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
+                                <Label x:Name="label12_Copy38" Content="• Pilares de H.A. de 15x15 cm. en contribución &#10;  de un piso" HorizontalAlignment="Left" Margin="57,503,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="268"/>
+                                <Label x:Name="label12_Copy39" Content="• Toda la madera estructural es impregnada" HorizontalAlignment="Left" Margin="370,398,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy40" Content="• La dimensión de la madera de tabiques &#xA;  estructurales es de 2x4''" HorizontalAlignment="Left" Margin="370,423,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy41" Content="• La dimensión de la madera estructural de &#xA;  techumbres es de 1x4''" HorizontalAlignment="Left" Margin="57,456,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy42" Content="• Para entremado de piso la dimensión de cementos&#10;  de madera es de 2x6''" HorizontalAlignment="Left" Margin="370,470,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <CheckBox x:Name="checkBox2_Copy31" Content="" HorizontalAlignment="Left" Margin="32,402,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
+                                <CheckBox x:Name="checkBox2_Copy32" Content="" HorizontalAlignment="Left" Margin="32,430,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
+                                <CheckBox x:Name="checkBox2_Copy34" Content="" HorizontalAlignment="Left" Margin="32,470,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
+                                <CheckBox x:Name="checkBox2_Copy36" Content="" HorizontalAlignment="Left" Margin="350,406,0,0" VerticalAlignment="Top"/>
+                                <CheckBox x:Name="checkBox2_Copy37" Content="" HorizontalAlignment="Left" Margin="350,434,0,0" VerticalAlignment="Top"/>
+                                <CheckBox x:Name="checkBox2_Copy38" Content="" HorizontalAlignment="Left" Margin="350,481,0,0" VerticalAlignment="Top"/>
+                                <CheckBox x:Name="checkBox2_Copy39" Content="" HorizontalAlignment="Left" Margin="32,513,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label11_Copy3" Content="La vivienda cumple con las siguientes instalaciones funcionando correctamente:" HorizontalAlignment="Left" Margin="94,547,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label12_Copy43" Content="• Instalación eléctrica" HorizontalAlignment="Left" Margin="57,579,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
+                                <Label x:Name="label12_Copy44" Content="• Otro" HorizontalAlignment="Left" Margin="57,639,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
+                                <Label x:Name="label12_Copy45" Content="• Instalación de gas" HorizontalAlignment="Left" Margin="370,608,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
+                                <Label x:Name="label12_Copy46" Content="• Instalación de agua potable" HorizontalAlignment="Left" Margin="57,609,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
+                                <Label x:Name="label12_Copy47" Content="• Instalación de alcantarillado" HorizontalAlignment="Left" Margin="370,579,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
+                                <CheckBox x:Name="checkBox2_Copy41" Content="" HorizontalAlignment="Left" Margin="350,579,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556" FontWeight="Bold"/>
+                                <CheckBox x:Name="checkBox2_Copy42" Content="" HorizontalAlignment="Left" Margin="350,613,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
+                                <CheckBox x:Name="checkBox2_Copy43" Content="" HorizontalAlignment="Left" Margin="32,582,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
+                                <CheckBox x:Name="checkBox2_Copy44" Content="" HorizontalAlignment="Left" Margin="32,613,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
+                                <CheckBox x:Name="checkBox2_Copy45" Content="" HorizontalAlignment="Left" Margin="32,641,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
+                                <Label x:Name="label11_Copy6" Content="Observaciones:" HorizontalAlignment="Left" Margin="32,671,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="TxtObsVerificacion" HorizontalAlignment="Left" Height="50" Margin="134,671,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="476" FontWeight="Normal"/>
                             </Grid>
                         </GroupBox>
                         <Image x:Name="image" HorizontalAlignment="Left" Height="51" Margin="606,6,0,0" VerticalAlignment="Top" Width="119" Source="Imagenes/logo11.png"/>
-                        <GroupBox x:Name="groupBox4" Header="Medición de metros cuadrados" HorizontalAlignment="Left" Margin="28,1491,0,0" VerticalAlignment="Top" Height="179" Width="678" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10">
+                        <GroupBox x:Name="groupBox4" Header="Medición de metros cuadrados" HorizontalAlignment="Left" Margin="28,1347,0,0" VerticalAlignment="Top" Height="179" Width="678" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10">
                             <Grid HorizontalAlignment="Left" Height="155" VerticalAlignment="Top" Width="668">
                                 <Label x:Name="label11_Copy4" Content="Según Título Registrado (M2):" HorizontalAlignment="Left" Margin="2,-6,0,121"/>
                                 <Label x:Name="label14" Content="Área Total:" HorizontalAlignment="Left" Margin="8,17,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
@@ -220,7 +167,7 @@
                                 <Label x:Name="label11_Copy7" Content="Observaciones:" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="20,93,0,0"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox5" Header="Inspección de Servicios" HorizontalAlignment="Left" Margin="28,1674,0,0" VerticalAlignment="Top" Height="178" Width="678" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10">
+                        <GroupBox x:Name="groupBox5" Header="Inspección de Servicios" HorizontalAlignment="Left" Margin="28,1532,0,0" VerticalAlignment="Top" Height="178" Width="678" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10">
                             <Grid HorizontalAlignment="Left" Height="146" Margin="-4,-3,0,0" VerticalAlignment="Top" Width="672">
                                 <Label x:Name="label15" Content="Instalación Agua Potable:" HorizontalAlignment="Left" Margin="16,1,0,0" VerticalAlignment="Top" FontWeight="Normal" Grid.ColumnSpan="2"/>
                                 <Label x:Name="label15_Copy" Content="Artefactos Sanitarios:" HorizontalAlignment="Left" Margin="337,32,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
@@ -238,7 +185,7 @@
                                 <Label x:Name="label11_Copy8" Content="Observaciones:" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="20,93,0,0"/>
                             </Grid>
                         </GroupBox>
-                        <GroupBox x:Name="groupBox7" Header="Resultados de Inspección" HorizontalAlignment="Left" Margin="28,2009,0,0" VerticalAlignment="Top" Height="137" Width="678" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10">
+                        <GroupBox x:Name="groupBox7" Header="Resultados de Inspección" HorizontalAlignment="Left" Margin="28,1869,0,0" VerticalAlignment="Top" Height="137" Width="678" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10">
                             <Grid HorizontalAlignment="Left" Height="113" VerticalAlignment="Top" Width="668" Margin="0,-13,0,0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="64*"/>
@@ -279,7 +226,7 @@
                         <Button x:Name="btnEnviar" Content="Enviar" HorizontalAlignment="Left" Margin="625,244,0,0" VerticalAlignment="Top" Width="92" mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Height="31" Click="btnEnviar_Click"/>
                     </Grid>
                 </GroupBox>
-                <GroupBox x:Name="groupBox6" Header="Termografía" HorizontalAlignment="Left" Margin="77,1895,0,0" VerticalAlignment="Top" Height="148" Width="679" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10">
+                <GroupBox x:Name="groupBox6" Header="Termografía" HorizontalAlignment="Left" Margin="77,1753,0,0" VerticalAlignment="Top" Height="148" Width="679" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10">
                     <Grid HorizontalAlignment="Left" Height="117" VerticalAlignment="Top" Width="669" Margin="0,0,-0.333,-1">
                         <Label x:Name="label16" Content="Emisividad: " HorizontalAlignment="Left" Margin="10,1,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
                         <TextBox x:Name="txtEmisividad" HorizontalAlignment="Left" Height="23" Margin="122,1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" mah:TextBoxHelper.ClearTextButton="True" FontWeight="Normal"/>
