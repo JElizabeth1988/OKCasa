@@ -13,7 +13,7 @@
         Title="Informe"  Height="648" Width="850"  WindowTitleBrush="Black" ResizeMode="NoResize" Icon="imagenes/logo yo.jpg" WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" GlowBrush="Black" NonActiveBorderBrush="#FF0A0202" WindowTransitionsEnabled="False" BorderThickness="0" FontWeight="Bold" >
 
     <Grid Background="#FFDCDDDF" Margin="0,0,-4.333,-1514">
-        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" Margin="-6,0,7,1527">
+        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" Margin="-6,0,7,1511">
             <Grid Height="2076" Width="820">
                 <GroupBox x:Name="ContenedorPrincipal" Header="                                                                                                                          Informe Técnico" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Height="2066" Width="761" Background="#CC0C5395" Controls:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10" TextOptions.TextHintingMode="Animated">
                     <Grid HorizontalAlignment="Left" Height="2191" Margin="10,0,0,-23" VerticalAlignment="Top" Width="741">
@@ -59,87 +59,151 @@
                                 <TextBox x:Name="txtDepto" HorizontalAlignment="Left" Height="23" Margin="587,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" mah:TextBoxHelper.ClearTextButton="True" FontWeight="Normal" />
                                 <Label x:Name="label8_Copy" Content="N° de Habitaciones:" Margin="336,32,156.333,0" VerticalAlignment="Top"/>
                                 <ComboBox x:Name="cbHabita" Margin="457,32,158.667,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label8_Copy1" Content="N° de Pisos:" Margin="504,32,77.333,0" VerticalAlignment="Top"/>
-                                <ComboBox x:Name="cbPisos" Margin="578,32,19.667,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label8_Copy1" Content="N° de Pisos:" Margin="509,32,80.334,0" VerticalAlignment="Top"/>
+                                <ComboBox x:Name="cbPisos" Margin="588,32,9.334,0" VerticalAlignment="Top" FontWeight="Normal"/>
                                 <Label x:Name="label8_Copy2" Content="Valor Descuento:" Margin="336,91,185,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="txtDcto" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Dscto." Height="8" TextWrapping="Wrap" VerticalAlignment="Top" Width="114" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" Margin="487,92,0,0"/>
                             </Grid>
                         </GroupBox>
                         <GroupBox x:Name="groupBox3" Header=" Datos de Responsable" Margin="28,446,35,0" VerticalAlignment="Top" Height="120" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10" FontSize="13.333">
-                            <Grid HorizontalAlignment="Left" Height="102" Margin="10,0,0,0" VerticalAlignment="Top" Width="620">
+                            <Grid HorizontalAlignment="Left" Height="102" Margin="10,0,0,-14" VerticalAlignment="Top" Width="658">
 
                                 <Label x:Name="lbl1" Content="Rut:" HorizontalAlignment="Left" Margin="14,2,0,0" VerticalAlignment="Top" FontSize="12"/>
-                                <TextBox x:Name="txtNombreTec" mah:TextBoxHelper.Watermark="" Height="8" Margin="84,40,305,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"  IsEnabled="False"/>
+                                <TextBox x:Name="txtNombreTec" mah:TextBoxHelper.Watermark="" Height="8" Margin="84,40,341,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"  IsEnabled="False"/>
                                 <Label x:Name="lbl2" Content="Nombre:" HorizontalAlignment="Left" Margin="14,38,0,38" FontSize="12" FontWeight="Bold"/>
                                 <TextBox x:Name="txtRutTecnico" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Rut" Height="8" Margin="84,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
                                 <Button x:Name="btnBuscarRutT" Content="Buscar" HorizontalAlignment="Left" Margin="298,2,0,0" VerticalAlignment="Top" Width="75"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
                                 <Label x:Name="lbl2_Copy" Content="Equipo:" HorizontalAlignment="Left" Margin="383,2,0,74" FontSize="12" FontWeight="Bold"/>
-                                <TextBox x:Name="txtEquipo" mah:TextBoxHelper.Watermark="Ingrese Equipo" Height="8" Margin="441,2,2,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
                                 <Label x:Name="lbl2_Copy1" Content="Insumos:" HorizontalAlignment="Left" Margin="322,38,0,38" FontSize="12" FontWeight="Bold"/>
                                 <RadioButton x:Name="rbSi" Content="Si" HorizontalAlignment="Left" Margin="391,42,0,0" VerticalAlignment="Top" GroupName="Insumos" IsChecked="True"/>
                                 <RadioButton x:Name="rbNo" Content="No" HorizontalAlignment="Left" Margin="435,42,0,0" VerticalAlignment="Top" GroupName="Insumos" IsChecked="True"/>
                                 <Button x:Name="btnLsitarInsp" Content="?" HorizontalAlignment="Left" Margin="254,2,0,0" VerticalAlignment="Top" Width="32"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
                                 <Button x:Name="btnInsumos" Content="Seleccionar" HorizontalAlignment="Left" Margin="492,37,0,0" VerticalAlignment="Top" Width="75"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnInsumos_Click"/>
+                                <ComboBox x:Name="CbEquipo" HorizontalAlignment="Left" Margin="460,4,0,0" VerticalAlignment="Top" Width="169"/>
                             </Grid>
                         </GroupBox>
 
                         <GroupBox x:Name="groupBox" Header="Verificación de Instalaciones y Terminaciones" Margin="28,571,35,0" VerticalAlignment="Top" Height="769" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10">
-                            <Grid HorizontalAlignment="Left" Height="738" Margin="0,-1,0,0" VerticalAlignment="Top" Width="659">
-                                <Label x:Name="label11" Content="La vivienda cumple con las Siguientes normas de habitabilidad (ART. 4.1.1, 4.1.2, 4.1.3):" HorizontalAlignment="Left" Margin="57,-3,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label12" Content="• Atura mínima piso a cielo de 2,30 m." HorizontalAlignment="Left" Margin="57,26,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <CheckBox x:Name="chbAltura" Content="" HorizontalAlignment="Left" Margin="345,32,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label13" Content="• Locales habitables poseen al menos una ventana &#10;  que permita entrada de luz y aire" HorizontalAlignment="Left" Margin="370,26,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="276"/>
-                                <CheckBox x:Name="checkBox" Content="" HorizontalAlignment="Left" Margin="32,32,0,0" VerticalAlignment="Top"/>
-                                <CheckBox x:Name="checkBox1" Content="" HorizontalAlignment="Left" Margin="32,53,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label12_Copy1" Content="• Baño y cocinas contemplan ventana al exterior " HorizontalAlignment="Left" Margin="57,48,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="268"/>
+                            <Grid HorizontalAlignment="Left" Height="737" VerticalAlignment="Top" Width="668">
+                                <Label x:Name="label11" Content="La vivienda cumple con las Siguientes normas de habitabilidad (ART. 4.1.1, 4.1.2, 4.1.3):" HorizontalAlignment="Left" Margin="71,-3,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label12" Content="• Atura mínima piso a cielo de 2,30 m." HorizontalAlignment="Left" Margin="9,24,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label13" Content="• Locales habitables poseen al menos una &#10;  ventana que permita entrada de luz y aire" HorizontalAlignment="Left" Margin="338,24,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="240"/>
+                                <Label x:Name="label12_Copy1" Content="• Baño y cocinas contemplan ventana &#10;   al exterior " HorizontalAlignment="Left" Margin="9,50,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="211"/>
                                 <Label x:Name="label11_Copy" Content="La vivienda cumple con la Exigencia Térmica (ART. 4.1.10):" HorizontalAlignment="Left" Margin="133,81,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label12_Copy3" Content="• Aislación para techumbre de espesor mínimo &#10;  60 mm." HorizontalAlignment="Left" Margin="57,112,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy4" Content="• Muros de albañilería de ladrillo o bloque de &#10;  hormigón" HorizontalAlignment="Left" Margin="57,151,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy5" Content="• Tabiques exteriores con aislación de espesor &#10;   mínimo 30 mm." HorizontalAlignment="Left" Margin="370,112,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy6" Content="• Aislación para pisos ventilados mínimo 50 mm." HorizontalAlignment="Left" Margin="57,191,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy7" Content="• La superficie de ventanas no sobrepasa el 40% &#10;  de la superficie de muros" HorizontalAlignment="Left" Margin="370,152,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <CheckBox x:Name="checkBox2_Copy" Content="" HorizontalAlignment="Left" Margin="32,122,0,0" VerticalAlignment="Top"/>
-                                <CheckBox x:Name="checkBox2_Copy1" Content="" HorizontalAlignment="Left" Margin="32,198,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy2" Content="" HorizontalAlignment="Left" Margin="345,122,0,0" VerticalAlignment="Top"/>
-                                <CheckBox x:Name="checkBox2_Copy3" Content="" HorizontalAlignment="Left" Margin="32,161,0,0" VerticalAlignment="Top"/>
-                                <CheckBox x:Name="checkBox2_Copy4" Content="" HorizontalAlignment="Left" Margin="345,162,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label12_Copy3" Content="• Aislación para techumbre de espesor&#10;   mínimo  60 mm." HorizontalAlignment="Left" Margin="9,107,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy4" Content="• Muros de albañilería de ladrillo o &#10;  bloque de hormigón" HorizontalAlignment="Left" Margin="9,143,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy5" Content="• Tabiques exteriores con aislación de &#10;   espesor mínimo 30 mm." HorizontalAlignment="Left" Margin="338,106,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy6" Content="• Aislación para pisos ventilados &#10;  mínimo 50 mm." HorizontalAlignment="Left" Margin="9,177,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy7" Content="• La superficie de ventanas no sobrepasa &#10;  el 40% de la superficie de muros" HorizontalAlignment="Left" Margin="338,150,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
                                 <Label x:Name="label11_Copy1" Content="La vivienda cumple con la Resistencia al fuego (ART. 4.3.3):" HorizontalAlignment="Left" Margin="133,219,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label12_Copy9" Content="• Muros contrafuego con resistencia F-120 (si corresponde), albañilería ladrillo o bloques" HorizontalAlignment="Left" Margin="57,250,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="477"/>
-                                <Label x:Name="label12_Copy11" Content="• Muros de adosamiento o divisorio hasta la cubierta F-60/ Art. 4.3.5. numeral 14" HorizontalAlignment="Left" Margin="57,280,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="477"/>
-                                <CheckBox x:Name="checkBox2_Copy10" Content="" HorizontalAlignment="Left" Margin="32,254,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy12" Content="" HorizontalAlignment="Left" Margin="32,287,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <Label x:Name="label12_Copy18" Content="• Techumbre incluido cielo falso F-15" HorizontalAlignment="Left" Margin="57,340,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="227"/>
-                                <Label x:Name="label12_Copy19" Content="• Muros estructurales F-15/Art. 4.3.5 numeral 14 (vivienda 1 o 2 pisos hasta 140 m2)" HorizontalAlignment="Left" Margin="57,311,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="477"/>
-                                <CheckBox x:Name="checkBox2_Copy21" Content="" HorizontalAlignment="Left" Margin="32,313,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy23" Content="" HorizontalAlignment="Left" Margin="32,345,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
+                                <Label x:Name="label12_Copy9" Content="• Muros contrafuego con resistencia F-120 (si corresponde), albañilería ladrillo o bloques" HorizontalAlignment="Left" Margin="9,251,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="477"/>
+                                <Label x:Name="label12_Copy11" Content="• Muros de adosamiento o divisorio hasta la cubierta F-60/ Art. 4.3.5. numeral 14" HorizontalAlignment="Left" Margin="9,280,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="477"/>
+                                <Label x:Name="label12_Copy18" Content="• Techumbre incluido cielo falso F-15" HorizontalAlignment="Left" Margin="10,337,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="227"/>
+                                <Label x:Name="label12_Copy19" Content="• Muros estructurales F-15/Art. 4.3.5 numeral 14 (vivienda 1 o 2 pisos hasta 140 m2)" HorizontalAlignment="Left" Margin="9,311,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="477"/>
                                 <Label x:Name="label11_Copy2" Content="La vivienda cumple con las siguientes normas estructurales título 5, capítulo 6:" HorizontalAlignment="Left" Margin="94,371,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label12_Copy33" Content="• Muros interiores de albañilería" HorizontalAlignment="Left" Margin="57,425,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="268"/>
-                                <Label x:Name="label12_Copy34" Content="• Muros exteriores de albañilería" HorizontalAlignment="Left" Margin="57,398,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
-                                <Label x:Name="label12_Copy38" Content="• Pilares de H.A. de 15x15 cm. en contribución &#10;  de un piso" HorizontalAlignment="Left" Margin="57,503,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="268"/>
-                                <Label x:Name="label12_Copy39" Content="• Toda la madera estructural es impregnada" HorizontalAlignment="Left" Margin="370,398,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy40" Content="• La dimensión de la madera de tabiques &#xA;  estructurales es de 2x4''" HorizontalAlignment="Left" Margin="370,423,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy41" Content="• La dimensión de la madera estructural de &#xA;  techumbres es de 1x4''" HorizontalAlignment="Left" Margin="57,456,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label12_Copy42" Content="• Para entremado de piso la dimensión de cementos&#10;  de madera es de 2x6''" HorizontalAlignment="Left" Margin="370,470,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <CheckBox x:Name="checkBox2_Copy31" Content="" HorizontalAlignment="Left" Margin="32,402,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy32" Content="" HorizontalAlignment="Left" Margin="32,430,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy34" Content="" HorizontalAlignment="Left" Margin="32,470,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy36" Content="" HorizontalAlignment="Left" Margin="350,406,0,0" VerticalAlignment="Top"/>
-                                <CheckBox x:Name="checkBox2_Copy37" Content="" HorizontalAlignment="Left" Margin="350,434,0,0" VerticalAlignment="Top"/>
-                                <CheckBox x:Name="checkBox2_Copy38" Content="" HorizontalAlignment="Left" Margin="350,481,0,0" VerticalAlignment="Top"/>
-                                <CheckBox x:Name="checkBox2_Copy39" Content="" HorizontalAlignment="Left" Margin="32,513,0,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label12_Copy33" Content="• Muros interiores de albañilería" HorizontalAlignment="Left" Margin="10,420,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="210"/>
+                                <Label x:Name="label12_Copy34" Content="• Muros exteriores de albañilería" HorizontalAlignment="Left" Margin="10,394,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="212"/>
+                                <Label x:Name="label12_Copy38" Content="• Pilares de H.A. de 15x15 cm. en &#10;  contribución de un piso" HorizontalAlignment="Left" Margin="9,488,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="224"/>
+                                <Label x:Name="label12_Copy39" Content="• Toda la madera estructural es impregnada" HorizontalAlignment="Left" Margin="338,394,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy40" Content="• La dimensión de la madera de tabiques &#xA;  estructurales es de 2x4''" HorizontalAlignment="Left" Margin="343,420,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy41" Content="• La dimensión de la madera estructural &#xA;  de techumbres es de 1x4''" HorizontalAlignment="Left" Margin="10,446,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy42" Content="• Para entremado de piso la dimensión &#10;  de cementos de madera es de 2x6''" HorizontalAlignment="Left" Margin="338,467,0,0" VerticalAlignment="Top" FontWeight="Normal"/>
                                 <Label x:Name="label11_Copy3" Content="La vivienda cumple con las siguientes instalaciones funcionando correctamente:" HorizontalAlignment="Left" Margin="94,547,0,0" VerticalAlignment="Top"/>
-                                <Label x:Name="label12_Copy43" Content="• Instalación eléctrica" HorizontalAlignment="Left" Margin="57,579,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
-                                <Label x:Name="label12_Copy44" Content="• Otro" HorizontalAlignment="Left" Margin="57,639,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
-                                <Label x:Name="label12_Copy45" Content="• Instalación de gas" HorizontalAlignment="Left" Margin="370,608,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
-                                <Label x:Name="label12_Copy46" Content="• Instalación de agua potable" HorizontalAlignment="Left" Margin="57,609,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
-                                <Label x:Name="label12_Copy47" Content="• Instalación de alcantarillado" HorizontalAlignment="Left" Margin="370,579,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="252"/>
-                                <CheckBox x:Name="checkBox2_Copy41" Content="" HorizontalAlignment="Left" Margin="350,579,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556" FontWeight="Bold"/>
-                                <CheckBox x:Name="checkBox2_Copy42" Content="" HorizontalAlignment="Left" Margin="350,613,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy43" Content="" HorizontalAlignment="Left" Margin="32,582,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy44" Content="" HorizontalAlignment="Left" Margin="32,613,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <CheckBox x:Name="checkBox2_Copy45" Content="" HorizontalAlignment="Left" Margin="32,641,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.667,0.556"/>
-                                <Label x:Name="label11_Copy6" Content="Observaciones:" HorizontalAlignment="Left" Margin="32,671,0,0" VerticalAlignment="Top"/>
-                                <TextBox x:Name="TxtObsVerificacion" HorizontalAlignment="Left" Height="50" Margin="134,671,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="476" FontWeight="Normal"/>
+                                <Label x:Name="label12_Copy43" Content="• Instalación eléctrica" HorizontalAlignment="Left" Margin="42,574,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="163"/>
+                                <Label x:Name="label12_Copy44" Content="• Otro" HorizontalAlignment="Left" Margin="42,631,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="85"/>
+                                <Label x:Name="label12_Copy45" Content="• Instalación de gas" HorizontalAlignment="Left" Margin="358,602,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="163"/>
+                                <Label x:Name="label12_Copy46" Content="• Instalación de agua potable" HorizontalAlignment="Left" Margin="42,602,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="180"/>
+                                <Label x:Name="label12_Copy47" Content="• Instalación de alcantarillado" HorizontalAlignment="Left" Margin="358,579,0,0" VerticalAlignment="Top" FontWeight="Normal" Width="183"/>
+                                <Label x:Name="label11_Copy6" Content="Observaciones:" HorizontalAlignment="Left" Margin="32,665,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="TxtObsVerificacion" HorizontalAlignment="Left" Height="60" Margin="134,667,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="476" FontWeight="Normal"/>
+                                <RadioButton x:Name="RbSiAltMin" Content="Si" HorizontalAlignment="Left" Margin="237,29,0,0" VerticalAlignment="Top" GroupName="AlturaMin" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbNoAltMin" Content="No" HorizontalAlignment="Left" Margin="276,29,0,0" VerticalAlignment="Top" GroupName="AlturaMin" IsChecked="True" FontSize="10.667"/>
+                                <RadioButton x:Name="RbSiLocHab" Content="Si" HorizontalAlignment="Left" Margin="578,30,0,0" VerticalAlignment="Top" GroupName="LocHabit" FontSize="10.667"/>
+                                <RadioButton x:Name="RbSiBanioCoc" Content="Si" HorizontalAlignment="Left" Margin="237,58,0,0" VerticalAlignment="Top" GroupName="BanioCoc" FontSize="10.667"/>
+                                <RadioButton x:Name="RbNoBanioCoc" Content="No" HorizontalAlignment="Left" Margin="276,58,0,0" VerticalAlignment="Top" GroupName="BanioCoc" IsChecked="True" FontSize="10.667"/>
+                                <RadioButton x:Name="RbNoLocHab" Content="No" HorizontalAlignment="Left" Margin="619,30,0,0" VerticalAlignment="Top" GroupName="LocHabit" IsChecked="True" FontSize="10.667"/>
+                                <RadioButton x:Name="RbSiAisLTerm" Content="Si" HorizontalAlignment="Left" Margin="237,114,0,0" VerticalAlignment="Top" GroupName="AislacionTerm" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbNoAislTerm" Content="No" HorizontalAlignment="Left" Margin="276,114,0,0" VerticalAlignment="Top" GroupName="AislacionTerm" IsChecked="True" FontSize="10.667"/>
+                                <RadioButton x:Name="RbSiTabExt" Content="Si" HorizontalAlignment="Left" Margin="578,111,0,0" VerticalAlignment="Top" GroupName="TabiquesExt" FontSize="10.667"/>
+                                <RadioButton x:Name="RbNoTabExt" Content="No" HorizontalAlignment="Left" Margin="619,112,0,0" VerticalAlignment="Top" GroupName="TabiquesExt" IsChecked="True" FontSize="10.667"/>
+                                <Separator HorizontalAlignment="Left" Height="22" Margin="301,41,0,0" VerticalAlignment="Top" Width="55" Background="#FF232222" mah:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" RenderTransformOrigin="0.5,0.5">
+                                    <Separator.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="-90.137"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Separator.RenderTransform>
+                                </Separator>
+                                <Separator HorizontalAlignment="Left" Height="22" Margin="277,154,0,0" VerticalAlignment="Top" Width="105" Background="#FF232222" mah:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" RenderTransformOrigin="0.5,0.5">
+                                    <Separator.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="-90.137"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Separator.RenderTransform>
+                                </Separator>
+                                <RadioButton x:Name="RbSiSupVenta" Content="Si" HorizontalAlignment="Left" Margin="578,158,0,0" VerticalAlignment="Top" GroupName="SuperficieVent" FontSize="10.667"/>
+                                <RadioButton x:Name="RbNoSupVenta" Content="No" HorizontalAlignment="Left" Margin="619,158,0,0" VerticalAlignment="Top" GroupName="SuperficieVent" FontSize="10.667" IsChecked="True"/>
+                                <RadioButton x:Name="RbSiMurosHorm" Content="Si" HorizontalAlignment="Left" Margin="237,149,0,0" VerticalAlignment="Top" GroupName="MurosHomigon" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbNoMurosHorm" Content="No" HorizontalAlignment="Left" Margin="276,149,0,0" VerticalAlignment="Top" GroupName="MurosHomigon" FontWeight="Bold" FontSize="10.667" IsChecked="True"/>
+                                <RadioButton x:Name="RbSiAislPisos" Content="Si" HorizontalAlignment="Left" Margin="237,183,0,0" VerticalAlignment="Top" GroupName="AislPisos" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbNoAislPisos" Content="No" HorizontalAlignment="Left" Margin="276,183,0,0" VerticalAlignment="Top" GroupName="AislPisos" FontWeight="Bold" FontSize="10.667" IsChecked="True"/>
+                                <RadioButton x:Name="RbSiMurContraf" Content="Si" HorizontalAlignment="Left" Margin="533,258,0,0" VerticalAlignment="Top" GroupName="MurosContrafuego" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbSiAdos" Content="Si" HorizontalAlignment="Left" Margin="533,284,0,0" VerticalAlignment="Top" GroupName="Adosamiento" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbSiEstruct" Content="Si" HorizontalAlignment="Left" Margin="533,311,0,0" VerticalAlignment="Top" GroupName="MurosEstruct" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbSiTecho" Content="Si" HorizontalAlignment="Left" Margin="533,337,0,0" VerticalAlignment="Top" GroupName="Techumbre" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbNoMurContraf" Content="No" HorizontalAlignment="Left" Margin="585,258,0,0" VerticalAlignment="Top" GroupName="MurosContrafuego" FontWeight="Bold" FontSize="10.667" IsChecked="True"/>
+                                <RadioButton x:Name="RbNoAdos" Content="No" HorizontalAlignment="Left" Margin="585,285,0,0" VerticalAlignment="Top" GroupName="Adosamiento" FontWeight="Bold" FontSize="10.667" IsChecked="True"/>
+                                <RadioButton x:Name="RbNoEstruct" Content="Si" HorizontalAlignment="Left" Margin="585,311,0,0" VerticalAlignment="Top" GroupName="MurosEstruct" FontWeight="Bold" FontSize="10.667" IsChecked="True"/>
+                                <RadioButton x:Name="RbNoTecho" Content="No" HorizontalAlignment="Left" Margin="585,337,0,0" VerticalAlignment="Top" GroupName="Techumbre" FontWeight="Bold" FontSize="10.667" IsChecked="True"/>
+                                <RadioButton x:Name="RbSiMurExt" Content="Si" HorizontalAlignment="Left" Margin="237,399,0,0" VerticalAlignment="Top" GroupName="MurosExter" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbSiMurInt" Content="Si" HorizontalAlignment="Left" Margin="237,424,0,0" VerticalAlignment="Top" GroupName="MurosInterior" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbSiDimMad" Content="Si" HorizontalAlignment="Left" Margin="237,450,0,0" VerticalAlignment="Top" GroupName="Dimension1x4" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbSiPilarHA" Content="Si" HorizontalAlignment="Left" Margin="237,496,0,0" VerticalAlignment="Top" GroupName="PilaresHA" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbNoMurExt" Content="No" HorizontalAlignment="Left" Margin="280,399,0,0" VerticalAlignment="Top" GroupName="MurosExter" FontWeight="Bold" FontSize="10.667" IsChecked="True"/>
+                                <RadioButton x:Name="RbNoMurInt" Content="No" HorizontalAlignment="Left" Margin="280,424,0,0" VerticalAlignment="Top" GroupName="MurosInterior" FontWeight="Bold" FontSize="10.667" IsChecked="True"/>
+                                <RadioButton x:Name="RbNoDimMad" Content="No" HorizontalAlignment="Left" Margin="280,450,0,0" VerticalAlignment="Top" GroupName="Dimension1x4" FontWeight="Bold" FontSize="10.667" IsChecked="True"/>
+                                <RadioButton x:Name="RbNoPilarHA" Content="No" HorizontalAlignment="Left" Margin="279,496,0,0" VerticalAlignment="Top" GroupName="PilaresHA" FontWeight="Bold" FontSize="10.667" IsChecked="True" Width="40"/>
+                                <Separator HorizontalAlignment="Left" Height="22" Margin="265,456,0,0" VerticalAlignment="Top" Width="133" Background="#FF232222" mah:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" RenderTransformOrigin="0.5,0.5">
+                                    <Separator.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="-90.137"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Separator.RenderTransform>
+                                </Separator>
+                                <RadioButton x:Name="RbSiMaderaImp" Content="Si" HorizontalAlignment="Left" Margin="578,399,0,0" VerticalAlignment="Top" GroupName="MaderaImpreg" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbSiMadera2x4" Content="Si" HorizontalAlignment="Left" Margin="578,430,0,0" VerticalAlignment="Top" GroupName="Madera2x4" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbSiEntrem2x6" Content="Si" HorizontalAlignment="Left" Margin="578,476,0,0" VerticalAlignment="Top" GroupName="Entremado2x6" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbNoMaderaImp" Content="No" HorizontalAlignment="Left" Margin="619,399,0,0" VerticalAlignment="Top" GroupName="MaderaImpreg" FontWeight="Bold" FontSize="10.667" IsChecked="True"/>
+                                <RadioButton x:Name="RbNoMadera2x4" Content="No" HorizontalAlignment="Left" Margin="619,430,0,0" VerticalAlignment="Top" GroupName="Madera2x4" FontWeight="Bold" FontSize="10.667" IsChecked="True"/>
+                                <RadioButton x:Name="RbnoEntrem2x6" Content="No" HorizontalAlignment="Left" Margin="619,476,0,0" VerticalAlignment="Top" GroupName="Entremado2x6" FontWeight="Bold" FontSize="10.667" IsChecked="True"/>
+                                <RadioButton x:Name="RbSiElect" Content="Si" HorizontalAlignment="Left" Margin="237,579,0,0" VerticalAlignment="Top" GroupName="Electrica" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbSiAgua" Content="Si" HorizontalAlignment="Left" Margin="237,608,0,0" VerticalAlignment="Top" GroupName="Agua" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbSiOtro" Content="Si" HorizontalAlignment="Left" Margin="237,637,0,0" VerticalAlignment="Top" GroupName="Otro" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbSiAlcant" Content="Si" HorizontalAlignment="Left" Margin="578,584,0,0" VerticalAlignment="Top" GroupName="Alcantarillado" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbSiGas" Content="Si" HorizontalAlignment="Left" Margin="578,613,0,0" VerticalAlignment="Top" GroupName="Gas" FontWeight="Bold" FontSize="10.667"/>
+                                <RadioButton x:Name="RbNoElect" Content="No" HorizontalAlignment="Left" Margin="277,579,0,0" VerticalAlignment="Top" GroupName="Electrica" FontWeight="Bold" FontSize="10.667" IsChecked="True"/>
+                                <RadioButton x:Name="RbNoAgua" Content="No" HorizontalAlignment="Left" Margin="277,608,0,0" VerticalAlignment="Top" GroupName="Agua" FontWeight="Bold" FontSize="10.667" IsChecked="True"/>
+                                <RadioButton x:Name="RbNoOtro" Content="No" HorizontalAlignment="Left" Margin="278,637,0,0" VerticalAlignment="Top" GroupName="Otro" FontWeight="Bold" FontSize="10.667" IsChecked="True"/>
+                                <RadioButton x:Name="RbNoAlcant" Content="No" HorizontalAlignment="Left" Margin="620,584,0,0" VerticalAlignment="Top" GroupName="Alcantarillado" FontWeight="Bold" FontSize="10.667" IsChecked="True"/>
+                                <RadioButton x:Name="RbNoGas" Content="No" HorizontalAlignment="Left" Margin="621,614,0,0" VerticalAlignment="Top" GroupName="Gas" FontWeight="Bold" FontSize="10.667" IsChecked="True"/>
+                                <Separator HorizontalAlignment="Left" Height="22" Margin="295,612,0,0" VerticalAlignment="Top" Width="79" Background="#FF232222" mah:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" RenderTransformOrigin="0.5,0.5">
+                                    <Separator.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="-90.137"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Separator.RenderTransform>
+                                </Separator>
                             </Grid>
                         </GroupBox>
                         <Image x:Name="image" HorizontalAlignment="Left" Height="51" Margin="606,6,0,0" VerticalAlignment="Top" Width="119" Source="Imagenes/logo11.png"/>
