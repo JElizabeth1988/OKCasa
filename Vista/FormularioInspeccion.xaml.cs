@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using BibliotecaClases;
+using BibliotecaNegocio;
 
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;

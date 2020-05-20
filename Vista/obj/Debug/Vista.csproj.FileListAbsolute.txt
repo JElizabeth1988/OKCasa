@@ -119,3 +119,5 @@ C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Horario.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Horario.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Solicitud.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Solicitud.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\EntityFramework.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\EntityFramework.xml

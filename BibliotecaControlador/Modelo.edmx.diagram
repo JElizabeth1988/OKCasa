@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0396b76342c141d4b4f7dfb41c205017" Name="Diagram1">
+        <EntityTypeShape EntityType="ModeloEntities.AGENDA" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.AGRUPAMIENTO" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.ART_SANITARIO" Width="1.5" PointX="15.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.BANCO_ESTADO" Width="1.5" PointX="7.5" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.CLIENTE" Width="1.5" PointX="5.25" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.COMUNA" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.DESCUENTO" Width="1.5" PointX="5.25" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.ENTIDAD_BANCARIA" Width="1.5" PointX="3" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.EQUIPO_TECNICO" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.INFORME" Width="1.5" PointX="10.5" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.INSP_SERVICIOS" Width="1.5" PointX="18" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.INST_AGUA_POTABLE" Width="1.5" PointX="15.75" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.INST_ALCANTARILLADO" Width="1.5" PointX="15.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.INST_ELECTRICA" Width="1.5" PointX="15.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.INST_GAS" Width="1.5" PointX="15.75" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.INSUMO" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.LOGIN" Width="1.5" PointX="7.5" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.MEDICION_M2" Width="1.5" PointX="15" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.PAGO" Width="1.5" PointX="7.5" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.RED_AGUA" Width="1.5" PointX="15.75" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.REGION" Width="1.5" PointX="0.75" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.SERVICIO" Width="1.5" PointX="12.75" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.SOLICITUD" Width="1.5" PointX="15" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.TECNICO" Width="1.5" PointX="5.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.TERMOGRAFIA" Width="1.5" PointX="15" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.TIPO_PAGO" Width="1.5" PointX="5.25" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.TIPO_VIVENDA" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.TIPO_VIVIENDA" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.TITULO" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.VERIF_INST_TERMINACION" Width="1.5" PointX="15" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.VIVENDA" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModeloEntities.VIVIENDA" Width="1.5" PointX="7.5" PointY="15.375" IsExpanded="true" />
+        <AssociationConnector Association="ModeloEntities.EQUIPO_TECNICO_AGENDA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.SOLICITUD_AGENDA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.VIVIENDA_AGRUP_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.INSP_SER_ART_SANITARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.BANCO_ESTADO_CLIENTE_FKV2" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.CLIENTE_COMUNA_FKV2" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.INFORME_CLIENTE_FKV2" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.LOGIN_CLIENTE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.PAGO_CLIENTE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.SOLICITUD_CLIENTE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.VIVIENDA_CLIENTE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.COMUNA_REGION_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.TECNICO_COMUNA_FKV2" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.VIVIENDA_COMUNA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.PAGO_DESCUENTO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.TIPO_PAGO_ENTIDAD_BANCARIA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.EQUIPO_TECNICO_INSUMO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.TECNICO_EQUIPO_TECNICO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.INFORME_INSUMO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.INFORME_TECNICO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.INFORME_VIVIENDA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.INSP_SER_INST_AGUA_P_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.INSP_SER_INST_ALC_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.INSP_SER_INST_ELECT_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.INSP_SER_INST_GAS_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.INSP_SERVICIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.INSP_SERVICIOS_RED_AGUA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.MEDICION_M2_SERVICIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.PAGO_TIPO_PAGO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.VIVIENDA_REGION_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.SERVICIO_SOLICITUD_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.TERMOGRAFIA_SERVICIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.VERIF_INST_SERVICIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.TECNICO_TITULO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.VIVENDA_TIPO_VIVENDA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.VIVIENDA_TIPO_VIVENDA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.INFORME_SERVICIO" ManuallyRouted="false" />
+        <AssociationConnector Association="ModeloEntities.SOLICITUD_SERVICIO" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaControlador", "BibliotecaControlador\BibliotecaControlador.csproj", "{D97DA004-87C2-415B-B9F0-D776CF72634C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaDALC", "BibliotecaControlador\BibliotecaDALC.csproj", "{D97DA004-87C2-415B-B9F0-D776CF72634C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaClases", "BibliotecaClases\BibliotecaClases.csproj", "{BF432429-8AD0-4CBB-94E4-8CF940EE6644}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaNegocio", "BibliotecaClases\BibliotecaNegocio.csproj", "{BF432429-8AD0-4CBB-94E4-8CF940EE6644}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vista", "Vista\Vista.csproj", "{34C4DF1C-A0DC-45E0-93DD-1FF6DEFD59D4}"
 EndProject
