@@ -1,11 +1,9 @@
-C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaControlador.dll
-C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaControlador.pdb
-C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaClases.dll
-C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaClases.pdb
-C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache
-C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaControlador.dll
-C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaControlador.pdb
-C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaControlador.dll.config
 C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\EntityFramework.dll
 C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\Oracle.DataAccess.dll
 C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\EntityFramework.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll.config
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache

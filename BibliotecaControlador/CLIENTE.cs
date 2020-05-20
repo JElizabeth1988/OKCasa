@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BibliotecaControlador
+namespace BibliotecaDALC
 {
     using System;
     using System.Collections.Generic;
@@ -30,9 +30,9 @@ namespace BibliotecaControlador
         public string AP_PATERNO { get; set; }
         public string AP_MATERNO { get; set; }
         public string DIRECCION { get; set; }
-        public decimal TELEFONO { get; set; }
+        public int TELEFONO { get; set; }
         public string EMAIL { get; set; }
-        public string HIPOTECARIO { get; set; }
+        public Nullable<bool> HIPOTECARIO { get; set; }
         public decimal ID_COMUNA { get; set; }
     
         public virtual ICollection<BANCO_ESTADO> BANCO_ESTADO { get; set; }

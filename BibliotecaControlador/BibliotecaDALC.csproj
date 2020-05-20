@@ -7,8 +7,8 @@
     <ProjectGuid>{D97DA004-87C2-415B-B9F0-D776CF72634C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BibliotecaControlador</RootNamespace>
-    <AssemblyName>BibliotecaControlador</AssemblyName>
+    <RootNamespace>BibliotecaDALC</RootNamespace>
+    <AssemblyName>BibliotecaDALC</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -173,12 +173,6 @@
     <Compile Include="VIVIENDA.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BibliotecaClases\BibliotecaNegocio.csproj">
-      <Project>{bf432429-8ad0-4cbb-94e4-8cf940ee6644}</Project>
-      <Name>BibliotecaNegocio</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

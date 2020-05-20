@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BibliotecaControlador
+namespace BibliotecaDALC
 {
     using System;
     using System.Collections.Generic;

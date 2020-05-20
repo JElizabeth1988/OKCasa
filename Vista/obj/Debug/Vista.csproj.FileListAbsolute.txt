@@ -89,10 +89,6 @@ C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\MahApps.Metro.IconPac
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\App.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Login.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Login.baml
-C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\BibliotecaClases.dll
-C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\BibliotecaControlador.dll
-C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\BibliotecaClases.pdb
-C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\BibliotecaControlador.pdb
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Cliente.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\EquiposInspeccion.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\FormularioInspeccion.g.cs
@@ -121,3 +117,7 @@ C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Solicitud.g.cs
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Solicitud.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\EntityFramework.dll
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\EntityFramework.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\BibliotecaDALC.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\BibliotecaNegocio.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\BibliotecaNegocio.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\BibliotecaDALC.pdb

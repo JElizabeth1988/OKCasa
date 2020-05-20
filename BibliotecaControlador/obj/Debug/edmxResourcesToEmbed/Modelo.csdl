@@ -44,9 +44,9 @@
     <Property Name="AP_PATERNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="AP_MATERNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="TELEFONO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TELEFONO" Type="Int32" Nullable="false" />
     <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="HIPOTECARIO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="HIPOTECARIO" Type="Boolean" />
     <Property Name="ID_COMUNA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
     <NavigationProperty Name="BANCO_ESTADO" Relationship="Self.BANCO_ESTADO_CLIENTE_FKV2" FromRole="CLIENTE" ToRole="BANCO_ESTADO" />
     <NavigationProperty Name="COMUNA" Relationship="Self.CLIENTE_COMUNA_FKV2" FromRole="CLIENTE" ToRole="COMUNA" />

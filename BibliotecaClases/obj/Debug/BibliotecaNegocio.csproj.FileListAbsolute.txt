@@ -1,5 +1,10 @@
-C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\bin\Debug\BibliotecaClases.dll
-C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\bin\Debug\BibliotecaClases.pdb
-C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\obj\Debug\BibliotecaClases.dll
-C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\obj\Debug\BibliotecaClases.pdb
 C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\obj\Debug\BibliotecaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\bin\Debug\BibliotecaNegocio.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\bin\Debug\BibliotecaNegocio.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\bin\Debug\BibliotecaDALC.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\bin\Debug\EntityFramework.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\bin\Debug\Oracle.DataAccess.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\bin\Debug\BibliotecaDALC.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\bin\Debug\EntityFramework.xml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\obj\Debug\BibliotecaNegocio.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\obj\Debug\BibliotecaNegocio.pdb
