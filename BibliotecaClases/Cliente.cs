@@ -12,6 +12,6 @@ namespace BibliotecaNegocio
     public class Cliente
     {
         //Crear objeto de la Bdd
-        private OKCasaEntities bdd = new OKCasaEntities();
+        private EntitiesOKCasa bdd = new EntitiesOKCasa();
     }
 }

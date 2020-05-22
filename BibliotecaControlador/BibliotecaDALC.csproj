@@ -74,9 +74,6 @@
     <Compile Include="COMUNA.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="DESCUENTO.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
     <Compile Include="ENTIDAD_BANCARIA.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -137,9 +134,6 @@
     <Compile Include="RED_AGUA.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="REGION.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
     <Compile Include="SERVICIO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -155,19 +149,10 @@
     <Compile Include="TIPO_PAGO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="TIPO_VIVENDA.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
     <Compile Include="TIPO_VIVIENDA.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="TITULO.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
     <Compile Include="VERIF_INST_TERMINACION.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VIVENDA.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="VIVIENDA.cs">

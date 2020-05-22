@@ -23,10 +23,8 @@ namespace BibliotecaDALC
     
         public decimal ID_COMUNA { get; set; }
         public string NOMBRE { get; set; }
-        public decimal ID_REGION { get; set; }
     
         public virtual ICollection<CLIENTE> CLIENTE { get; set; }
-        public virtual REGION REGION { get; set; }
         public virtual ICollection<TECNICO> TECNICO { get; set; }
         public virtual ICollection<VIVIENDA> VIVIENDA { get; set; }
     }

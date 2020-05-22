@@ -17,7 +17,6 @@ namespace BibliotecaDALC
         public SOLICITUD()
         {
             this.SERVICIO = new HashSet<SERVICIO>();
-            this.SERVICIO1 = new HashSet<SERVICIO>();
         }
     
         public decimal ID_SOLICITUD { get; set; }
@@ -29,6 +28,5 @@ namespace BibliotecaDALC
         public virtual AGENDA AGENDA { get; set; }
         public virtual CLIENTE CLIENTE { get; set; }
         public virtual ICollection<SERVICIO> SERVICIO { get; set; }
-        public virtual ICollection<SERVICIO> SERVICIO1 { get; set; }
     }
 }

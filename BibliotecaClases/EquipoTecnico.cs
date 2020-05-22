@@ -10,6 +10,6 @@ namespace BibliotecaNegocio
     public class EquipoTecnico
     {
         //Crear objeto de la Bdd
-        private OKCasaEntities bdd = new OKCasaEntities();
+        private EntitiesOKCasa bdd = new EntitiesOKCasa();
     }
 }

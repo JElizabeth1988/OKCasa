@@ -25,7 +25,6 @@ namespace BibliotecaDALC
         public decimal NUM_PISOS { get; set; }
         public string CONSTRUCTORA { get; set; }
         public decimal ID_COMUNA { get; set; }
-        public decimal ID_REGION { get; set; }
         public decimal ID_TIPO { get; set; }
         public decimal ID_AGRUP { get; set; }
         public string RUT_CLIENTE { get; set; }
@@ -34,7 +33,6 @@ namespace BibliotecaDALC
         public virtual CLIENTE CLIENTE { get; set; }
         public virtual COMUNA COMUNA { get; set; }
         public virtual ICollection<INFORME> INFORME { get; set; }
-        public virtual REGION REGION { get; set; }
         public virtual TIPO_VIVIENDA TIPO_VIVIENDA { get; set; }
     }
 }

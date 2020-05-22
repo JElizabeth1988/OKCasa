@@ -14,7 +14,12 @@ namespace BibliotecaDALC
     
     public partial class VERIF_INST_TERMINACION
     {
-        public decimal ID_SERVICIO { get; set; }
+        public VERIF_INST_TERMINACION()
+        {
+            this.INFORME = new HashSet<INFORME>();
+        }
+    
+        public decimal ID_VERIFICACION { get; set; }
         public string ALTURA_MIN { get; set; }
         public string VENTANA_BANIO_COC { get; set; }
         public string VENTANA_LOC_HAB { get; set; }
@@ -41,6 +46,6 @@ namespace BibliotecaDALC
         public string OTRO { get; set; }
         public string OBSERVACIONES { get; set; }
     
-        public virtual SERVICIO SERVICIO { get; set; }
+        public virtual ICollection<INFORME> INFORME { get; set; }
     }
 }

@@ -16,12 +16,11 @@ namespace BibliotecaDALC
     {
         public decimal ID_PAGO { get; set; }
         public decimal VALOR { get; set; }
-        public Nullable<decimal> ID_DESCUENTO { get; set; }
+        public decimal DESCUENTO { get; set; }
         public decimal ID_TIPO { get; set; }
         public string RUT_CLIENTE { get; set; }
     
         public virtual CLIENTE CLIENTE { get; set; }
-        public virtual DESCUENTO DESCUENTO { get; set; }
         public virtual TIPO_PAGO TIPO_PAGO { get; set; }
     }
 }

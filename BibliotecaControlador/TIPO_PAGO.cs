@@ -17,13 +17,13 @@ namespace BibliotecaDALC
         public TIPO_PAGO()
         {
             this.PAGO = new HashSet<PAGO>();
+            this.ENTIDAD_BANCARIA = new HashSet<ENTIDAD_BANCARIA>();
         }
     
         public decimal ID_TIPO { get; set; }
         public string NOMBRE { get; set; }
-        public decimal ID_BANCO { get; set; }
     
-        public virtual ENTIDAD_BANCARIA ENTIDAD_BANCARIA { get; set; }
         public virtual ICollection<PAGO> PAGO { get; set; }
+        public virtual ICollection<ENTIDAD_BANCARIA> ENTIDAD_BANCARIA { get; set; }
     }
 }

@@ -13,10 +13,10 @@ namespace BibliotecaDALC
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class OKCasaEntities : DbContext
+    public partial class EntitiesOKCasa : DbContext
     {
-        public OKCasaEntities()
-            : base("name=OKCasaEntities")
+        public EntitiesOKCasa()
+            : base("name=EntitiesOKCasa")
         {
         }
     
@@ -31,7 +31,6 @@ namespace BibliotecaDALC
         public DbSet<BANCO_ESTADO> BANCO_ESTADO { get; set; }
         public DbSet<CLIENTE> CLIENTE { get; set; }
         public DbSet<COMUNA> COMUNA { get; set; }
-        public DbSet<DESCUENTO> DESCUENTO { get; set; }
         public DbSet<ENTIDAD_BANCARIA> ENTIDAD_BANCARIA { get; set; }
         public DbSet<EQUIPO_TECNICO> EQUIPO_TECNICO { get; set; }
         public DbSet<INFORME> INFORME { get; set; }
@@ -45,17 +44,13 @@ namespace BibliotecaDALC
         public DbSet<MEDICION_M2> MEDICION_M2 { get; set; }
         public DbSet<PAGO> PAGO { get; set; }
         public DbSet<RED_AGUA> RED_AGUA { get; set; }
-        public DbSet<REGION> REGION { get; set; }
         public DbSet<SERVICIO> SERVICIO { get; set; }
         public DbSet<SOLICITUD> SOLICITUD { get; set; }
         public DbSet<TECNICO> TECNICO { get; set; }
         public DbSet<TERMOGRAFIA> TERMOGRAFIA { get; set; }
         public DbSet<TIPO_PAGO> TIPO_PAGO { get; set; }
-        public DbSet<TIPO_VIVENDA> TIPO_VIVENDA { get; set; }
         public DbSet<TIPO_VIVIENDA> TIPO_VIVIENDA { get; set; }
-        public DbSet<TITULO> TITULO { get; set; }
         public DbSet<VERIF_INST_TERMINACION> VERIF_INST_TERMINACION { get; set; }
-        public DbSet<VIVENDA> VIVENDA { get; set; }
         public DbSet<VIVIENDA> VIVIENDA { get; set; }
     }
 }

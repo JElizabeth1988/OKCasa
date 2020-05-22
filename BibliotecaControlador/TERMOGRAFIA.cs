@@ -14,7 +14,12 @@ namespace BibliotecaDALC
     
     public partial class TERMOGRAFIA
     {
-        public decimal ID_SERVICIO { get; set; }
+        public TERMOGRAFIA()
+        {
+            this.INFORME = new HashSet<INFORME>();
+        }
+    
+        public decimal ID_TERMOGRAFIA { get; set; }
         public decimal EMISIVIDAD { get; set; }
         public decimal TEMP_REFLEJADA { get; set; }
         public decimal DISTANCIA { get; set; }
@@ -22,6 +27,6 @@ namespace BibliotecaDALC
         public decimal TEMP_ATMOSFERICA { get; set; }
         public string OBSERVACION { get; set; }
     
-        public virtual SERVICIO SERVICIO { get; set; }
+        public virtual ICollection<INFORME> INFORME { get; set; }
     }
 }

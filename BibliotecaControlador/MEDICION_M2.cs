@@ -14,7 +14,12 @@ namespace BibliotecaDALC
     
     public partial class MEDICION_M2
     {
-        public decimal ID_SERVICIO { get; set; }
+        public MEDICION_M2()
+        {
+            this.INFORME = new HashSet<INFORME>();
+        }
+    
+        public decimal ID_MEDICION { get; set; }
         public decimal AREA_TOTAL_REAL { get; set; }
         public decimal AREA_TOTAL_REG { get; set; }
         public decimal SUP_UTIL_REAL { get; set; }
@@ -25,6 +30,6 @@ namespace BibliotecaDALC
         public decimal SUP_ELE_COM_REG { get; set; }
         public string OBSERVACION { get; set; }
     
-        public virtual SERVICIO SERVICIO { get; set; }
+        public virtual ICollection<INFORME> INFORME { get; set; }
     }
 }

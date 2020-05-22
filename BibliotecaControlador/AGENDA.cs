@@ -16,15 +16,15 @@ namespace BibliotecaDALC
     {
         public AGENDA()
         {
-            this.EQUIPO_TECNICO = new HashSet<EQUIPO_TECNICO>();
             this.SOLICITUD = new HashSet<SOLICITUD>();
         }
     
         public decimal ID_AGENDA { get; set; }
         public System.DateTime DIA { get; set; }
         public string HORA { get; set; }
+        public decimal ID_EQUIPO { get; set; }
     
-        public virtual ICollection<EQUIPO_TECNICO> EQUIPO_TECNICO { get; set; }
+        public virtual EQUIPO_TECNICO EQUIPO_TECNICO { get; set; }
         public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
     }
 }

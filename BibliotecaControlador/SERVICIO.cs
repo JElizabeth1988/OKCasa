@@ -16,20 +16,13 @@ namespace BibliotecaDALC
     {
         public SERVICIO()
         {
-            this.INFORME = new HashSet<INFORME>();
-            this.SOLICITUD1 = new HashSet<SOLICITUD>();
+            this.SOLICITUD = new HashSet<SOLICITUD>();
         }
     
         public decimal ID_SERVICIO { get; set; }
         public string NOMBRE { get; set; }
-        public decimal ID_SOLICITUD { get; set; }
+        public decimal VALOR { get; set; }
     
-        public virtual INSP_SERVICIOS INSP_SERVICIOS { get; set; }
-        public virtual MEDICION_M2 MEDICION_M2 { get; set; }
-        public virtual SOLICITUD SOLICITUD { get; set; }
-        public virtual TERMOGRAFIA TERMOGRAFIA { get; set; }
-        public virtual VERIF_INST_TERMINACION VERIF_INST_TERMINACION { get; set; }
-        public virtual ICollection<INFORME> INFORME { get; set; }
-        public virtual ICollection<SOLICITUD> SOLICITUD1 { get; set; }
+        public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
     }
 }

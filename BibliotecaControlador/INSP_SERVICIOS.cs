@@ -14,7 +14,12 @@ namespace BibliotecaDALC
     
     public partial class INSP_SERVICIOS
     {
-        public decimal ID_SERVICIO { get; set; }
+        public INSP_SERVICIOS()
+        {
+            this.INFORME = new HashSet<INFORME>();
+        }
+    
+        public decimal ID_INSPECCION { get; set; }
         public decimal ID_ARTICULO { get; set; }
         public decimal ID_ALCANTARILLADO { get; set; }
         public decimal ID_ELECTRICA { get; set; }
@@ -24,11 +29,11 @@ namespace BibliotecaDALC
         public string OBSERVACION { get; set; }
     
         public virtual ART_SANITARIO ART_SANITARIO { get; set; }
+        public virtual ICollection<INFORME> INFORME { get; set; }
         public virtual INST_AGUA_POTABLE INST_AGUA_POTABLE { get; set; }
         public virtual INST_ALCANTARILLADO INST_ALCANTARILLADO { get; set; }
         public virtual INST_ELECTRICA INST_ELECTRICA { get; set; }
         public virtual INST_GAS INST_GAS { get; set; }
-        public virtual SERVICIO SERVICIO { get; set; }
         public virtual RED_AGUA RED_AGUA { get; set; }
     }
 }

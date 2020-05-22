@@ -17,13 +17,11 @@ namespace BibliotecaDALC
         public INSUMO()
         {
             this.EQUIPO_TECNICO = new HashSet<EQUIPO_TECNICO>();
-            this.INFORME = new HashSet<INFORME>();
         }
     
         public decimal ID_INSUMO { get; set; }
         public string NOMBRE { get; set; }
     
         public virtual ICollection<EQUIPO_TECNICO> EQUIPO_TECNICO { get; set; }
-        public virtual ICollection<INFORME> INFORME { get; set; }
     }
 }

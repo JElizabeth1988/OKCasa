@@ -14,26 +14,26 @@ namespace BibliotecaDALC
     
     public partial class INFORME
     {
-        public INFORME()
-        {
-            this.SERVICIO = new HashSet<SERVICIO>();
-        }
-    
         public decimal NUM_FORMULARIO { get; set; }
         public string ESTADO_SERVICIO { get; set; }
         public string RESULTADO { get; set; }
         public string OBSERVACION { get; set; }
         public System.DateTime FECHA_INSP { get; set; }
-        public System.DateTime HORA_INSP { get; set; }
-        public string RUT_TECNICO { get; set; }
-        public decimal ID_VIVENDA { get; set; }
+        public string HORA_INSP { get; set; }
+        public decimal ID_VIVIENDA { get; set; }
         public string RUT_CLIENTE { get; set; }
-        public decimal ID_INSUMO { get; set; }
+        public string RUT_TECNICO { get; set; }
+        public decimal ID_TERMOGRAFIA { get; set; }
+        public decimal ID_MEDICION { get; set; }
+        public decimal ID_INSPECCION { get; set; }
+        public decimal ID_VERIFICACION { get; set; }
     
         public virtual CLIENTE CLIENTE { get; set; }
-        public virtual INSUMO INSUMO { get; set; }
+        public virtual INSP_SERVICIOS INSP_SERVICIOS { get; set; }
+        public virtual MEDICION_M2 MEDICION_M2 { get; set; }
         public virtual TECNICO TECNICO { get; set; }
+        public virtual TERMOGRAFIA TERMOGRAFIA { get; set; }
+        public virtual VERIF_INST_TERMINACION VERIF_INST_TERMINACION { get; set; }
         public virtual VIVIENDA VIVIENDA { get; set; }
-        public virtual ICollection<SERVICIO> SERVICIO { get; set; }
     }
 }

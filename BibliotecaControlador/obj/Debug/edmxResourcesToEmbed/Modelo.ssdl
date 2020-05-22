@@ -41,7 +41,7 @@
     <Property Name="DIRECCION" Type="varchar2" MaxLength="50" Nullable="false" />
     <Property Name="TELEFONO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="EMAIL" Type="varchar2" MaxLength="50" Nullable="false" />
-    <Property Name="HIPOTECARIO" Type="char" MaxLength="1" />
+    <Property Name="HIPOTECARIO" Type="varchar2" MaxLength="10" />
     <Property Name="ID_COMUNA" Type="number" Precision="38" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="COMUNA">
@@ -57,7 +57,7 @@
       <PropertyRef Name="ID_DESCUENTO" />
     </Key>
     <Property Name="ID_DESCUENTO" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="VALOR" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="VALOR" Type="number" Precision="3" Scale="2" Nullable="false" />
   </EntityType>
   <EntityType Name="ENTIDAD_BANCARIA">
     <Key>
@@ -84,7 +84,7 @@
     <Property Name="RESULTADO" Type="varchar2" MaxLength="20" Nullable="false" />
     <Property Name="OBSERVACION" Type="varchar2" MaxLength="1000" />
     <Property Name="FECHA_INSP" Type="date" Nullable="false" />
-    <Property Name="HORA_INSP" Type="date" Nullable="false" />
+    <Property Name="HORA_INSP" Type="varchar2" MaxLength="5" Nullable="false" />
     <Property Name="RUT_TECNICO" Type="varchar2" MaxLength="9" Nullable="false" />
     <Property Name="ID_VIVENDA" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="10" Nullable="false" />
@@ -151,7 +151,7 @@
       <PropertyRef Name="NOMBRE_USUARIO" />
       <PropertyRef Name="PASSWORD" />
     </Key>
-    <Property Name="NOMBRE_USUARIO" Type="varchar2" MaxLength="30" Nullable="false" />
+    <Property Name="NOMBRE_USUARIO" Type="varchar2" MaxLength="20" Nullable="false" />
     <Property Name="PASSWORD" Type="varchar2" MaxLength="20" Nullable="false" />
     <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="10" Nullable="false" />
   </EntityType>
@@ -256,13 +256,6 @@
     <Property Name="NOMBRE" Type="varchar2" MaxLength="20" Nullable="false" />
     <Property Name="ID_BANCO" Type="number" Precision="38" Scale="0" Nullable="false" />
   </EntityType>
-  <EntityType Name="TIPO_VIVENDA">
-    <Key>
-      <PropertyRef Name="ID_TIPO" />
-    </Key>
-    <Property Name="ID_TIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="NOMBRE_TIPO" Type="varchar2" MaxLength="20" Nullable="false" />
-  </EntityType>
   <EntityType Name="TIPO_VIVIENDA">
     <Key>
       <PropertyRef Name="ID_TIPO" />
@@ -282,46 +275,31 @@
       <PropertyRef Name="ID_SERVICIO" />
     </Key>
     <Property Name="ID_SERVICIO" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="ALTURA_MIN" Type="char" MaxLength="1" />
-    <Property Name="VENTANA_BANIO_COC" Type="char" MaxLength="1" />
-    <Property Name="VENTANA_LOC_HAB" Type="char" MaxLength="1" />
-    <Property Name="AISL_TECHO_60MM" Type="char" MaxLength="1" />
-    <Property Name="MUROS_ALBA_BLOQUE" Type="char" MaxLength="1" />
-    <Property Name="AISL_PISOS_50MM" Type="char" MaxLength="1" />
-    <Property Name="TAB_EXT_30MM" Type="char" MaxLength="1" />
-    <Property Name="SUP_VENT_MURO" Type="char" MaxLength="1" />
-    <Property Name="MUROS_CONTRAFUEGO" Type="char" MaxLength="1" />
-    <Property Name="MUROS_ADOSAM" Type="char" MaxLength="1" />
-    <Property Name="MUROS_ESTRUCT" Type="char" MaxLength="1" />
-    <Property Name="TECHO_CIELO_FALSO" Type="char" MaxLength="1" />
-    <Property Name="MUROS_ALB_EXT" Type="char" MaxLength="1" />
-    <Property Name="MUROS_ALB_EXT_1" Type="char" MaxLength="1" />
-    <Property Name="MADERA_EST_1X4" Type="char" MaxLength="1" />
-    <Property Name="PILAR_HA_15X15" Type="char" MaxLength="1" />
-    <Property Name="MADERA_IMPREG" Type="char" MaxLength="1" />
-    <Property Name="MAD_TABIQ_2X4" Type="char" MaxLength="1" />
-    <Property Name="ENTREMADO_PISO_2X6" Type="char" MaxLength="1" />
-    <Property Name="INST_ELECTRICA" Type="char" MaxLength="1" />
-    <Property Name="INST_AGUA" Type="char" MaxLength="1" />
-    <Property Name="INST_ALCANTARILLADO" Type="char" MaxLength="1" />
-    <Property Name="INT_GAS" Type="char" MaxLength="1" />
-    <Property Name="OTRO" Type="char" MaxLength="1" />
+    <Property Name="ALTURA_MIN" Type="varchar2" MaxLength="10" />
+    <Property Name="VENTANA_BANIO_COC" Type="varchar2" MaxLength="10" />
+    <Property Name="VENTANA_LOC_HAB" Type="varchar2" MaxLength="10" />
+    <Property Name="AISL_TECHO_60MM" Type="varchar2" MaxLength="10" />
+    <Property Name="MUROS_ALBA_BLOQUE" Type="varchar2" MaxLength="10" />
+    <Property Name="AISL_PISOS_50MM" Type="varchar2" MaxLength="10" />
+    <Property Name="TAB_EXT_30MM" Type="varchar2" MaxLength="10" />
+    <Property Name="SUP_VENT_MURO" Type="varchar2" MaxLength="10" />
+    <Property Name="MUROS_CONTRAFUEGO" Type="varchar2" MaxLength="10" />
+    <Property Name="MUROS_ADOSAM" Type="varchar2" MaxLength="10" />
+    <Property Name="MUROS_ESTRUCT" Type="varchar2" MaxLength="10" />
+    <Property Name="TECHO_CIELO_FALSO" Type="varchar2" MaxLength="10" />
+    <Property Name="MUROS_ALB_EXT" Type="varchar2" MaxLength="10" />
+    <Property Name="MUROS_ALB_EXT_1" Type="varchar2" MaxLength="10" />
+    <Property Name="MADERA_EST_1X4" Type="varchar2" MaxLength="10" />
+    <Property Name="PILAR_HA_15X15" Type="varchar2" MaxLength="10" />
+    <Property Name="MADERA_IMPREG" Type="varchar2" MaxLength="10" />
+    <Property Name="MAD_TABIQ_2X4" Type="varchar2" MaxLength="10" />
+    <Property Name="ENTREMADO_PISO_2X6" Type="varchar2" MaxLength="10" />
+    <Property Name="INST_ELECTRICA" Type="varchar2" MaxLength="10" />
+    <Property Name="INST_AGUA" Type="varchar2" MaxLength="10" />
+    <Property Name="INST_ALCANTARILLADO" Type="varchar2" MaxLength="10" />
+    <Property Name="INT_GAS" Type="varchar2" MaxLength="10" />
+    <Property Name="OTRO" Type="varchar2" MaxLength="10" />
     <Property Name="OBSERVACIONES" Type="varchar2" MaxLength="1000" />
-  </EntityType>
-  <EntityType Name="VIVENDA">
-    <Key>
-      <PropertyRef Name="ID_VIVENDA" />
-    </Key>
-    <Property Name="ID_VIVENDA" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="DIRECCIÓN" Type="varchar2" MaxLength="50" Nullable="false" />
-    <Property Name="NUM_HABITACIONES" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="NUM_PISOS" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="CONSTRUCTORA" Type="varchar2" MaxLength="20" />
-    <Property Name="ID_COMUNA" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="ID_REGION" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="ID_TIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="ID_AGRUP" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="9" Nullable="false" />
   </EntityType>
   <EntityType Name="VIVIENDA">
     <Key>
@@ -434,7 +412,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="INFORME_VIVIENDA_FK">
+  <Association Name="INFORME_VIVENDA_FK">
     <End Role="VIVIENDA" Type="Self.VIVIENDA" Multiplicity="1" />
     <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
     <ReferentialConstraint>
@@ -746,19 +724,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="VIVENDA_TIPO_VIVENDA_FK">
-    <End Role="TIPO_VIVENDA" Type="Self.TIPO_VIVENDA" Multiplicity="1" />
-    <End Role="VIVENDA" Type="Self.VIVENDA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TIPO_VIVENDA">
-        <PropertyRef Name="ID_TIPO" />
-      </Principal>
-      <Dependent Role="VIVENDA">
-        <PropertyRef Name="ID_TIPO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="VIVIENDA_AGRUP_FK">
+  <Association Name="VIVENDA_AGRUPAMIENTO_FK">
     <End Role="AGRUPAMIENTO" Type="Self.AGRUPAMIENTO" Multiplicity="1" />
     <End Role="VIVIENDA" Type="Self.VIVIENDA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -770,7 +736,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="VIVIENDA_CLIENTE_FK">
+  <Association Name="VIVENDA_CLIENTE_FK">
     <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
     <End Role="VIVIENDA" Type="Self.VIVIENDA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -782,7 +748,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="VIVIENDA_COMUNA_FK">
+  <Association Name="VIVENDA_COMUNA_FK">
     <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="1" />
     <End Role="VIVIENDA" Type="Self.VIVIENDA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -794,7 +760,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="VIVIENDA_REGION_FK">
+  <Association Name="VIVENDA_REGION_FK">
     <End Role="REGION" Type="Self.REGION" Multiplicity="1" />
     <End Role="VIVIENDA" Type="Self.VIVIENDA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -806,7 +772,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="VIVIENDA_TIPO_VIVENDA_FK">
+  <Association Name="VIVENDA_TIPO_VIVENDA_FK">
     <End Role="TIPO_VIVIENDA" Type="Self.TIPO_VIVIENDA" Multiplicity="1" />
     <End Role="VIVIENDA" Type="Self.VIVIENDA" Multiplicity="*" />
     <ReferentialConstraint>
@@ -847,11 +813,9 @@
     <EntitySet Name="TECNICO" EntityType="Self.TECNICO" Schema="OKCASA" store:Type="Tables" />
     <EntitySet Name="TERMOGRAFIA" EntityType="Self.TERMOGRAFIA" Schema="OKCASA" store:Type="Tables" />
     <EntitySet Name="TIPO_PAGO" EntityType="Self.TIPO_PAGO" Schema="OKCASA" store:Type="Tables" />
-    <EntitySet Name="TIPO_VIVENDA" EntityType="Self.TIPO_VIVENDA" Schema="OKCASA" store:Type="Tables" />
     <EntitySet Name="TIPO_VIVIENDA" EntityType="Self.TIPO_VIVIENDA" Schema="OKCASA" store:Type="Tables" />
     <EntitySet Name="TITULO" EntityType="Self.TITULO" Schema="OKCASA" store:Type="Tables" />
     <EntitySet Name="VERIF_INST_TERMINACION" EntityType="Self.VERIF_INST_TERMINACION" Schema="OKCASA" store:Type="Tables" />
-    <EntitySet Name="VIVENDA" EntityType="Self.VIVENDA" Schema="OKCASA" store:Type="Tables" />
     <EntitySet Name="VIVIENDA" EntityType="Self.VIVIENDA" Schema="OKCASA" store:Type="Tables" />
     <AssociationSet Name="BANCO_ESTADO_CLIENTE_FKV2" Association="Self.BANCO_ESTADO_CLIENTE_FKV2">
       <End Role="CLIENTE" EntitySet="CLIENTE" />
@@ -885,7 +849,7 @@
       <End Role="TECNICO" EntitySet="TECNICO" />
       <End Role="INFORME" EntitySet="INFORME" />
     </AssociationSet>
-    <AssociationSet Name="INFORME_VIVIENDA_FK" Association="Self.INFORME_VIVIENDA_FK">
+    <AssociationSet Name="INFORME_VIVENDA_FK" Association="Self.INFORME_VIVENDA_FK">
       <End Role="VIVIENDA" EntitySet="VIVIENDA" />
       <End Role="INFORME" EntitySet="INFORME" />
     </AssociationSet>
@@ -989,27 +953,23 @@
       <End Role="SERVICIO" EntitySet="SERVICIO" />
       <End Role="VERIF_INST_TERMINACION" EntitySet="VERIF_INST_TERMINACION" />
     </AssociationSet>
-    <AssociationSet Name="VIVENDA_TIPO_VIVENDA_FK" Association="Self.VIVENDA_TIPO_VIVENDA_FK">
-      <End Role="TIPO_VIVENDA" EntitySet="TIPO_VIVENDA" />
-      <End Role="VIVENDA" EntitySet="VIVENDA" />
-    </AssociationSet>
-    <AssociationSet Name="VIVIENDA_AGRUP_FK" Association="Self.VIVIENDA_AGRUP_FK">
+    <AssociationSet Name="VIVENDA_AGRUPAMIENTO_FK" Association="Self.VIVENDA_AGRUPAMIENTO_FK">
       <End Role="AGRUPAMIENTO" EntitySet="AGRUPAMIENTO" />
       <End Role="VIVIENDA" EntitySet="VIVIENDA" />
     </AssociationSet>
-    <AssociationSet Name="VIVIENDA_CLIENTE_FK" Association="Self.VIVIENDA_CLIENTE_FK">
+    <AssociationSet Name="VIVENDA_CLIENTE_FK" Association="Self.VIVENDA_CLIENTE_FK">
       <End Role="CLIENTE" EntitySet="CLIENTE" />
       <End Role="VIVIENDA" EntitySet="VIVIENDA" />
     </AssociationSet>
-    <AssociationSet Name="VIVIENDA_COMUNA_FK" Association="Self.VIVIENDA_COMUNA_FK">
+    <AssociationSet Name="VIVENDA_COMUNA_FK" Association="Self.VIVENDA_COMUNA_FK">
       <End Role="COMUNA" EntitySet="COMUNA" />
       <End Role="VIVIENDA" EntitySet="VIVIENDA" />
     </AssociationSet>
-    <AssociationSet Name="VIVIENDA_REGION_FK" Association="Self.VIVIENDA_REGION_FK">
+    <AssociationSet Name="VIVENDA_REGION_FK" Association="Self.VIVENDA_REGION_FK">
       <End Role="REGION" EntitySet="REGION" />
       <End Role="VIVIENDA" EntitySet="VIVIENDA" />
     </AssociationSet>
-    <AssociationSet Name="VIVIENDA_TIPO_VIVENDA_FK" Association="Self.VIVIENDA_TIPO_VIVENDA_FK">
+    <AssociationSet Name="VIVENDA_TIPO_VIVENDA_FK" Association="Self.VIVENDA_TIPO_VIVENDA_FK">
       <End Role="TIPO_VIVIENDA" EntitySet="TIPO_VIVIENDA" />
       <End Role="VIVIENDA" EntitySet="VIVIENDA" />
     </AssociationSet>

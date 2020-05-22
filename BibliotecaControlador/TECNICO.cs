@@ -27,13 +27,11 @@ namespace BibliotecaDALC
         public string DIRECCION { get; set; }
         public decimal TELEFONO { get; set; }
         public string EMAIL { get; set; }
-        public decimal ID_TITULO { get; set; }
         public decimal ID_EQUIPO { get; set; }
         public decimal ID_COMUNA { get; set; }
     
         public virtual COMUNA COMUNA { get; set; }
         public virtual EQUIPO_TECNICO EQUIPO_TECNICO { get; set; }
         public virtual ICollection<INFORME> INFORME { get; set; }
-        public virtual TITULO TITULO { get; set; }
     }
 }
