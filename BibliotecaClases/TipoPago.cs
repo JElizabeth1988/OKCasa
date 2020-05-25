@@ -11,5 +11,14 @@ namespace BibliotecaNegocio
     {
         //Crear objeto de la Bdd
         private EntitiesOKCasa bdd = new EntitiesOKCasa();
+
+        public int id_tipo { get; set; }
+        public string nombre { get; set; }
+
+
+        public TipoPago()
+        {
+
+        }
     }
 }

@@ -11,6 +11,19 @@ namespace BibliotecaNegocio
     {
         //Crear objeto de la Bdd
         private EntitiesOKCasa bdd = new EntitiesOKCasa();
+
+        //Creacion de los atributos
+        public int id_agenda { get; set; }
+        public DateTime dia { get; set; }
+        public string hora { get; set; }
+        public int id_equipo { get; set; }
+
+
+        public Agenda()
+        {
+
+        }
+
     }
 
 }

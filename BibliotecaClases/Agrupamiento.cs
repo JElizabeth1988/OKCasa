@@ -11,5 +11,13 @@ namespace BibliotecaNegocio
     {
         //Crear objeto de la Bdd
         private EntitiesOKCasa bdd = new EntitiesOKCasa();
+
+        public int id_agrup { get; set; }
+        public string nombre_agr { get; set; }
+
+        public Agrupamiento()
+        {
+
+        }
     }
 }

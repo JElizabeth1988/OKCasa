@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\
+C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\
 Vista
 none
 false
 DEBUG;TRACE
-C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\App.xaml
+C:\Users\USER\Source\Repos\OKCasa\Vista\App.xaml
 172053058872
 
-23348212322
-44-699750388
+231284694230
+44-1753458804
 Cliente.xaml;ConsultarBanco.xaml;EquiposInspeccion.xaml;FormularioInspeccion.xaml;Horario.xaml;Insumos.xaml;ListadoCliente.xaml;ListadoFormulario.xaml;ListadoInspectores.xaml;Login.xaml;MainWindow.xaml;Resources\Icons.xaml;Resources\IconsNonShared.xaml;Seguimiento.xaml;Servicio.xaml;Solicitud.xaml;Tecnico.xaml;
 
-True
+False
 
