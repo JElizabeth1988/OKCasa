@@ -16,12 +16,12 @@ namespace BibliotecaDALC
     {
         public AGRUPAMIENTO()
         {
-            this.VIVIENDA = new HashSet<VIVIENDA>();
+            this.INFORME = new HashSet<INFORME>();
         }
     
-        public decimal ID_AGRUP { get; set; }
+        public int ID_AGRUP { get; set; }
         public string NOMBRE_AGR { get; set; }
     
-        public virtual ICollection<VIVIENDA> VIVIENDA { get; set; }
+        public virtual ICollection<INFORME> INFORME { get; set; }
     }
 }

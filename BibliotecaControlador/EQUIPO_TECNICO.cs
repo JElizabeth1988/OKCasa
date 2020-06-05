@@ -21,7 +21,7 @@ namespace BibliotecaDALC
             this.INSUMO = new HashSet<INSUMO>();
         }
     
-        public decimal ID_EQUIPO { get; set; }
+        public int ID_EQUIPO { get; set; }
         public string NOMBRE { get; set; }
     
         public virtual ICollection<AGENDA> AGENDA { get; set; }

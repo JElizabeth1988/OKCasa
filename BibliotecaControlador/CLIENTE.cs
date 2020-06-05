@@ -21,7 +21,6 @@ namespace BibliotecaDALC
             this.LOGIN = new HashSet<LOGIN>();
             this.PAGO = new HashSet<PAGO>();
             this.SOLICITUD = new HashSet<SOLICITUD>();
-            this.VIVIENDA = new HashSet<VIVIENDA>();
         }
     
         public string RUT_CLIENTE { get; set; }
@@ -30,10 +29,10 @@ namespace BibliotecaDALC
         public string AP_PATERNO { get; set; }
         public string AP_MATERNO { get; set; }
         public string DIRECCION { get; set; }
-        public decimal TELEFONO { get; set; }
+        public int TELEFONO { get; set; }
         public string EMAIL { get; set; }
         public string HIPOTECARIO { get; set; }
-        public decimal ID_COMUNA { get; set; }
+        public int ID_COMUNA { get; set; }
     
         public virtual ICollection<BANCO_ESTADO> BANCO_ESTADO { get; set; }
         public virtual COMUNA COMUNA { get; set; }
@@ -41,6 +40,5 @@ namespace BibliotecaDALC
         public virtual ICollection<LOGIN> LOGIN { get; set; }
         public virtual ICollection<PAGO> PAGO { get; set; }
         public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
-        public virtual ICollection<VIVIENDA> VIVIENDA { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace BibliotecaNegocio
     public class Pago
     {
         //Crear objeto de la Bdd
-        private EntitiesOKCasa bdd = new EntitiesOKCasa();
+        private OkCasa_Entities bdd = new OkCasa_Entities();
 
         public int id_pago { get; set; }
         public int valor { get; set; }

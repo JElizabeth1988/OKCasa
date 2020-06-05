@@ -6,7 +6,6 @@ C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\Bibli
 C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.pdb
 C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.dll
 C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.pdb
-C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache
 C:\Users\USER\Source\Repos\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll.config
 C:\Users\USER\Source\Repos\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.dll
 C:\Users\USER\Source\Repos\OKCasa\BibliotecaControlador\bin\Debug\BibliotecaDALC.pdb

@@ -19,7 +19,7 @@ namespace BibliotecaDALC
             this.EQUIPO_TECNICO = new HashSet<EQUIPO_TECNICO>();
         }
     
-        public decimal ID_INSUMO { get; set; }
+        public int ID_INSUMO { get; set; }
         public string NOMBRE { get; set; }
     
         public virtual ICollection<EQUIPO_TECNICO> EQUIPO_TECNICO { get; set; }

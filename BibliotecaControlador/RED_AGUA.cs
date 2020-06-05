@@ -16,12 +16,12 @@ namespace BibliotecaDALC
     {
         public RED_AGUA()
         {
-            this.INSP_SERVICIOS = new HashSet<INSP_SERVICIOS>();
+            this.INFORME = new HashSet<INFORME>();
         }
     
-        public decimal ID_AGUA { get; set; }
+        public int ID_AGUA { get; set; }
         public string NOMBRE { get; set; }
     
-        public virtual ICollection<INSP_SERVICIOS> INSP_SERVICIOS { get; set; }
+        public virtual ICollection<INFORME> INFORME { get; set; }
     }
 }

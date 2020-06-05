@@ -30,11 +30,7 @@ namespace Vista
             this.DataContext = this;
 
             btnActualizar.Visibility = Visibility.Hidden;
-            btnInsumos.Visibility = Visibility.Hidden;
-
             
-
-
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)

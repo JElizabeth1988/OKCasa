@@ -18,14 +18,12 @@ namespace BibliotecaDALC
         {
             this.CLIENTE = new HashSet<CLIENTE>();
             this.TECNICO = new HashSet<TECNICO>();
-            this.VIVIENDA = new HashSet<VIVIENDA>();
         }
     
-        public decimal ID_COMUNA { get; set; }
+        public int ID_COMUNA { get; set; }
         public string NOMBRE { get; set; }
     
         public virtual ICollection<CLIENTE> CLIENTE { get; set; }
         public virtual ICollection<TECNICO> TECNICO { get; set; }
-        public virtual ICollection<VIVIENDA> VIVIENDA { get; set; }
     }
 }

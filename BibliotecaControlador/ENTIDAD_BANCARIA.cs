@@ -19,7 +19,7 @@ namespace BibliotecaDALC
             this.TIPO_PAGO = new HashSet<TIPO_PAGO>();
         }
     
-        public decimal ID_BANCO { get; set; }
+        public int ID_BANCO { get; set; }
         public string NOMBRE { get; set; }
     
         public virtual ICollection<TIPO_PAGO> TIPO_PAGO { get; set; }

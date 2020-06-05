@@ -19,9 +19,9 @@ namespace BibliotecaDALC
             this.SOLICITUD = new HashSet<SOLICITUD>();
         }
     
-        public decimal ID_SERVICIO { get; set; }
+        public int ID_SERVICIO { get; set; }
         public string NOMBRE { get; set; }
-        public decimal VALOR { get; set; }
+        public int VALOR { get; set; }
     
         public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
     }

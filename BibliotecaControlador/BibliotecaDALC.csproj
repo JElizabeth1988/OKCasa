@@ -83,9 +83,6 @@
     <Compile Include="INFORME.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="INSP_SERVICIOS.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
     <Compile Include="INST_AGUA_POTABLE.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -102,9 +99,6 @@
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="LOGIN.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MEDICION_M2.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo.Context.cs">
@@ -143,19 +137,10 @@
     <Compile Include="TECNICO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="TERMOGRAFIA.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
     <Compile Include="TIPO_PAGO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="TIPO_VIVIENDA.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VERIF_INST_TERMINACION.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VIVIENDA.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
   </ItemGroup>

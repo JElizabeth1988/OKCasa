@@ -10,7 +10,7 @@ namespace BibliotecaNegocio
     public class Login
     {
         //Crear objeto de la Bdd
-        private EntitiesOKCasa bdd = new EntitiesOKCasa();
+        private OkCasa_Entities bdd = new OkCasa_Entities();
 
         public string nombre_usuario { get; set; }
         public string password { get; set; }

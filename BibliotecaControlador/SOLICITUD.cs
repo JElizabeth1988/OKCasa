@@ -16,17 +16,23 @@ namespace BibliotecaDALC
     {
         public SOLICITUD()
         {
+            this.INFORME = new HashSet<INFORME>();
             this.SERVICIO = new HashSet<SERVICIO>();
         }
     
-        public decimal ID_SOLICITUD { get; set; }
+        public int ID_SOLICITUD { get; set; }
         public System.DateTime FECHA_SOLICITUD { get; set; }
         public string HORA_SOLICITUD { get; set; }
+        public string DIRECCION_VIVIENDA { get; set; }
+        public string CONSTRUCTORA { get; set; }
         public string RUT_CLIENTE { get; set; }
-        public decimal ID_AGENDA { get; set; }
+        public int ID_AGENDA { get; set; }
+        public int ID_PAGO { get; set; }
     
         public virtual AGENDA AGENDA { get; set; }
         public virtual CLIENTE CLIENTE { get; set; }
+        public virtual ICollection<INFORME> INFORME { get; set; }
+        public virtual PAGO PAGO { get; set; }
         public virtual ICollection<SERVICIO> SERVICIO { get; set; }
     }
 }

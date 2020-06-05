@@ -13,10 +13,10 @@ namespace BibliotecaDALC
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EntitiesOKCasa : DbContext
+    public partial class OkCasa_Entities : DbContext
     {
-        public EntitiesOKCasa()
-            : base("name=EntitiesOKCasa")
+        public OkCasa_Entities()
+            : base("name=OkCasa_Entities")
         {
         }
     
@@ -34,23 +34,18 @@ namespace BibliotecaDALC
         public DbSet<ENTIDAD_BANCARIA> ENTIDAD_BANCARIA { get; set; }
         public DbSet<EQUIPO_TECNICO> EQUIPO_TECNICO { get; set; }
         public DbSet<INFORME> INFORME { get; set; }
-        public DbSet<INSP_SERVICIOS> INSP_SERVICIOS { get; set; }
         public DbSet<INST_AGUA_POTABLE> INST_AGUA_POTABLE { get; set; }
         public DbSet<INST_ALCANTARILLADO> INST_ALCANTARILLADO { get; set; }
         public DbSet<INST_ELECTRICA> INST_ELECTRICA { get; set; }
         public DbSet<INST_GAS> INST_GAS { get; set; }
         public DbSet<INSUMO> INSUMO { get; set; }
         public DbSet<LOGIN> LOGIN { get; set; }
-        public DbSet<MEDICION_M2> MEDICION_M2 { get; set; }
         public DbSet<PAGO> PAGO { get; set; }
         public DbSet<RED_AGUA> RED_AGUA { get; set; }
         public DbSet<SERVICIO> SERVICIO { get; set; }
         public DbSet<SOLICITUD> SOLICITUD { get; set; }
         public DbSet<TECNICO> TECNICO { get; set; }
-        public DbSet<TERMOGRAFIA> TERMOGRAFIA { get; set; }
         public DbSet<TIPO_PAGO> TIPO_PAGO { get; set; }
         public DbSet<TIPO_VIVIENDA> TIPO_VIVIENDA { get; set; }
-        public DbSet<VERIF_INST_TERMINACION> VERIF_INST_TERMINACION { get; set; }
-        public DbSet<VIVIENDA> VIVIENDA { get; set; }
     }
 }

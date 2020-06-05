@@ -1,349 +1,264 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ModeloEntitiesStoreContainer" CdmEntityContainer="OKCasaEntities">
+  <EntityContainerMapping StorageEntityContainer="ModeloOkCasaStoreContainer" CdmEntityContainer="OkCasa_Entities">
     <EntitySetMapping Name="AGENDA">
-      <EntityTypeMapping TypeName="ModeloEntities.AGENDA">
+      <EntityTypeMapping TypeName="ModeloOkCasa.AGENDA">
         <MappingFragment StoreEntitySet="AGENDA">
-          <ScalarProperty Name="HORA" ColumnName="HORA" />
-          <ScalarProperty Name="DIA" ColumnName="DIA" />
           <ScalarProperty Name="ID_AGENDA" ColumnName="ID_AGENDA" />
+          <ScalarProperty Name="DIA" ColumnName="DIA" />
+          <ScalarProperty Name="HORA" ColumnName="HORA" />
+          <ScalarProperty Name="ID_EQUIPO" ColumnName="ID_EQUIPO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="AGRUPAMIENTO">
-      <EntityTypeMapping TypeName="ModeloEntities.AGRUPAMIENTO">
+      <EntityTypeMapping TypeName="ModeloOkCasa.AGRUPAMIENTO">
         <MappingFragment StoreEntitySet="AGRUPAMIENTO">
-          <ScalarProperty Name="NOMBRE_AGR" ColumnName="NOMBRE_AGR" />
           <ScalarProperty Name="ID_AGRUP" ColumnName="ID_AGRUP" />
+          <ScalarProperty Name="NOMBRE_AGR" ColumnName="NOMBRE_AGR" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ART_SANITARIO">
-      <EntityTypeMapping TypeName="ModeloEntities.ART_SANITARIO">
+      <EntityTypeMapping TypeName="ModeloOkCasa.ART_SANITARIO">
         <MappingFragment StoreEntitySet="ART_SANITARIO">
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="BANCO_ESTADO">
-      <EntityTypeMapping TypeName="ModeloEntities.BANCO_ESTADO">
+      <EntityTypeMapping TypeName="ModeloOkCasa.BANCO_ESTADO">
         <MappingFragment StoreEntitySet="BANCO_ESTADO">
-          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
           <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CLIENTE">
-      <EntityTypeMapping TypeName="ModeloEntities.CLIENTE">
+      <EntityTypeMapping TypeName="ModeloOkCasa.CLIENTE">
         <MappingFragment StoreEntitySet="CLIENTE">
-          <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
-          <ScalarProperty Name="HIPOTECARIO" ColumnName="HIPOTECARIO" />
-          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
-          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
-          <ScalarProperty Name="AP_MATERNO" ColumnName="AP_MATERNO" />
-          <ScalarProperty Name="AP_PATERNO" ColumnName="AP_PATERNO" />
-          <ScalarProperty Name="SEGUNDO_NOMBRE" ColumnName="SEGUNDO_NOMBRE" />
-          <ScalarProperty Name="PRIMER_NOMBRE" ColumnName="PRIMER_NOMBRE" />
           <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="PRIMER_NOMBRE" ColumnName="PRIMER_NOMBRE" />
+          <ScalarProperty Name="SEGUNDO_NOMBRE" ColumnName="SEGUNDO_NOMBRE" />
+          <ScalarProperty Name="AP_PATERNO" ColumnName="AP_PATERNO" />
+          <ScalarProperty Name="AP_MATERNO" ColumnName="AP_MATERNO" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="HIPOTECARIO" ColumnName="HIPOTECARIO" />
+          <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="COMUNA">
-      <EntityTypeMapping TypeName="ModeloEntities.COMUNA">
+      <EntityTypeMapping TypeName="ModeloOkCasa.COMUNA">
         <MappingFragment StoreEntitySet="COMUNA">
-          <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="DESCUENTO">
-      <EntityTypeMapping TypeName="ModeloEntities.DESCUENTO">
-        <MappingFragment StoreEntitySet="DESCUENTO">
-          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
-          <ScalarProperty Name="ID_DESCUENTO" ColumnName="ID_DESCUENTO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ENTIDAD_BANCARIA">
-      <EntityTypeMapping TypeName="ModeloEntities.ENTIDAD_BANCARIA">
+      <EntityTypeMapping TypeName="ModeloOkCasa.ENTIDAD_BANCARIA">
         <MappingFragment StoreEntitySet="ENTIDAD_BANCARIA">
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EQUIPO_TECNICO">
-      <EntityTypeMapping TypeName="ModeloEntities.EQUIPO_TECNICO">
+      <EntityTypeMapping TypeName="ModeloOkCasa.EQUIPO_TECNICO">
         <MappingFragment StoreEntitySet="EQUIPO_TECNICO">
-          <ScalarProperty Name="ID_INSUMO" ColumnName="ID_INSUMO" />
-          <ScalarProperty Name="ID_AGENDA" ColumnName="ID_AGENDA" />
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="ID_EQUIPO" ColumnName="ID_EQUIPO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="INFORME">
-      <EntityTypeMapping TypeName="ModeloEntities.INFORME">
+      <EntityTypeMapping TypeName="ModeloOkCasa.INFORME">
         <MappingFragment StoreEntitySet="INFORME">
-          <ScalarProperty Name="ID_INSUMO" ColumnName="ID_INSUMO" />
-          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
-          <ScalarProperty Name="ID_VIVENDA" ColumnName="ID_VIVENDA" />
-          <ScalarProperty Name="RUT_TECNICO" ColumnName="RUT_TECNICO" />
-          <ScalarProperty Name="HORA_INSP" ColumnName="HORA_INSP" />
-          <ScalarProperty Name="FECHA_INSP" ColumnName="FECHA_INSP" />
-          <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
-          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
-          <ScalarProperty Name="ESTADO_SERVICIO" ColumnName="ESTADO_SERVICIO" />
           <ScalarProperty Name="NUM_FORMULARIO" ColumnName="NUM_FORMULARIO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="INSP_SERVICIOS">
-      <EntityTypeMapping TypeName="ModeloEntities.INSP_SERVICIOS">
-        <MappingFragment StoreEntitySet="INSP_SERVICIOS">
-          <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
-          <ScalarProperty Name="ID_AGUA" ColumnName="ID_AGUA" />
-          <ScalarProperty Name="ID_GAS" ColumnName="ID_GAS" />
+          <ScalarProperty Name="ESTADO_SERVICIO" ColumnName="ESTADO_SERVICIO" />
+          <ScalarProperty Name="NUM_HABITACIONES" ColumnName="NUM_HABITACIONES" />
+          <ScalarProperty Name="NUM_PISOS" ColumnName="NUM_PISOS" />
+          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
+          <ScalarProperty Name="FECHA_INSP" ColumnName="FECHA_INSP" />
+          <ScalarProperty Name="HORA_INSP" ColumnName="HORA_INSP" />
+          <ScalarProperty Name="OBSERV_FINAL" ColumnName="OBSERV_FINAL" />
+          <ScalarProperty Name="OBSERV_MEDICION" ColumnName="OBSERV_MEDICION" />
+          <ScalarProperty Name="OBSERV_SERVICIOS" ColumnName="OBSERV_SERVICIOS" />
+          <ScalarProperty Name="OBSERV_TERMINACION" ColumnName="OBSERV_TERMINACION" />
+          <ScalarProperty Name="OBSERV_TERMOGRAFIA" ColumnName="OBSERV_TERMOGRAFIA" />
+          <ScalarProperty Name="HABITABILIDAD" ColumnName="HABITABILIDAD" />
+          <ScalarProperty Name="TERMICA" ColumnName="TERMICA" />
+          <ScalarProperty Name="RESIST_FUEGO" ColumnName="RESIST_FUEGO" />
+          <ScalarProperty Name="ELECTRICA" ColumnName="ELECTRICA" />
+          <ScalarProperty Name="AGUA" ColumnName="AGUA" />
+          <ScalarProperty Name="ALCANTARILLADO" ColumnName="ALCANTARILLADO" />
+          <ScalarProperty Name="GAS" ColumnName="GAS" />
+          <ScalarProperty Name="EMISIVIDAD" ColumnName="EMISIVIDAD" />
+          <ScalarProperty Name="TEMP_REFLEJADA" ColumnName="TEMP_REFLEJADA" />
+          <ScalarProperty Name="HUMEDAD" ColumnName="HUMEDAD" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="RUT_TECNICO" ColumnName="RUT_TECNICO" />
           <ScalarProperty Name="ID_AGUA_POTABLE" ColumnName="ID_AGUA_POTABLE" />
-          <ScalarProperty Name="ID_ELECTRICA" ColumnName="ID_ELECTRICA" />
-          <ScalarProperty Name="ID_ALCANTARILLADO" ColumnName="ID_ALCANTARILLADO" />
           <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
-          <ScalarProperty Name="ID_SERVICIO" ColumnName="ID_SERVICIO" />
+          <ScalarProperty Name="ID_GAS" ColumnName="ID_GAS" />
+          <ScalarProperty Name="ID_ALCANTARILLADO" ColumnName="ID_ALCANTARILLADO" />
+          <ScalarProperty Name="ID_AGUA" ColumnName="ID_AGUA" />
+          <ScalarProperty Name="ID_ELECTRICA" ColumnName="ID_ELECTRICA" />
+          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+          <ScalarProperty Name="ID_AGRUP" ColumnName="ID_AGRUP" />
+          <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="INST_AGUA_POTABLE">
-      <EntityTypeMapping TypeName="ModeloEntities.INST_AGUA_POTABLE">
+      <EntityTypeMapping TypeName="ModeloOkCasa.INST_AGUA_POTABLE">
         <MappingFragment StoreEntitySet="INST_AGUA_POTABLE">
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="ID_AGUA_POTABLE" ColumnName="ID_AGUA_POTABLE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="INST_ALCANTARILLADO">
-      <EntityTypeMapping TypeName="ModeloEntities.INST_ALCANTARILLADO">
+      <EntityTypeMapping TypeName="ModeloOkCasa.INST_ALCANTARILLADO">
         <MappingFragment StoreEntitySet="INST_ALCANTARILLADO">
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="ID_ALCANTARILLADO" ColumnName="ID_ALCANTARILLADO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="INST_ELECTRICA">
-      <EntityTypeMapping TypeName="ModeloEntities.INST_ELECTRICA">
+      <EntityTypeMapping TypeName="ModeloOkCasa.INST_ELECTRICA">
         <MappingFragment StoreEntitySet="INST_ELECTRICA">
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="ID_ELECTRICA" ColumnName="ID_ELECTRICA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="INST_GAS">
-      <EntityTypeMapping TypeName="ModeloEntities.INST_GAS">
+      <EntityTypeMapping TypeName="ModeloOkCasa.INST_GAS">
         <MappingFragment StoreEntitySet="INST_GAS">
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="ID_GAS" ColumnName="ID_GAS" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="INSUMO">
-      <EntityTypeMapping TypeName="ModeloEntities.INSUMO">
+      <EntityTypeMapping TypeName="ModeloOkCasa.INSUMO">
         <MappingFragment StoreEntitySet="INSUMO">
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="ID_INSUMO" ColumnName="ID_INSUMO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="LOGIN">
-      <EntityTypeMapping TypeName="ModeloEntities.LOGIN">
+      <EntityTypeMapping TypeName="ModeloOkCasa.LOGIN">
         <MappingFragment StoreEntitySet="LOGIN">
-          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
-          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
           <ScalarProperty Name="NOMBRE_USUARIO" ColumnName="NOMBRE_USUARIO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="MEDICION_M2">
-      <EntityTypeMapping TypeName="ModeloEntities.MEDICION_M2">
-        <MappingFragment StoreEntitySet="MEDICION_M2">
-          <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
-          <ScalarProperty Name="SUP_ELE_COM_REG" ColumnName="SUP_ELE_COM_REG" />
-          <ScalarProperty Name="SUP_ELE_COM_REAL" ColumnName="SUP_ELE_COM_REAL" />
-          <ScalarProperty Name="SUP_CONST_REG" ColumnName="SUP_CONST_REG" />
-          <ScalarProperty Name="SUP_CONST_REAL" ColumnName="SUP_CONST_REAL" />
-          <ScalarProperty Name="SUP_UTIL_REG" ColumnName="SUP_UTIL_REG" />
-          <ScalarProperty Name="SUP_UTIL_REAL" ColumnName="SUP_UTIL_REAL" />
-          <ScalarProperty Name="AREA_TOTAL_REG" ColumnName="AREA_TOTAL_REG" />
-          <ScalarProperty Name="AREA_TOTAL_REAL" ColumnName="AREA_TOTAL_REAL" />
-          <ScalarProperty Name="ID_SERVICIO" ColumnName="ID_SERVICIO" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PAGO">
-      <EntityTypeMapping TypeName="ModeloEntities.PAGO">
+      <EntityTypeMapping TypeName="ModeloOkCasa.PAGO">
         <MappingFragment StoreEntitySet="PAGO">
-          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
-          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
-          <ScalarProperty Name="ID_DESCUENTO" ColumnName="ID_DESCUENTO" />
-          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
           <ScalarProperty Name="ID_PAGO" ColumnName="ID_PAGO" />
+          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+          <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
+          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="RED_AGUA">
-      <EntityTypeMapping TypeName="ModeloEntities.RED_AGUA">
+      <EntityTypeMapping TypeName="ModeloOkCasa.RED_AGUA">
         <MappingFragment StoreEntitySet="RED_AGUA">
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="ID_AGUA" ColumnName="ID_AGUA" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="REGION">
-      <EntityTypeMapping TypeName="ModeloEntities.REGION">
-        <MappingFragment StoreEntitySet="REGION">
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-          <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SERVICIO">
-      <EntityTypeMapping TypeName="ModeloEntities.SERVICIO">
+      <EntityTypeMapping TypeName="ModeloOkCasa.SERVICIO">
         <MappingFragment StoreEntitySet="SERVICIO">
-          <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="ID_SERVICIO" ColumnName="ID_SERVICIO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SOLICITUD">
-      <EntityTypeMapping TypeName="ModeloEntities.SOLICITUD">
+      <EntityTypeMapping TypeName="ModeloOkCasa.SOLICITUD">
         <MappingFragment StoreEntitySet="SOLICITUD">
-          <ScalarProperty Name="ID_AGENDA" ColumnName="ID_AGENDA" />
-          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
-          <ScalarProperty Name="HORA_SOLICITUD" ColumnName="HORA_SOLICITUD" />
-          <ScalarProperty Name="FECHA_SOLICITUD" ColumnName="FECHA_SOLICITUD" />
           <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
+          <ScalarProperty Name="FECHA_SOLICITUD" ColumnName="FECHA_SOLICITUD" />
+          <ScalarProperty Name="HORA_SOLICITUD" ColumnName="HORA_SOLICITUD" />
+          <ScalarProperty Name="DIRECCION_VIVIENDA" ColumnName="DIRECCION_VIVIENDA" />
+          <ScalarProperty Name="CONSTRUCTORA" ColumnName="CONSTRUCTORA" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="ID_AGENDA" ColumnName="ID_AGENDA" />
+          <ScalarProperty Name="ID_PAGO" ColumnName="ID_PAGO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TECNICO">
-      <EntityTypeMapping TypeName="ModeloEntities.TECNICO">
+      <EntityTypeMapping TypeName="ModeloOkCasa.TECNICO">
         <MappingFragment StoreEntitySet="TECNICO">
-          <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
-          <ScalarProperty Name="ID_EQUIPO" ColumnName="ID_EQUIPO" />
-          <ScalarProperty Name="ID_TITULO" ColumnName="ID_TITULO" />
-          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
-          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
-          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
-          <ScalarProperty Name="AP_MATERNO" ColumnName="AP_MATERNO" />
-          <ScalarProperty Name="AP_PATERNO" ColumnName="AP_PATERNO" />
-          <ScalarProperty Name="SEGUNDO_NOMBRE" ColumnName="SEGUNDO_NOMBRE" />
-          <ScalarProperty Name="PRIMER_NOMBRE" ColumnName="PRIMER_NOMBRE" />
           <ScalarProperty Name="RUT_TECNICO" ColumnName="RUT_TECNICO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TERMOGRAFIA">
-      <EntityTypeMapping TypeName="ModeloEntities.TERMOGRAFIA">
-        <MappingFragment StoreEntitySet="TERMOGRAFIA">
-          <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
-          <ScalarProperty Name="TEMP_ATMOSFERICA" ColumnName="TEMP_ATMOSFERICA" />
-          <ScalarProperty Name="HUM_RELATIVA" ColumnName="HUM_RELATIVA" />
-          <ScalarProperty Name="DISTANCIA" ColumnName="DISTANCIA" />
-          <ScalarProperty Name="TEMP_REFLEJADA" ColumnName="TEMP_REFLEJADA" />
-          <ScalarProperty Name="EMISIVIDAD" ColumnName="EMISIVIDAD" />
-          <ScalarProperty Name="ID_SERVICIO" ColumnName="ID_SERVICIO" />
+          <ScalarProperty Name="PRIMER_NOMBRE" ColumnName="PRIMER_NOMBRE" />
+          <ScalarProperty Name="SEGUNDO_NOMBRE" ColumnName="SEGUNDO_NOMBRE" />
+          <ScalarProperty Name="AP_PATERNO" ColumnName="AP_PATERNO" />
+          <ScalarProperty Name="AP_MATERNO" ColumnName="AP_MATERNO" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="ID_EQUIPO" ColumnName="ID_EQUIPO" />
+          <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TIPO_PAGO">
-      <EntityTypeMapping TypeName="ModeloEntities.TIPO_PAGO">
+      <EntityTypeMapping TypeName="ModeloOkCasa.TIPO_PAGO">
         <MappingFragment StoreEntitySet="TIPO_PAGO">
-          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TIPO_VIVIENDA">
-      <EntityTypeMapping TypeName="ModeloEntities.TIPO_VIVIENDA">
+      <EntityTypeMapping TypeName="ModeloOkCasa.TIPO_VIVIENDA">
         <MappingFragment StoreEntitySet="TIPO_VIVIENDA">
+          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
           <ScalarProperty Name="NOMBRE_TIPO" ColumnName="NOMBRE_TIPO" />
-          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TITULO">
-      <EntityTypeMapping TypeName="ModeloEntities.TITULO">
-        <MappingFragment StoreEntitySet="TITULO">
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-          <ScalarProperty Name="ID_TITULO" ColumnName="ID_TITULO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="VERIF_INST_TERMINACION">
-      <EntityTypeMapping TypeName="ModeloEntities.VERIF_INST_TERMINACION">
-        <MappingFragment StoreEntitySet="VERIF_INST_TERMINACION">
-          <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
-          <ScalarProperty Name="OTRO" ColumnName="OTRO" />
-          <ScalarProperty Name="INT_GAS" ColumnName="INT_GAS" />
-          <ScalarProperty Name="INST_ALCANTARILLADO" ColumnName="INST_ALCANTARILLADO" />
-          <ScalarProperty Name="INST_AGUA" ColumnName="INST_AGUA" />
-          <ScalarProperty Name="INST_ELECTRICA" ColumnName="INST_ELECTRICA" />
-          <ScalarProperty Name="ENTREMADO_PISO_2X6" ColumnName="ENTREMADO_PISO_2X6" />
-          <ScalarProperty Name="MAD_TABIQ_2X4" ColumnName="MAD_TABIQ_2X4" />
-          <ScalarProperty Name="MADERA_IMPREG" ColumnName="MADERA_IMPREG" />
-          <ScalarProperty Name="PILAR_HA_15X15" ColumnName="PILAR_HA_15X15" />
-          <ScalarProperty Name="MADERA_EST_1X4" ColumnName="MADERA_EST_1X4" />
-          <ScalarProperty Name="MUROS_ALB_EXT_1" ColumnName="MUROS_ALB_EXT_1" />
-          <ScalarProperty Name="MUROS_ALB_EXT" ColumnName="MUROS_ALB_EXT" />
-          <ScalarProperty Name="TECHO_CIELO_FALSO" ColumnName="TECHO_CIELO_FALSO" />
-          <ScalarProperty Name="MUROS_ESTRUCT" ColumnName="MUROS_ESTRUCT" />
-          <ScalarProperty Name="MUROS_ADOSAM" ColumnName="MUROS_ADOSAM" />
-          <ScalarProperty Name="MUROS_CONTRAFUEGO" ColumnName="MUROS_CONTRAFUEGO" />
-          <ScalarProperty Name="SUP_VENT_MURO" ColumnName="SUP_VENT_MURO" />
-          <ScalarProperty Name="TAB_EXT_30MM" ColumnName="TAB_EXT_30MM" />
-          <ScalarProperty Name="AISL_PISOS_50MM" ColumnName="AISL_PISOS_50MM" />
-          <ScalarProperty Name="MUROS_ALBA_BLOQUE" ColumnName="MUROS_ALBA_BLOQUE" />
-          <ScalarProperty Name="AISL_TECHO_60MM" ColumnName="AISL_TECHO_60MM" />
-          <ScalarProperty Name="VENTANA_LOC_HAB" ColumnName="VENTANA_LOC_HAB" />
-          <ScalarProperty Name="VENTANA_BANIO_COC" ColumnName="VENTANA_BANIO_COC" />
-          <ScalarProperty Name="ALTURA_MIN" ColumnName="ALTURA_MIN" />
-          <ScalarProperty Name="ID_SERVICIO" ColumnName="ID_SERVICIO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="VIVIENDA">
-      <EntityTypeMapping TypeName="ModeloEntities.VIVIENDA">
-        <MappingFragment StoreEntitySet="VIVIENDA">
-          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
-          <ScalarProperty Name="ID_AGRUP" ColumnName="ID_AGRUP" />
-          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
-          <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
-          <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
-          <ScalarProperty Name="CONSTRUCTORA" ColumnName="CONSTRUCTORA" />
-          <ScalarProperty Name="NUM_PISOS" ColumnName="NUM_PISOS" />
-          <ScalarProperty Name="NUM_HABITACIONES" ColumnName="NUM_HABITACIONES" />
-          <ScalarProperty Name="DIRECCIÓN" ColumnName="DIRECCIÓN" />
-          <ScalarProperty Name="ID_VIVIENDA" ColumnName="ID_VIVIENDA" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <AssociationSetMapping Name="INFORME_SERVICIO" TypeName="ModeloEntities.INFORME_SERVICIO" StoreEntitySet="INFORME_SERVICIO">
+    <AssociationSetMapping Name="SOLICITUD_SERVICIO" TypeName="ModeloOkCasa.SOLICITUD_SERVICIO" StoreEntitySet="SOLICITUD_SERVICIO">
       <EndProperty Name="SERVICIO">
         <ScalarProperty Name="ID_SERVICIO" ColumnName="ID_SERVICIO" />
       </EndProperty>
-      <EndProperty Name="INFORME">
-        <ScalarProperty Name="NUM_FORMULARIO" ColumnName="NUM_FORMULARIO" />
+      <EndProperty Name="SOLICITUD">
+        <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="SOLICITUD_SERVICIO" TypeName="ModeloEntities.SOLICITUD_SERVICIO" StoreEntitySet="SOLICITUD_SERVICIO">
-      <EndProperty Name="SOLICITUD">
-        <ScalarProperty Name="ID_SOLICITUD" ColumnName="SOLICITUD_ID_SOLICITUD" />
+    <AssociationSetMapping Name="EQUIPO_INSUMO" TypeName="ModeloOkCasa.EQUIPO_INSUMO" StoreEntitySet="EQUIPO_INSUMO">
+      <EndProperty Name="INSUMO">
+        <ScalarProperty Name="ID_INSUMO" ColumnName="ID_INSUMO" />
       </EndProperty>
-      <EndProperty Name="SERVICIO">
-        <ScalarProperty Name="ID_SERVICIO" ColumnName="SERVICIO_ID_SERVICIO" />
+      <EndProperty Name="EQUIPO_TECNICO">
+        <ScalarProperty Name="ID_EQUIPO" ColumnName="ID_EQUIPO" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TIPO_PAGO_BANCO" TypeName="ModeloOkCasa.TIPO_PAGO_BANCO" StoreEntitySet="TIPO_PAGO_BANCO">
+      <EndProperty Name="TIPO_PAGO">
+        <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+      </EndProperty>
+      <EndProperty Name="ENTIDAD_BANCARIA">
+        <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

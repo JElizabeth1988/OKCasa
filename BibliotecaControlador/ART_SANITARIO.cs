@@ -16,12 +16,12 @@ namespace BibliotecaDALC
     {
         public ART_SANITARIO()
         {
-            this.INSP_SERVICIOS = new HashSet<INSP_SERVICIOS>();
+            this.INFORME = new HashSet<INFORME>();
         }
     
-        public decimal ID_ARTICULO { get; set; }
+        public int ID_ARTICULO { get; set; }
         public string NOMBRE { get; set; }
     
-        public virtual ICollection<INSP_SERVICIOS> INSP_SERVICIOS { get; set; }
+        public virtual ICollection<INFORME> INFORME { get; set; }
     }
 }

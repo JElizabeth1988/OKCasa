@@ -87,30 +87,37 @@ advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ning
           </Key>
           <Property Name="NUM_FORMULARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ESTADO_SERVICIO" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="NUM_HABITACIONES" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NUM_PISOS" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="RESULTADO" Type="varchar2" MaxLength="20" Nullable="false" />
-          <Property Name="OBSERVACION" Type="varchar2" MaxLength="1000" />
           <Property Name="FECHA_INSP" Type="date" Nullable="false" />
           <Property Name="HORA_INSP" Type="varchar2" MaxLength="5" Nullable="false" />
-          <Property Name="ID_VIVIENDA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="OBSERV_FINAL" Type="varchar2" MaxLength="1000" />
+          <Property Name="OBSERV_MEDICION" Type="varchar2" MaxLength="1000" />
+          <Property Name="OBSERV_SERVICIOS" Type="varchar2" MaxLength="1000" />
+          <Property Name="OBSERV_TERMINACION" Type="varchar2" MaxLength="1000" />
+          <Property Name="OBSERV_TERMOGRAFIA" Type="varchar2" MaxLength="1000" />
+          <Property Name="HABITABILIDAD" Type="varchar2" MaxLength="2" />
+          <Property Name="TERMICA" Type="varchar2" MaxLength="2" />
+          <Property Name="RESIST_FUEGO" Type="varchar2" MaxLength="2" />
+          <Property Name="ELECTRICA" Type="varchar2" MaxLength="2" />
+          <Property Name="AGUA" Type="varchar2" MaxLength="2" />
+          <Property Name="ALCANTARILLADO" Type="varchar2" MaxLength="2" />
+          <Property Name="GAS" Type="varchar2" MaxLength="2" />
+          <Property Name="EMISIVIDAD" Type="number" Precision="38" Scale="0" />
+          <Property Name="TEMP_REFLEJADA" Type="number" Precision="38" Scale="0" />
+          <Property Name="HUMEDAD" Type="number" Precision="38" Scale="0" />
           <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="10" Nullable="false" />
           <Property Name="RUT_TECNICO" Type="varchar2" MaxLength="10" Nullable="false" />
-          <Property Name="ID_TERMOGRAFIA" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_MEDICION" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_INSPECCION" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_VERIFICACION" Type="number" Precision="38" Scale="0" Nullable="false" />
-        </EntityType>
-        <EntityType Name="INSP_SERVICIOS">
-          <Key>
-            <PropertyRef Name="ID_INSPECCION" />
-          </Key>
-          <Property Name="ID_INSPECCION" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_ARTICULO" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_ALCANTARILLADO" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_ELECTRICA" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ID_AGUA_POTABLE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_ARTICULO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ID_GAS" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_ALCANTARILLADO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ID_AGUA" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="OBSERVACION" Type="varchar2" MaxLength="1000" />
+          <Property Name="ID_ELECTRICA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_TIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_AGRUP" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_SOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="INST_AGUA_POTABLE">
           <Key>
@@ -156,21 +163,6 @@ advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ning
           <Property Name="PASSWORD" Type="varchar2" MaxLength="20" Nullable="false" />
           <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="10" Nullable="false" />
         </EntityType>
-        <EntityType Name="MEDICION_M2">
-          <Key>
-            <PropertyRef Name="ID_MEDICION" />
-          </Key>
-          <Property Name="ID_MEDICION" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="AREA_TOTAL_REAL" Type="number" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="AREA_TOTAL_REG" Type="number" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="SUP_UTIL_REAL" Type="number" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="SUP_UTIL_REG" Type="number" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="SUP_CONST_REAL" Type="number" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="SUP_CONST_REG" Type="number" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="SUP_ELE_COM_REAL" Type="number" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="SUP_ELE_COM_REG" Type="number" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="OBSERVACION" Type="varchar2" MaxLength="1000" />
-        </EntityType>
         <EntityType Name="PAGO">
           <Key>
             <PropertyRef Name="ID_PAGO" />
@@ -203,8 +195,11 @@ advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ning
           <Property Name="ID_SOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="FECHA_SOLICITUD" Type="date" Nullable="false" />
           <Property Name="HORA_SOLICITUD" Type="varchar2" MaxLength="5" Nullable="false" />
+          <Property Name="DIRECCION_VIVIENDA" Type="varchar2" MaxLength="500" Nullable="false" />
+          <Property Name="CONSTRUCTORA" Type="varchar2" MaxLength="500" Nullable="false" />
           <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="10" Nullable="false" />
           <Property Name="ID_AGENDA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PAGO" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="SOLICITUD_SERVICIO">
           <Key>
@@ -229,18 +224,6 @@ advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ning
           <Property Name="ID_EQUIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ID_COMUNA" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
-        <EntityType Name="TERMOGRAFIA">
-          <Key>
-            <PropertyRef Name="ID_TERMOGRAFIA" />
-          </Key>
-          <Property Name="ID_TERMOGRAFIA" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="EMISIVIDAD" Type="number" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="TEMP_REFLEJADA" Type="number" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="DISTANCIA" Type="number" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="HUM_RELATIVA" Type="number" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="TEMP_ATMOSFERICA" Type="number" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="OBSERVACION" Type="varchar2" MaxLength="1000" />
-        </EntityType>
         <EntityType Name="TIPO_PAGO">
           <Key>
             <PropertyRef Name="ID_TIPO" />
@@ -264,51 +247,6 @@ advertencia 6002: La tabla o vista 'OKCASA.TIPO_PAGO_BANCO' no tiene definida ni
           </Key>
           <Property Name="ID_TIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="NOMBRE_TIPO" Type="varchar2" MaxLength="20" Nullable="false" />
-        </EntityType>
-        <EntityType Name="VERIF_INST_TERMINACION">
-          <Key>
-            <PropertyRef Name="ID_VERIFICACION" />
-          </Key>
-          <Property Name="ID_VERIFICACION" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ALTURA_MIN" Type="varchar2" MaxLength="10" />
-          <Property Name="VENTANA_BANIO_COC" Type="varchar2" MaxLength="10" />
-          <Property Name="VENTANA_LOC_HAB" Type="varchar2" MaxLength="10" />
-          <Property Name="AISL_TECHO_60MM" Type="varchar2" MaxLength="10" />
-          <Property Name="MUROS_ALBA_BLOQUE" Type="varchar2" MaxLength="10" />
-          <Property Name="AISL_PISOS_50MM" Type="varchar2" MaxLength="10" />
-          <Property Name="TAB_EXT_30MM" Type="varchar2" MaxLength="10" />
-          <Property Name="SUP_VENT_MURO" Type="varchar2" MaxLength="10" />
-          <Property Name="MUROS_CONTRAFUEGO" Type="varchar2" MaxLength="10" />
-          <Property Name="MUROS_ADOSAM" Type="varchar2" MaxLength="10" />
-          <Property Name="MUROS_ESTRUCT" Type="varchar2" MaxLength="10" />
-          <Property Name="TECHO_CIELO_FALSO" Type="varchar2" MaxLength="10" />
-          <Property Name="MUROS_ALB_EXT" Type="varchar2" MaxLength="10" />
-          <Property Name="MUROS_ALB_EXT_1" Type="varchar2" MaxLength="10" />
-          <Property Name="MADERA_EST_1X4" Type="varchar2" MaxLength="10" />
-          <Property Name="PILAR_HA_15X15" Type="varchar2" MaxLength="10" />
-          <Property Name="MADERA_IMPREG" Type="varchar2" MaxLength="10" />
-          <Property Name="MAD_TABIQ_2X4" Type="varchar2" MaxLength="10" />
-          <Property Name="ENTREMADO_PISO_2X6" Type="varchar2" MaxLength="10" />
-          <Property Name="INST_ELECTRICA" Type="varchar2" MaxLength="10" />
-          <Property Name="INST_AGUA" Type="varchar2" MaxLength="10" />
-          <Property Name="INST_ALCANTARILLADO" Type="varchar2" MaxLength="10" />
-          <Property Name="INT_GAS" Type="varchar2" MaxLength="10" />
-          <Property Name="OTRO" Type="varchar2" MaxLength="10" />
-          <Property Name="OBSERVACIONES" Type="varchar2" MaxLength="1000" />
-        </EntityType>
-        <EntityType Name="VIVIENDA">
-          <Key>
-            <PropertyRef Name="ID_VIVIENDA" />
-          </Key>
-          <Property Name="ID_VIVIENDA" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="DIRECCIÓN" Type="varchar2" MaxLength="50" Nullable="false" />
-          <Property Name="NUM_HABITACIONES" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="NUM_PISOS" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="CONSTRUCTORA" Type="varchar2" MaxLength="50" />
-          <Property Name="ID_COMUNA" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_TIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_AGRUP" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="10" Nullable="false" />
         </EntityType>
         <Association Name="AGENDA_EQUIPO_TECNICO_FK">
           <End Role="EQUIPO_TECNICO" Type="Self.EQUIPO_TECNICO" Multiplicity="1" />
@@ -370,6 +308,42 @@ advertencia 6002: La tabla o vista 'OKCASA.TIPO_PAGO_BANCO' no tiene definida ni
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="INFORME_AGRUP_FK">
+          <End Role="AGRUPAMIENTO" Type="Self.AGRUPAMIENTO" Multiplicity="1" />
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AGRUPAMIENTO">
+              <PropertyRef Name="ID_AGRUP" />
+            </Principal>
+            <Dependent Role="INFORME">
+              <PropertyRef Name="ID_AGRUP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INFORME_AGUA_FK">
+          <End Role="INST_AGUA_POTABLE" Type="Self.INST_AGUA_POTABLE" Multiplicity="1" />
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INST_AGUA_POTABLE">
+              <PropertyRef Name="ID_AGUA_POTABLE" />
+            </Principal>
+            <Dependent Role="INFORME">
+              <PropertyRef Name="ID_AGUA_POTABLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INFORME_ART_SAN_FK">
+          <End Role="ART_SANITARIO" Type="Self.ART_SANITARIO" Multiplicity="1" />
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ART_SANITARIO">
+              <PropertyRef Name="ID_ARTICULO" />
+            </Principal>
+            <Dependent Role="INFORME">
+              <PropertyRef Name="ID_ARTICULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="INFORME_CLIENTE_FKV2">
           <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
           <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
@@ -382,27 +356,63 @@ advertencia 6002: La tabla o vista 'OKCASA.TIPO_PAGO_BANCO' no tiene definida ni
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="INFORME_INSP_SERVICIOS_FK">
-          <End Role="INSP_SERVICIOS" Type="Self.INSP_SERVICIOS" Multiplicity="1" />
+        <Association Name="INFORME_INST_ALC_FK">
+          <End Role="INST_ALCANTARILLADO" Type="Self.INST_ALCANTARILLADO" Multiplicity="1" />
           <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="INSP_SERVICIOS">
-              <PropertyRef Name="ID_INSPECCION" />
+            <Principal Role="INST_ALCANTARILLADO">
+              <PropertyRef Name="ID_ALCANTARILLADO" />
             </Principal>
             <Dependent Role="INFORME">
-              <PropertyRef Name="ID_INSPECCION" />
+              <PropertyRef Name="ID_ALCANTARILLADO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="INFORME_MEDICION_M2_FK">
-          <End Role="MEDICION_M2" Type="Self.MEDICION_M2" Multiplicity="1" />
+        <Association Name="INFORME_INST_EL_FK">
+          <End Role="INST_ELECTRICA" Type="Self.INST_ELECTRICA" Multiplicity="1" />
           <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="MEDICION_M2">
-              <PropertyRef Name="ID_MEDICION" />
+            <Principal Role="INST_ELECTRICA">
+              <PropertyRef Name="ID_ELECTRICA" />
             </Principal>
             <Dependent Role="INFORME">
-              <PropertyRef Name="ID_MEDICION" />
+              <PropertyRef Name="ID_ELECTRICA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INFORME_INST_GAS_FK">
+          <End Role="INST_GAS" Type="Self.INST_GAS" Multiplicity="1" />
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INST_GAS">
+              <PropertyRef Name="ID_GAS" />
+            </Principal>
+            <Dependent Role="INFORME">
+              <PropertyRef Name="ID_GAS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INFORME_RED_AG_FK">
+          <End Role="RED_AGUA" Type="Self.RED_AGUA" Multiplicity="1" />
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RED_AGUA">
+              <PropertyRef Name="ID_AGUA" />
+            </Principal>
+            <Dependent Role="INFORME">
+              <PropertyRef Name="ID_AGUA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INFORME_SOLICITUD_FK">
+          <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="1" />
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SOLICITUD">
+              <PropertyRef Name="ID_SOLICITUD" />
+            </Principal>
+            <Dependent Role="INFORME">
+              <PropertyRef Name="ID_SOLICITUD" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -418,111 +428,15 @@ advertencia 6002: La tabla o vista 'OKCASA.TIPO_PAGO_BANCO' no tiene definida ni
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="INFORME_TERMOGRAFIA_FK">
-          <End Role="TERMOGRAFIA" Type="Self.TERMOGRAFIA" Multiplicity="1" />
+        <Association Name="INFORME_TIPO_VIV_FK">
+          <End Role="TIPO_VIVIENDA" Type="Self.TIPO_VIVIENDA" Multiplicity="1" />
           <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TERMOGRAFIA">
-              <PropertyRef Name="ID_TERMOGRAFIA" />
+            <Principal Role="TIPO_VIVIENDA">
+              <PropertyRef Name="ID_TIPO" />
             </Principal>
             <Dependent Role="INFORME">
-              <PropertyRef Name="ID_TERMOGRAFIA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="INFORME_VERIF_INST_TER_FK">
-          <End Role="VERIF_INST_TERMINACION" Type="Self.VERIF_INST_TERMINACION" Multiplicity="1" />
-          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="VERIF_INST_TERMINACION">
-              <PropertyRef Name="ID_VERIFICACION" />
-            </Principal>
-            <Dependent Role="INFORME">
-              <PropertyRef Name="ID_VERIFICACION" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="INFORME_VIVIENDA_FK">
-          <End Role="VIVIENDA" Type="Self.VIVIENDA" Multiplicity="1" />
-          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="VIVIENDA">
-              <PropertyRef Name="ID_VIVIENDA" />
-            </Principal>
-            <Dependent Role="INFORME">
-              <PropertyRef Name="ID_VIVIENDA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="INSP_SER_ART_SANITARIO_FK">
-          <End Role="ART_SANITARIO" Type="Self.ART_SANITARIO" Multiplicity="1" />
-          <End Role="INSP_SERVICIOS" Type="Self.INSP_SERVICIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ART_SANITARIO">
-              <PropertyRef Name="ID_ARTICULO" />
-            </Principal>
-            <Dependent Role="INSP_SERVICIOS">
-              <PropertyRef Name="ID_ARTICULO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="INSP_SER_INST_AGUA_P_FK">
-          <End Role="INST_AGUA_POTABLE" Type="Self.INST_AGUA_POTABLE" Multiplicity="1" />
-          <End Role="INSP_SERVICIOS" Type="Self.INSP_SERVICIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="INST_AGUA_POTABLE">
-              <PropertyRef Name="ID_AGUA_POTABLE" />
-            </Principal>
-            <Dependent Role="INSP_SERVICIOS">
-              <PropertyRef Name="ID_AGUA_POTABLE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="INSP_SER_INST_ALC_FK">
-          <End Role="INST_ALCANTARILLADO" Type="Self.INST_ALCANTARILLADO" Multiplicity="1" />
-          <End Role="INSP_SERVICIOS" Type="Self.INSP_SERVICIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="INST_ALCANTARILLADO">
-              <PropertyRef Name="ID_ALCANTARILLADO" />
-            </Principal>
-            <Dependent Role="INSP_SERVICIOS">
-              <PropertyRef Name="ID_ALCANTARILLADO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="INSP_SER_INST_ELECT_FK">
-          <End Role="INST_ELECTRICA" Type="Self.INST_ELECTRICA" Multiplicity="1" />
-          <End Role="INSP_SERVICIOS" Type="Self.INSP_SERVICIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="INST_ELECTRICA">
-              <PropertyRef Name="ID_ELECTRICA" />
-            </Principal>
-            <Dependent Role="INSP_SERVICIOS">
-              <PropertyRef Name="ID_ELECTRICA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="INSP_SER_INST_GAS_FK">
-          <End Role="INST_GAS" Type="Self.INST_GAS" Multiplicity="1" />
-          <End Role="INSP_SERVICIOS" Type="Self.INSP_SERVICIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="INST_GAS">
-              <PropertyRef Name="ID_GAS" />
-            </Principal>
-            <Dependent Role="INSP_SERVICIOS">
-              <PropertyRef Name="ID_GAS" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="INSP_SERVICIOS_RED_AGUA_FK">
-          <End Role="RED_AGUA" Type="Self.RED_AGUA" Multiplicity="1" />
-          <End Role="INSP_SERVICIOS" Type="Self.INSP_SERVICIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RED_AGUA">
-              <PropertyRef Name="ID_AGUA" />
-            </Principal>
-            <Dependent Role="INSP_SERVICIOS">
-              <PropertyRef Name="ID_AGUA" />
+              <PropertyRef Name="ID_TIPO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -622,6 +536,18 @@ advertencia 6002: La tabla o vista 'OKCASA.TIPO_PAGO_BANCO' no tiene definida ni
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="SOLICITUD_PAGO_FK">
+          <End Role="PAGO" Type="Self.PAGO" Multiplicity="1" />
+          <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAGO">
+              <PropertyRef Name="ID_PAGO" />
+            </Principal>
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="ID_PAGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="TECNICO_COMUNA_FKV2">
           <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="1" />
           <End Role="TECNICO" Type="Self.TECNICO" Multiplicity="*" />
@@ -658,54 +584,6 @@ advertencia 6002: La tabla o vista 'OKCASA.TIPO_PAGO_BANCO' no tiene definida ni
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="VIVIENDA_AGRUPAMIENTO_FK">
-          <End Role="AGRUPAMIENTO" Type="Self.AGRUPAMIENTO" Multiplicity="1" />
-          <End Role="VIVIENDA" Type="Self.VIVIENDA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AGRUPAMIENTO">
-              <PropertyRef Name="ID_AGRUP" />
-            </Principal>
-            <Dependent Role="VIVIENDA">
-              <PropertyRef Name="ID_AGRUP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="VIVIENDA_CLIENTE_FK">
-          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
-          <End Role="VIVIENDA" Type="Self.VIVIENDA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CLIENTE">
-              <PropertyRef Name="RUT_CLIENTE" />
-            </Principal>
-            <Dependent Role="VIVIENDA">
-              <PropertyRef Name="RUT_CLIENTE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="VIVIENDA_COMUNA_FK">
-          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="1" />
-          <End Role="VIVIENDA" Type="Self.VIVIENDA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="COMUNA">
-              <PropertyRef Name="ID_COMUNA" />
-            </Principal>
-            <Dependent Role="VIVIENDA">
-              <PropertyRef Name="ID_COMUNA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="VIVIENDA_TIPO_VIVIENDA_FK">
-          <End Role="TIPO_VIVIENDA" Type="Self.TIPO_VIVIENDA" Multiplicity="1" />
-          <End Role="VIVIENDA" Type="Self.VIVIENDA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TIPO_VIVIENDA">
-              <PropertyRef Name="ID_TIPO" />
-            </Principal>
-            <Dependent Role="VIVIENDA">
-              <PropertyRef Name="ID_TIPO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="ModeloOkCasaStoreContainer">
           <EntitySet Name="AGENDA" EntityType="Self.AGENDA" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="AGRUPAMIENTO" EntityType="Self.AGRUPAMIENTO" Schema="OKCASA" store:Type="Tables" />
@@ -716,25 +594,20 @@ advertencia 6002: La tabla o vista 'OKCASA.TIPO_PAGO_BANCO' no tiene definida ni
           <EntitySet Name="ENTIDAD_BANCARIA" EntityType="Self.ENTIDAD_BANCARIA" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="EQUIPO_TECNICO" EntityType="Self.EQUIPO_TECNICO" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="INFORME" EntityType="Self.INFORME" Schema="OKCASA" store:Type="Tables" />
-          <EntitySet Name="INSP_SERVICIOS" EntityType="Self.INSP_SERVICIOS" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="INST_AGUA_POTABLE" EntityType="Self.INST_AGUA_POTABLE" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="INST_ALCANTARILLADO" EntityType="Self.INST_ALCANTARILLADO" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="INST_ELECTRICA" EntityType="Self.INST_ELECTRICA" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="INST_GAS" EntityType="Self.INST_GAS" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="INSUMO" EntityType="Self.INSUMO" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="LOGIN" EntityType="Self.LOGIN" Schema="OKCASA" store:Type="Tables" />
-          <EntitySet Name="MEDICION_M2" EntityType="Self.MEDICION_M2" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="PAGO" EntityType="Self.PAGO" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="RED_AGUA" EntityType="Self.RED_AGUA" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="SOLICITUD_SERVICIO" EntityType="Self.SOLICITUD_SERVICIO" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="TECNICO" EntityType="Self.TECNICO" Schema="OKCASA" store:Type="Tables" />
-          <EntitySet Name="TERMOGRAFIA" EntityType="Self.TERMOGRAFIA" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="TIPO_PAGO" EntityType="Self.TIPO_PAGO" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="TIPO_VIVIENDA" EntityType="Self.TIPO_VIVIENDA" Schema="OKCASA" store:Type="Tables" />
-          <EntitySet Name="VERIF_INST_TERMINACION" EntityType="Self.VERIF_INST_TERMINACION" Schema="OKCASA" store:Type="Tables" />
-          <EntitySet Name="VIVIENDA" EntityType="Self.VIVIENDA" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="EQUIPO_INSUMO" EntityType="Self.EQUIPO_INSUMO" store:Type="Tables" store:Schema="OKCASA">
             <DefiningQuery>SELECT 
 "EQUIPO_INSUMO"."ID_EQUIPO" AS "ID_EQUIPO", 
@@ -767,57 +640,49 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
             <End Role="INSUMO" EntitySet="INSUMO" />
             <End Role="EQUIPO_INSUMO" EntitySet="EQUIPO_INSUMO" />
           </AssociationSet>
+          <AssociationSet Name="INFORME_AGRUP_FK" Association="Self.INFORME_AGRUP_FK">
+            <End Role="AGRUPAMIENTO" EntitySet="AGRUPAMIENTO" />
+            <End Role="INFORME" EntitySet="INFORME" />
+          </AssociationSet>
+          <AssociationSet Name="INFORME_AGUA_FK" Association="Self.INFORME_AGUA_FK">
+            <End Role="INST_AGUA_POTABLE" EntitySet="INST_AGUA_POTABLE" />
+            <End Role="INFORME" EntitySet="INFORME" />
+          </AssociationSet>
+          <AssociationSet Name="INFORME_ART_SAN_FK" Association="Self.INFORME_ART_SAN_FK">
+            <End Role="ART_SANITARIO" EntitySet="ART_SANITARIO" />
+            <End Role="INFORME" EntitySet="INFORME" />
+          </AssociationSet>
           <AssociationSet Name="INFORME_CLIENTE_FKV2" Association="Self.INFORME_CLIENTE_FKV2">
             <End Role="CLIENTE" EntitySet="CLIENTE" />
             <End Role="INFORME" EntitySet="INFORME" />
           </AssociationSet>
-          <AssociationSet Name="INFORME_INSP_SERVICIOS_FK" Association="Self.INFORME_INSP_SERVICIOS_FK">
-            <End Role="INSP_SERVICIOS" EntitySet="INSP_SERVICIOS" />
+          <AssociationSet Name="INFORME_INST_ALC_FK" Association="Self.INFORME_INST_ALC_FK">
+            <End Role="INST_ALCANTARILLADO" EntitySet="INST_ALCANTARILLADO" />
             <End Role="INFORME" EntitySet="INFORME" />
           </AssociationSet>
-          <AssociationSet Name="INFORME_MEDICION_M2_FK" Association="Self.INFORME_MEDICION_M2_FK">
-            <End Role="MEDICION_M2" EntitySet="MEDICION_M2" />
+          <AssociationSet Name="INFORME_INST_EL_FK" Association="Self.INFORME_INST_EL_FK">
+            <End Role="INST_ELECTRICA" EntitySet="INST_ELECTRICA" />
+            <End Role="INFORME" EntitySet="INFORME" />
+          </AssociationSet>
+          <AssociationSet Name="INFORME_INST_GAS_FK" Association="Self.INFORME_INST_GAS_FK">
+            <End Role="INST_GAS" EntitySet="INST_GAS" />
+            <End Role="INFORME" EntitySet="INFORME" />
+          </AssociationSet>
+          <AssociationSet Name="INFORME_RED_AG_FK" Association="Self.INFORME_RED_AG_FK">
+            <End Role="RED_AGUA" EntitySet="RED_AGUA" />
+            <End Role="INFORME" EntitySet="INFORME" />
+          </AssociationSet>
+          <AssociationSet Name="INFORME_SOLICITUD_FK" Association="Self.INFORME_SOLICITUD_FK">
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
             <End Role="INFORME" EntitySet="INFORME" />
           </AssociationSet>
           <AssociationSet Name="INFORME_TECNICO_FK" Association="Self.INFORME_TECNICO_FK">
             <End Role="TECNICO" EntitySet="TECNICO" />
             <End Role="INFORME" EntitySet="INFORME" />
           </AssociationSet>
-          <AssociationSet Name="INFORME_TERMOGRAFIA_FK" Association="Self.INFORME_TERMOGRAFIA_FK">
-            <End Role="TERMOGRAFIA" EntitySet="TERMOGRAFIA" />
+          <AssociationSet Name="INFORME_TIPO_VIV_FK" Association="Self.INFORME_TIPO_VIV_FK">
+            <End Role="TIPO_VIVIENDA" EntitySet="TIPO_VIVIENDA" />
             <End Role="INFORME" EntitySet="INFORME" />
-          </AssociationSet>
-          <AssociationSet Name="INFORME_VERIF_INST_TER_FK" Association="Self.INFORME_VERIF_INST_TER_FK">
-            <End Role="VERIF_INST_TERMINACION" EntitySet="VERIF_INST_TERMINACION" />
-            <End Role="INFORME" EntitySet="INFORME" />
-          </AssociationSet>
-          <AssociationSet Name="INFORME_VIVIENDA_FK" Association="Self.INFORME_VIVIENDA_FK">
-            <End Role="VIVIENDA" EntitySet="VIVIENDA" />
-            <End Role="INFORME" EntitySet="INFORME" />
-          </AssociationSet>
-          <AssociationSet Name="INSP_SER_ART_SANITARIO_FK" Association="Self.INSP_SER_ART_SANITARIO_FK">
-            <End Role="ART_SANITARIO" EntitySet="ART_SANITARIO" />
-            <End Role="INSP_SERVICIOS" EntitySet="INSP_SERVICIOS" />
-          </AssociationSet>
-          <AssociationSet Name="INSP_SER_INST_AGUA_P_FK" Association="Self.INSP_SER_INST_AGUA_P_FK">
-            <End Role="INST_AGUA_POTABLE" EntitySet="INST_AGUA_POTABLE" />
-            <End Role="INSP_SERVICIOS" EntitySet="INSP_SERVICIOS" />
-          </AssociationSet>
-          <AssociationSet Name="INSP_SER_INST_ALC_FK" Association="Self.INSP_SER_INST_ALC_FK">
-            <End Role="INST_ALCANTARILLADO" EntitySet="INST_ALCANTARILLADO" />
-            <End Role="INSP_SERVICIOS" EntitySet="INSP_SERVICIOS" />
-          </AssociationSet>
-          <AssociationSet Name="INSP_SER_INST_ELECT_FK" Association="Self.INSP_SER_INST_ELECT_FK">
-            <End Role="INST_ELECTRICA" EntitySet="INST_ELECTRICA" />
-            <End Role="INSP_SERVICIOS" EntitySet="INSP_SERVICIOS" />
-          </AssociationSet>
-          <AssociationSet Name="INSP_SER_INST_GAS_FK" Association="Self.INSP_SER_INST_GAS_FK">
-            <End Role="INST_GAS" EntitySet="INST_GAS" />
-            <End Role="INSP_SERVICIOS" EntitySet="INSP_SERVICIOS" />
-          </AssociationSet>
-          <AssociationSet Name="INSP_SERVICIOS_RED_AGUA_FK" Association="Self.INSP_SERVICIOS_RED_AGUA_FK">
-            <End Role="RED_AGUA" EntitySet="RED_AGUA" />
-            <End Role="INSP_SERVICIOS" EntitySet="INSP_SERVICIOS" />
           </AssociationSet>
           <AssociationSet Name="INSUMO_EQUIPO_TECNICO_FK" Association="Self.INSUMO_EQUIPO_TECNICO_FK">
             <End Role="EQUIPO_TECNICO" EntitySet="EQUIPO_TECNICO" />
@@ -851,6 +716,10 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
             <End Role="CLIENTE" EntitySet="CLIENTE" />
             <End Role="SOLICITUD" EntitySet="SOLICITUD" />
           </AssociationSet>
+          <AssociationSet Name="SOLICITUD_PAGO_FK" Association="Self.SOLICITUD_PAGO_FK">
+            <End Role="PAGO" EntitySet="PAGO" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+          </AssociationSet>
           <AssociationSet Name="TECNICO_COMUNA_FKV2" Association="Self.TECNICO_COMUNA_FKV2">
             <End Role="COMUNA" EntitySet="COMUNA" />
             <End Role="TECNICO" EntitySet="TECNICO" />
@@ -863,22 +732,6 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
             <End Role="ENTIDAD_BANCARIA" EntitySet="ENTIDAD_BANCARIA" />
             <End Role="TIPO_PAGO_BANCO" EntitySet="TIPO_PAGO_BANCO" />
           </AssociationSet>
-          <AssociationSet Name="VIVIENDA_AGRUPAMIENTO_FK" Association="Self.VIVIENDA_AGRUPAMIENTO_FK">
-            <End Role="AGRUPAMIENTO" EntitySet="AGRUPAMIENTO" />
-            <End Role="VIVIENDA" EntitySet="VIVIENDA" />
-          </AssociationSet>
-          <AssociationSet Name="VIVIENDA_CLIENTE_FK" Association="Self.VIVIENDA_CLIENTE_FK">
-            <End Role="CLIENTE" EntitySet="CLIENTE" />
-            <End Role="VIVIENDA" EntitySet="VIVIENDA" />
-          </AssociationSet>
-          <AssociationSet Name="VIVIENDA_COMUNA_FK" Association="Self.VIVIENDA_COMUNA_FK">
-            <End Role="COMUNA" EntitySet="COMUNA" />
-            <End Role="VIVIENDA" EntitySet="VIVIENDA" />
-          </AssociationSet>
-          <AssociationSet Name="VIVIENDA_TIPO_VIVIENDA_FK" Association="Self.VIVIENDA_TIPO_VIVIENDA_FK">
-            <End Role="TIPO_VIVIENDA" EntitySet="TIPO_VIVIENDA" />
-            <End Role="VIVIENDA" EntitySet="VIVIENDA" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -889,10 +742,10 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
           <Key>
             <PropertyRef Name="ID_AGENDA" />
           </Key>
-          <Property Name="ID_AGENDA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_AGENDA" Type="Int32" Nullable="false" />
           <Property Name="DIA" Type="DateTime" Nullable="false" />
           <Property Name="HORA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ID_EQUIPO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_EQUIPO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="EQUIPO_TECNICO" Relationship="Self.AGENDA_EQUIPO_TECNICO_FK" FromRole="AGENDA" ToRole="EQUIPO_TECNICO" />
           <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUD_AGENDA_FK" FromRole="AGENDA" ToRole="SOLICITUD" />
         </EntityType>
@@ -900,23 +753,23 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
           <Key>
             <PropertyRef Name="ID_AGRUP" />
           </Key>
-          <Property Name="ID_AGRUP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_AGRUP" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE_AGR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="VIVIENDA" Relationship="Self.VIVIENDA_AGRUPAMIENTO_FK" FromRole="AGRUPAMIENTO" ToRole="VIVIENDA" />
+          <NavigationProperty Name="INFORME" Relationship="Self.INFORME_AGRUP_FK" FromRole="AGRUPAMIENTO" ToRole="INFORME" />
         </EntityType>
         <EntityType Name="ART_SANITARIO">
           <Key>
             <PropertyRef Name="ID_ARTICULO" />
           </Key>
-          <Property Name="ID_ARTICULO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_ARTICULO" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="INSP_SERVICIOS" Relationship="Self.INSP_SER_ART_SANITARIO_FK" FromRole="ART_SANITARIO" ToRole="INSP_SERVICIOS" />
+          <NavigationProperty Name="INFORME" Relationship="Self.INFORME_ART_SAN_FK" FromRole="ART_SANITARIO" ToRole="INFORME" />
         </EntityType>
         <EntityType Name="BANCO_ESTADO">
           <Key>
             <PropertyRef Name="ID_BANCO" />
           </Key>
-          <Property Name="ID_BANCO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_BANCO" Type="Int32" Nullable="false" />
           <Property Name="RUT_CLIENTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="CLIENTE" Relationship="Self.BANCO_ESTADO_CLIENTE_FKV2" FromRole="BANCO_ESTADO" ToRole="CLIENTE" />
         </EntityType>
@@ -930,33 +783,31 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
           <Property Name="AP_PATERNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="AP_MATERNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TELEFONO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TELEFONO" Type="Int32" Nullable="false" />
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="HIPOTECARIO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="ID_COMUNA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_COMUNA" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BANCO_ESTADO" Relationship="Self.BANCO_ESTADO_CLIENTE_FKV2" FromRole="CLIENTE" ToRole="BANCO_ESTADO" />
           <NavigationProperty Name="COMUNA" Relationship="Self.CLIENTE_COMUNA_FKV2" FromRole="CLIENTE" ToRole="COMUNA" />
           <NavigationProperty Name="INFORME" Relationship="Self.INFORME_CLIENTE_FKV2" FromRole="CLIENTE" ToRole="INFORME" />
           <NavigationProperty Name="LOGIN" Relationship="Self.LOGIN_CLIENTE_FK" FromRole="CLIENTE" ToRole="LOGIN" />
           <NavigationProperty Name="PAGO" Relationship="Self.PAGO_CLIENTE_FK" FromRole="CLIENTE" ToRole="PAGO" />
           <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUD_CLIENTE_FK" FromRole="CLIENTE" ToRole="SOLICITUD" />
-          <NavigationProperty Name="VIVIENDA" Relationship="Self.VIVIENDA_CLIENTE_FK" FromRole="CLIENTE" ToRole="VIVIENDA" />
         </EntityType>
         <EntityType Name="COMUNA">
           <Key>
             <PropertyRef Name="ID_COMUNA" />
           </Key>
-          <Property Name="ID_COMUNA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_COMUNA" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="CLIENTE" Relationship="Self.CLIENTE_COMUNA_FKV2" FromRole="COMUNA" ToRole="CLIENTE" />
           <NavigationProperty Name="TECNICO" Relationship="Self.TECNICO_COMUNA_FKV2" FromRole="COMUNA" ToRole="TECNICO" />
-          <NavigationProperty Name="VIVIENDA" Relationship="Self.VIVIENDA_COMUNA_FK" FromRole="COMUNA" ToRole="VIVIENDA" />
         </EntityType>
         <EntityType Name="ENTIDAD_BANCARIA">
           <Key>
             <PropertyRef Name="ID_BANCO" />
           </Key>
-          <Property Name="ID_BANCO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_BANCO" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="TIPO_PAGO" Relationship="Self.TIPO_PAGO_BANCO" FromRole="ENTIDAD_BANCARIA" ToRole="TIPO_PAGO" />
         </EntityType>
@@ -964,7 +815,7 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
           <Key>
             <PropertyRef Name="ID_EQUIPO" />
           </Key>
-          <Property Name="ID_EQUIPO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_EQUIPO" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="AGENDA" Relationship="Self.AGENDA_EQUIPO_TECNICO_FK" FromRole="EQUIPO_TECNICO" ToRole="AGENDA" />
           <NavigationProperty Name="TECNICO" Relationship="Self.TECNICO_EQUIPO_TECNICO_FK" FromRole="EQUIPO_TECNICO" ToRole="TECNICO" />
@@ -974,84 +825,88 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
           <Key>
             <PropertyRef Name="NUM_FORMULARIO" />
           </Key>
-          <Property Name="NUM_FORMULARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NUM_FORMULARIO" Type="Int32" Nullable="false" />
           <Property Name="ESTADO_SERVICIO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NUM_HABITACIONES" Type="Int32" Nullable="false" />
+          <Property Name="NUM_PISOS" Type="Int32" Nullable="false" />
           <Property Name="RESULTADO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="OBSERVACION" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="FECHA_INSP" Type="DateTime" Nullable="false" />
           <Property Name="HORA_INSP" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ID_VIVIENDA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="OBSERV_FINAL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERV_MEDICION" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERV_SERVICIOS" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERV_TERMINACION" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERV_TERMOGRAFIA" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="HABITABILIDAD" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="TERMICA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="RESIST_FUEGO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ELECTRICA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="AGUA" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="ALCANTARILLADO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="GAS" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="EMISIVIDAD" Type="Int32" />
+          <Property Name="TEMP_REFLEJADA" Type="Int32" />
+          <Property Name="HUMEDAD" Type="Int32" />
           <Property Name="RUT_CLIENTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="RUT_TECNICO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ID_TERMOGRAFIA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_MEDICION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_INSPECCION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_VERIFICACION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_AGUA_POTABLE" Type="Int32" Nullable="false" />
+          <Property Name="ID_ARTICULO" Type="Int32" Nullable="false" />
+          <Property Name="ID_GAS" Type="Int32" Nullable="false" />
+          <Property Name="ID_ALCANTARILLADO" Type="Int32" Nullable="false" />
+          <Property Name="ID_AGUA" Type="Int32" Nullable="false" />
+          <Property Name="ID_ELECTRICA" Type="Int32" Nullable="false" />
+          <Property Name="ID_TIPO" Type="Int32" Nullable="false" />
+          <Property Name="ID_AGRUP" Type="Int32" Nullable="false" />
+          <Property Name="ID_SOLICITUD" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AGRUPAMIENTO" Relationship="Self.INFORME_AGRUP_FK" FromRole="INFORME" ToRole="AGRUPAMIENTO" />
+          <NavigationProperty Name="ART_SANITARIO" Relationship="Self.INFORME_ART_SAN_FK" FromRole="INFORME" ToRole="ART_SANITARIO" />
           <NavigationProperty Name="CLIENTE" Relationship="Self.INFORME_CLIENTE_FKV2" FromRole="INFORME" ToRole="CLIENTE" />
-          <NavigationProperty Name="INSP_SERVICIOS" Relationship="Self.INFORME_INSP_SERVICIOS_FK" FromRole="INFORME" ToRole="INSP_SERVICIOS" />
-          <NavigationProperty Name="MEDICION_M2" Relationship="Self.INFORME_MEDICION_M2_FK" FromRole="INFORME" ToRole="MEDICION_M2" />
+          <NavigationProperty Name="INST_AGUA_POTABLE" Relationship="Self.INFORME_AGUA_FK" FromRole="INFORME" ToRole="INST_AGUA_POTABLE" />
+          <NavigationProperty Name="INST_ALCANTARILLADO" Relationship="Self.INFORME_INST_ALC_FK" FromRole="INFORME" ToRole="INST_ALCANTARILLADO" />
+          <NavigationProperty Name="INST_ELECTRICA" Relationship="Self.INFORME_INST_EL_FK" FromRole="INFORME" ToRole="INST_ELECTRICA" />
+          <NavigationProperty Name="INST_GAS" Relationship="Self.INFORME_INST_GAS_FK" FromRole="INFORME" ToRole="INST_GAS" />
+          <NavigationProperty Name="RED_AGUA" Relationship="Self.INFORME_RED_AG_FK" FromRole="INFORME" ToRole="RED_AGUA" />
+          <NavigationProperty Name="SOLICITUD" Relationship="Self.INFORME_SOLICITUD_FK" FromRole="INFORME" ToRole="SOLICITUD" />
           <NavigationProperty Name="TECNICO" Relationship="Self.INFORME_TECNICO_FK" FromRole="INFORME" ToRole="TECNICO" />
-          <NavigationProperty Name="TERMOGRAFIA" Relationship="Self.INFORME_TERMOGRAFIA_FK" FromRole="INFORME" ToRole="TERMOGRAFIA" />
-          <NavigationProperty Name="VERIF_INST_TERMINACION" Relationship="Self.INFORME_VERIF_INST_TER_FK" FromRole="INFORME" ToRole="VERIF_INST_TERMINACION" />
-          <NavigationProperty Name="VIVIENDA" Relationship="Self.INFORME_VIVIENDA_FK" FromRole="INFORME" ToRole="VIVIENDA" />
-        </EntityType>
-        <EntityType Name="INSP_SERVICIOS">
-          <Key>
-            <PropertyRef Name="ID_INSPECCION" />
-          </Key>
-          <Property Name="ID_INSPECCION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_ARTICULO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_ALCANTARILLADO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_ELECTRICA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_AGUA_POTABLE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_GAS" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_AGUA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="OBSERVACION" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ART_SANITARIO" Relationship="Self.INSP_SER_ART_SANITARIO_FK" FromRole="INSP_SERVICIOS" ToRole="ART_SANITARIO" />
-          <NavigationProperty Name="INFORME" Relationship="Self.INFORME_INSP_SERVICIOS_FK" FromRole="INSP_SERVICIOS" ToRole="INFORME" />
-          <NavigationProperty Name="INST_AGUA_POTABLE" Relationship="Self.INSP_SER_INST_AGUA_P_FK" FromRole="INSP_SERVICIOS" ToRole="INST_AGUA_POTABLE" />
-          <NavigationProperty Name="INST_ALCANTARILLADO" Relationship="Self.INSP_SER_INST_ALC_FK" FromRole="INSP_SERVICIOS" ToRole="INST_ALCANTARILLADO" />
-          <NavigationProperty Name="INST_ELECTRICA" Relationship="Self.INSP_SER_INST_ELECT_FK" FromRole="INSP_SERVICIOS" ToRole="INST_ELECTRICA" />
-          <NavigationProperty Name="INST_GAS" Relationship="Self.INSP_SER_INST_GAS_FK" FromRole="INSP_SERVICIOS" ToRole="INST_GAS" />
-          <NavigationProperty Name="RED_AGUA" Relationship="Self.INSP_SERVICIOS_RED_AGUA_FK" FromRole="INSP_SERVICIOS" ToRole="RED_AGUA" />
+          <NavigationProperty Name="TIPO_VIVIENDA" Relationship="Self.INFORME_TIPO_VIV_FK" FromRole="INFORME" ToRole="TIPO_VIVIENDA" />
         </EntityType>
         <EntityType Name="INST_AGUA_POTABLE">
           <Key>
             <PropertyRef Name="ID_AGUA_POTABLE" />
           </Key>
-          <Property Name="ID_AGUA_POTABLE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_AGUA_POTABLE" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="INSP_SERVICIOS" Relationship="Self.INSP_SER_INST_AGUA_P_FK" FromRole="INST_AGUA_POTABLE" ToRole="INSP_SERVICIOS" />
+          <NavigationProperty Name="INFORME" Relationship="Self.INFORME_AGUA_FK" FromRole="INST_AGUA_POTABLE" ToRole="INFORME" />
         </EntityType>
         <EntityType Name="INST_ALCANTARILLADO">
           <Key>
             <PropertyRef Name="ID_ALCANTARILLADO" />
           </Key>
-          <Property Name="ID_ALCANTARILLADO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_ALCANTARILLADO" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="INSP_SERVICIOS" Relationship="Self.INSP_SER_INST_ALC_FK" FromRole="INST_ALCANTARILLADO" ToRole="INSP_SERVICIOS" />
+          <NavigationProperty Name="INFORME" Relationship="Self.INFORME_INST_ALC_FK" FromRole="INST_ALCANTARILLADO" ToRole="INFORME" />
         </EntityType>
         <EntityType Name="INST_ELECTRICA">
           <Key>
             <PropertyRef Name="ID_ELECTRICA" />
           </Key>
-          <Property Name="ID_ELECTRICA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_ELECTRICA" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="INSP_SERVICIOS" Relationship="Self.INSP_SER_INST_ELECT_FK" FromRole="INST_ELECTRICA" ToRole="INSP_SERVICIOS" />
+          <NavigationProperty Name="INFORME" Relationship="Self.INFORME_INST_EL_FK" FromRole="INST_ELECTRICA" ToRole="INFORME" />
         </EntityType>
         <EntityType Name="INST_GAS">
           <Key>
             <PropertyRef Name="ID_GAS" />
           </Key>
-          <Property Name="ID_GAS" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_GAS" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="INSP_SERVICIOS" Relationship="Self.INSP_SER_INST_GAS_FK" FromRole="INST_GAS" ToRole="INSP_SERVICIOS" />
+          <NavigationProperty Name="INFORME" Relationship="Self.INFORME_INST_GAS_FK" FromRole="INST_GAS" ToRole="INFORME" />
         </EntityType>
         <EntityType Name="INSUMO">
           <Key>
             <PropertyRef Name="ID_INSUMO" />
           </Key>
-          <Property Name="ID_INSUMO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_INSUMO" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="EQUIPO_TECNICO" Relationship="Self.EQUIPO_INSUMO" FromRole="INSUMO" ToRole="EQUIPO_TECNICO" />
         </EntityType>
@@ -1065,62 +920,52 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
           <Property Name="RUT_CLIENTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="CLIENTE" Relationship="Self.LOGIN_CLIENTE_FK" FromRole="LOGIN" ToRole="CLIENTE" />
         </EntityType>
-        <EntityType Name="MEDICION_M2">
-          <Key>
-            <PropertyRef Name="ID_MEDICION" />
-          </Key>
-          <Property Name="ID_MEDICION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="AREA_TOTAL_REAL" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="AREA_TOTAL_REG" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="SUP_UTIL_REAL" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="SUP_UTIL_REG" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="SUP_CONST_REAL" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="SUP_CONST_REG" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="SUP_ELE_COM_REAL" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="SUP_ELE_COM_REG" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="OBSERVACION" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="INFORME" Relationship="Self.INFORME_MEDICION_M2_FK" FromRole="MEDICION_M2" ToRole="INFORME" />
-        </EntityType>
         <EntityType Name="PAGO">
           <Key>
             <PropertyRef Name="ID_PAGO" />
           </Key>
-          <Property Name="ID_PAGO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="VALOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PAGO" Type="Int32" Nullable="false" />
+          <Property Name="VALOR" Type="Int32" Nullable="false" />
           <Property Name="DESCUENTO" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="ID_TIPO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_TIPO" Type="Int32" Nullable="false" />
           <Property Name="RUT_CLIENTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="CLIENTE" Relationship="Self.PAGO_CLIENTE_FK" FromRole="PAGO" ToRole="CLIENTE" />
           <NavigationProperty Name="TIPO_PAGO" Relationship="Self.PAGO_TIPO_PAGO_FK" FromRole="PAGO" ToRole="TIPO_PAGO" />
+          <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUD_PAGO_FK" FromRole="PAGO" ToRole="SOLICITUD" />
         </EntityType>
         <EntityType Name="RED_AGUA">
           <Key>
             <PropertyRef Name="ID_AGUA" />
           </Key>
-          <Property Name="ID_AGUA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_AGUA" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="INSP_SERVICIOS" Relationship="Self.INSP_SERVICIOS_RED_AGUA_FK" FromRole="RED_AGUA" ToRole="INSP_SERVICIOS" />
+          <NavigationProperty Name="INFORME" Relationship="Self.INFORME_RED_AG_FK" FromRole="RED_AGUA" ToRole="INFORME" />
         </EntityType>
         <EntityType Name="SERVICIO">
           <Key>
             <PropertyRef Name="ID_SERVICIO" />
           </Key>
-          <Property Name="ID_SERVICIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_SERVICIO" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="VALOR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="VALOR" Type="Int32" Nullable="false" />
           <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUD_SERVICIO" FromRole="SERVICIO" ToRole="SOLICITUD" />
         </EntityType>
         <EntityType Name="SOLICITUD">
           <Key>
             <PropertyRef Name="ID_SOLICITUD" />
           </Key>
-          <Property Name="ID_SOLICITUD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_SOLICITUD" Type="Int32" Nullable="false" />
           <Property Name="FECHA_SOLICITUD" Type="DateTime" Nullable="false" />
           <Property Name="HORA_SOLICITUD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DIRECCION_VIVIENDA" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CONSTRUCTORA" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="RUT_CLIENTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ID_AGENDA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_AGENDA" Type="Int32" Nullable="false" />
+          <Property Name="ID_PAGO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AGENDA" Relationship="Self.SOLICITUD_AGENDA_FK" FromRole="SOLICITUD" ToRole="AGENDA" />
           <NavigationProperty Name="CLIENTE" Relationship="Self.SOLICITUD_CLIENTE_FK" FromRole="SOLICITUD" ToRole="CLIENTE" />
+          <NavigationProperty Name="INFORME" Relationship="Self.INFORME_SOLICITUD_FK" FromRole="SOLICITUD" ToRole="INFORME" />
+          <NavigationProperty Name="PAGO" Relationship="Self.SOLICITUD_PAGO_FK" FromRole="SOLICITUD" ToRole="PAGO" />
           <NavigationProperty Name="SERVICIO" Relationship="Self.SOLICITUD_SERVICIO" FromRole="SOLICITUD" ToRole="SERVICIO" />
         </EntityType>
         <EntityType Name="TECNICO">
@@ -1133,32 +978,19 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
           <Property Name="AP_PATERNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="AP_MATERNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TELEFONO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TELEFONO" Type="Int32" Nullable="false" />
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ID_EQUIPO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_COMUNA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_EQUIPO" Type="Int32" Nullable="false" />
+          <Property Name="ID_COMUNA" Type="Int32" Nullable="false" />
           <NavigationProperty Name="COMUNA" Relationship="Self.TECNICO_COMUNA_FKV2" FromRole="TECNICO" ToRole="COMUNA" />
           <NavigationProperty Name="EQUIPO_TECNICO" Relationship="Self.TECNICO_EQUIPO_TECNICO_FK" FromRole="TECNICO" ToRole="EQUIPO_TECNICO" />
           <NavigationProperty Name="INFORME" Relationship="Self.INFORME_TECNICO_FK" FromRole="TECNICO" ToRole="INFORME" />
-        </EntityType>
-        <EntityType Name="TERMOGRAFIA">
-          <Key>
-            <PropertyRef Name="ID_TERMOGRAFIA" />
-          </Key>
-          <Property Name="ID_TERMOGRAFIA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="EMISIVIDAD" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="TEMP_REFLEJADA" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="DISTANCIA" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="HUM_RELATIVA" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="TEMP_ATMOSFERICA" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-          <Property Name="OBSERVACION" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="INFORME" Relationship="Self.INFORME_TERMOGRAFIA_FK" FromRole="TERMOGRAFIA" ToRole="INFORME" />
         </EntityType>
         <EntityType Name="TIPO_PAGO">
           <Key>
             <PropertyRef Name="ID_TIPO" />
           </Key>
-          <Property Name="ID_TIPO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_TIPO" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="PAGO" Relationship="Self.PAGO_TIPO_PAGO_FK" FromRole="TIPO_PAGO" ToRole="PAGO" />
           <NavigationProperty Name="ENTIDAD_BANCARIA" Relationship="Self.TIPO_PAGO_BANCO" FromRole="TIPO_PAGO" ToRole="ENTIDAD_BANCARIA" />
@@ -1167,60 +999,9 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
           <Key>
             <PropertyRef Name="ID_TIPO" />
           </Key>
-          <Property Name="ID_TIPO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_TIPO" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE_TIPO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="VIVIENDA" Relationship="Self.VIVIENDA_TIPO_VIVIENDA_FK" FromRole="TIPO_VIVIENDA" ToRole="VIVIENDA" />
-        </EntityType>
-        <EntityType Name="VERIF_INST_TERMINACION">
-          <Key>
-            <PropertyRef Name="ID_VERIFICACION" />
-          </Key>
-          <Property Name="ID_VERIFICACION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ALTURA_MIN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="VENTANA_BANIO_COC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="VENTANA_LOC_HAB" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="AISL_TECHO_60MM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="MUROS_ALBA_BLOQUE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="AISL_PISOS_50MM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="TAB_EXT_30MM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="SUP_VENT_MURO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="MUROS_CONTRAFUEGO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="MUROS_ADOSAM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="MUROS_ESTRUCT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="TECHO_CIELO_FALSO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="MUROS_ALB_EXT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="MUROS_ALB_EXT_1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="MADERA_EST_1X4" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="PILAR_HA_15X15" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="MADERA_IMPREG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="MAD_TABIQ_2X4" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="ENTREMADO_PISO_2X6" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="INST_ELECTRICA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="INST_AGUA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="INST_ALCANTARILLADO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="INT_GAS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="OTRO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="OBSERVACIONES" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="INFORME" Relationship="Self.INFORME_VERIF_INST_TER_FK" FromRole="VERIF_INST_TERMINACION" ToRole="INFORME" />
-        </EntityType>
-        <EntityType Name="VIVIENDA">
-          <Key>
-            <PropertyRef Name="ID_VIVIENDA" />
-          </Key>
-          <Property Name="ID_VIVIENDA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="DIRECCIÓN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NUM_HABITACIONES" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="NUM_PISOS" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="CONSTRUCTORA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ID_COMUNA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_TIPO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_AGRUP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="RUT_CLIENTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="AGRUPAMIENTO" Relationship="Self.VIVIENDA_AGRUPAMIENTO_FK" FromRole="VIVIENDA" ToRole="AGRUPAMIENTO" />
-          <NavigationProperty Name="CLIENTE" Relationship="Self.VIVIENDA_CLIENTE_FK" FromRole="VIVIENDA" ToRole="CLIENTE" />
-          <NavigationProperty Name="COMUNA" Relationship="Self.VIVIENDA_COMUNA_FK" FromRole="VIVIENDA" ToRole="COMUNA" />
-          <NavigationProperty Name="INFORME" Relationship="Self.INFORME_VIVIENDA_FK" FromRole="VIVIENDA" ToRole="INFORME" />
-          <NavigationProperty Name="TIPO_VIVIENDA" Relationship="Self.VIVIENDA_TIPO_VIVIENDA_FK" FromRole="VIVIENDA" ToRole="TIPO_VIVIENDA" />
+          <NavigationProperty Name="INFORME" Relationship="Self.INFORME_TIPO_VIV_FK" FromRole="TIPO_VIVIENDA" ToRole="INFORME" />
         </EntityType>
         <Association Name="AGENDA_EQUIPO_TECNICO_FK">
           <End Role="EQUIPO_TECNICO" Type="Self.EQUIPO_TECNICO" Multiplicity="1" />
@@ -1246,26 +1027,26 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="VIVIENDA_AGRUPAMIENTO_FK">
+        <Association Name="INFORME_AGRUP_FK">
           <End Role="AGRUPAMIENTO" Type="Self.AGRUPAMIENTO" Multiplicity="1" />
-          <End Role="VIVIENDA" Type="Self.VIVIENDA" Multiplicity="*" />
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AGRUPAMIENTO">
               <PropertyRef Name="ID_AGRUP" />
             </Principal>
-            <Dependent Role="VIVIENDA">
+            <Dependent Role="INFORME">
               <PropertyRef Name="ID_AGRUP" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="INSP_SER_ART_SANITARIO_FK">
+        <Association Name="INFORME_ART_SAN_FK">
           <End Role="ART_SANITARIO" Type="Self.ART_SANITARIO" Multiplicity="1" />
-          <End Role="INSP_SERVICIOS" Type="Self.INSP_SERVICIOS" Multiplicity="*" />
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ART_SANITARIO">
               <PropertyRef Name="ID_ARTICULO" />
             </Principal>
-            <Dependent Role="INSP_SERVICIOS">
+            <Dependent Role="INFORME">
               <PropertyRef Name="ID_ARTICULO" />
             </Dependent>
           </ReferentialConstraint>
@@ -1342,18 +1123,6 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="VIVIENDA_CLIENTE_FK">
-          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
-          <End Role="VIVIENDA" Type="Self.VIVIENDA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CLIENTE">
-              <PropertyRef Name="RUT_CLIENTE" />
-            </Principal>
-            <Dependent Role="VIVIENDA">
-              <PropertyRef Name="RUT_CLIENTE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="TECNICO_COMUNA_FKV2">
           <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="1" />
           <End Role="TECNICO" Type="Self.TECNICO" Multiplicity="*" />
@@ -1362,18 +1131,6 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
               <PropertyRef Name="ID_COMUNA" />
             </Principal>
             <Dependent Role="TECNICO">
-              <PropertyRef Name="ID_COMUNA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="VIVIENDA_COMUNA_FK">
-          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="1" />
-          <End Role="VIVIENDA" Type="Self.VIVIENDA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="COMUNA">
-              <PropertyRef Name="ID_COMUNA" />
-            </Principal>
-            <Dependent Role="VIVIENDA">
               <PropertyRef Name="ID_COMUNA" />
             </Dependent>
           </ReferentialConstraint>
@@ -1390,27 +1147,75 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="INFORME_INSP_SERVICIOS_FK">
-          <End Role="INSP_SERVICIOS" Type="Self.INSP_SERVICIOS" Multiplicity="1" />
+        <Association Name="INFORME_AGUA_FK">
+          <End Role="INST_AGUA_POTABLE" Type="Self.INST_AGUA_POTABLE" Multiplicity="1" />
           <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="INSP_SERVICIOS">
-              <PropertyRef Name="ID_INSPECCION" />
+            <Principal Role="INST_AGUA_POTABLE">
+              <PropertyRef Name="ID_AGUA_POTABLE" />
             </Principal>
             <Dependent Role="INFORME">
-              <PropertyRef Name="ID_INSPECCION" />
+              <PropertyRef Name="ID_AGUA_POTABLE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="INFORME_MEDICION_M2_FK">
-          <End Role="MEDICION_M2" Type="Self.MEDICION_M2" Multiplicity="1" />
+        <Association Name="INFORME_INST_ALC_FK">
+          <End Role="INST_ALCANTARILLADO" Type="Self.INST_ALCANTARILLADO" Multiplicity="1" />
           <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="MEDICION_M2">
-              <PropertyRef Name="ID_MEDICION" />
+            <Principal Role="INST_ALCANTARILLADO">
+              <PropertyRef Name="ID_ALCANTARILLADO" />
             </Principal>
             <Dependent Role="INFORME">
-              <PropertyRef Name="ID_MEDICION" />
+              <PropertyRef Name="ID_ALCANTARILLADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INFORME_INST_EL_FK">
+          <End Role="INST_ELECTRICA" Type="Self.INST_ELECTRICA" Multiplicity="1" />
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INST_ELECTRICA">
+              <PropertyRef Name="ID_ELECTRICA" />
+            </Principal>
+            <Dependent Role="INFORME">
+              <PropertyRef Name="ID_ELECTRICA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INFORME_INST_GAS_FK">
+          <End Role="INST_GAS" Type="Self.INST_GAS" Multiplicity="1" />
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INST_GAS">
+              <PropertyRef Name="ID_GAS" />
+            </Principal>
+            <Dependent Role="INFORME">
+              <PropertyRef Name="ID_GAS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INFORME_RED_AG_FK">
+          <End Role="RED_AGUA" Type="Self.RED_AGUA" Multiplicity="1" />
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RED_AGUA">
+              <PropertyRef Name="ID_AGUA" />
+            </Principal>
+            <Dependent Role="INFORME">
+              <PropertyRef Name="ID_AGUA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INFORME_SOLICITUD_FK">
+          <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="1" />
+          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SOLICITUD">
+              <PropertyRef Name="ID_SOLICITUD" />
+            </Principal>
+            <Dependent Role="INFORME">
+              <PropertyRef Name="ID_SOLICITUD" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1426,99 +1231,15 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="INFORME_TERMOGRAFIA_FK">
-          <End Role="TERMOGRAFIA" Type="Self.TERMOGRAFIA" Multiplicity="1" />
+        <Association Name="INFORME_TIPO_VIV_FK">
+          <End Role="TIPO_VIVIENDA" Type="Self.TIPO_VIVIENDA" Multiplicity="1" />
           <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TERMOGRAFIA">
-              <PropertyRef Name="ID_TERMOGRAFIA" />
+            <Principal Role="TIPO_VIVIENDA">
+              <PropertyRef Name="ID_TIPO" />
             </Principal>
             <Dependent Role="INFORME">
-              <PropertyRef Name="ID_TERMOGRAFIA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="INFORME_VERIF_INST_TER_FK">
-          <End Role="VERIF_INST_TERMINACION" Type="Self.VERIF_INST_TERMINACION" Multiplicity="1" />
-          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="VERIF_INST_TERMINACION">
-              <PropertyRef Name="ID_VERIFICACION" />
-            </Principal>
-            <Dependent Role="INFORME">
-              <PropertyRef Name="ID_VERIFICACION" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="INFORME_VIVIENDA_FK">
-          <End Role="VIVIENDA" Type="Self.VIVIENDA" Multiplicity="1" />
-          <End Role="INFORME" Type="Self.INFORME" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="VIVIENDA">
-              <PropertyRef Name="ID_VIVIENDA" />
-            </Principal>
-            <Dependent Role="INFORME">
-              <PropertyRef Name="ID_VIVIENDA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="INSP_SER_INST_AGUA_P_FK">
-          <End Role="INST_AGUA_POTABLE" Type="Self.INST_AGUA_POTABLE" Multiplicity="1" />
-          <End Role="INSP_SERVICIOS" Type="Self.INSP_SERVICIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="INST_AGUA_POTABLE">
-              <PropertyRef Name="ID_AGUA_POTABLE" />
-            </Principal>
-            <Dependent Role="INSP_SERVICIOS">
-              <PropertyRef Name="ID_AGUA_POTABLE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="INSP_SER_INST_ALC_FK">
-          <End Role="INST_ALCANTARILLADO" Type="Self.INST_ALCANTARILLADO" Multiplicity="1" />
-          <End Role="INSP_SERVICIOS" Type="Self.INSP_SERVICIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="INST_ALCANTARILLADO">
-              <PropertyRef Name="ID_ALCANTARILLADO" />
-            </Principal>
-            <Dependent Role="INSP_SERVICIOS">
-              <PropertyRef Name="ID_ALCANTARILLADO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="INSP_SER_INST_ELECT_FK">
-          <End Role="INST_ELECTRICA" Type="Self.INST_ELECTRICA" Multiplicity="1" />
-          <End Role="INSP_SERVICIOS" Type="Self.INSP_SERVICIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="INST_ELECTRICA">
-              <PropertyRef Name="ID_ELECTRICA" />
-            </Principal>
-            <Dependent Role="INSP_SERVICIOS">
-              <PropertyRef Name="ID_ELECTRICA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="INSP_SER_INST_GAS_FK">
-          <End Role="INST_GAS" Type="Self.INST_GAS" Multiplicity="1" />
-          <End Role="INSP_SERVICIOS" Type="Self.INSP_SERVICIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="INST_GAS">
-              <PropertyRef Name="ID_GAS" />
-            </Principal>
-            <Dependent Role="INSP_SERVICIOS">
-              <PropertyRef Name="ID_GAS" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="INSP_SERVICIOS_RED_AGUA_FK">
-          <End Role="RED_AGUA" Type="Self.RED_AGUA" Multiplicity="1" />
-          <End Role="INSP_SERVICIOS" Type="Self.INSP_SERVICIOS" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RED_AGUA">
-              <PropertyRef Name="ID_AGUA" />
-            </Principal>
-            <Dependent Role="INSP_SERVICIOS">
-              <PropertyRef Name="ID_AGUA" />
+              <PropertyRef Name="ID_TIPO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1534,15 +1255,15 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="VIVIENDA_TIPO_VIVIENDA_FK">
-          <End Role="TIPO_VIVIENDA" Type="Self.TIPO_VIVIENDA" Multiplicity="1" />
-          <End Role="VIVIENDA" Type="Self.VIVIENDA" Multiplicity="*" />
+        <Association Name="SOLICITUD_PAGO_FK">
+          <End Role="PAGO" Type="Self.PAGO" Multiplicity="1" />
+          <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TIPO_VIVIENDA">
-              <PropertyRef Name="ID_TIPO" />
+            <Principal Role="PAGO">
+              <PropertyRef Name="ID_PAGO" />
             </Principal>
-            <Dependent Role="VIVIENDA">
-              <PropertyRef Name="ID_TIPO" />
+            <Dependent Role="SOLICITUD">
+              <PropertyRef Name="ID_PAGO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1558,7 +1279,7 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
           <End Role="TIPO_PAGO" Type="Self.TIPO_PAGO" Multiplicity="*" />
           <End Role="ENTIDAD_BANCARIA" Type="Self.ENTIDAD_BANCARIA" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="EntitiesOKCasa" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="OkCasa_Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AGENDA" EntityType="Self.AGENDA" />
           <EntitySet Name="AGRUPAMIENTO" EntityType="Self.AGRUPAMIENTO" />
           <EntitySet Name="ART_SANITARIO" EntityType="Self.ART_SANITARIO" />
@@ -1568,24 +1289,19 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
           <EntitySet Name="ENTIDAD_BANCARIA" EntityType="Self.ENTIDAD_BANCARIA" />
           <EntitySet Name="EQUIPO_TECNICO" EntityType="Self.EQUIPO_TECNICO" />
           <EntitySet Name="INFORME" EntityType="Self.INFORME" />
-          <EntitySet Name="INSP_SERVICIOS" EntityType="Self.INSP_SERVICIOS" />
           <EntitySet Name="INST_AGUA_POTABLE" EntityType="Self.INST_AGUA_POTABLE" />
           <EntitySet Name="INST_ALCANTARILLADO" EntityType="Self.INST_ALCANTARILLADO" />
           <EntitySet Name="INST_ELECTRICA" EntityType="Self.INST_ELECTRICA" />
           <EntitySet Name="INST_GAS" EntityType="Self.INST_GAS" />
           <EntitySet Name="INSUMO" EntityType="Self.INSUMO" />
           <EntitySet Name="LOGIN" EntityType="Self.LOGIN" />
-          <EntitySet Name="MEDICION_M2" EntityType="Self.MEDICION_M2" />
           <EntitySet Name="PAGO" EntityType="Self.PAGO" />
           <EntitySet Name="RED_AGUA" EntityType="Self.RED_AGUA" />
           <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" />
           <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" />
           <EntitySet Name="TECNICO" EntityType="Self.TECNICO" />
-          <EntitySet Name="TERMOGRAFIA" EntityType="Self.TERMOGRAFIA" />
           <EntitySet Name="TIPO_PAGO" EntityType="Self.TIPO_PAGO" />
           <EntitySet Name="TIPO_VIVIENDA" EntityType="Self.TIPO_VIVIENDA" />
-          <EntitySet Name="VERIF_INST_TERMINACION" EntityType="Self.VERIF_INST_TERMINACION" />
-          <EntitySet Name="VIVIENDA" EntityType="Self.VIVIENDA" />
           <AssociationSet Name="AGENDA_EQUIPO_TECNICO_FK" Association="Self.AGENDA_EQUIPO_TECNICO_FK">
             <End Role="EQUIPO_TECNICO" EntitySet="EQUIPO_TECNICO" />
             <End Role="AGENDA" EntitySet="AGENDA" />
@@ -1594,13 +1310,13 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
             <End Role="AGENDA" EntitySet="AGENDA" />
             <End Role="SOLICITUD" EntitySet="SOLICITUD" />
           </AssociationSet>
-          <AssociationSet Name="VIVIENDA_AGRUPAMIENTO_FK" Association="Self.VIVIENDA_AGRUPAMIENTO_FK">
+          <AssociationSet Name="INFORME_AGRUP_FK" Association="Self.INFORME_AGRUP_FK">
             <End Role="AGRUPAMIENTO" EntitySet="AGRUPAMIENTO" />
-            <End Role="VIVIENDA" EntitySet="VIVIENDA" />
+            <End Role="INFORME" EntitySet="INFORME" />
           </AssociationSet>
-          <AssociationSet Name="INSP_SER_ART_SANITARIO_FK" Association="Self.INSP_SER_ART_SANITARIO_FK">
+          <AssociationSet Name="INFORME_ART_SAN_FK" Association="Self.INFORME_ART_SAN_FK">
             <End Role="ART_SANITARIO" EntitySet="ART_SANITARIO" />
-            <End Role="INSP_SERVICIOS" EntitySet="INSP_SERVICIOS" />
+            <End Role="INFORME" EntitySet="INFORME" />
           </AssociationSet>
           <AssociationSet Name="BANCO_ESTADO_CLIENTE_FKV2" Association="Self.BANCO_ESTADO_CLIENTE_FKV2">
             <End Role="CLIENTE" EntitySet="CLIENTE" />
@@ -1626,73 +1342,53 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
             <End Role="CLIENTE" EntitySet="CLIENTE" />
             <End Role="SOLICITUD" EntitySet="SOLICITUD" />
           </AssociationSet>
-          <AssociationSet Name="VIVIENDA_CLIENTE_FK" Association="Self.VIVIENDA_CLIENTE_FK">
-            <End Role="CLIENTE" EntitySet="CLIENTE" />
-            <End Role="VIVIENDA" EntitySet="VIVIENDA" />
-          </AssociationSet>
           <AssociationSet Name="TECNICO_COMUNA_FKV2" Association="Self.TECNICO_COMUNA_FKV2">
             <End Role="COMUNA" EntitySet="COMUNA" />
             <End Role="TECNICO" EntitySet="TECNICO" />
-          </AssociationSet>
-          <AssociationSet Name="VIVIENDA_COMUNA_FK" Association="Self.VIVIENDA_COMUNA_FK">
-            <End Role="COMUNA" EntitySet="COMUNA" />
-            <End Role="VIVIENDA" EntitySet="VIVIENDA" />
           </AssociationSet>
           <AssociationSet Name="TECNICO_EQUIPO_TECNICO_FK" Association="Self.TECNICO_EQUIPO_TECNICO_FK">
             <End Role="EQUIPO_TECNICO" EntitySet="EQUIPO_TECNICO" />
             <End Role="TECNICO" EntitySet="TECNICO" />
           </AssociationSet>
-          <AssociationSet Name="INFORME_INSP_SERVICIOS_FK" Association="Self.INFORME_INSP_SERVICIOS_FK">
-            <End Role="INSP_SERVICIOS" EntitySet="INSP_SERVICIOS" />
+          <AssociationSet Name="INFORME_AGUA_FK" Association="Self.INFORME_AGUA_FK">
+            <End Role="INST_AGUA_POTABLE" EntitySet="INST_AGUA_POTABLE" />
             <End Role="INFORME" EntitySet="INFORME" />
           </AssociationSet>
-          <AssociationSet Name="INFORME_MEDICION_M2_FK" Association="Self.INFORME_MEDICION_M2_FK">
-            <End Role="MEDICION_M2" EntitySet="MEDICION_M2" />
+          <AssociationSet Name="INFORME_INST_ALC_FK" Association="Self.INFORME_INST_ALC_FK">
+            <End Role="INST_ALCANTARILLADO" EntitySet="INST_ALCANTARILLADO" />
+            <End Role="INFORME" EntitySet="INFORME" />
+          </AssociationSet>
+          <AssociationSet Name="INFORME_INST_EL_FK" Association="Self.INFORME_INST_EL_FK">
+            <End Role="INST_ELECTRICA" EntitySet="INST_ELECTRICA" />
+            <End Role="INFORME" EntitySet="INFORME" />
+          </AssociationSet>
+          <AssociationSet Name="INFORME_INST_GAS_FK" Association="Self.INFORME_INST_GAS_FK">
+            <End Role="INST_GAS" EntitySet="INST_GAS" />
+            <End Role="INFORME" EntitySet="INFORME" />
+          </AssociationSet>
+          <AssociationSet Name="INFORME_RED_AG_FK" Association="Self.INFORME_RED_AG_FK">
+            <End Role="RED_AGUA" EntitySet="RED_AGUA" />
+            <End Role="INFORME" EntitySet="INFORME" />
+          </AssociationSet>
+          <AssociationSet Name="INFORME_SOLICITUD_FK" Association="Self.INFORME_SOLICITUD_FK">
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
             <End Role="INFORME" EntitySet="INFORME" />
           </AssociationSet>
           <AssociationSet Name="INFORME_TECNICO_FK" Association="Self.INFORME_TECNICO_FK">
             <End Role="TECNICO" EntitySet="TECNICO" />
             <End Role="INFORME" EntitySet="INFORME" />
           </AssociationSet>
-          <AssociationSet Name="INFORME_TERMOGRAFIA_FK" Association="Self.INFORME_TERMOGRAFIA_FK">
-            <End Role="TERMOGRAFIA" EntitySet="TERMOGRAFIA" />
+          <AssociationSet Name="INFORME_TIPO_VIV_FK" Association="Self.INFORME_TIPO_VIV_FK">
+            <End Role="TIPO_VIVIENDA" EntitySet="TIPO_VIVIENDA" />
             <End Role="INFORME" EntitySet="INFORME" />
-          </AssociationSet>
-          <AssociationSet Name="INFORME_VERIF_INST_TER_FK" Association="Self.INFORME_VERIF_INST_TER_FK">
-            <End Role="VERIF_INST_TERMINACION" EntitySet="VERIF_INST_TERMINACION" />
-            <End Role="INFORME" EntitySet="INFORME" />
-          </AssociationSet>
-          <AssociationSet Name="INFORME_VIVIENDA_FK" Association="Self.INFORME_VIVIENDA_FK">
-            <End Role="VIVIENDA" EntitySet="VIVIENDA" />
-            <End Role="INFORME" EntitySet="INFORME" />
-          </AssociationSet>
-          <AssociationSet Name="INSP_SER_INST_AGUA_P_FK" Association="Self.INSP_SER_INST_AGUA_P_FK">
-            <End Role="INST_AGUA_POTABLE" EntitySet="INST_AGUA_POTABLE" />
-            <End Role="INSP_SERVICIOS" EntitySet="INSP_SERVICIOS" />
-          </AssociationSet>
-          <AssociationSet Name="INSP_SER_INST_ALC_FK" Association="Self.INSP_SER_INST_ALC_FK">
-            <End Role="INST_ALCANTARILLADO" EntitySet="INST_ALCANTARILLADO" />
-            <End Role="INSP_SERVICIOS" EntitySet="INSP_SERVICIOS" />
-          </AssociationSet>
-          <AssociationSet Name="INSP_SER_INST_ELECT_FK" Association="Self.INSP_SER_INST_ELECT_FK">
-            <End Role="INST_ELECTRICA" EntitySet="INST_ELECTRICA" />
-            <End Role="INSP_SERVICIOS" EntitySet="INSP_SERVICIOS" />
-          </AssociationSet>
-          <AssociationSet Name="INSP_SER_INST_GAS_FK" Association="Self.INSP_SER_INST_GAS_FK">
-            <End Role="INST_GAS" EntitySet="INST_GAS" />
-            <End Role="INSP_SERVICIOS" EntitySet="INSP_SERVICIOS" />
-          </AssociationSet>
-          <AssociationSet Name="INSP_SERVICIOS_RED_AGUA_FK" Association="Self.INSP_SERVICIOS_RED_AGUA_FK">
-            <End Role="RED_AGUA" EntitySet="RED_AGUA" />
-            <End Role="INSP_SERVICIOS" EntitySet="INSP_SERVICIOS" />
           </AssociationSet>
           <AssociationSet Name="PAGO_TIPO_PAGO_FK" Association="Self.PAGO_TIPO_PAGO_FK">
             <End Role="TIPO_PAGO" EntitySet="TIPO_PAGO" />
             <End Role="PAGO" EntitySet="PAGO" />
           </AssociationSet>
-          <AssociationSet Name="VIVIENDA_TIPO_VIVIENDA_FK" Association="Self.VIVIENDA_TIPO_VIVIENDA_FK">
-            <End Role="TIPO_VIVIENDA" EntitySet="TIPO_VIVIENDA" />
-            <End Role="VIVIENDA" EntitySet="VIVIENDA" />
+          <AssociationSet Name="SOLICITUD_PAGO_FK" Association="Self.SOLICITUD_PAGO_FK">
+            <End Role="PAGO" EntitySet="PAGO" />
+            <End Role="SOLICITUD" EntitySet="SOLICITUD" />
           </AssociationSet>
           <AssociationSet Name="SOLICITUD_SERVICIO" Association="Self.SOLICITUD_SERVICIO">
             <End Role="SERVICIO" EntitySet="SERVICIO" />
@@ -1712,7 +1408,7 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModeloOkCasaStoreContainer" CdmEntityContainer="EntitiesOKCasa">
+        <EntityContainerMapping StorageEntityContainer="ModeloOkCasaStoreContainer" CdmEntityContainer="OkCasa_Entities">
           <EntitySetMapping Name="AGENDA">
             <EntityTypeMapping TypeName="ModeloOkCasa.AGENDA">
               <MappingFragment StoreEntitySet="AGENDA">
@@ -1792,31 +1488,37 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
               <MappingFragment StoreEntitySet="INFORME">
                 <ScalarProperty Name="NUM_FORMULARIO" ColumnName="NUM_FORMULARIO" />
                 <ScalarProperty Name="ESTADO_SERVICIO" ColumnName="ESTADO_SERVICIO" />
+                <ScalarProperty Name="NUM_HABITACIONES" ColumnName="NUM_HABITACIONES" />
+                <ScalarProperty Name="NUM_PISOS" ColumnName="NUM_PISOS" />
                 <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
-                <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
                 <ScalarProperty Name="FECHA_INSP" ColumnName="FECHA_INSP" />
                 <ScalarProperty Name="HORA_INSP" ColumnName="HORA_INSP" />
-                <ScalarProperty Name="ID_VIVIENDA" ColumnName="ID_VIVIENDA" />
+                <ScalarProperty Name="OBSERV_FINAL" ColumnName="OBSERV_FINAL" />
+                <ScalarProperty Name="OBSERV_MEDICION" ColumnName="OBSERV_MEDICION" />
+                <ScalarProperty Name="OBSERV_SERVICIOS" ColumnName="OBSERV_SERVICIOS" />
+                <ScalarProperty Name="OBSERV_TERMINACION" ColumnName="OBSERV_TERMINACION" />
+                <ScalarProperty Name="OBSERV_TERMOGRAFIA" ColumnName="OBSERV_TERMOGRAFIA" />
+                <ScalarProperty Name="HABITABILIDAD" ColumnName="HABITABILIDAD" />
+                <ScalarProperty Name="TERMICA" ColumnName="TERMICA" />
+                <ScalarProperty Name="RESIST_FUEGO" ColumnName="RESIST_FUEGO" />
+                <ScalarProperty Name="ELECTRICA" ColumnName="ELECTRICA" />
+                <ScalarProperty Name="AGUA" ColumnName="AGUA" />
+                <ScalarProperty Name="ALCANTARILLADO" ColumnName="ALCANTARILLADO" />
+                <ScalarProperty Name="GAS" ColumnName="GAS" />
+                <ScalarProperty Name="EMISIVIDAD" ColumnName="EMISIVIDAD" />
+                <ScalarProperty Name="TEMP_REFLEJADA" ColumnName="TEMP_REFLEJADA" />
+                <ScalarProperty Name="HUMEDAD" ColumnName="HUMEDAD" />
                 <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
                 <ScalarProperty Name="RUT_TECNICO" ColumnName="RUT_TECNICO" />
-                <ScalarProperty Name="ID_TERMOGRAFIA" ColumnName="ID_TERMOGRAFIA" />
-                <ScalarProperty Name="ID_MEDICION" ColumnName="ID_MEDICION" />
-                <ScalarProperty Name="ID_INSPECCION" ColumnName="ID_INSPECCION" />
-                <ScalarProperty Name="ID_VERIFICACION" ColumnName="ID_VERIFICACION" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="INSP_SERVICIOS">
-            <EntityTypeMapping TypeName="ModeloOkCasa.INSP_SERVICIOS">
-              <MappingFragment StoreEntitySet="INSP_SERVICIOS">
-                <ScalarProperty Name="ID_INSPECCION" ColumnName="ID_INSPECCION" />
-                <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
-                <ScalarProperty Name="ID_ALCANTARILLADO" ColumnName="ID_ALCANTARILLADO" />
-                <ScalarProperty Name="ID_ELECTRICA" ColumnName="ID_ELECTRICA" />
                 <ScalarProperty Name="ID_AGUA_POTABLE" ColumnName="ID_AGUA_POTABLE" />
+                <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
                 <ScalarProperty Name="ID_GAS" ColumnName="ID_GAS" />
+                <ScalarProperty Name="ID_ALCANTARILLADO" ColumnName="ID_ALCANTARILLADO" />
                 <ScalarProperty Name="ID_AGUA" ColumnName="ID_AGUA" />
-                <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+                <ScalarProperty Name="ID_ELECTRICA" ColumnName="ID_ELECTRICA" />
+                <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+                <ScalarProperty Name="ID_AGRUP" ColumnName="ID_AGRUP" />
+                <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1869,22 +1571,6 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="MEDICION_M2">
-            <EntityTypeMapping TypeName="ModeloOkCasa.MEDICION_M2">
-              <MappingFragment StoreEntitySet="MEDICION_M2">
-                <ScalarProperty Name="ID_MEDICION" ColumnName="ID_MEDICION" />
-                <ScalarProperty Name="AREA_TOTAL_REAL" ColumnName="AREA_TOTAL_REAL" />
-                <ScalarProperty Name="AREA_TOTAL_REG" ColumnName="AREA_TOTAL_REG" />
-                <ScalarProperty Name="SUP_UTIL_REAL" ColumnName="SUP_UTIL_REAL" />
-                <ScalarProperty Name="SUP_UTIL_REG" ColumnName="SUP_UTIL_REG" />
-                <ScalarProperty Name="SUP_CONST_REAL" ColumnName="SUP_CONST_REAL" />
-                <ScalarProperty Name="SUP_CONST_REG" ColumnName="SUP_CONST_REG" />
-                <ScalarProperty Name="SUP_ELE_COM_REAL" ColumnName="SUP_ELE_COM_REAL" />
-                <ScalarProperty Name="SUP_ELE_COM_REG" ColumnName="SUP_ELE_COM_REG" />
-                <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="PAGO">
             <EntityTypeMapping TypeName="ModeloOkCasa.PAGO">
               <MappingFragment StoreEntitySet="PAGO">
@@ -1919,8 +1605,11 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
                 <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
                 <ScalarProperty Name="FECHA_SOLICITUD" ColumnName="FECHA_SOLICITUD" />
                 <ScalarProperty Name="HORA_SOLICITUD" ColumnName="HORA_SOLICITUD" />
+                <ScalarProperty Name="DIRECCION_VIVIENDA" ColumnName="DIRECCION_VIVIENDA" />
+                <ScalarProperty Name="CONSTRUCTORA" ColumnName="CONSTRUCTORA" />
                 <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
                 <ScalarProperty Name="ID_AGENDA" ColumnName="ID_AGENDA" />
+                <ScalarProperty Name="ID_PAGO" ColumnName="ID_PAGO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1940,19 +1629,6 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TERMOGRAFIA">
-            <EntityTypeMapping TypeName="ModeloOkCasa.TERMOGRAFIA">
-              <MappingFragment StoreEntitySet="TERMOGRAFIA">
-                <ScalarProperty Name="ID_TERMOGRAFIA" ColumnName="ID_TERMOGRAFIA" />
-                <ScalarProperty Name="EMISIVIDAD" ColumnName="EMISIVIDAD" />
-                <ScalarProperty Name="TEMP_REFLEJADA" ColumnName="TEMP_REFLEJADA" />
-                <ScalarProperty Name="DISTANCIA" ColumnName="DISTANCIA" />
-                <ScalarProperty Name="HUM_RELATIVA" ColumnName="HUM_RELATIVA" />
-                <ScalarProperty Name="TEMP_ATMOSFERICA" ColumnName="TEMP_ATMOSFERICA" />
-                <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TIPO_PAGO">
             <EntityTypeMapping TypeName="ModeloOkCasa.TIPO_PAGO">
               <MappingFragment StoreEntitySet="TIPO_PAGO">
@@ -1966,53 +1642,6 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
               <MappingFragment StoreEntitySet="TIPO_VIVIENDA">
                 <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
                 <ScalarProperty Name="NOMBRE_TIPO" ColumnName="NOMBRE_TIPO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VERIF_INST_TERMINACION">
-            <EntityTypeMapping TypeName="ModeloOkCasa.VERIF_INST_TERMINACION">
-              <MappingFragment StoreEntitySet="VERIF_INST_TERMINACION">
-                <ScalarProperty Name="ID_VERIFICACION" ColumnName="ID_VERIFICACION" />
-                <ScalarProperty Name="ALTURA_MIN" ColumnName="ALTURA_MIN" />
-                <ScalarProperty Name="VENTANA_BANIO_COC" ColumnName="VENTANA_BANIO_COC" />
-                <ScalarProperty Name="VENTANA_LOC_HAB" ColumnName="VENTANA_LOC_HAB" />
-                <ScalarProperty Name="AISL_TECHO_60MM" ColumnName="AISL_TECHO_60MM" />
-                <ScalarProperty Name="MUROS_ALBA_BLOQUE" ColumnName="MUROS_ALBA_BLOQUE" />
-                <ScalarProperty Name="AISL_PISOS_50MM" ColumnName="AISL_PISOS_50MM" />
-                <ScalarProperty Name="TAB_EXT_30MM" ColumnName="TAB_EXT_30MM" />
-                <ScalarProperty Name="SUP_VENT_MURO" ColumnName="SUP_VENT_MURO" />
-                <ScalarProperty Name="MUROS_CONTRAFUEGO" ColumnName="MUROS_CONTRAFUEGO" />
-                <ScalarProperty Name="MUROS_ADOSAM" ColumnName="MUROS_ADOSAM" />
-                <ScalarProperty Name="MUROS_ESTRUCT" ColumnName="MUROS_ESTRUCT" />
-                <ScalarProperty Name="TECHO_CIELO_FALSO" ColumnName="TECHO_CIELO_FALSO" />
-                <ScalarProperty Name="MUROS_ALB_EXT" ColumnName="MUROS_ALB_EXT" />
-                <ScalarProperty Name="MUROS_ALB_EXT_1" ColumnName="MUROS_ALB_EXT_1" />
-                <ScalarProperty Name="MADERA_EST_1X4" ColumnName="MADERA_EST_1X4" />
-                <ScalarProperty Name="PILAR_HA_15X15" ColumnName="PILAR_HA_15X15" />
-                <ScalarProperty Name="MADERA_IMPREG" ColumnName="MADERA_IMPREG" />
-                <ScalarProperty Name="MAD_TABIQ_2X4" ColumnName="MAD_TABIQ_2X4" />
-                <ScalarProperty Name="ENTREMADO_PISO_2X6" ColumnName="ENTREMADO_PISO_2X6" />
-                <ScalarProperty Name="INST_ELECTRICA" ColumnName="INST_ELECTRICA" />
-                <ScalarProperty Name="INST_AGUA" ColumnName="INST_AGUA" />
-                <ScalarProperty Name="INST_ALCANTARILLADO" ColumnName="INST_ALCANTARILLADO" />
-                <ScalarProperty Name="INT_GAS" ColumnName="INT_GAS" />
-                <ScalarProperty Name="OTRO" ColumnName="OTRO" />
-                <ScalarProperty Name="OBSERVACIONES" ColumnName="OBSERVACIONES" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VIVIENDA">
-            <EntityTypeMapping TypeName="ModeloOkCasa.VIVIENDA">
-              <MappingFragment StoreEntitySet="VIVIENDA">
-                <ScalarProperty Name="ID_VIVIENDA" ColumnName="ID_VIVIENDA" />
-                <ScalarProperty Name="DIRECCIÓN" ColumnName="DIRECCIÓN" />
-                <ScalarProperty Name="NUM_HABITACIONES" ColumnName="NUM_HABITACIONES" />
-                <ScalarProperty Name="NUM_PISOS" ColumnName="NUM_PISOS" />
-                <ScalarProperty Name="CONSTRUCTORA" ColumnName="CONSTRUCTORA" />
-                <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
-                <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
-                <ScalarProperty Name="ID_AGRUP" ColumnName="ID_AGRUP" />
-                <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

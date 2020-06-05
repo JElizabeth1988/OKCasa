@@ -14,7 +14,7 @@ namespace BibliotecaDALC
     
     public partial class BANCO_ESTADO
     {
-        public decimal ID_BANCO { get; set; }
+        public int ID_BANCO { get; set; }
         public string RUT_CLIENTE { get; set; }
     
         public virtual CLIENTE CLIENTE { get; set; }
