@@ -16,6 +16,15 @@ using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
 
+using BibliotecaNegocio;
+
+
+using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
+
+using System.Configuration;
+using System.Data;
+
 namespace Vista
 {
     /// <summary>
@@ -32,6 +41,21 @@ namespace Vista
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

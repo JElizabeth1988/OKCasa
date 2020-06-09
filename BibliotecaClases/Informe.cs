@@ -14,17 +14,37 @@ namespace BibliotecaNegocio
 
         public int num_formulario { get; set; }
         public string estado_servicio { get; set; }
+        public int num_habitaciones { get; set; }
+        public int num_pisos { get; set; }
         public string resultado { get; set; }
-        public string observacion { get; set; }
         public DateTime fecha_insp { get; set; }
         public string hora_insp { get; set; }
-        public int id_vivienda { get; set; }
+        public string observ_final { get; set; }
+        public string observ_medicion { get; set; }
+        public string observ_servicios{ get; set; }
+        public string observ_terminacion { get; set; }
+        public string observ_termografia { get; set; }
+        public string habitabilidad { get; set; }
+        public string termica { get; set; }
+        public string resist_fuego { get; set; }
+        public string electrica { get; set; }
+        public string agua { get; set; }
+        public string alcantarillado { get; set; }
+        public string gas { get; set; }
+        public int emisividad { get; set; }
+        public int temp_reflejada { get; set; }
+        public int humedad { get; set; }
         public string rut_cliente { get; set; }
         public string rut_tecnico { get; set; }
-        public int id_termografia { get; set; }
-        public int id_medicion { get; set; }
-        public int id_inspeccion { get; set; }
-        public int id_verificacion { get; set; }
+        public int id_agua_potable { get; set; }
+        public int id_articulo { get; set; }
+        public int id_gas{ get; set; }
+        public int id_alcantarillado { get; set; }
+        public int id_agua { get; set; }
+        public int id_electrica { get; set; }
+        public int id_tipo { get; set; }
+        public int id_agrup { get; set; }
+        public int id_solicitud { get; set; }
 
 
         public Informe()
@@ -134,26 +154,45 @@ namespace BibliotecaNegocio
             }
 
         }
-     /*   public List<Informe> ReadAll()
+        /*public List<Informe> ReadAll()
         {
             try
             {
-                var c = from inf in bdd.INFORME
+                var c = from info in bdd.INFORME
                         select new Informe()
                         {
-                            num_formulario = inf.NUM_FORMULARIO,
-                            estado_servicio = inf.ESTADO_SERVICIO,
-                            resultado = inf.RESULTADO,
-                            observacion = inf.OBSERVACION,
-                            fecha_insp = inf.FECHA_INSP,
-                            hora_insp = inf.HORA_INSP,
-                            id_vivienda = inf.ID_VIVIENDA,
-                            rut_cliente = inf.RUT_CLIENTE,
-                            rut_tecnico = inf.RUT_TECNICO,
-                            id_termografia = inf.ID_TERMOGRAFIA,
-                            id_medicion = inf.ID_MEDICION,
-                            id_inspeccion = inf.ID_INSPECCION,
-                            id_verificacion = inf.ID_VERIFICACION
+                            num_formulario = info.NUM_FORMULARIO,
+                            estado_servicio = info.ESTADO_SERVICIO,
+                            num_habitaciones = info.NUM_HABITACIONES,
+                            num_pisos = info.NUM_PISOS,
+                            resultado = info.RESULTADO,
+                            fecha_insp = info.FECHA_INSP,
+                            hora_insp = info.HORA_INSP,
+                            observ_final = info.OBSERV_FINAL,
+                            observ_medicion = info.OBSERV_MEDICION,
+                            observ_servicios = info.OBSERV_MEDICION,
+                            observ_terminacion = info.OBSERV_TERMINACION,
+                            observ_termografia = info.OBSERV_TERMOGRAFIA,
+                            habitabilidad = info.HABITABILIDAD,
+                            termica = info.TERMICA,
+                            resist_fuego = info.RESIST_FUEGO,
+                            electrica = info.ELECTRICA,
+                            agua = info.AGUA,
+                            alcantarillado = info.ALCANTARILLADO,
+                            gas = info.GAS,
+                            emisividad = info.EMISIVIDAD ,
+                            temp_reflejada = info.TEMP_REFLEJADA,
+                            humedad = info.HUMEDAD,
+                            rut_cliente = info.RUT_CLIENTE,
+                            rut_tecnico = info.RUT_TECNICO,
+                            id_agua_potable = info.ID_AGUA_POTABLE,
+                            id_articulo = info.ID_ARTICULO,
+                            id_gas = info.ID_GAS,
+                            id_electrica = info.ID_ELECTRICA,
+                            id_tipo = info.ID_TIPO,
+                            id_agrup = info.ID_AGRUP,
+                            id_solicitud = info.ID_SOLICITUD
+
 
                         };
                 return c.ToList();
@@ -164,9 +203,9 @@ namespace BibliotecaNegocio
 
                 return null;
             }
-        }
+        }*/
         //Read all 2 (se llena con método ListaCliente que está abajo)
-        public List<ListaInforme> ReadAll2()
+        /*public List<ListaInforme> ReadAll2()
         {
             try
             {
@@ -218,7 +257,7 @@ namespace BibliotecaNegocio
                      };
 
             return cl.ToList();
-        }
+        }*/
 
 
         //Lista para read all2
@@ -226,23 +265,43 @@ namespace BibliotecaNegocio
         {
             public int Numero { get; set; }
             public string Estado { get; set; }
+            public int Habitaciones { get; set; }
+            public int Pisos { get; set; }
             public string Resultado { get; set; }
-            public string Observacion { get; set; }
             public DateTime Fecha { get; set; }
             public string Hora { get; set; }
-            public string Vivienda { get; set; }
+            public string ObsFinal { get; set; }
+            public string ObsMedicion { get; set; }
+            public string ObsServicio { get; set; }
+            public string ObsTerminaciones { get; set; }
+            public string ObsTermografia { get; set; }
+            public string Habitabilidad { get; set; }
+            public string Termica { get; set; }
+            public string Resistencia { get; set; }
+            public string Electrica { get; set; }
+            public string Agua { get; set; }
+            public string Alcantarillado { get; set; }
+            public string Gas { get; set; }
+            public int Emisividad { get; set; }
+            public int Temperatura { get; set; }
+            public int Humedad { get; set; }
             public string RutCliente { get; set; }
             public string RutTecnico { get; set; }
-            public int Termografia { get; set; }//Dudas!!!!!!
-            public int Medicion { get; set; }//Dudas!!!!!!
-            public int Inspeccion { get; set; }//Dudas!!!!!!
-            public int Verificacion { get; set; }//Dudas!!!!!!
+            public string AguaPotable { get; set; }
+            public string Articulo { get; set; }
+            public string InstGas { get; set; }
+            public string InstAlcantarillado { get; set; }
+            public string InstAgua { get; set; }
+            public string InstElectrica { get; set; }
+            public string TipoVivienda { get; set; }
+            public string Agrupamiento { get; set; }
+            public int Solicitud { get; set; }
 
             public ListaInforme()
             {
 
             }
-        }*/
+        }
 
     }
 }

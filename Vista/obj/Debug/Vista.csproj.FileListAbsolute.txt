@@ -244,3 +244,10 @@ C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Tecnico.baml
 C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Vista.g.resources
 C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Vista.Properties.Resources.resources
 C:\Users\USER\Source\Repos\OKCasa\Vista\obj\Debug\Vista.csproj.GenerateResource.Cache
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Vista.csproj.Vista.exe.config
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\Oracle.DataAccess.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\Oracle.Web.dll
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\bin\Debug\EntityFramework.SqlServer.xml

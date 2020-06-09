@@ -9,45 +9,51 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="Administrar Cliente" Height="487.784" Width="584.124" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/Logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFD2DBEC" >
-    <GroupBox x:Name="groupBox" Header="Información de Cliente" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" Height="428" Width="538" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
-        <Grid HorizontalAlignment="Left" Height="398" VerticalAlignment="Top" Width="528" Margin="0,-2,0,-2.667" Background="#FFD2DBEC">
+        Title="Administrar Cliente" Height="507.784" Width="584.124" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/Logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFD2DBEC" >
+    <GroupBox x:Name="groupBox" Header="Información de Cliente" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" Height="445" Width="538" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
+        <Grid HorizontalAlignment="Left" Height="414" VerticalAlignment="Top" Width="528" Margin="0,-2,0,-1.333" Background="#FFD2DBEC">
             <Label x:Name="label" Content="Rut:" HorizontalAlignment="Left" Margin="23,19,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="label_Copy" Content="Apellido Paterno:" HorizontalAlignment="Left" Margin="23,59,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="label_Copy1" Content="Nombres:" HorizontalAlignment="Left" Margin="23,139,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="label_Copy2" Content="Email:" HorizontalAlignment="Left" Margin="23,179,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="label_Copy3" Content="Dirección:" HorizontalAlignment="Left" Margin="23,219,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="label_Copy4" Content="Teléfono:" HorizontalAlignment="Left" Margin="23,259,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="label_Copy" Content="Apellido Paterno:" HorizontalAlignment="Left" Margin="23,127,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="label_Copy1" Content="Primer Nombre:" HorizontalAlignment="Left" Margin="23,55,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="label_Copy2" Content="Email:" HorizontalAlignment="Left" Margin="23,199,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="label_Copy3" Content="Dirección:" HorizontalAlignment="Left" Margin="23,235,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="label_Copy4" Content="Teléfono:" HorizontalAlignment="Left" Margin="23,307,0,0" VerticalAlignment="Top"/>
 
 
-            <TextBox x:Name="txtRut" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Rut sin DV" Height="8" Margin="156,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
-
-            <TextBox x:Name="txtApPaterno" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Apellido Paterno Social" Height="8" Margin="156,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
-            <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Nombres " Height="8" Margin="156,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
-            <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Email" Height="8" Margin="156,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
-            <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Dirección" Height="8" Margin="156,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
-            <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ej. 988888888" Height="8" Margin="156,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="False"  KeyDown="txtTelefono_KeyDown"  />
-            <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="144,344,0,0" VerticalAlignment="Top" Width="75" Cursor="Arrow" FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True"  RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
-            <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="420,344,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnCancelar_Click"/>
+            <TextBox x:Name="txtRut" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Rut sin DV" Height="8" Margin="156,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True" KeyDown="txtRut_KeyDown" LostFocus="txtRut_LostFocus"/>
+            <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Nombres " Height="8" Margin="156,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
+            <TextBox x:Name="txtSegNombre" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Seg. Nombre" Height="8" Margin="156,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" />
+            <TextBox x:Name="txtApPaterno" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Apellido Pat." Height="8" Margin="156,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
+            <TextBox x:Name="txtApeMaterno" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Apellido Mat. " Height="8" Margin="156,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
+            <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Email" Height="8" Margin="156,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
+            <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Dirección" Height="8" Margin="156,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
+            <ComboBox x:Name="cboComuna" HorizontalAlignment="Left" Margin="156,271,0,0" VerticalAlignment="Top" Width="163"/>
+            <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ej. 988888888" Height="8" Margin="156,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="False"  KeyDown="txtTelefono_KeyDown"  />
+            <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="144,368,0,0" VerticalAlignment="Top" Width="75" Cursor="Arrow" FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True"  RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnGuardar_Click"/>
+            <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="420,368,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnCancelar_Click"/>
             <Button x:Name="btnPregunta" Content="?" HorizontalAlignment="Left" Margin="363,19,0,0" VerticalAlignment="Top" Width="33"  FontWeight="Normal" Height="25" Cursor="Arrow"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnPregunta_Click"/>
-            <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="409,19,0,0" VerticalAlignment="Top" Height="25" Width="64" Cursor="Arrow" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
-            <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="28,344,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
-            <Button x:Name="btnModificar" Content="Actualizar" HorizontalAlignment="Left" Margin="255,344,0,0" VerticalAlignment="Top" Cursor="Arrow" Width="80" FontWeight="Normal"   Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" />
+            <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="409,19,0,0" VerticalAlignment="Top" Height="25" Width="64" Cursor="Arrow" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnBuscar_Click"/>
+            <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="28,368,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnLimpiar_Click"/>
+            <Button x:Name="btnModificar" Content="Actualizar" HorizontalAlignment="Left" Margin="255,368,0,0" VerticalAlignment="Top" Cursor="Arrow" Width="80" FontWeight="Normal"   Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnModificar_Click" />
             <Image x:Name="image" HorizontalAlignment="Left" Height="46" Margin="362,75,0,0" VerticalAlignment="Top" Width="113" Source="Imagenes/Logo11.png"/>
 
 
             <TextBox x:Name="txtDV" HorizontalAlignment="Left" Height="23" Margin="322,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" RenderTransformOrigin="0.422,0.462" FontWeight="Normal" IsEnabled="False"/>
             <Label x:Name="label1" Content="-" HorizontalAlignment="Left" Margin="301,15,0,0" VerticalAlignment="Top" Width="18"/>
-            <Label x:Name="label_Copy7" Content="Apellido Materno:" HorizontalAlignment="Left" Margin="23,99,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtApeMaterno" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="Ingrese Apellido Materno " Height="8" Margin="156,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True"/>
+            <Label x:Name="label_Copy7" Content="Apellido Materno:" HorizontalAlignment="Left" Margin="23,163,0,0" VerticalAlignment="Top"/>
+            
             <GroupBox x:Name="groupBox1" Header="Consultar con Banco Estado" HorizontalAlignment="Left" Margin="338,141,0,0" VerticalAlignment="Top" Height="146" Width="178" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="12" mah:ControlsHelper.HeaderFontSize="11">
                 <Grid HorizontalAlignment="Left" Height="115" VerticalAlignment="Top" Width="168" Margin="0,-2,0,-1">
                     <Button x:Name="btnBanco" Content="Consultar" HorizontalAlignment="Left" Margin="35,15,0,0" VerticalAlignment="Top" Height="32" Width="95" Cursor="Arrow" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnBanco_Click"/>
                     <Label x:Name="label2" Content="Cliente Hipotecarío:" HorizontalAlignment="Left" Margin="21,58,0,0" VerticalAlignment="Top"/>
                     <RadioButton x:Name="rbSi" Content="Si" HorizontalAlignment="Left" Margin="27,89,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="Hipotecario"/>
-                    <RadioButton x:Name="rbNo" Content="No" HorizontalAlignment="Left" Margin="90,89,0,0" VerticalAlignment="Top" GroupName="Hipotecario"/>
+                    <RadioButton x:Name="rbNo" Content="No" HorizontalAlignment="Left" Margin="90,89,0,0" VerticalAlignment="Top" GroupName="Hipotecario" IsChecked="True"/>
                 </Grid>
             </GroupBox>
+            <Label x:Name="label_Copy5" Content="Segundo Nombre:" HorizontalAlignment="Left" Margin="23,91,0,0" VerticalAlignment="Top"/>
+            
+            <Label x:Name="label_Copy6" Content="Comuna:" HorizontalAlignment="Left" Margin="23,271,0,0" VerticalAlignment="Top"/>
+            
 
         </Grid>
     </GroupBox>

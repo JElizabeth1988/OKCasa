@@ -45,7 +45,7 @@ namespace BibliotecaNegocio
             set {
                     if (value != string.Empty )
                     {
-                        _rut_cliente = value;
+                        _primer_nombre = value;
                     }
                     else
                     {

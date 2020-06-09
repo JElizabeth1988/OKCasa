@@ -22,6 +22,92 @@ namespace BibliotecaNegocio
 
         }
 
+        //CRUD
+        //Guardar
+        public Boolean Guardar()
+        {
+            try
+            {
+                //creo un modelo de la tabla 
+                SERVICIO serv = new SERVICIO();
+                CommonBC.Syncronize(this, serv);
+                bdd.SERVICIO.Add(serv);
+                bdd.SaveChanges();
+
+                return true;
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+                Logger.Mensaje(ex.Message);
+            }
+        }
+
+        //Eliminar
+        public bool Eliminar()
+        {
+            try
+            {
+                SERVICIO serv =
+                bdd.SERVICIO.Find(id_servicio);
+
+                bdd.SERVICIO.Remove(serv);
+                bdd.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+                Logger.Mensaje(ex.Message);
+            }
+        }
+
+        //Buscar
+        public bool Buscar()
+        {
+            try
+            {
+                SERVICIO serv =
+                bdd.SERVICIO.First(cl => cl.ID_SERVICIO.Equals(id_servicio));
+
+                CommonBC.Syncronize(serv, this);//arregló this
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+                Logger.Mensaje(ex.Message);
+            }
+        }
+
+        //Modificar
+        public bool Modificar()
+        {
+            try
+            {
+                //creo un modelo de la tabla 
+                SERVICIO serv = bdd.SERVICIO.Find(id_servicio);
+                CommonBC.Syncronize(this, serv);
+                bdd.SaveChanges();
+                return true;
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
+
         public bool Read()
         {
             try
