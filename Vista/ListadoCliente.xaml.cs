@@ -16,6 +16,8 @@ using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
 
+using BibliotecaNegocio;
+
 namespace Vista
 {
     /// <summary>
@@ -33,8 +35,24 @@ namespace Vista
 
             btnPasar.Visibility = Visibility.Hidden;//el botón traspasar no se ve
             btnPasarAForm.Visibility = Visibility.Hidden;//no se ve
+
+            btnCrear.Visibility = Visibility.Hidden; //No se ve
             
-            
+            try
+            {
+                BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
+                dgLista.ItemsSource = cl.ReadAll2();
+                dgLista.Items.Refresh();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error!" + ex.Message);
+                Logger.Mensaje(ex.Message);
+            }
+
+
         }
 
         public ListadoCliente(FormularioInspeccion origen)
@@ -85,6 +103,26 @@ namespace Vista
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void btnPasar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnPasarAForm_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnFiltrarRut_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -14,7 +14,7 @@
         Title="Lista de Clientes" Height="503.166" Width="724.667" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Icon="Imagenes/Logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal" >
     <Grid Background="#FFD2DBEC">
 
-        <Button x:Name="btnPasar" Content="Traspasar" HorizontalAlignment="Left" Margin="98,402,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
+        <Button x:Name="btnPasar" Content="Traspasar" HorizontalAlignment="Left" Margin="98,402,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnPasar_Click"/>
         <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="41,132,0,0" VerticalAlignment="Top" Height="212" Width="637" FontWeight="Normal" >
 
             <DataGrid.Resources>
@@ -32,18 +32,18 @@
         <GroupBox x:Name="gbFiltrar" Header="Filtrar Información" HorizontalAlignment="Left" Margin="41,21,0,0" VerticalAlignment="Top" Height="85" Width="448"  Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
             <Grid HorizontalAlignment="Left" Height="43" Margin="10,4,0,0" VerticalAlignment="Top" Width="354">
                 <Label x:Name="label" Content="Rut Cliente:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,1,0,0"/>
-                <TextBox x:Name="txtFiltroRut"  Controls:TextBoxHelper.Watermark="Ej. 11.111.111-1" HorizontalAlignment="Left" Height="23" Margin="116,1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
-                <Button x:Name="btnFiltrarRut" Content="Filtrar" HorizontalAlignment="Left" Margin="313,1,-34,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
+                <TextBox x:Name="txtFiltroRut"  Controls:TextBoxHelper.Watermark="Ej. 11222333-1" HorizontalAlignment="Left" Height="23" Margin="116,1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
+                <Button x:Name="btnFiltrarRut" Content="Filtrar" HorizontalAlignment="Left" Margin="313,0,-34,14" VerticalAlignment="Bottom" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnFiltrarRut_Click"/>
             </Grid>
         </GroupBox>
-        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="195,402,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"   Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC941928" FontSize="12"/>
+        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="195,402,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"   Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC941928" FontSize="12" Click="btnEliminar_Click"/>
         <Button x:Name="btnRefrescar" HorizontalAlignment="Left" Margin="611,396,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click"  >
             <Button.Background>
                 <ImageBrush ImageSource="Imagenes/Command-Refresh-Blue.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnPasarAForm" Content="Traspasar" HorizontalAlignment="Left" Margin="294,402,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
-        <Button x:Name="btnCrear" Content="Nuevo cliente " HorizontalAlignment="Left" Margin="393,401,0,0" VerticalAlignment="Top" Width="91" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnCrear_Click"/>
+        <Button x:Name="btnPasarAForm" Content="Traspasar" HorizontalAlignment="Left" Margin="294,402,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnPasarAForm_Click"/>
+        <Button x:Name="btnCrear" Content="Nuevo cliente " HorizontalAlignment="Left" Margin="393,401,0,0" VerticalAlignment="Top" Width="91" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="0.5,0.5" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12" Click="btnCrear_Click"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="64" Margin="527,39,0,0" VerticalAlignment="Top" Width="149" Source="Imagenes/logo11.png"/>
 
     </Grid>

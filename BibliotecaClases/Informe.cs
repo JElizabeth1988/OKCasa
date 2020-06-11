@@ -154,7 +154,7 @@ namespace BibliotecaNegocio
             }
 
         }
-        /*public List<Informe> ReadAll()
+        public List<Informe> ReadAll()
         {
             try
             {
@@ -170,7 +170,7 @@ namespace BibliotecaNegocio
                             hora_insp = info.HORA_INSP,
                             observ_final = info.OBSERV_FINAL,
                             observ_medicion = info.OBSERV_MEDICION,
-                            observ_servicios = info.OBSERV_MEDICION,
+                            observ_servicios = info.OBSERV_SERVICIOS,
                             observ_terminacion = info.OBSERV_TERMINACION,
                             observ_termografia = info.OBSERV_TERMOGRAFIA,
                             habitabilidad = info.HABITABILIDAD,
@@ -180,14 +180,16 @@ namespace BibliotecaNegocio
                             agua = info.AGUA,
                             alcantarillado = info.ALCANTARILLADO,
                             gas = info.GAS,
-                            emisividad = info.EMISIVIDAD ,
-                            temp_reflejada = info.TEMP_REFLEJADA,
-                            humedad = info.HUMEDAD,
+                            emisividad = info.EMISIVIDAD ,//TT___TT
+                            temp_reflejada = info.TEMP_REFLEJADA,//TT___TT
+                            humedad = info.HUMEDAD,//TT___TT
                             rut_cliente = info.RUT_CLIENTE,
                             rut_tecnico = info.RUT_TECNICO,
                             id_agua_potable = info.ID_AGUA_POTABLE,
                             id_articulo = info.ID_ARTICULO,
                             id_gas = info.ID_GAS,
+                            id_alcantarillado = info.ID_ALCANTARILLADO,
+                            id_agua = info.ID_AGUA,
                             id_electrica = info.ID_ELECTRICA,
                             id_tipo = info.ID_TIPO,
                             id_agrup = info.ID_AGRUP,
@@ -203,27 +205,66 @@ namespace BibliotecaNegocio
 
                 return null;
             }
-        }*/
+        }
         //Read all 2 (se llena con método ListaCliente que está abajo)
-        /*public List<ListaInforme> ReadAll2()
+        public List<ListaInforme> ReadAll2()
         {
             try
             {
                 var c = from inf in bdd.INFORME
-                        join comu in bdd.COMUNA 
-                          on cli.ID_COMUNA equals comu.ID_COMUNA
-                        select new ListaClientes()
+                        join ap in bdd.INST_AGUA_POTABLE 
+                          on inf.ID_AGUA_POTABLE equals ap.ID_AGUA_POTABLE
+                        join art in bdd.ART_SANITARIO
+                          on inf.ID_ARTICULO equals art.ID_ARTICULO
+                        join gas in bdd.INST_GAS
+                          on inf.ID_GAS equals gas.ID_GAS
+                        join alc in bdd.INST_ALCANTARILLADO
+                          on inf.ID_ALCANTARILLADO equals alc.ID_ALCANTARILLADO
+                        join agu in bdd.RED_AGUA
+                          on inf.ID_AGUA equals agu.ID_AGUA
+                        join ele in bdd.INST_ELECTRICA
+                          on inf.ID_ELECTRICA equals ele.ID_ELECTRICA
+                        join tipo in bdd.TIPO_PAGO
+                          on inf.ID_TIPO equals tipo.ID_TIPO
+                        join agr in bdd.AGRUPAMIENTO
+                          on inf.ID_AGRUP equals agr.ID_AGRUP
+                        join sol in bdd.SOLICITUD
+                          on inf.ID_SOLICITUD equals sol.ID_SOLICITUD
+                        select new ListaInforme()
                         {
-                            Rut = cli.RUT_CLIENTE,
-                            PrimerNombre = cli.PRIMER_NOMBRE,
-                            SegundoNombre = cli.SEGUNDO_NOMBRE,
-                            ApPaterno = cli.AP_PATERNO,
-                            ApMaterno = cli.AP_MATERNO,
-                            Direccion = cli.DIRECCION,
-                            Telefono = cli.TELEFONO,
-                            Mail = cli.EMAIL,
-                            Hipotecario = cli.HIPOTECARIO,
-                            Comuna = comu.NOMBRE//Traigo el nombre no el id
+                            Numero = inf.NUM_FORMULARIO,
+                            Estado = inf.ESTADO_SERVICIO,
+                            Habitaciones = inf.NUM_HABITACIONES,
+                            Pisos = inf.NUM_PISOS,
+                            Resultado = inf.RESULTADO,
+                            Fecha = inf.FECHA_INSP,
+                            Hora = inf.HORA_INSP,
+                            ObsFinal = inf.OBSERV_FINAL,
+                            ObsMedicion = inf.OBSERV_MEDICION,
+                            ObsServicio = inf.OBSERV_SERVICIOS,
+                            ObsTerminaciones = inf.OBSERV_TERMINACION,
+                            ObsTermografia = inf.OBSERV_TERMOGRAFIA,
+                            Habitabilidad = inf.HABITABILIDAD,
+                            Termica = inf.TERMICA,
+                            Resistencia = inf.RESIST_FUEGO,
+                            Electrica = inf.ELECTRICA,
+                            Agua = inf.AGUA,
+                            Alcantarillado = inf.ALCANTARILLADO,
+                            Gas = inf.GAS,
+                            Emisividad = inf.EMISIVIDAD,//TT___TT
+                            Temperatura = inf.TEMP_REFLEJADA,//TT___TT
+                            Humedad = inf.HUMEDAD,//TT___TT
+                            RutCliente = inf.RUT_CLIENTE,
+                            RutTecnico = inf.RUT_TECNICO,
+                            AguaPotable = ap.NOMBRE,
+                            Articulo = art.NOMBRE,
+                            InstGas = gas.NOMBRE,
+                            InstAlcantarillado = alc.NOMBRE,
+                            InstAgua = agu.NOMBRE,
+                            InstElectrica = ele.NOMBRE,
+                            TipoVivienda = tipo.NOMBRE,
+                            Agrupamiento = agr.NOMBRE_AGR,
+                            Solicitud = sol.ID_SOLICITUD
 
                         };
                 return c.ToList();
@@ -236,28 +277,67 @@ namespace BibliotecaNegocio
         }
 
         //Filtro por Rut
-        public List<ListaClientes> FiltroRut(string rut)
+        public List<ListaInforme> FiltroRut(string rut)
         {
-            var cl = from cli in bdd.CLIENTE
-                     join comu in bdd.COMUNA
-                     on cli.ID_COMUNA equals comu.ID_COMUNA
-                     where cli.RUT_CLIENTE == rut
-                     select new ListaClientes()
+            var cl = from inf in bdd.INFORME
+                     join ap in bdd.INST_AGUA_POTABLE 
+                          on inf.ID_AGUA_POTABLE equals ap.ID_AGUA_POTABLE
+                        join art in bdd.ART_SANITARIO
+                          on inf.ID_ARTICULO equals art.ID_ARTICULO
+                        join gas in bdd.INST_GAS
+                          on inf.ID_GAS equals gas.ID_GAS
+                        join alc in bdd.INST_ALCANTARILLADO
+                          on inf.ID_ALCANTARILLADO equals alc.ID_ALCANTARILLADO
+                        join agu in bdd.RED_AGUA
+                          on inf.ID_AGUA equals agu.ID_AGUA
+                        join ele in bdd.INST_ELECTRICA
+                          on inf.ID_ELECTRICA equals ele.ID_ELECTRICA
+                        join tipo in bdd.TIPO_PAGO
+                          on inf.ID_TIPO equals tipo.ID_TIPO
+                        join agr in bdd.AGRUPAMIENTO
+                          on inf.ID_AGRUP equals agr.ID_AGRUP
+                        join sol in bdd.SOLICITUD
+                          on inf.ID_SOLICITUD equals sol.ID_SOLICITUD
+                     where inf.RUT_CLIENTE == rut
+                     select new ListaInforme()
                      {
-                         Rut = cli.RUT_CLIENTE,
-                         PrimerNombre = cli.PRIMER_NOMBRE,
-                         SegundoNombre = cli.SEGUNDO_NOMBRE,
-                         ApPaterno = cli.AP_PATERNO,
-                         ApMaterno = cli.AP_MATERNO,
-                         Direccion = cli.DIRECCION,
-                         Telefono = cli.TELEFONO,
-                         Mail = cli.EMAIL,
-                         Hipotecario = cli.HIPOTECARIO,
-                         Comuna = comu.NOMBRE//Traigo el nombre no el id
+                         Numero = inf.NUM_FORMULARIO,
+                         Estado = inf.ESTADO_SERVICIO,
+                         Habitaciones = inf.NUM_HABITACIONES,
+                         Pisos = inf.NUM_PISOS,
+                         Resultado = inf.RESULTADO,
+                         Fecha = inf.FECHA_INSP,
+                         Hora = inf.HORA_INSP,
+                         ObsFinal = inf.OBSERV_FINAL,
+                         ObsMedicion = inf.OBSERV_MEDICION,
+                         ObsServicio = inf.OBSERV_SERVICIOS,
+                         ObsTerminaciones = inf.OBSERV_TERMINACION,
+                         ObsTermografia = inf.OBSERV_TERMOGRAFIA,
+                         Habitabilidad = inf.HABITABILIDAD,
+                         Termica = inf.TERMICA,
+                         Resistencia = inf.RESIST_FUEGO,
+                         Electrica = inf.ELECTRICA,
+                         Agua = inf.AGUA,
+                         Alcantarillado = inf.ALCANTARILLADO,
+                         Gas = inf.GAS,
+                         Emisividad = inf.EMISIVIDAD,//TT___TT
+                         Temperatura = inf.TEMP_REFLEJADA,//TT___TT
+                         Humedad = inf.HUMEDAD,//TT___TT
+                         RutCliente = inf.RUT_CLIENTE,
+                         RutTecnico = inf.RUT_TECNICO,
+                         AguaPotable = ap.NOMBRE,
+                         Articulo = art.NOMBRE,
+                         InstGas = gas.NOMBRE,
+                         InstAlcantarillado = alc.NOMBRE,
+                         InstAgua = agu.NOMBRE,
+                         InstElectrica = ele.NOMBRE,
+                         TipoVivienda = tipo.NOMBRE,
+                         Agrupamiento = agr.NOMBRE_AGR,
+                         Solicitud = sol.ID_SOLICITUD
                      };
 
             return cl.ToList();
-        }*/
+        }
 
 
         //Lista para read all2
