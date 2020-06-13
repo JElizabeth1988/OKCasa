@@ -105,7 +105,7 @@ namespace BibliotecaNegocio
                 INFORME info =
                 bdd.INFORME.First(inf => inf.NUM_FORMULARIO.Equals(num_formulario));
 
-                CommonBC.Syncronize(info, this);//arregló this
+                CommonBC.Syncronize(info, this);
 
                 return true;
 
@@ -180,9 +180,9 @@ namespace BibliotecaNegocio
                             agua = info.AGUA,
                             alcantarillado = info.ALCANTARILLADO,
                             gas = info.GAS,
-                            emisividad = info.EMISIVIDAD ,//TT___TT
-                            temp_reflejada = info.TEMP_REFLEJADA,//TT___TT
-                            humedad = info.HUMEDAD,//TT___TT
+                            emisividad = int.Parse(info.EMISIVIDAD.ToString()) ,//TT___TT
+                            //temp_reflejada = info.TEMP_REFLEJADA,//TT___TT
+                            //humedad = info.HUMEDAD,//TT___TT
                             rut_cliente = info.RUT_CLIENTE,
                             rut_tecnico = info.RUT_TECNICO,
                             id_agua_potable = info.ID_AGUA_POTABLE,
@@ -251,9 +251,9 @@ namespace BibliotecaNegocio
                             Agua = inf.AGUA,
                             Alcantarillado = inf.ALCANTARILLADO,
                             Gas = inf.GAS,
-                            Emisividad = inf.EMISIVIDAD,//TT___TT
-                            Temperatura = inf.TEMP_REFLEJADA,//TT___TT
-                            Humedad = inf.HUMEDAD,//TT___TT
+                           // Emisividad = inf.EMISIVIDAD,//TT___TT
+                            //7Temperatura = inf.TEMP_REFLEJADA,//TT___TT
+                           // Humedad = inf.HUMEDAD,//TT___TT
                             RutCliente = inf.RUT_CLIENTE,
                             RutTecnico = inf.RUT_TECNICO,
                             AguaPotable = ap.NOMBRE,
@@ -320,9 +320,9 @@ namespace BibliotecaNegocio
                          Agua = inf.AGUA,
                          Alcantarillado = inf.ALCANTARILLADO,
                          Gas = inf.GAS,
-                         Emisividad = inf.EMISIVIDAD,//TT___TT
-                         Temperatura = inf.TEMP_REFLEJADA,//TT___TT
-                         Humedad = inf.HUMEDAD,//TT___TT
+                        // Emisividad = inf.EMISIVIDAD,//TT___TT
+                         //Temperatura = inf.TEMP_REFLEJADA,//TT___TT
+                         //Humedad = inf.HUMEDAD,//TT___TT
                          RutCliente = inf.RUT_CLIENTE,
                          RutTecnico = inf.RUT_TECNICO,
                          AguaPotable = ap.NOMBRE,
@@ -340,7 +340,7 @@ namespace BibliotecaNegocio
         }
 
 
-        //Lista para read all2
+        //Lista para read all2 trae nombres no id
         public class ListaInforme
         {
             public int Numero { get; set; }

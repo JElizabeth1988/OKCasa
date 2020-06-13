@@ -211,12 +211,6 @@ namespace Vista {
             return;
             case 6:
             this.btnFiltrarNumero = ((System.Windows.Controls.Button)(target));
-            
-            #line 34 "..\..\ListadoFormulario.xaml"
-            this.btnFiltrarNumero.Click += new System.Windows.RoutedEventHandler(this.btnFiltrarNumero_Click);
-            
-            #line default
-            #line hidden
             return;
             case 7:
             this.txtFiltroNumero = ((System.Windows.Controls.TextBox)(target));
@@ -226,12 +220,6 @@ namespace Vista {
             return;
             case 9:
             this.btnFiltrarRut = ((System.Windows.Controls.Button)(target));
-            
-            #line 37 "..\..\ListadoFormulario.xaml"
-            this.btnFiltrarRut.Click += new System.Windows.RoutedEventHandler(this.btnFiltrarRut_Click);
-            
-            #line default
-            #line hidden
             return;
             case 10:
             this.btnListCliente = ((System.Windows.Controls.Button)(target));
@@ -253,12 +241,6 @@ namespace Vista {
             return;
             case 12:
             this.btnPasar = ((System.Windows.Controls.Button)(target));
-            
-            #line 46 "..\..\ListadoFormulario.xaml"
-            this.btnPasar.Click += new System.Windows.RoutedEventHandler(this.btnPasar_Click);
-            
-            #line default
-            #line hidden
             return;
             case 13:
             this.btnCrear = ((System.Windows.Controls.Button)(target));

@@ -261,5 +261,6 @@
         <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
       </EndProperty>
     </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="SP_LISTAR_COMUNA" FunctionName="ModeloOkCasa.Store.SP_LISTAR_COMUNA" />
   </EntityContainerMapping>
 </Mapping>

@@ -579,6 +579,7 @@ advertencia 6002: La tabla o vista 'OKCASA.TIPO_PAGO_BANCO' no tiene definida ni
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="SP_LISTAR_COMUNA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
   <EntityContainer Name="ModeloOkCasaStoreContainer">
     <EntitySet Name="AGENDA" EntityType="Self.AGENDA" Schema="OKCASA" store:Type="Tables" />
     <EntitySet Name="AGRUPAMIENTO" EntityType="Self.AGRUPAMIENTO" Schema="OKCASA" store:Type="Tables" />

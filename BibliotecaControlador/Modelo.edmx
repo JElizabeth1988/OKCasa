@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ModeloOkCasa.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ModeloOkCasa.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AGENDA">
           <Key>
             <PropertyRef Name="ID_AGENDA" />
@@ -584,6 +584,7 @@ advertencia 6002: La tabla o vista 'OKCASA.TIPO_PAGO_BANCO' no tiene definida ni
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="SP_LISTAR_COMUNA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
         <EntityContainer Name="ModeloOkCasaStoreContainer">
           <EntitySet Name="AGENDA" EntityType="Self.AGENDA" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="AGRUPAMIENTO" EntityType="Self.AGRUPAMIENTO" Schema="OKCASA" store:Type="Tables" />
@@ -733,8 +734,7 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
             <End Role="TIPO_PAGO_BANCO" EntitySet="TIPO_PAGO_BANCO" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ModeloOkCasa" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1402,6 +1402,7 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
             <End Role="TIPO_PAGO" EntitySet="TIPO_PAGO" />
             <End Role="ENTIDAD_BANCARIA" EntitySet="ENTIDAD_BANCARIA" />
           </AssociationSet>
+          <FunctionImport Name="SP_LISTAR_COMUNA" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -1669,6 +1670,7 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
               <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTAR_COMUNA" FunctionName="ModeloOkCasa.Store.SP_LISTAR_COMUNA" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

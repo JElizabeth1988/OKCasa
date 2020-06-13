@@ -664,5 +664,6 @@
       <End Role="TIPO_PAGO" EntitySet="TIPO_PAGO" />
       <End Role="ENTIDAD_BANCARIA" EntitySet="ENTIDAD_BANCARIA" />
     </AssociationSet>
+    <FunctionImport Name="SP_LISTAR_COMUNA" />
   </EntityContainer>
 </Schema>

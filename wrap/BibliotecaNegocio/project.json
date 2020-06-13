@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net452": {
+      "wrappedProject": "../../BibliotecaClases/BibliotecaNegocio.csproj",
+      "bin": {
+        "assembly": "../../BibliotecaClases/obj/{configuration}/BibliotecaNegocio.dll",
+        "pdb": "../../BibliotecaClases/obj/{configuration}/BibliotecaNegocio.pdb"
+      },
+      "dependencies": {
+        "BibliotecaDALC": "1.0.0-*",
+        "EntityFramework": "1.0.0-*",
+        "Oracle.DataAccess": "1.0.0-*"
+      }
+    }
+  }
+}

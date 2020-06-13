@@ -1,0 +1,13 @@
+C:\Users\Gemin\Desktop\Johana\OKCasa\TESTProyecto\bin\Debug\TESTProyecto.exe.config
+C:\Users\Gemin\Desktop\Johana\OKCasa\TESTProyecto\bin\Debug\TESTProyecto.exe
+C:\Users\Gemin\Desktop\Johana\OKCasa\TESTProyecto\bin\Debug\TESTProyecto.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\TESTProyecto\bin\Debug\BibliotecaNegocio.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\TESTProyecto\bin\Debug\BibliotecaDALC.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\TESTProyecto\bin\Debug\EntityFramework.dll
+C:\Users\Gemin\Desktop\Johana\OKCasa\TESTProyecto\bin\Debug\BibliotecaNegocio.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\TESTProyecto\bin\Debug\BibliotecaDALC.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\TESTProyecto\bin\Debug\EntityFramework.xml
+C:\Users\Gemin\Desktop\Johana\OKCasa\TESTProyecto\obj\Debug\TESTProyecto.csprojResolveAssemblyReference.cache
+C:\Users\Gemin\Desktop\Johana\OKCasa\TESTProyecto\obj\Debug\TESTProyecto.exe
+C:\Users\Gemin\Desktop\Johana\OKCasa\TESTProyecto\obj\Debug\TESTProyecto.pdb
+C:\Users\Gemin\Desktop\Johana\OKCasa\TESTProyecto\bin\Debug\Oracle.ManagedDataAccess.dll

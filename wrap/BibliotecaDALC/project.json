@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net452": {
+      "wrappedProject": "../../BibliotecaControlador/BibliotecaDALC.csproj",
+      "bin": {
+        "assembly": "../../BibliotecaControlador/obj/{configuration}/BibliotecaDALC.dll",
+        "pdb": "../../BibliotecaControlador/obj/{configuration}/BibliotecaDALC.pdb"
+      },
+      "dependencies": {
+        "EntityFramework": "5.0.0",
+        "Oracle.DataAccess": "1.0.0-*",
+        "Oracle.ManagedDataAccess": "1.0.0-*"
+      }
+    }
+  }
+}

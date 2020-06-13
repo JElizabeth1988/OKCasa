@@ -33,14 +33,15 @@ namespace Vista
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
 
             //llenar el combo box 
-           /* foreach (Comuna item in new Comuna().ReadAll())
+            //CBComuna se cae TT____TT
+            foreach (Comuna item in new Comuna().ReadAll())
             {
                 comboBoxItem1 cb = new comboBoxItem1();
                 cb.id = item.id_comuna;
                 cb.nombre = item.nombre;
                 cboComuna.Items.Add(cb);
             }
-           */ //CBComuna se cae TT____TT
+            
             cboComuna.SelectedIndex = 0;
             txtTelefono.Text = "0";
 

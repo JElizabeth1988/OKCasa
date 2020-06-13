@@ -12,6 +12,9 @@ namespace BibliotecaDALC
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class OkCasa_Entities : DbContext
     {
@@ -47,5 +50,10 @@ namespace BibliotecaDALC
         public DbSet<TECNICO> TECNICO { get; set; }
         public DbSet<TIPO_PAGO> TIPO_PAGO { get; set; }
         public DbSet<TIPO_VIVIENDA> TIPO_VIVIENDA { get; set; }
+    
+        public virtual int SP_LISTAR_COMUNA()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_LISTAR_COMUNA");
+        }
     }
 }
