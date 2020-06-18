@@ -154,6 +154,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -183,11 +184,26 @@
     <Compile Include="ConsultarBanco.xaml.cs">
       <DependentUpon>ConsultarBanco.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FormularioInspeccion.xaml.cs">
+      <DependentUpon>FormularioInspeccion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioMedicion.xaml.cs">
+      <DependentUpon>FormularioMedicion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioTermografia.xaml.cs">
+      <DependentUpon>FormularioTermografia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioVerificacion.xaml.cs">
+      <DependentUpon>FormularioVerificacion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Horario.xaml.cs">
       <DependentUpon>Horario.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListadoInspectores.xaml.cs">
       <DependentUpon>ListadoInspectores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuInforme.xaml.cs">
+      <DependentUpon>MenuInforme.xaml</DependentUpon>
     </Compile>
     <Compile Include="Seguimiento.xaml.cs">
       <DependentUpon>Seguimiento.xaml</DependentUpon>
@@ -209,7 +225,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EquiposInspeccion.xaml">
+    <Page Include="EquipoInspeccion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -217,11 +233,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FormularioMedicion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormularioTermografia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FormularioVerificacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Horario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Insumos.xaml">
+    <Page Include="Insumo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -252,14 +280,11 @@
     <Compile Include="Cliente.xaml.cs">
       <DependentUpon>Cliente.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EquiposInspeccion.xaml.cs">
-      <DependentUpon>EquiposInspeccion.xaml</DependentUpon>
+    <Compile Include="EquipoInspeccion.xaml.cs">
+      <DependentUpon>EquipoInspeccion.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FormularioInspeccion.xaml.cs">
-      <DependentUpon>FormularioInspeccion.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Insumos.xaml.cs">
-      <DependentUpon>Insumos.xaml</DependentUpon>
+    <Compile Include="Insumo.xaml.cs">
+      <DependentUpon>Insumo.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListadoCliente.xaml.cs">
       <DependentUpon>ListadoCliente.xaml</DependentUpon>
@@ -274,6 +299,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MenuInforme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -378,53 +407,55 @@
     <Resource Include="Imagenes\Tecnicos.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Img\Adm-Cliente-Blanco.png" />
-    <Resource Include="Img\Adm-Form-Blanco.png" />
-    <Resource Include="Img\Admin-Clientes-Blanco.png" />
-    <Resource Include="Img\Agenda-Blanco.png" />
-    <Resource Include="Img\BE-Blanco.png" />
-    <Resource Include="Img\BE.png" />
-    <Resource Include="Img\Business-Man-Find 02.png" />
-    <Resource Include="Img\Business-Man-Settings 02.png" />
-    <Resource Include="Img\Calendar-Date-03.png" />
-    <Resource Include="Img\Document-Find-02.png" />
-    <Resource Include="Img\Document-Settings.png" />
-    <Resource Include="Img\Documents-02.png" />
-    <Resource Include="Img\Documents.png" />
-    <Resource Include="Img\Engineer.png" />
-    <Resource Include="Img\Equipo-Blanco.png" />
-    <Resource Include="Img\Gear.png" />
-    <Resource Include="Img\Group-Add.png" />
-    <Resource Include="Img\Listado-Tecnico-Blanco.png" />
-    <Resource Include="Img\Listar-Cliente-Blanco.png" />
-    <Resource Include="Img\Seguimiento.png" />
-    <Resource Include="Img\Toolbox.png" />
-    <Resource Include="Img\Técnico-Blanco.png" />
-    <Resource Include="Img\User-Profile.png" />
-    <Resource Include="Img\Verify.png" />
-    <Resource Include="Img\Worker.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Imagenes\BancoE-Blanco.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Img\Historial-Blanco.png" />
+    <Resource Include="Imagenes\logo12.png" />
+    <Resource Include="Imagenes\Servicios-Blanco.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Img\Calendar.png" />
+    <Resource Include="img\399668.png" />
+    <Resource Include="img\Adm-Cliente-Blanco.png" />
+    <Resource Include="img\Adm-Form-Blanco.png" />
+    <Resource Include="img\Admin-Clientes-Blanco.png" />
+    <Resource Include="img\Agenda-Blanco.png" />
+    <Resource Include="img\BE-Blanco.png" />
+    <Resource Include="img\BE.png" />
+    <Resource Include="img\Business-Man-Find 02.png" />
+    <Resource Include="img\Business-Man-Settings 02.png" />
+    <Resource Include="img\Calendar-Date-03.png" />
+    <Resource Include="img\Calendar.png" />
+    <Resource Include="img\check_icon-icons.com_73639.png" />
+    <Resource Include="img\Document-Find-02.png" />
+    <Resource Include="img\Document-Settings.png" />
+    <Resource Include="img\Documents-02.png" />
+    <Resource Include="img\Documents.png" />
+    <Resource Include="img\Engineer.png" />
+    <Resource Include="img\Equipo-Blanco.png" />
+    <Resource Include="img\Gear.png" />
+    <Resource Include="img\Group-Add.png" />
+    <Resource Include="img\Historial-Blanco.png" />
+    <Resource Include="img\horsEditor-960x600.png" />
+    <Resource Include="img\images.png" />
+    <Resource Include="img\images2.png" />
+    <Resource Include="img\inspeccion.png" />
+    <Resource Include="img\Listado-Tecnico-Blanco.png" />
+    <Resource Include="img\Listar-Cliente-Blanco.png" />
+    <Resource Include="img\Medicion.png" />
+    <Resource Include="img\Seguimiento.png" />
+    <Resource Include="img\Servicios-Blanco.png" />
+    <Resource Include="img\Servicios.jpg" />
+    <Resource Include="img\Solicitudes.png" />
+    <Resource Include="img\te.png" />
+    <Resource Include="img\Toolbox.png" />
+    <Resource Include="img\Tools-02.png" />
+    <Resource Include="img\Técnico-Blanco.png" />
+    <Resource Include="img\User-Profile.png" />
+    <Resource Include="img\Verify.png" />
+    <Resource Include="img\Worker.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Img\Servicios.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Img\Servicios-Blanco.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Img\horsEditor-960x600.png" />
-    <Resource Include="Img\Tools-02.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Img\Solicitudes.png" />
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

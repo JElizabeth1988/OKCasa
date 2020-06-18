@@ -4,6 +4,7 @@
     <EntitySetMapping Name="AGENDA">
       <EntityTypeMapping TypeName="ModeloOkCasa.AGENDA">
         <MappingFragment StoreEntitySet="AGENDA">
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
           <ScalarProperty Name="ID_AGENDA" ColumnName="ID_AGENDA" />
           <ScalarProperty Name="DIA" ColumnName="DIA" />
           <ScalarProperty Name="HORA" ColumnName="HORA" />
@@ -75,45 +76,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="INFORME">
-      <EntityTypeMapping TypeName="ModeloOkCasa.INFORME">
-        <MappingFragment StoreEntitySet="INFORME">
-          <ScalarProperty Name="NUM_FORMULARIO" ColumnName="NUM_FORMULARIO" />
-          <ScalarProperty Name="ESTADO_SERVICIO" ColumnName="ESTADO_SERVICIO" />
-          <ScalarProperty Name="NUM_HABITACIONES" ColumnName="NUM_HABITACIONES" />
-          <ScalarProperty Name="NUM_PISOS" ColumnName="NUM_PISOS" />
-          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
-          <ScalarProperty Name="FECHA_INSP" ColumnName="FECHA_INSP" />
-          <ScalarProperty Name="HORA_INSP" ColumnName="HORA_INSP" />
-          <ScalarProperty Name="OBSERV_FINAL" ColumnName="OBSERV_FINAL" />
-          <ScalarProperty Name="OBSERV_MEDICION" ColumnName="OBSERV_MEDICION" />
-          <ScalarProperty Name="OBSERV_SERVICIOS" ColumnName="OBSERV_SERVICIOS" />
-          <ScalarProperty Name="OBSERV_TERMINACION" ColumnName="OBSERV_TERMINACION" />
-          <ScalarProperty Name="OBSERV_TERMOGRAFIA" ColumnName="OBSERV_TERMOGRAFIA" />
-          <ScalarProperty Name="HABITABILIDAD" ColumnName="HABITABILIDAD" />
-          <ScalarProperty Name="TERMICA" ColumnName="TERMICA" />
-          <ScalarProperty Name="RESIST_FUEGO" ColumnName="RESIST_FUEGO" />
-          <ScalarProperty Name="ELECTRICA" ColumnName="ELECTRICA" />
-          <ScalarProperty Name="AGUA" ColumnName="AGUA" />
-          <ScalarProperty Name="ALCANTARILLADO" ColumnName="ALCANTARILLADO" />
-          <ScalarProperty Name="GAS" ColumnName="GAS" />
-          <ScalarProperty Name="EMISIVIDAD" ColumnName="EMISIVIDAD" />
-          <ScalarProperty Name="TEMP_REFLEJADA" ColumnName="TEMP_REFLEJADA" />
-          <ScalarProperty Name="HUMEDAD" ColumnName="HUMEDAD" />
-          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
-          <ScalarProperty Name="RUT_TECNICO" ColumnName="RUT_TECNICO" />
-          <ScalarProperty Name="ID_AGUA_POTABLE" ColumnName="ID_AGUA_POTABLE" />
-          <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
-          <ScalarProperty Name="ID_GAS" ColumnName="ID_GAS" />
-          <ScalarProperty Name="ID_ALCANTARILLADO" ColumnName="ID_ALCANTARILLADO" />
-          <ScalarProperty Name="ID_AGUA" ColumnName="ID_AGUA" />
-          <ScalarProperty Name="ID_ELECTRICA" ColumnName="ID_ELECTRICA" />
-          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
-          <ScalarProperty Name="ID_AGRUP" ColumnName="ID_AGRUP" />
-          <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="INST_AGUA_POTABLE">
       <EntityTypeMapping TypeName="ModeloOkCasa.INST_AGUA_POTABLE">
         <MappingFragment StoreEntitySet="INST_AGUA_POTABLE">
@@ -154,15 +116,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="LOGIN">
-      <EntityTypeMapping TypeName="ModeloOkCasa.LOGIN">
-        <MappingFragment StoreEntitySet="LOGIN">
-          <ScalarProperty Name="NOMBRE_USUARIO" ColumnName="NOMBRE_USUARIO" />
-          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
-          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PAGO">
       <EntityTypeMapping TypeName="ModeloOkCasa.PAGO">
         <MappingFragment StoreEntitySet="PAGO">
@@ -194,6 +147,8 @@
     <EntitySetMapping Name="SOLICITUD">
       <EntityTypeMapping TypeName="ModeloOkCasa.SOLICITUD">
         <MappingFragment StoreEntitySet="SOLICITUD">
+          <ScalarProperty Name="ID_SERVICIO" ColumnName="ID_SERVICIO" />
+          <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
           <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
           <ScalarProperty Name="FECHA_SOLICITUD" ColumnName="FECHA_SOLICITUD" />
           <ScalarProperty Name="HORA_SOLICITUD" ColumnName="HORA_SOLICITUD" />
@@ -237,14 +192,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="SOLICITUD_SERVICIO" TypeName="ModeloOkCasa.SOLICITUD_SERVICIO" StoreEntitySet="SOLICITUD_SERVICIO">
-      <EndProperty Name="SERVICIO">
-        <ScalarProperty Name="ID_SERVICIO" ColumnName="ID_SERVICIO" />
-      </EndProperty>
-      <EndProperty Name="SOLICITUD">
-        <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
-      </EndProperty>
-    </AssociationSetMapping>
     <AssociationSetMapping Name="EQUIPO_INSUMO" TypeName="ModeloOkCasa.EQUIPO_INSUMO" StoreEntitySet="EQUIPO_INSUMO">
       <EndProperty Name="INSUMO">
         <ScalarProperty Name="ID_INSUMO" ColumnName="ID_INSUMO" />
@@ -262,5 +209,147 @@
       </EndProperty>
     </AssociationSetMapping>
     <FunctionImportMapping FunctionImportName="SP_LISTAR_COMUNA" FunctionName="ModeloOkCasa.Store.SP_LISTAR_COMUNA" />
+    <EntitySetMapping Name="INFORME_INSPECCION">
+      <EntityTypeMapping TypeName="ModeloOkCasa.INFORME_INSPECCION">
+        <MappingFragment StoreEntitySet="INFORME_INSPECCION">
+          <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
+          <ScalarProperty Name="ID_AGRUP" ColumnName="ID_AGRUP" />
+          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+          <ScalarProperty Name="RUT_TECNICO" ColumnName="RUT_TECNICO" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="ID_ARTICULO" ColumnName="ID_ARTICULO" />
+          <ScalarProperty Name="ID_AGUA_POTABLE" ColumnName="ID_AGUA_POTABLE" />
+          <ScalarProperty Name="ID_AGUA" ColumnName="ID_AGUA" />
+          <ScalarProperty Name="ID_ELECTRICA" ColumnName="ID_ELECTRICA" />
+          <ScalarProperty Name="ID_GAS" ColumnName="ID_GAS" />
+          <ScalarProperty Name="ID_ALCANTARILLADO" ColumnName="ID_ALCANTARILLADO" />
+          <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+          <ScalarProperty Name="NUM_PISOS" ColumnName="NUM_PISOS" />
+          <ScalarProperty Name="NUM_HABITACIONES" ColumnName="NUM_HABITACIONES" />
+          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
+          <ScalarProperty Name="FECHA_INSP" ColumnName="FECHA_INSP" />
+          <ScalarProperty Name="ESTADO_SERVICIO" ColumnName="ESTADO_SERVICIO" />
+          <ScalarProperty Name="NUM_FORMULARIO" ColumnName="NUM_FORMULARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INFORME_MEDICION">
+      <EntityTypeMapping TypeName="ModeloOkCasa.INFORME_MEDICION">
+        <MappingFragment StoreEntitySet="INFORME_MEDICION">
+          <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
+          <ScalarProperty Name="ID_AGRUP" ColumnName="ID_AGRUP" />
+          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+          <ScalarProperty Name="RUT_TECNICO" ColumnName="RUT_TECNICO" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="SUP_ELEM_REAL" ColumnName="SUP_ELEM_REAL" />
+          <ScalarProperty Name="SUP_ELEM_REGIS" ColumnName="SUP_ELEM_REGIS" />
+          <ScalarProperty Name="SUP_CONSTR_REAL" ColumnName="SUP_CONSTR_REAL" />
+          <ScalarProperty Name="SUP_CONSTR_REGIS" ColumnName="SUP_CONSTR_REGIS" />
+          <ScalarProperty Name="SUP_UTIL_REAL" ColumnName="SUP_UTIL_REAL" />
+          <ScalarProperty Name="SUP_UTIL_REGIS" ColumnName="SUP_UTIL_REGIS" />
+          <ScalarProperty Name="AREA_REAL" ColumnName="AREA_REAL" />
+          <ScalarProperty Name="AREA_REGIS" ColumnName="AREA_REGIS" />
+          <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+          <ScalarProperty Name="NUM_PISOS" ColumnName="NUM_PISOS" />
+          <ScalarProperty Name="NUM_HABITACIONES" ColumnName="NUM_HABITACIONES" />
+          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
+          <ScalarProperty Name="FECHA_INSP" ColumnName="FECHA_INSP" />
+          <ScalarProperty Name="ESTADO_SERVICIO" ColumnName="ESTADO_SERVICIO" />
+          <ScalarProperty Name="NUM_FORMULARIO" ColumnName="NUM_FORMULARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INFORME_TERMOGRAFIA">
+      <EntityTypeMapping TypeName="ModeloOkCasa.INFORME_TERMOGRAFIA">
+        <MappingFragment StoreEntitySet="INFORME_TERMOGRAFIA">
+          <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
+          <ScalarProperty Name="ID_AGRUP" ColumnName="ID_AGRUP" />
+          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+          <ScalarProperty Name="RUT_TECNICO" ColumnName="RUT_TECNICO" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="TEMP_EXTERNA" ColumnName="TEMP_EXTERNA" />
+          <ScalarProperty Name="TEMP_ATMOSFERICA" ColumnName="TEMP_ATMOSFERICA" />
+          <ScalarProperty Name="HUMEDAD_REL" ColumnName="HUMEDAD_REL" />
+          <ScalarProperty Name="DISTANCIA" ColumnName="DISTANCIA" />
+          <ScalarProperty Name="TEMP_REFLEJADA" ColumnName="TEMP_REFLEJADA" />
+          <ScalarProperty Name="EMISIVIDAD" ColumnName="EMISIVIDAD" />
+          <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+          <ScalarProperty Name="NUM_PISOS" ColumnName="NUM_PISOS" />
+          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
+          <ScalarProperty Name="NUM_HABITACIONES" ColumnName="NUM_HABITACIONES" />
+          <ScalarProperty Name="FECHA_INSP" ColumnName="FECHA_INSP" />
+          <ScalarProperty Name="ESTADO_SERVICIO" ColumnName="ESTADO_SERVICIO" />
+          <ScalarProperty Name="NUM_FORMULARIO" ColumnName="NUM_FORMULARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INFORME_VERIFICACION">
+      <EntityTypeMapping TypeName="ModeloOkCasa.INFORME_VERIFICACION">
+        <MappingFragment StoreEntitySet="INFORME_VERIFICACION">
+          <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
+          <ScalarProperty Name="ID_AGRUP" ColumnName="ID_AGRUP" />
+          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+          <ScalarProperty Name="RUT_TECNICO" ColumnName="RUT_TECNICO" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="GAS" ColumnName="GAS" />
+          <ScalarProperty Name="ALCANTARILLADO" ColumnName="ALCANTARILLADO" />
+          <ScalarProperty Name="AGUA" ColumnName="AGUA" />
+          <ScalarProperty Name="ELECTRICA" ColumnName="ELECTRICA" />
+          <ScalarProperty Name="TABIQUE_2X4" ColumnName="TABIQUE_2X4" />
+          <ScalarProperty Name="TECHO_1X4" ColumnName="TECHO_1X4" />
+          <ScalarProperty Name="MADERA_IMPREG" ColumnName="MADERA_IMPREG" />
+          <ScalarProperty Name="MURO_INT_ALB" ColumnName="MURO_INT_ALB" />
+          <ScalarProperty Name="MURO_EXT_ALB" ColumnName="MURO_EXT_ALB" />
+          <ScalarProperty Name="MUROS_EST" ColumnName="MUROS_EST" />
+          <ScalarProperty Name="MUROS_ADOS" ColumnName="MUROS_ADOS" />
+          <ScalarProperty Name="MUROS_C_FUEGO" ColumnName="MUROS_C_FUEGO" />
+          <ScalarProperty Name="TAB_EXT" ColumnName="TAB_EXT" />
+          <ScalarProperty Name="AISL_PISOS" ColumnName="AISL_PISOS" />
+          <ScalarProperty Name="MUROS_ALB" ColumnName="MUROS_ALB" />
+          <ScalarProperty Name="AISL_TECHO" ColumnName="AISL_TECHO" />
+          <ScalarProperty Name="LOC_HABIT" ColumnName="LOC_HABIT" />
+          <ScalarProperty Name="BANIO_VENTANA" ColumnName="BANIO_VENTANA" />
+          <ScalarProperty Name="ALT_MINIMA" ColumnName="ALT_MINIMA" />
+          <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+          <ScalarProperty Name="NUM_PISOS" ColumnName="NUM_PISOS" />
+          <ScalarProperty Name="NUM_HABITACIONES" ColumnName="NUM_HABITACIONES" />
+          <ScalarProperty Name="RESULTADO" ColumnName="RESULTADO" />
+          <ScalarProperty Name="FECHA_INSP" ColumnName="FECHA_INSP" />
+          <ScalarProperty Name="ESTADO_SERVICIO" ColumnName="ESTADO_SERVICIO" />
+          <ScalarProperty Name="NUM_FORMULARIO" ColumnName="NUM_FORMULARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_USUARIO">
+      <EntityTypeMapping TypeName="ModeloOkCasa.TIPO_USUARIO">
+        <MappingFragment StoreEntitySet="TIPO_USUARIO">
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_TIPO_USUARIO" ColumnName="ID_TIPO_USUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="ModeloOkCasa.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="ID_TIPO_USUARIO" ColumnName="ID_TIPO_USUARIO" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="CONTRASENIA" ColumnName="CONTRASENIA" />
+          <ScalarProperty Name="NOMBRE_USUARIO" ColumnName="NOMBRE_USUARIO" />
+          <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_AGREGAR_CLIENTE" FunctionName="ModeloOkCasa.Store.SP_AGREGAR_CLIENTE" />
+    <FunctionImportMapping FunctionImportName="SP_AGREGAR_SOLICITUD" FunctionName="ModeloOkCasa.Store.SP_AGREGAR_SOLICITUD" />
+    <FunctionImportMapping FunctionImportName="SP_AGREGAR_USUARIO" FunctionName="ModeloOkCasa.Store.SP_AGREGAR_USUARIO" />
+    <FunctionImportMapping FunctionImportName="SP_LISTAR_CLIENTE" FunctionName="ModeloOkCasa.Store.SP_LISTAR_CLIENTE" />
+    <FunctionImportMapping FunctionImportName="SP_LISTAR_CLIENTES" FunctionName="ModeloOkCasa.Store.SP_LISTAR_CLIENTES" />
+    <FunctionImportMapping FunctionImportName="SP_LISTAR_INFORME_INSPECCION" FunctionName="ModeloOkCasa.Store.SP_LISTAR_INFORME_INSPECCION" />
+    <FunctionImportMapping FunctionImportName="SP_LISTAR_INFORME_MEDICION" FunctionName="ModeloOkCasa.Store.SP_LISTAR_INFORME_MEDICION" />
+    <FunctionImportMapping FunctionImportName="SP_LISTAR_INFORME_TERMOGRAFIA" FunctionName="ModeloOkCasa.Store.SP_LISTAR_INFORME_TERMOGRAFIA" />
+    <FunctionImportMapping FunctionImportName="SP_LISTAR_INFORME_VERIFICACION" FunctionName="ModeloOkCasa.Store.SP_LISTAR_INFORME_VERIFICACION" />
+    <FunctionImportMapping FunctionImportName="SP_LISTAR_INSUMOS" FunctionName="ModeloOkCasa.Store.SP_LISTAR_INSUMOS" />
+    <FunctionImportMapping FunctionImportName="SP_LISTAR_SOLICITUDES" FunctionName="ModeloOkCasa.Store.SP_LISTAR_SOLICITUDES" />
+    <FunctionImportMapping FunctionImportName="SP_LISTAR_TECNICO" FunctionName="ModeloOkCasa.Store.SP_LISTAR_TECNICO" />
   </EntityContainerMapping>
 </Mapping>

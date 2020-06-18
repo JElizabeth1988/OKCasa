@@ -30,9 +30,9 @@ namespace Vista
         {
             InitializeComponent();
             this.DataContext = this;
-            
+
         }
-              
+
         private async void Tile_Click(object sender, RoutedEventArgs e)
         {
             var x =
@@ -88,8 +88,8 @@ namespace Vista
         //Informe
         private void Tile_Click_Informe(object sender, RoutedEventArgs e)
         {
-            FormularioInspeccion formu = new FormularioInspeccion();
-            formu.ShowDialog();
+            MenuInforme mi = new MenuInforme();
+            mi.ShowDialog();
         }
         //Historial
         private void Tile_Click_Historial(object sender, RoutedEventArgs e)
@@ -100,7 +100,7 @@ namespace Vista
         //Equipo
         private void Tile_Click_Equipo(object sender, RoutedEventArgs e)
         {
-            EquiposInspeccion equi = new EquiposInspeccion();
+            EquipoInspeccion equi = new EquipoInspeccion();
             equi.ShowDialog();
         }
         //Técnico
@@ -118,7 +118,7 @@ namespace Vista
         //Insumos
         private void Tile_Click_Insumos(object sender, RoutedEventArgs e)
         {
-            Insumos ins = new Insumos();
+            Insumo ins = new Insumo();
             ins.ShowDialog();
         }
         //Solicitud

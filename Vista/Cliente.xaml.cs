@@ -33,7 +33,6 @@ namespace Vista
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
 
             //llenar el combo box 
-            //CBComuna se cae TT____TT
             foreach (Comuna item in new Comuna().ReadAll())
             {
                 comboBoxItem1 cb = new comboBoxItem1();
@@ -110,7 +109,7 @@ namespace Vista
             try
             {
                 String rut = txtRut.Text + "-" + txtDV.Text;
-                if (rut.Length == 11)
+                if (rut.Length == 9)
                 {
                     rut = "0" + txtRut.Text + "-" + txtDV.Text;
                 }
@@ -131,18 +130,19 @@ namespace Vista
                 {
                     Hipotecario = "No";
                 }
-                int telefono = 0;
+                int telefono = int.Parse(txtTelefono.Text);
+                /*int telefono = 0;
                 if (int.TryParse(txtTelefono.Text, out telefono))
                 {
-
+                    
                 }
                 else
                 {
-                    //await this.ShowMessageAsync("Mensaje:",
-                    //  string.Format("Ingrese un número de 9 dígitos"));
-                    //txtTelefono.Focus();
+                    await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Ingrese un número de 9 dígitos"));
+                   txtTelefono.Focus();
                     return;
-                }
+                }*/
                 int Comuna = ((comboBoxItem1)cboComuna.SelectedItem).id;//Guardo el id
                 BibliotecaNegocio.Cliente c = new BibliotecaNegocio.Cliente()
                 {
@@ -231,7 +231,7 @@ namespace Vista
                 {
                     await this.ShowMessageAsync("Mensaje:",
                       string.Format("Ingrese un número de 9 dígitos"));
-                    txtTelefono.Focus();
+                        txtTelefono.Focus();
                     return;
                 }
 

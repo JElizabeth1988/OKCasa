@@ -21,9 +21,9 @@ namespace Vista
     /// <summary>
     /// Lógica de interacción para Insumos.xaml
     /// </summary>
-    public partial class Insumos : MetroWindow
+    public partial class Insumo : MetroWindow
     {
-        public Insumos()
+        public Insumo()
         {
             InitializeComponent();
 

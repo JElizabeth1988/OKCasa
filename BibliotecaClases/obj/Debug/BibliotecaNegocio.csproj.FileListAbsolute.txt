@@ -40,3 +40,5 @@ C:\Users\yobit\Downloads\OkCasa2\OKCasa\BibliotecaClases\bin\Debug\EntityFramewo
 C:\Users\yobit\Downloads\OkCasa2\OKCasa\BibliotecaClases\obj\Debug\BibliotecaNegocio.csprojResolveAssemblyReference.cache
 C:\Users\yobit\Downloads\OkCasa2\OKCasa\BibliotecaClases\obj\Debug\BibliotecaNegocio.dll
 C:\Users\yobit\Downloads\OkCasa2\OKCasa\BibliotecaClases\obj\Debug\BibliotecaNegocio.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\bin\Debug\BibliotecaNegocio.dll.config
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaClases\bin\Debug\Oracle.ManagedDataAccess.dll

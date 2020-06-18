@@ -25,9 +25,14 @@ namespace Vista
     /// </summary>
     public partial class ListadoCliente : MetroWindow
     {
+        //This
         Cliente cli;
         FormularioInspeccion form;
         ListadoFormulario liForm;
+        FormularioVerificacion forVe;
+        FormularioMedicion forMe;
+        FormularioTermografia forTer;
+       
 
         public ListadoCliente()
         {
@@ -37,7 +42,7 @@ namespace Vista
             btnPasarAForm.Visibility = Visibility.Hidden;//no se ve
 
             btnCrear.Visibility = Visibility.Hidden; //No se ve
-            
+
             try
             {
                 BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
@@ -64,8 +69,48 @@ namespace Vista
             btnEliminar.Visibility = Visibility.Hidden;//Botón eliminar no se ve
             btnPasar.Visibility = Visibility.Hidden;
             btnCrear.Visibility = Visibility.Hidden;
-            
+
         }
+        //Llamado desde medición
+        public ListadoCliente(FormularioMedicion origen)
+        {
+            InitializeComponent();
+            forMe = origen;
+
+            btnPasarAForm.Visibility = Visibility.Visible;//el botón traspasar se ve
+            btnEliminar.Visibility = Visibility.Hidden;//Botón eliminar no se ve
+            btnPasar.Visibility = Visibility.Hidden;
+            btnCrear.Visibility = Visibility.Hidden;
+
+        }
+        //Llamado desde Termografía
+        public ListadoCliente(FormularioTermografia origen)
+        {
+            InitializeComponent();
+            forTer = origen;
+
+            btnPasarAForm.Visibility = Visibility.Visible;//el botón traspasar se ve
+            btnEliminar.Visibility = Visibility.Hidden;//Botón eliminar no se ve
+            btnPasar.Visibility = Visibility.Hidden;
+            btnCrear.Visibility = Visibility.Hidden;
+
+        }
+
+       
+        //Llamado desde verificación
+        public ListadoCliente(FormularioVerificacion origen)
+        {
+            InitializeComponent();
+            forVe = origen;
+
+            btnPasarAForm.Visibility = Visibility.Visible;//el botón traspasar se ve
+            btnEliminar.Visibility = Visibility.Hidden;//Botón eliminar no se ve
+            btnPasar.Visibility = Visibility.Hidden;
+            btnCrear.Visibility = Visibility.Hidden;
+
+        }
+
+
         //Llamado desde cliente
         public ListadoCliente(Cliente origen)
         {
@@ -88,6 +133,8 @@ namespace Vista
             btnPasarAForm.Visibility = Visibility.Hidden;
             btnCrear.Visibility = Visibility.Hidden;
         }
+
+
 
         private void btnCrear_Click(object sender, RoutedEventArgs e)
         {

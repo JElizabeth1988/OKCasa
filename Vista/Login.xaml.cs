@@ -19,6 +19,8 @@ using MahApps.Metro.Behaviours;
 
 
 
+
+
 namespace Vista
 {
     /// <summary>
@@ -33,12 +35,21 @@ namespace Vista
 
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (txtUsuario.Text == "admin" && pbContrasenia.Password == "admin")
+
+            //Crear Cliente del WS
+            WSLOGIN.WSLOGINClient cliente = new WSLOGIN.WSLOGINClient();
+
+            //Capturar las Credenciales
+            string user = txtUsuario.Text;
+            string pass = pbContrasenia.Password.ToString();
+
+            //Validar Credenciales en el WS
+            if (cliente.Login(user, pass) == 1)
             {
                 await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Bienvenido!"));
+                string.Format("Bienvenido!"));
                 MainWindow _ver = new MainWindow();
-                this.Close();
+                this.Hide();
                 _ver.ShowDialog();
             }
             else

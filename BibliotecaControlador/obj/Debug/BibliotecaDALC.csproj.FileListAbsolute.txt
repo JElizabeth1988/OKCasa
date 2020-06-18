@@ -32,3 +32,4 @@ C:\Users\yobit\Downloads\OkCasa2\OKCasa\BibliotecaControlador\bin\Debug\EntityFr
 C:\Users\yobit\Downloads\OkCasa2\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache
 C:\Users\yobit\Downloads\OkCasa2\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.dll
 C:\Users\yobit\Downloads\OkCasa2\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\BibliotecaControlador\obj\Debug\BibliotecaDALC.csprojResolveAssemblyReference.cache

@@ -18,6 +18,7 @@ namespace BibliotecaDALC
         {
             this.CLIENTE = new HashSet<CLIENTE>();
             this.TECNICO = new HashSet<TECNICO>();
+            this.SOLICITUD = new HashSet<SOLICITUD>();
         }
     
         public int ID_COMUNA { get; set; }
@@ -25,5 +26,6 @@ namespace BibliotecaDALC
     
         public virtual ICollection<CLIENTE> CLIENTE { get; set; }
         public virtual ICollection<TECNICO> TECNICO { get; set; }
+        public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
     }
 }

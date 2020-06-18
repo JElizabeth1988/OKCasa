@@ -21,9 +21,9 @@ namespace Vista
     /// <summary>
     /// Lógica de interacción para EquiposInspeccion.xaml
     /// </summary>
-    public partial class EquiposInspeccion : MetroWindow
+    public partial class EquipoInspeccion : MetroWindow
     {
-        public EquiposInspeccion()
+        public EquipoInspeccion()
         {
             InitializeComponent();
         }

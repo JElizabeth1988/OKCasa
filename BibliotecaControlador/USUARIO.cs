@@ -12,12 +12,15 @@ namespace BibliotecaDALC
     using System;
     using System.Collections.Generic;
     
-    public partial class LOGIN
+    public partial class USUARIO
     {
+        public int CODIGO { get; set; }
         public string NOMBRE_USUARIO { get; set; }
-        public string PASSWORD { get; set; }
+        public string CONTRASENIA { get; set; }
         public string RUT_CLIENTE { get; set; }
+        public int ID_TIPO_USUARIO { get; set; }
     
         public virtual CLIENTE CLIENTE { get; set; }
+        public virtual TIPO_USUARIO TIPO_USUARIO { get; set; }
     }
 }
