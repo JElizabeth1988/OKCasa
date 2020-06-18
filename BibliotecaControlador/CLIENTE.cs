@@ -20,10 +20,10 @@ namespace BibliotecaDALC
             this.PAGO = new HashSet<PAGO>();
             this.SOLICITUD = new HashSet<SOLICITUD>();
             this.INFORME_INSPECCION = new HashSet<INFORME_INSPECCION>();
-            this.INFORME_VERIFICACION = new HashSet<INFORME_VERIFICACION>();
             this.INFORME_MEDICION = new HashSet<INFORME_MEDICION>();
             this.INFORME_TERMOGRAFIA = new HashSet<INFORME_TERMOGRAFIA>();
             this.USUARIO = new HashSet<USUARIO>();
+            this.INFORME_VERIFICACION = new HashSet<INFORME_VERIFICACION>();
         }
     
         public string RUT_CLIENTE { get; set; }
@@ -42,9 +42,9 @@ namespace BibliotecaDALC
         public virtual ICollection<PAGO> PAGO { get; set; }
         public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
         public virtual ICollection<INFORME_INSPECCION> INFORME_INSPECCION { get; set; }
-        public virtual ICollection<INFORME_VERIFICACION> INFORME_VERIFICACION { get; set; }
         public virtual ICollection<INFORME_MEDICION> INFORME_MEDICION { get; set; }
         public virtual ICollection<INFORME_TERMOGRAFIA> INFORME_TERMOGRAFIA { get; set; }
         public virtual ICollection<USUARIO> USUARIO { get; set; }
+        public virtual ICollection<INFORME_VERIFICACION> INFORME_VERIFICACION { get; set; }
     }
 }

@@ -20,21 +20,10 @@ namespace BibliotecaNegocio
         public int num_pisos { get; set; }
         public string observacion { get; set; }
 
-        public string alt_minima { get; set; }
-        public string banio_ventana { get; set; }
-        public string loc_habit { get; set; }
-        public string aisl_techo { get; set; }
-        public string muros_alb { get; set; }
-        public string aisl_pisos { get; set; }
-        public string tab_ext { get; set; }
-        public string muros_c_fuego { get; set; }
-        public string muros_ados { get; set; }
-        public string muros_est { get; set; }
-        public string muro_ext_alb { get; set; }
-        public string muro_int_alb { get; set; }
-        public string madera_impreg { get; set; }
-        public string techo_1x4 { get; set; }
-        public string tabique_2x4 { get; set; }
+        public string habitabilidad { get; set; }
+        public string termica { get; set; }
+        public string fuego { get; set; }
+        public string estructural { get; set; }
         public string electrica { get; set; }
         public string agua { get; set; }
         public string alcantarillado { get; set; }
@@ -167,21 +156,10 @@ namespace BibliotecaNegocio
                             num_pisos = info.NUM_PISOS,
                             fecha_insp = info.FECHA_INSP,
                             observacion = info.OBSERVACION,
-                            alt_minima = info.ALT_MINIMA,
-                            banio_ventana = info.BANIO_VENTANA,
-                            loc_habit = info.LOC_HABIT,
-                            aisl_techo = info.AISL_TECHO,
-                            muros_alb = info.MUROS_ALB,
-                            aisl_pisos = info.AISL_PISOS,
-                            tab_ext = info.TAB_EXT,
-                            muros_c_fuego = info.MUROS_C_FUEGO,
-                            muros_ados = info.MUROS_ADOS,
-                            muros_est = info.MUROS_EST,
-                            muro_ext_alb = info.MURO_EXT_ALB,
-                            muro_int_alb = info.MURO_INT_ALB,
-                            madera_impreg = info.MADERA_IMPREG,
-                            techo_1x4 = info.TECHO_1X4,
-                            tabique_2x4 = info.TABIQUE_2X4,
+                            habitabilidad = info.HABITABILIDAD,
+                            termica = info.TERMICA,
+                            fuego = info.FUEGO,
+                            estructural = info.ESTRUCTURAL,
                             electrica = info.ELECTRICA,
                             agua = info.AGUA,
                             alcantarillado = info.ALCANTARILLADO,
@@ -224,21 +202,10 @@ namespace BibliotecaNegocio
                             Pisos = info.NUM_PISOS,
                             Fecha = info.FECHA_INSP,
                             Observacion = info.OBSERVACION,
-                            AlturaMin = info.ALT_MINIMA,
-                            BanioVentana = info.BANIO_VENTANA,
-                            LocHabitables = info.LOC_HABIT,
-                            AislTecho = info.AISL_TECHO,
-                            MurosAlb = info.MUROS_ALB,
-                            AislPisos = info.AISL_PISOS,
-                            TabiqueExt = info.TAB_EXT,
-                            MurosContraF = info.MUROS_C_FUEGO,
-                            MurosAdosados = info.MUROS_ADOS,
-                            MuroEst = info.MUROS_EST,
-                            MuroExterior = info.MURO_EXT_ALB,
-                            MuroInterior = info.MURO_INT_ALB,
-                            MaderaImpregnada = info.MADERA_IMPREG,
-                            Techo1x4 = info.TECHO_1X4,
-                            Tabique2x4 = info.TABIQUE_2X4,
+                            Habitabilidad = info.HABITABILIDAD,
+                            Termica = info.TERMICA,
+                            Fuego = info.FUEGO,
+                            Estructural = info.ESTRUCTURAL,
                             Electrica = info.ELECTRICA,
                             Agua = info.AGUA,
                             Alcantarillado = info.ALCANTARILLADO,
@@ -279,21 +246,10 @@ namespace BibliotecaNegocio
                          Pisos = info.NUM_PISOS,
                          Fecha = info.FECHA_INSP,
                          Observacion = info.OBSERVACION,
-                         AlturaMin = info.ALT_MINIMA,
-                         BanioVentana = info.BANIO_VENTANA,
-                         LocHabitables = info.LOC_HABIT,
-                         AislTecho = info.AISL_TECHO,
-                         MurosAlb = info.MUROS_ALB,
-                         AislPisos = info.AISL_PISOS,
-                         TabiqueExt = info.TAB_EXT,
-                         MurosContraF = info.MUROS_C_FUEGO,
-                         MurosAdosados = info.MUROS_ADOS,
-                         MuroEst = info.MUROS_EST,
-                         MuroExterior = info.MURO_EXT_ALB,
-                         MuroInterior = info.MURO_INT_ALB,
-                         MaderaImpregnada = info.MADERA_IMPREG,
-                         Techo1x4 = info.TECHO_1X4,
-                         Tabique2x4 = info.TABIQUE_2X4,
+                         Habitabilidad = info.HABITABILIDAD,
+                         Termica = info.TERMICA,
+                         Fuego = info.FUEGO,
+                         Estructural = info.ESTRUCTURAL,
                          Electrica = info.ELECTRICA,
                          Agua = info.AGUA,
                          Alcantarillado = info.ALCANTARILLADO,
@@ -319,21 +275,11 @@ namespace BibliotecaNegocio
             public int Habitaciones { get; set; }
             public int Pisos { get; set; }
             public string Observacion { get; set; }
-            public string AlturaMin { get; set; }
-            public string BanioVentana { get; set; }
-            public string LocHabitables { get; set; }
-            public string AislTecho { get; set; }
-            public string MurosAlb { get; set; }
-            public string AislPisos { get; set; }
-            public string TabiqueExt { get; set; }
-            public string MurosContraF { get; set; }
-            public string MurosAdosados { get; set; }
-            public string MuroEst { get; set; }
-            public string MuroExterior { get; set; }
-            public string MuroInterior { get; set; }
-            public string MaderaImpregnada { get; set; }
-            public string Techo1x4 { get; set; }
-            public string Tabique2x4 { get; set; }
+                       
+            public string Habitabilidad { get; set; }
+            public string Termica { get; set; }
+            public string Fuego { get; set; }
+            public string Estructural { get; set; }
             public string Electrica { get; set; }
             public string Agua { get; set; }
             public string Alcantarillado { get; set; }

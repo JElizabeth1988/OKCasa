@@ -40,7 +40,7 @@ namespace BibliotecaDALC
         public virtual ICollection<INFORME_INSPECCION> INFORME_INSPECCION { get; set; }
         public virtual ICollection<INFORME_MEDICION> INFORME_MEDICION { get; set; }
         public virtual ICollection<INFORME_TERMOGRAFIA> INFORME_TERMOGRAFIA { get; set; }
-        public virtual ICollection<INFORME_VERIFICACION> INFORME_VERIFICACION { get; set; }
         public virtual SERVICIO SERVICIO1 { get; set; }
+        public virtual ICollection<INFORME_VERIFICACION> INFORME_VERIFICACION { get; set; }
     }
 }

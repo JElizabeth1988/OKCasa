@@ -51,9 +51,9 @@ namespace BibliotecaDALC
         public DbSet<INFORME_INSPECCION> INFORME_INSPECCION { get; set; }
         public DbSet<INFORME_MEDICION> INFORME_MEDICION { get; set; }
         public DbSet<INFORME_TERMOGRAFIA> INFORME_TERMOGRAFIA { get; set; }
-        public DbSet<INFORME_VERIFICACION> INFORME_VERIFICACION { get; set; }
         public DbSet<TIPO_USUARIO> TIPO_USUARIO { get; set; }
         public DbSet<USUARIO> USUARIO { get; set; }
+        public DbSet<INFORME_VERIFICACION> INFORME_VERIFICACION { get; set; }
     
         public virtual int SP_LISTAR_COMUNA()
         {

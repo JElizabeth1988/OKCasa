@@ -159,21 +159,10 @@ advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ning
     <Property Name="NUM_HABITACIONES" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="NUM_PISOS" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="OBSERVACION" Type="varchar2" MaxLength="2000" />
-    <Property Name="ALT_MINIMA" Type="varchar2" MaxLength="2" Nullable="false" />
-    <Property Name="BANIO_VENTANA" Type="varchar2" MaxLength="2" Nullable="false" />
-    <Property Name="LOC_HABIT" Type="varchar2" MaxLength="2" Nullable="false" />
-    <Property Name="AISL_TECHO" Type="varchar2" MaxLength="2" Nullable="false" />
-    <Property Name="MUROS_ALB" Type="varchar2" MaxLength="2" Nullable="false" />
-    <Property Name="AISL_PISOS" Type="varchar2" MaxLength="2" Nullable="false" />
-    <Property Name="TAB_EXT" Type="varchar2" MaxLength="2" Nullable="false" />
-    <Property Name="MUROS_C_FUEGO" Type="varchar2" MaxLength="2" Nullable="false" />
-    <Property Name="MUROS_ADOS" Type="varchar2" MaxLength="2" Nullable="false" />
-    <Property Name="MUROS_EST" Type="varchar2" MaxLength="2" Nullable="false" />
-    <Property Name="MURO_EXT_ALB" Type="varchar2" MaxLength="2" Nullable="false" />
-    <Property Name="MURO_INT_ALB" Type="varchar2" MaxLength="2" Nullable="false" />
-    <Property Name="MADERA_IMPREG" Type="varchar2" MaxLength="2" Nullable="false" />
-    <Property Name="TECHO_1X4" Type="varchar2" MaxLength="2" Nullable="false" />
-    <Property Name="TABIQUE_2X4" Type="varchar2" MaxLength="2" Nullable="false" />
+    <Property Name="HABITABILIDAD" Type="varchar2" MaxLength="5" Nullable="false" />
+    <Property Name="TERMICA" Type="varchar2" MaxLength="5" Nullable="false" />
+    <Property Name="FUEGO" Type="varchar2" MaxLength="5" Nullable="false" />
+    <Property Name="ESTRUCTURAL" Type="varchar2" MaxLength="5" Nullable="false" />
     <Property Name="ELECTRICA" Type="varchar2" MaxLength="2" Nullable="false" />
     <Property Name="AGUA" Type="varchar2" MaxLength="2" Nullable="false" />
     <Property Name="ALCANTARILLADO" Type="varchar2" MaxLength="2" Nullable="false" />

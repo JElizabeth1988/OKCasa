@@ -21,21 +21,10 @@ namespace BibliotecaDALC
         public int NUM_HABITACIONES { get; set; }
         public int NUM_PISOS { get; set; }
         public string OBSERVACION { get; set; }
-        public string ALT_MINIMA { get; set; }
-        public string BANIO_VENTANA { get; set; }
-        public string LOC_HABIT { get; set; }
-        public string AISL_TECHO { get; set; }
-        public string MUROS_ALB { get; set; }
-        public string AISL_PISOS { get; set; }
-        public string TAB_EXT { get; set; }
-        public string MUROS_C_FUEGO { get; set; }
-        public string MUROS_ADOS { get; set; }
-        public string MUROS_EST { get; set; }
-        public string MURO_EXT_ALB { get; set; }
-        public string MURO_INT_ALB { get; set; }
-        public string MADERA_IMPREG { get; set; }
-        public string TECHO_1X4 { get; set; }
-        public string TABIQUE_2X4 { get; set; }
+        public string HABITABILIDAD { get; set; }
+        public string TERMICA { get; set; }
+        public string FUEGO { get; set; }
+        public string ESTRUCTURAL { get; set; }
         public string ELECTRICA { get; set; }
         public string AGUA { get; set; }
         public string ALCANTARILLADO { get; set; }

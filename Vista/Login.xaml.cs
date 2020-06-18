@@ -17,10 +17,6 @@ using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
 
 
-
-
-
-
 namespace Vista
 {
     /// <summary>
@@ -41,7 +37,7 @@ namespace Vista
 
             //Capturar las Credenciales
             string user = txtUsuario.Text;
-            string pass = pbContrasenia.Password.ToString();
+            string pass = TxtContrasenia.Password.ToString();
 
             //Validar Credenciales en el WS
             if (cliente.Login(user, pass) == 1)
