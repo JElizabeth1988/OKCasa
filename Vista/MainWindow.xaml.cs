@@ -30,8 +30,7 @@ namespace Vista
         {
             InitializeComponent();
             this.DataContext = this;
-            
-            
+                       
 
         }
 

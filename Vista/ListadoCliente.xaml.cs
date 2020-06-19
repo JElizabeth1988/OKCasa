@@ -72,6 +72,20 @@ namespace Vista
             btnPasar.Visibility = Visibility.Hidden;
             btnCrear.Visibility = Visibility.Hidden;
 
+            try
+            {
+                BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
+                dgLista.ItemsSource = cl.ReadAll2();
+                dgLista.Items.Refresh();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error!" + ex.Message);
+                Logger.Mensaje(ex.Message);
+            }
+
         }
         //Llamado desde medición
         public ListadoCliente(FormularioMedicion origen)
@@ -84,6 +98,20 @@ namespace Vista
             btnPasar.Visibility = Visibility.Hidden;
             btnCrear.Visibility = Visibility.Hidden;
 
+            try
+            {
+                BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
+                dgLista.ItemsSource = cl.ReadAll2();
+                dgLista.Items.Refresh();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error!" + ex.Message);
+                Logger.Mensaje(ex.Message);
+            }
+
         }
         //Llamado desde Termografía
         public ListadoCliente(FormularioTermografia origen)
@@ -95,6 +123,20 @@ namespace Vista
             btnEliminar.Visibility = Visibility.Hidden;//Botón eliminar no se ve
             btnPasar.Visibility = Visibility.Hidden;
             btnCrear.Visibility = Visibility.Hidden;
+
+            try
+            {
+                BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
+                dgLista.ItemsSource = cl.ReadAll2();
+                dgLista.Items.Refresh();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error!" + ex.Message);
+                Logger.Mensaje(ex.Message);
+            }
 
         }
 
@@ -110,6 +152,20 @@ namespace Vista
             btnPasar.Visibility = Visibility.Hidden;
             btnCrear.Visibility = Visibility.Hidden;
 
+            try
+            {
+                BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
+                dgLista.ItemsSource = cl.ReadAll2();
+                dgLista.Items.Refresh();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error!" + ex.Message);
+                Logger.Mensaje(ex.Message);
+            }
+
         }
 
 
@@ -123,6 +179,20 @@ namespace Vista
             btnEliminar.Visibility = Visibility.Hidden;//Botón eliminar no se ve
             btnPasarAForm.Visibility = Visibility.Hidden;
             btnCrear.Visibility = Visibility.Hidden;
+
+            try
+            {
+                BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
+                dgLista.ItemsSource = cl.ReadAll2();
+                dgLista.Items.Refresh();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error!" + ex.Message);
+                Logger.Mensaje(ex.Message);
+            }
         }
 
         public ListadoCliente(ListadoFormulario origen)
@@ -134,6 +204,20 @@ namespace Vista
             btnEliminar.Visibility = Visibility.Hidden;//Botón eliminar no se ve
             btnPasarAForm.Visibility = Visibility.Hidden;
             btnCrear.Visibility = Visibility.Hidden;
+
+            try
+            {
+                BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
+                dgLista.ItemsSource = cl.ReadAll2();
+                dgLista.Items.Refresh();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error!" + ex.Message);
+                Logger.Mensaje(ex.Message);
+            }
         }
 
 
@@ -146,6 +230,8 @@ namespace Vista
 
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {
+            BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
+            dgLista.ItemsSource = cl.ReadAll2();
             dgLista.Items.Refresh();
         }
 
@@ -169,9 +255,25 @@ namespace Vista
 
         }
 
-        private void btnFiltrarRut_Click(object sender, RoutedEventArgs e)
+        private async void btnFiltrarRut_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
 
+                string rut = txtFiltroRut.Text;
+
+                List<BibliotecaNegocio.Cliente.ListaClientes> lc = new BibliotecaNegocio.Cliente().FiltroRut(rut);
+                dgLista.ItemsSource = lc;
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Error al filtrar la Información"));
+                /*MessageBox.Show("error al Filtrar Información");*/
+                Logger.Mensaje(ex.Message);
+
+                dgLista.Items.Refresh();
+            }
         }
     }
 }

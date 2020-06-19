@@ -327,6 +327,32 @@ namespace BibliotecaNegocio
             return cl.ToList();
         }
 
+        //Filtro por equipo
+        public List<ListaTecnico> FiltroEquipo(string equipo)
+        {
+            var eq = from tec in bdd.TECNICO
+                     join comu in bdd.COMUNA
+                          on tec.ID_COMUNA equals comu.ID_COMUNA
+                     join equi in bdd.EQUIPO_TECNICO
+                          on tec.ID_EQUIPO equals equi.ID_EQUIPO
+                     where equi.NOMBRE == equipo
+                     select new ListaTecnico()
+                     {
+                         Rut = tec.RUT_TECNICO,
+                         PrimerNombre = tec.PRIMER_NOMBRE,
+                         SegundoNombre = tec.SEGUNDO_NOMBRE,
+                         ApPaterno = tec.AP_PATERNO,
+                         ApMaterno = tec.AP_MATERNO,
+                         Direccion = tec.DIRECCION,
+                         Telefono = tec.TELEFONO,
+                         Mail = tec.EMAIL,
+                         Equipo = equi.NOMBRE,//Traigo el nombre no el id
+                         Comuna = comu.NOMBRE//Traigo el nombre no el id
+                     };
+
+            return eq.ToList();
+        }
+
 
         //Lista para read all2
         public class ListaTecnico

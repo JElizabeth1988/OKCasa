@@ -53,6 +53,9 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                                      string.Format("¡Error de Credenciales!"));
+                txtUsuario.Clear();
+                TxtContrasenia.Clear();
+                txtUsuario.Focus();
             }
         }
     }

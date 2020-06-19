@@ -131,7 +131,7 @@ namespace BibliotecaNegocio
 
         public string email { get; set; }
 
-        public string hipotecario { get; set; }
+        
         public int id_comuna { get; set; }
 
 
@@ -259,7 +259,6 @@ namespace BibliotecaNegocio
                             direccion = cli.DIRECCION,
                             telefono = cli.TELEFONO,
                             email = cli.EMAIL,
-                            hipotecario = cli.HIPOTECARIO,
                             id_comuna = cli.ID_COMUNA
                             
                         };
@@ -290,7 +289,6 @@ namespace BibliotecaNegocio
                             Direccion = cli.DIRECCION,
                             Telefono = cli.TELEFONO,
                             Mail = cli.EMAIL,
-                            Hipotecario = cli.HIPOTECARIO,
                             Comuna = comu.NOMBRE//Traigo el nombre no el id
 
                         };
@@ -320,7 +318,6 @@ namespace BibliotecaNegocio
                          Direccion = cli.DIRECCION,
                          Telefono = cli.TELEFONO,
                          Mail = cli.EMAIL,
-                         Hipotecario = cli.HIPOTECARIO,
                          Comuna = comu.NOMBRE//Traigo el nombre no el id
                      };
 
@@ -339,7 +336,6 @@ namespace BibliotecaNegocio
             public string Direccion { get; set; }
             public int Telefono { get; set; }
             public string Mail { get; set; }
-            public string Hipotecario { get; set; }
             public string Comuna { get; set; }//Nombre no id
 
             public ListaClientes()
