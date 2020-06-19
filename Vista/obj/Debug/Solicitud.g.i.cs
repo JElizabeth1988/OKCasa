@@ -73,7 +73,7 @@ namespace Vista {
         
         #line 23 "..\..\Solicitud.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.ComboBox comboBox;
+        internal System.Windows.Controls.ComboBox cbEquipo;
         
         #line default
         #line hidden
@@ -180,7 +180,7 @@ namespace Vista {
             this.label_Copy = ((System.Windows.Controls.Label)(target));
             return;
             case 4:
-            this.comboBox = ((System.Windows.Controls.ComboBox)(target));
+            this.cbEquipo = ((System.Windows.Controls.ComboBox)(target));
             return;
             case 5:
             this.label_Copy3 = ((System.Windows.Controls.Label)(target));

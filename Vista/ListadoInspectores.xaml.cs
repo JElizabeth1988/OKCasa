@@ -25,6 +25,7 @@ namespace Vista
         public ListadoInspectores()
         {
             InitializeComponent();
+            txtFiltroRut.Focus();
         }
 
         private void btnListCliente_Click(object sender, RoutedEventArgs e)

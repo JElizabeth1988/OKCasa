@@ -26,6 +26,7 @@ namespace Vista
         public ConsultarBanco()
         {
             InitializeComponent();
+            txtRut.Focus();
         }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
@@ -34,6 +35,16 @@ namespace Vista
         }
 
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnConsultar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnInvitación_Click(object sender, RoutedEventArgs e)
         {
 
         }

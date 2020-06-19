@@ -26,6 +26,7 @@ namespace Vista
         public Seguimiento()
         {
             InitializeComponent();
+            txtFiltroNumero.Focus();
         }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)

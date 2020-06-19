@@ -192,6 +192,12 @@ namespace Vista {
             return;
             case 5:
             this.btnConsultar = ((System.Windows.Controls.Button)(target));
+            
+            #line 21 "..\..\ConsultarBanco.xaml"
+            this.btnConsultar.Click += new System.Windows.RoutedEventHandler(this.btnConsultar_Click);
+            
+            #line default
+            #line hidden
             return;
             case 6:
             this.label_Copy = ((System.Windows.Controls.Label)(target));
@@ -207,6 +213,12 @@ namespace Vista {
             return;
             case 10:
             this.btnInvitación = ((System.Windows.Controls.Button)(target));
+            
+            #line 38 "..\..\ConsultarBanco.xaml"
+            this.btnInvitación.Click += new System.Windows.RoutedEventHandler(this.btnInvitación_Click);
+            
+            #line default
+            #line hidden
             return;
             case 11:
             this.btnRefrescar = ((System.Windows.Controls.Button)(target));

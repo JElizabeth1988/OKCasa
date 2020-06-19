@@ -100,13 +100,13 @@
         <GroupBox x:Name="gbFiltrar_Copy" Header="Datos" HorizontalAlignment="Left" Margin="77,19,0,0" VerticalAlignment="Top" Height="122" Width="359"  Background="#FF0971B8" Controls:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
             <Grid HorizontalAlignment="Left" Height="84" Margin="10,4,-0.333,0" VerticalAlignment="Top" Width="339">
                 <Label x:Name="label_Copy" Content="Equipo Técnico:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,8,0,0"/>
-                <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top" Width="156"/>
+                <ComboBox x:Name="cbEquipo" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top" Width="156"/>
                 <Label x:Name="label_Copy3" Content="Fecha:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,43,0,0"/>
                 <DatePicker x:Name="dtfechaSol"  HorizontalAlignment="Left" Margin="155,45,0,0" VerticalAlignment="Top"  SelectedDate="{x:Static sys:DateTime.Now}" FontWeight="Normal" Height="17"/>
 
             </Grid>
         </GroupBox>
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="586,572,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="586,572,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnGuardar_Click"/>
 
     </Grid>
 </Controls:MetroWindow>

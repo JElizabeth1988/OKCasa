@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BibliotecaNegocio;
 
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
@@ -26,11 +27,27 @@ namespace Vista
         public Horario()
         {
             InitializeComponent();
+            cbEquipo.Focus();
+            cbEquipo.SelectedIndex = 0;
+
+            foreach (EquipoTecnico item in new EquipoTecnico().ReadAll())
+            {
+                comboBoxItem1 cb = new comboBoxItem1();
+                cb.id = item.id_equipo;
+                cb.nombre = item.nombre;
+                cbEquipo.Items.Add(cb);
+            }
+
         }
         
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

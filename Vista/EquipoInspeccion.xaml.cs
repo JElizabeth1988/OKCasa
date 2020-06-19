@@ -26,6 +26,7 @@ namespace Vista
         public EquipoInspeccion()
         {
             InitializeComponent();
+            txtEquipo.Focus();
         }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
@@ -36,6 +37,26 @@ namespace Vista
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {
             dgLista.Items.Refresh();
+        }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnGuardar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

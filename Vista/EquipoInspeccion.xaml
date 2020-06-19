@@ -17,12 +17,12 @@
         <Button x:Name="btnSalir" Content="Cancelar" Margin="489,428,43.333,0" VerticalAlignment="Top"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
         <GroupBox x:Name="gbFiltrar" Header="Administrar Equipo Técnico" HorizontalAlignment="Left" Margin="41,21,0,0" VerticalAlignment="Top" Height="177" Width="430"  Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
             <Grid HorizontalAlignment="Left" Height="142" Margin="2,2,0,-1.333" VerticalAlignment="Top" Width="401">
-                <Button x:Name="btnBuscar" Content="Buscar" Margin="301,4,27,0" VerticalAlignment="Top"  FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
+                <Button x:Name="btnBuscar" Content="Buscar" Margin="301,4,27,0" VerticalAlignment="Top"  FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnBuscar_Click"/>
                 <Label x:Name="label" Content="Nombre Equipo:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,4,0,0"/>
-                <TextBox x:Name="txtFiltroRut"  Controls:TextBoxHelper.Watermark="Ingrese Nombre" HorizontalAlignment="Left" Height="23" Margin="122,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
+                <TextBox x:Name="txtEquipo"  Controls:TextBoxHelper.Watermark="Ingrese Nombre" HorizontalAlignment="Left" Height="23" Margin="122,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
                 <Label x:Name="label_Copy" Content="Descripción:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,34,0,0"/>
-                <Button x:Name="btnGuardar" Content="Guardar" Margin="299,106,28,0" VerticalAlignment="Top"  FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
-                <Button x:Name="btnActualizar" Content="Actualizar" Margin="201,106,125,0" VerticalAlignment="Top"  FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
+                <Button x:Name="btnGuardar" Content="Guardar" Margin="299,106,28,0" VerticalAlignment="Top"  FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnGuardar_Click"/>
+                <Button x:Name="btnActualizar" Content="Actualizar" Margin="201,106,125,0" VerticalAlignment="Top"  FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnActualizar_Click"/>
                 <TextBox x:Name="txtDesc" HorizontalAlignment="Left" Height="56" Margin="122,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="251" FontWeight="Normal"/>
             </Grid>
         </GroupBox>
@@ -42,7 +42,7 @@
                         </Style>
                     </DataGrid.Resources>
                 </DataGrid>
-                <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="435,135,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"   Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
+                <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="435,135,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"   Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnEliminar_Click"/>
             </Grid>
         </GroupBox>
 

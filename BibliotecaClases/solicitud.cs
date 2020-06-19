@@ -7,7 +7,7 @@ using BibliotecaDALC;
 
 namespace BibliotecaNegocio
 {
-    public class solicitud
+    public class Solicitud
     {
         //Crear objeto de la Bdd
         private OkCasa_Entities bdd = new OkCasa_Entities();
@@ -20,11 +20,43 @@ namespace BibliotecaNegocio
         public string rut_cliente { get; set; }
         public int id_agenda { get; set; }
         public int id_pago { get; set; }
+        public int id_comuna { get; set; }
+        public int id_servicio { get; set; }
 
 
-        public solicitud()
+        public Solicitud()
         {
 
+        }
+
+        //CRUD
+
+        public List<Solicitud> ReadAll()
+        {
+            try
+            {
+                var c = from cli in bdd.SOLICITUD
+                        select new Solicitud()
+                        {
+                            id_solicitud = cli.ID_SOLICITUD,
+                            fecha_solicitud = cli.FECHA_SOLICITUD,
+                            hora_solicitud = cli.HORA_SOLICITUD,
+                            direccion_vivienda = cli.DIRECCION_VIVIENDA,
+                            constructora = cli.CONSTRUCTORA,
+                            id_agenda = cli.ID_AGENDA,
+                            id_pago = cli.ID_PAGO,
+                            id_comuna = cli.ID_COMUNA,
+                            id_servicio = cli.ID_SERVICIO
+
+                        };
+                return c.ToList();
+
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
         }
 
     }

@@ -97,7 +97,7 @@ namespace Vista {
         
         #line 103 "..\..\Horario.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.ComboBox comboBox;
+        internal System.Windows.Controls.ComboBox cbEquipo;
         
         #line default
         #line hidden
@@ -181,7 +181,7 @@ namespace Vista {
             this.label_Copy = ((System.Windows.Controls.Label)(target));
             return;
             case 7:
-            this.comboBox = ((System.Windows.Controls.ComboBox)(target));
+            this.cbEquipo = ((System.Windows.Controls.ComboBox)(target));
             return;
             case 8:
             this.label_Copy3 = ((System.Windows.Controls.Label)(target));
@@ -191,6 +191,12 @@ namespace Vista {
             return;
             case 10:
             this.btnGuardar = ((System.Windows.Controls.Button)(target));
+            
+            #line 109 "..\..\Horario.xaml"
+            this.btnGuardar.Click += new System.Windows.RoutedEventHandler(this.btnGuardar_Click);
+            
+            #line default
+            #line hidden
             return;
             }
             this._contentLoaded = true;

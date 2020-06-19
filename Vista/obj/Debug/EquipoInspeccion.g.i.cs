@@ -81,7 +81,7 @@ namespace Vista {
         
         #line 22 "..\..\EquipoInspeccion.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox txtFiltroRut;
+        internal System.Windows.Controls.TextBox txtEquipo;
         
         #line default
         #line hidden
@@ -194,21 +194,39 @@ namespace Vista {
             return;
             case 3:
             this.btnBuscar = ((System.Windows.Controls.Button)(target));
+            
+            #line 20 "..\..\EquipoInspeccion.xaml"
+            this.btnBuscar.Click += new System.Windows.RoutedEventHandler(this.btnBuscar_Click);
+            
+            #line default
+            #line hidden
             return;
             case 4:
             this.label = ((System.Windows.Controls.Label)(target));
             return;
             case 5:
-            this.txtFiltroRut = ((System.Windows.Controls.TextBox)(target));
+            this.txtEquipo = ((System.Windows.Controls.TextBox)(target));
             return;
             case 6:
             this.label_Copy = ((System.Windows.Controls.Label)(target));
             return;
             case 7:
             this.btnGuardar = ((System.Windows.Controls.Button)(target));
+            
+            #line 24 "..\..\EquipoInspeccion.xaml"
+            this.btnGuardar.Click += new System.Windows.RoutedEventHandler(this.btnGuardar_Click);
+            
+            #line default
+            #line hidden
             return;
             case 8:
             this.btnActualizar = ((System.Windows.Controls.Button)(target));
+            
+            #line 25 "..\..\EquipoInspeccion.xaml"
+            this.btnActualizar.Click += new System.Windows.RoutedEventHandler(this.btnActualizar_Click);
+            
+            #line default
+            #line hidden
             return;
             case 9:
             this.txtDesc = ((System.Windows.Controls.TextBox)(target));
@@ -224,6 +242,12 @@ namespace Vista {
             return;
             case 13:
             this.btnEliminar = ((System.Windows.Controls.Button)(target));
+            
+            #line 45 "..\..\EquipoInspeccion.xaml"
+            this.btnEliminar.Click += new System.Windows.RoutedEventHandler(this.btnEliminar_Click);
+            
+            #line default
+            #line hidden
             return;
             }
             this._contentLoaded = true;

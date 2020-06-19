@@ -74,7 +74,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedAgua.cs" />
     <Compile Include="Servicio.cs" />
-    <Compile Include="solicitud.cs" />
+    <Compile Include="Solicitud.cs" />
     <Compile Include="Tecnico.cs" />
     <Compile Include="TipoPago.cs" />
     <Compile Include="TipoPagoBanco.cs" />

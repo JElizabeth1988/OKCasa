@@ -20,7 +20,7 @@
         <GroupBox x:Name="gbFiltrar_Copy" Header="Solicitudes " HorizontalAlignment="Left" Margin="38,33,0,0" VerticalAlignment="Top" Height="378" Width="536"  Background="#FF0971B8" Controls:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
             <Grid HorizontalAlignment="Left" Height="317" Margin="10,4,0,0" VerticalAlignment="Top" Width="499">
                 <Label x:Name="label_Copy" Content="Equipo Técnico:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,9,0,0"/>
-                <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top" Width="156"/>
+                <ComboBox x:Name="cbEquipo" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top" Width="156"/>
                 <Label x:Name="label_Copy3" Content="Fecha:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,43,0,0"/>
                 <DatePicker x:Name="dtfechaSol"  HorizontalAlignment="Left" Margin="155,45,0,0" VerticalAlignment="Top"  SelectedDate="{x:Static sys:DateTime.Now}" FontWeight="Normal" Height="17"/>
                 <Image x:Name="image" HorizontalAlignment="Left" Height="45" Margin="375,-4,0,0" VerticalAlignment="Top" Width="100" Source="Imagenes/logo12.png"/>

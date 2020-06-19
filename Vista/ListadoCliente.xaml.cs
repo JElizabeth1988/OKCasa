@@ -38,6 +38,8 @@ namespace Vista
         {
             InitializeComponent();
 
+            txtFiltroRut.Focus();
+
             btnPasar.Visibility = Visibility.Hidden;//el botón traspasar no se ve
             btnPasarAForm.Visibility = Visibility.Hidden;//no se ve
 

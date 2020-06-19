@@ -28,6 +28,9 @@ namespace Vista
         {
             InitializeComponent();
             this.DataContext = this;
+            dtfechaIns.Focus();
+
+            lblNumForm.Content = DateTime.Now.ToString("yyMMddHHmmss");
 
             btnActualizar.Visibility = Visibility.Hidden;
 

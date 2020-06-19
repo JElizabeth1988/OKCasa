@@ -33,6 +33,7 @@ namespace Vista
         public ListadoFormulario()
         {
             InitializeComponent();
+            txtFiltroNumero.Focus();
 
             btnPasar.Visibility = Visibility.Hidden;
 

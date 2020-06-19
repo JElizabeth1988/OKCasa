@@ -26,6 +26,7 @@ namespace Vista
         public Insumo()
         {
             InitializeComponent();
+            txtCodigo.Focus();
 
             btnActualizar.Visibility = Visibility.Hidden;
         }

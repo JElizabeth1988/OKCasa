@@ -18,7 +18,7 @@
             <Grid HorizontalAlignment="Left" Height="309" Margin="0,4,-0.333,-3.667" VerticalAlignment="Top" Width="525">
                 <Label x:Name="label" Content="Rut Cliente:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,1,0,0"/>
                 <TextBox x:Name="txtRut"  Controls:TextBoxHelper.Watermark="Ej. 11222333-1" HorizontalAlignment="Left" Height="23" Margin="131,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
-                <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="287,1,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
+                <Button x:Name="btnConsultar" Content="Consultar" HorizontalAlignment="Left" Margin="287,1,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnConsultar_Click"/>
                 <Label x:Name="label_Copy" Content="Nombre:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,33,0,0"/>
                 <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="132,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" FontWeight="Normal" IsEnabled="False"/>
                 <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="24,100,0,0" VerticalAlignment="Top" Height="141" Width="479" FontWeight="Normal" >
@@ -35,7 +35,7 @@
                     </DataGrid.Resources>
                 </DataGrid>
                 <Label x:Name="label_Copy1" Content="Resultados:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="24,69,0,0"/>
-                <Button x:Name="btnInvitación" Content="Enviar Invitación" HorizontalAlignment="Left" Margin="28,263,0,0" VerticalAlignment="Top" Width="106"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
+                <Button x:Name="btnInvitación" Content="Enviar Invitación" HorizontalAlignment="Left" Margin="28,263,0,0" VerticalAlignment="Top" Width="106"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnInvitación_Click"/>
             </Grid>
         </GroupBox>
         <Button x:Name="btnRefrescar" HorizontalAlignment="Left" Margin="533,374,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click"  >

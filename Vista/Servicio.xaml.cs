@@ -36,6 +36,7 @@ namespace Vista
         {
             InitializeComponent();
             btnActualizar.Visibility = Visibility.Hidden;
+            txtNombre.Focus();
         }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
