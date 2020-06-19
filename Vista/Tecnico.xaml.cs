@@ -31,9 +31,10 @@ namespace Vista
 
             txtDV.IsEnabled = false;
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
+            txtRut.Focus();
 
             //llenar el combo box 
-             /*foreach (Comuna item in new Comuna().ReadAll())
+             foreach (Comuna item in new Comuna().ReadAll())
              {
                  comboBoxItem1 cb = new comboBoxItem1();
                  cb.id = item.id_comuna;
@@ -47,8 +48,7 @@ namespace Vista
                 cb.id = item.id_equipo;
                 cb.nombre = item.nombre;
                 cbEquipo.Items.Add(cb);
-            }*/
-            //CBComuna y Equipo se caen TT____TT
+            }
             
             cboComuna.SelectedIndex = 0;
             cbEquipo.SelectedIndex = 0;
@@ -218,7 +218,7 @@ namespace Vista
             try
             {
                 String rut = txtRut.Text + "-" + txtDV.Text;
-                if (rut.Length == 11)
+                if (rut.Length == 9)
                 {
                     rut = "0" + txtRut.Text + "-" + txtDV.Text;
                 }

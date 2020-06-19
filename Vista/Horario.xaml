@@ -32,9 +32,9 @@
         </Style>
     </Window.Resources>
 
-    <Grid Background="#FFD2DBEC">
-        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="708,572,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
-        <GroupBox x:Name="gbFiltrar" Header="agenda Mensual de Inspecciones" HorizontalAlignment="Left" Margin="31,154,0,0" VerticalAlignment="Top" Height="405" Width="769"  Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
+    <Grid Background="#FFDBDFE3">
+        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="708,572,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
+        <GroupBox x:Name="gbFiltrar" Header="agenda Mensual de Inspecciones" HorizontalAlignment="Left" Margin="31,154,0,0" VerticalAlignment="Top" Height="405" Width="769"  Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
             <Grid HorizontalAlignment="Left" Height="367" Margin="0,0,-21,0" VerticalAlignment="Top" Width="763">
                 <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="340" Margin="20,16,0,0" VerticalAlignment="Top" Width="719">
                     <TabItem Header="Semana 1" Margin="0,0,2.333,1" Controls:ControlsHelper.HeaderFontSize="18">
@@ -96,8 +96,8 @@
 
             </Grid>
         </GroupBox>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="101" Margin="506,33,0,0" VerticalAlignment="Top" Width="217" Source="Imagenes/logo11.png"/>
-        <GroupBox x:Name="gbFiltrar_Copy" Header="Datos" HorizontalAlignment="Left" Margin="77,19,0,0" VerticalAlignment="Top" Height="122" Width="359"  Background="#CC0C5395" Controls:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="101" Margin="506,33,0,0" VerticalAlignment="Top" Width="217" Source="Imagenes/logo12.png"/>
+        <GroupBox x:Name="gbFiltrar_Copy" Header="Datos" HorizontalAlignment="Left" Margin="77,19,0,0" VerticalAlignment="Top" Height="122" Width="359"  Background="#FF0971B8" Controls:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
             <Grid HorizontalAlignment="Left" Height="84" Margin="10,4,-0.333,0" VerticalAlignment="Top" Width="339">
                 <Label x:Name="label_Copy" Content="Equipo Técnico:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,8,0,0"/>
                 <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top" Width="156"/>
@@ -106,7 +106,7 @@
 
             </Grid>
         </GroupBox>
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="586,572,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#CC0C5395" FontSize="12"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="586,572,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
 
     </Grid>
 </Controls:MetroWindow>

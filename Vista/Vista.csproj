@@ -387,43 +387,25 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\ADmClientes.png" />
-    <Resource Include="Imagenes\AdmEquipo.png" />
-    <Resource Include="Imagenes\AdmForm.png" />
-    <Resource Include="Imagenes\AdminClientes.png" />
-    <Resource Include="Imagenes\AdmInsp.png" />
-    <Resource Include="Imagenes\agenda.png" />
-    <Resource Include="Imagenes\BancoE.png" />
     <Resource Include="Imagenes\bg_1.jpg" />
     <Resource Include="Imagenes\bg_2.jpg" />
     <Resource Include="Imagenes\bg_3.jpg" />
     <Resource Include="Imagenes\bg_4.jpg" />
     <Resource Include="Imagenes\Business-Man02.png" />
     <Resource Include="Imagenes\Business-Man03.png" />
-    <Resource Include="Imagenes\Clientes.png" />
     <Resource Include="Imagenes\Command-Refresh-Black.png" />
     <Resource Include="Imagenes\Command-Refresh-blue.png" />
     <Resource Include="Imagenes\Command-Refresh-white.png" />
-    <Resource Include="Imagenes\Historial.png" />
-    <Resource Include="Imagenes\Insumos.png" />
-    <Resource Include="Imagenes\ListadoClientes.png" />
-    <Resource Include="Imagenes\ListadoForm.png" />
-    <Resource Include="Imagenes\ListadoTecnico.png" />
     <Resource Include="Imagenes\Logo yo.jpg" />
     <Resource Include="Imagenes\logo.jpg" />
     <Resource Include="Imagenes\logo11.png" />
     <Resource Include="Imagenes\logo2.jpg" />
     <Resource Include="Imagenes\Logout.png" />
-    <Resource Include="Imagenes\Seguimiento.png" />
-    <Resource Include="Imagenes\Servicios.png" />
-    <Resource Include="Imagenes\Sin título 3.png" />
-    <Resource Include="Imagenes\Tecnicos.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\BancoE-Blanco.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\logo12.png" />
     <Resource Include="Imagenes\Servicios-Blanco.png" />
   </ItemGroup>
   <ItemGroup>
@@ -484,6 +466,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\logo12.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

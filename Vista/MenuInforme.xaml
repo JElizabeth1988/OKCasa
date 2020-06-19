@@ -9,9 +9,9 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="Bienvenido a la ventana de menú" Height="507.784" Width="584.124" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/Logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFD2DBEC" >
-    <GroupBox x:Name="groupBox" Header="Seleccione Servicio" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" Height="445" Width="538" Background="#CC0C5395" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
-        <Grid HorizontalAlignment="Left" Height="414" VerticalAlignment="Top" Width="528" Margin="0,-2,0,-1.333" Background="#FFD2DBEC">
+        Title="Bienvenido a la ventana de menú" Height="507.784" Width="584.124" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/Logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" >
+    <GroupBox x:Name="groupBox" Header="Seleccione Servicio" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" Height="445" Width="538" Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
+        <Grid HorizontalAlignment="Left" Height="414" VerticalAlignment="Top" Width="528" Margin="0,-2,0,-1.333" Background="#FFDBDFE3">
 
             <Controls:Tile Click="Tile_Click_Verificacion"  Controls:ControlsHelper.MouseOverBorderBrush="#FF11233F"  Margin="63,41,313,236" SnapsToDevicePixels="True" Height="136" >
                 <Controls:Tile.Effect>

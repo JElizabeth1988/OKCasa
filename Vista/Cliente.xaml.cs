@@ -31,6 +31,7 @@ namespace Vista
 
             txtDV.IsEnabled = false;
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
+            txtRut.Focus();
 
             //llenar el combo box 
             foreach (Comuna item in new Comuna().ReadAll())
@@ -90,9 +91,7 @@ namespace Vista
             txtTelefono.Text="0";
             txtEmail.Clear();
             cboComuna.SelectedIndex = 0;
-            rbSi.IsChecked = false;
-            rbNo.IsChecked = true;
-
+           
             btnModificar.Visibility = Visibility.Hidden;
             btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
             txtRut.IsEnabled = true;
@@ -119,17 +118,7 @@ namespace Vista
                 String apMaterno = txtApeMaterno.Text;
                 String mail = txtEmail.Text;
                 String direccion = txtDireccion.Text;
-                String Hipotecario;
-
-                if (rbSi.IsChecked == true)
-                {
-                    Hipotecario = "Si";
-                    
-                }
-                else
-                {
-                    Hipotecario = "No";
-                }
+                
                 int telefono = int.Parse(txtTelefono.Text);
                 /*int telefono = 0;
                 if (int.TryParse(txtTelefono.Text, out telefono))
@@ -154,7 +143,6 @@ namespace Vista
                     direccion = direccion,
                     telefono = telefono,
                     email = mail,
-                    hipotecario = Hipotecario,
                     id_comuna = Comuna
                     
                 };
@@ -211,17 +199,7 @@ namespace Vista
                 String apMaterno = txtApeMaterno.Text;
                 String mail = txtEmail.Text;
                 String direccion = txtDireccion.Text;
-                String Hipotecario;
-
-                if (rbSi.IsChecked == true)
-                {
-                    Hipotecario = "Si";
-
-                }
-                else
-                {
-                    Hipotecario = "No";
-                }
+                
                 int telefono = 0;
                 if (int.TryParse(txtTelefono.Text, out telefono))
                 {
@@ -247,7 +225,6 @@ namespace Vista
                     direccion = direccion,
                     telefono = telefono,
                     email = mail,               
-                    hipotecario = Hipotecario,
                     id_comuna = Comuna
 
                 };
@@ -313,20 +290,7 @@ namespace Vista
                     txtDireccion.Text = c.direccion;
                     txtTelefono.Text = c.telefono.ToString();
 
-                    if (c.hipotecario == "Si")
-                    {
-                        rbSi.IsChecked = true;
-                        rbNo.IsChecked = false;
-                    }
-                    else
-                    {
-                        rbSi.IsChecked = false;
-                        rbNo.IsChecked = true;
-                    }
-
-
-
-                        Comuna co = new Comuna();
+                    Comuna co = new Comuna();
                     co.id_comuna = c.id_comuna;
                     co.Read();
                     cboComuna.Text = co.nombre;//Cambiar a nombre
@@ -378,17 +342,7 @@ namespace Vista
                     txtDireccion.Text = c.direccion;
                     txtTelefono.Text = c.telefono.ToString();
 
-                    if (c.hipotecario == "Si")
-                    {
-                        rbSi.IsChecked = true;
-                        rbNo.IsChecked = false;
-                    }
-                    else
-                    {
-                        rbSi.IsChecked = false;
-                        rbNo.IsChecked = true;
-                    }
-
+                    
                     Comuna co = new Comuna();
                     co.id_comuna = c.id_comuna;
                     co.Read();

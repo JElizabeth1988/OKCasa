@@ -27,6 +27,7 @@ namespace Vista
         public Login()
         {
             InitializeComponent();
+            txtUsuario.Focus();
         }
 
         private async void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -43,10 +44,10 @@ namespace Vista
             if (cliente.Login(user, pass) == 1)
             {
                 await this.ShowMessageAsync("Mensaje:",
-                string.Format("Bienvenido!"));
-                MainWindow _ver = new MainWindow();
-                this.Hide();
-                _ver.ShowDialog();
+                string.Format("Bienvenido "+user));
+                MainWindow main = new MainWindow();
+                this.Close();
+                main.ShowDialog();
             }
             else
             {
