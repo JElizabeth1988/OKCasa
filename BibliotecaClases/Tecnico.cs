@@ -117,7 +117,7 @@ namespace BibliotecaNegocio
             get { return _telefono; }
             set
             {
-                if (value != 0 && value == 9)
+                if (value != 0 && value > 90000000 && value < 10000000)
                 {
                     _telefono = value;
                 }
