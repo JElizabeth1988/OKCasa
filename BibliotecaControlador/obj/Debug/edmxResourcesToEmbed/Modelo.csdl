@@ -38,6 +38,7 @@
     <Property Name="ID_BANCO" Type="Int32" Nullable="false" />
     <Property Name="RUT_CLIENTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="CLIENTE" Relationship="Self.BANCO_ESTADO_CLIENTE_FKV2" FromRole="BANCO_ESTADO" ToRole="CLIENTE" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="CLIENTE">
     <Key>
@@ -538,7 +539,6 @@
       <Parameter Name="DIRECCION" Mode="In" Type="String" />
       <Parameter Name="TELEFONO" Mode="In" Type="Decimal" />
       <Parameter Name="EMAIL" Mode="In" Type="String" />
-      <Parameter Name="HIPOTECARIO" Mode="In" Type="String" />
       <Parameter Name="ID_COMUNA" Mode="In" Type="Decimal" />
     </FunctionImport>
     <FunctionImport Name="SP_AGREGAR_SOLICITUD">
@@ -590,6 +590,13 @@
       <End Role="TIPO_VIVIENDA" EntitySet="TIPO_VIVIENDA" />
       <End Role="INFORME_VERIFICACION" EntitySet="INFORME_VERIFICACION" />
     </AssociationSet>
+    <FunctionImport Name="SP_BANCOESTADO">
+      <Parameter Name="RUT" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GUARDAR_INSUMO">
+      <Parameter Name="P_ID_INSUMO" Mode="In" Type="Decimal" />
+      <Parameter Name="P_NOMBRE" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="INFORME_INSPECCION">
     <Key>

@@ -151,6 +151,7 @@
     <Reference Include="Oracle.Web, Version=2.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
@@ -208,6 +209,11 @@
     </Compile>
     <Compile Include="Seguimiento.xaml.cs">
       <DependentUpon>Seguimiento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WSBancoEstado\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Service References\WSLOGIN\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -358,6 +364,13 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\WSBancoEstado\Vista.WSBancoEstado.HipotecarioResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WSBancoEstado\WS_BANCO.wsdl" />
+    <None Include="Service References\WSBancoEstado\WS_BANCO.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\WSLOGIN\Vista.WSLOGIN.LoginResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -453,6 +466,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WSBancoEstado\" />
     <WCFMetadataStorage Include="Service References\WSLOGIN\" />
   </ItemGroup>
   <ItemGroup>
@@ -472,6 +486,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\Medicion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSBancoEstado\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSBancoEstado\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSBancoEstado\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

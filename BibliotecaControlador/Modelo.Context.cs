@@ -60,7 +60,7 @@ namespace BibliotecaDALC
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_LISTAR_COMUNA");
         }
     
-        public virtual int SP_AGREGAR_CLIENTE(string rUT_CLIENTE, string pRIMER_NOMBRE, string sEGUNDO_NOMBRE, string aP_PATERNO, string aP_MATERNO, string dIRECCION, Nullable<decimal> tELEFONO, string eMAIL, string hIPOTECARIO, Nullable<decimal> iD_COMUNA)
+        public virtual int SP_AGREGAR_CLIENTE(string rUT_CLIENTE, string pRIMER_NOMBRE, string sEGUNDO_NOMBRE, string aP_PATERNO, string aP_MATERNO, string dIRECCION, Nullable<decimal> tELEFONO, string eMAIL, Nullable<decimal> iD_COMUNA)
         {
             var rUT_CLIENTEParameter = rUT_CLIENTE != null ?
                 new ObjectParameter("RUT_CLIENTE", rUT_CLIENTE) :
@@ -94,15 +94,11 @@ namespace BibliotecaDALC
                 new ObjectParameter("EMAIL", eMAIL) :
                 new ObjectParameter("EMAIL", typeof(string));
     
-            var hIPOTECARIOParameter = hIPOTECARIO != null ?
-                new ObjectParameter("HIPOTECARIO", hIPOTECARIO) :
-                new ObjectParameter("HIPOTECARIO", typeof(string));
-    
             var iD_COMUNAParameter = iD_COMUNA.HasValue ?
                 new ObjectParameter("ID_COMUNA", iD_COMUNA) :
                 new ObjectParameter("ID_COMUNA", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_AGREGAR_CLIENTE", rUT_CLIENTEParameter, pRIMER_NOMBREParameter, sEGUNDO_NOMBREParameter, aP_PATERNOParameter, aP_MATERNOParameter, dIRECCIONParameter, tELEFONOParameter, eMAILParameter, hIPOTECARIOParameter, iD_COMUNAParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_AGREGAR_CLIENTE", rUT_CLIENTEParameter, pRIMER_NOMBREParameter, sEGUNDO_NOMBREParameter, aP_PATERNOParameter, aP_MATERNOParameter, dIRECCIONParameter, tELEFONOParameter, eMAILParameter, iD_COMUNAParameter);
         }
     
         public virtual int SP_AGREGAR_SOLICITUD(Nullable<decimal> iD_SOLICITUD, Nullable<System.DateTime> fECHA_SOLICITUD, string hORA_SOLICITUD, string dIRECCION_VIVIENDA, string cONSTRUCTORA, string rUT_CLIENTE, Nullable<decimal> iD_AGENDA, Nullable<decimal> iD_PAGO, Nullable<decimal> iD_COMUNA, Nullable<decimal> iD_SERVICIO)
@@ -218,6 +214,28 @@ namespace BibliotecaDALC
         public virtual int SP_LISTAR_TECNICO()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_LISTAR_TECNICO");
+        }
+    
+        public virtual int SP_BANCOESTADO(string rUT)
+        {
+            var rUTParameter = rUT != null ?
+                new ObjectParameter("RUT", rUT) :
+                new ObjectParameter("RUT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_BANCOESTADO", rUTParameter);
+        }
+    
+        public virtual int SP_GUARDAR_INSUMO(Nullable<decimal> p_ID_INSUMO, string p_NOMBRE)
+        {
+            var p_ID_INSUMOParameter = p_ID_INSUMO.HasValue ?
+                new ObjectParameter("P_ID_INSUMO", p_ID_INSUMO) :
+                new ObjectParameter("P_ID_INSUMO", typeof(decimal));
+    
+            var p_NOMBREParameter = p_NOMBRE != null ?
+                new ObjectParameter("P_NOMBRE", p_NOMBRE) :
+                new ObjectParameter("P_NOMBRE", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_GUARDAR_INSUMO", p_ID_INSUMOParameter, p_NOMBREParameter);
         }
     }
 }

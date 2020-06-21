@@ -30,6 +30,7 @@
     </Key>
     <Property Name="ID_BANCO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="10" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar2" MaxLength="1000" />
   </EntityType>
   <EntityType Name="CLIENTE">
     <Key>
@@ -43,7 +44,6 @@
     <Property Name="DIRECCION" Type="varchar2" MaxLength="50" Nullable="false" />
     <Property Name="TELEFONO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="EMAIL" Type="varchar2" MaxLength="50" Nullable="false" />
-    <Property Name="HIPOTECARIO" Type="varchar2" MaxLength="10" />
     <Property Name="ID_COMUNA" Type="number" Precision="38" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="COMUNA">
@@ -843,7 +843,6 @@ advertencia 6002: La tabla o vista 'OKCASA.TIPO_PAGO_BANCO' no tiene definida ni
     <Parameter Name="DIRECCION" Type="varchar2" Mode="In" />
     <Parameter Name="TELEFONO" Type="number" Mode="In" />
     <Parameter Name="EMAIL" Type="varchar2" Mode="In" />
-    <Parameter Name="HIPOTECARIO" Type="varchar2" Mode="In" />
     <Parameter Name="ID_COMUNA" Type="number" Mode="In" />
   </Function>
   <Function Name="SP_AGREGAR_SOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA">
@@ -864,6 +863,13 @@ advertencia 6002: La tabla o vista 'OKCASA.TIPO_PAGO_BANCO' no tiene definida ni
     <Parameter Name="CONTRASENIA" Type="varchar2" Mode="In" />
     <Parameter Name="RUT_CLIENTE" Type="varchar2" Mode="In" />
     <Parameter Name="ID_TIPO_USUARIO" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_BANCOESTADO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA">
+    <Parameter Name="RUT" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SP_GUARDAR_INSUMO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA">
+    <Parameter Name="P_ID_INSUMO" Type="number" Mode="In" />
+    <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
   </Function>
   <Function Name="SP_LISTAR_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
   <Function Name="SP_LISTAR_CLIENTES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />

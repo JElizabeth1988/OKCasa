@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://WS/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="WS_BANCO" targetNamespace="http://WS/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:32908/WSBancoEstado/WS_BANCO?xsd=1" namespace="http://WS/" />
+    </xsd:schema>
+  </types>
+  <message name="Hipotecario">
+    <part name="parameters" element="tns:Hipotecario" />
+  </message>
+  <message name="HipotecarioResponse">
+    <part name="parameters" element="tns:HipotecarioResponse" />
+  </message>
+  <portType name="WS_BANCO">
+    <operation name="Hipotecario">
+      <input wsam:Action="http://WS/WS_BANCO/HipotecarioRequest" message="tns:Hipotecario" />
+      <output wsam:Action="http://WS/WS_BANCO/HipotecarioResponse" message="tns:HipotecarioResponse" />
+    </operation>
+  </portType>
+  <binding name="WS_BANCOPortBinding" type="tns:WS_BANCO">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Hipotecario">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="WS_BANCO">
+    <port name="WS_BANCOPort" binding="tns:WS_BANCOPortBinding">
+      <soap:address location="http://localhost:32908/WSBancoEstado/WS_BANCO" />
+    </port>
+  </service>
+</definitions>
