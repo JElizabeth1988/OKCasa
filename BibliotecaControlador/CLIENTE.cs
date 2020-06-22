@@ -34,7 +34,6 @@ namespace BibliotecaDALC
         public string DIRECCION { get; set; }
         public int TELEFONO { get; set; }
         public string EMAIL { get; set; }
-        public string HIPOTECARIO { get; set; }
         public int ID_COMUNA { get; set; }
     
         public virtual ICollection<BANCO_ESTADO> BANCO_ESTADO { get; set; }

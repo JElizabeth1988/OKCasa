@@ -31,7 +31,6 @@
     <EntitySetMapping Name="BANCO_ESTADO">
       <EntityTypeMapping TypeName="ModeloOkCasa.BANCO_ESTADO">
         <MappingFragment StoreEntitySet="BANCO_ESTADO">
-          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
           <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
           <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
         </MappingFragment>
@@ -151,7 +150,6 @@
           <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
           <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
           <ScalarProperty Name="FECHA_SOLICITUD" ColumnName="FECHA_SOLICITUD" />
-          <ScalarProperty Name="HORA_SOLICITUD" ColumnName="HORA_SOLICITUD" />
           <ScalarProperty Name="DIRECCION_VIVIENDA" ColumnName="DIRECCION_VIVIENDA" />
           <ScalarProperty Name="CONSTRUCTORA" ColumnName="CONSTRUCTORA" />
           <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
@@ -208,7 +206,6 @@
         <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
       </EndProperty>
     </AssociationSetMapping>
-    <FunctionImportMapping FunctionImportName="SP_LISTAR_COMUNA" FunctionName="ModeloOkCasa.Store.SP_LISTAR_COMUNA" />
     <EntitySetMapping Name="INFORME_INSPECCION">
       <EntityTypeMapping TypeName="ModeloOkCasa.INFORME_INSPECCION">
         <MappingFragment StoreEntitySet="INFORME_INSPECCION">
@@ -340,7 +337,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="SP_BANCOESTADO" FunctionName="ModeloOkCasa.Store.SP_BANCOESTADO" />
-    <FunctionImportMapping FunctionImportName="SP_GUARDAR_INSUMO" FunctionName="ModeloOkCasa.Store.SP_GUARDAR_INSUMO" />
   </EntityContainerMapping>
 </Mapping>

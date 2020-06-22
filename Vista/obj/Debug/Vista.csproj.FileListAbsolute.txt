@@ -518,3 +518,6 @@ C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\FormularioTermografia
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\FormularioVerificacion.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Insumo.baml
 C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\MenuInforme.baml
+C:\Users\yobit\Downloads\OKCasa-c863900be812ef8093875a7f8b96de32650b25da\Vista\bin\Debug\Vista.exe.config
+C:\Users\yobit\Downloads\OKCasa-c863900be812ef8093875a7f8b96de32650b25da\Vista\obj\Debug\Vista.exe
+C:\Users\yobit\Downloads\OKCasa-c863900be812ef8093875a7f8b96de32650b25da\Vista\obj\Debug\Vista.pdb

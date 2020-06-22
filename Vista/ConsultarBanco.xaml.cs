@@ -12,17 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BibliotecaNegocio;
+using BibliotecaDALC;
+
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
+using MahApps.Metro.Behaviours;
 
 using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
 
 using System.Configuration;
 using System.Data;
-
-using MahApps.Metro.Controls;
-using MahApps.Metro.Controls.Dialogs;
-using MahApps.Metro.Behaviours;
-
 
 namespace Vista
 {
@@ -47,14 +47,14 @@ namespace Vista
 
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {
-            dgLista.ItemsSource=null;
+            dgLista.ItemsSource = null;
             btnInvitación.Visibility = Visibility.Hidden;
             txtRut.Focus();
-            
-            
+
+
         }
 
-        
+
 
 
         private async void btnConsultar_Click(object sender, RoutedEventArgs e)
@@ -63,7 +63,7 @@ namespace Vista
             WSBancoEstado.WS_BANCOClient cliente = new WSBancoEstado.WS_BANCOClient();
 
             //Capturar Dato
-            string rut = txtRut.Text;            
+            string rut = txtRut.Text;
 
             //Validar Datos en el WS
             if (cliente.Hipotecario(rut) == rut)
@@ -74,11 +74,11 @@ namespace Vista
                 conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
 
                 conn.Open();
-                
-                OracleCommand myCmd = new OracleCommand("SP_BancoEstado", conn);
+
+                OracleCommand myCmd = new OracleCommand("p_banco_estado", conn);
                 myCmd.CommandType = CommandType.StoredProcedure;
                 OracleDataAdapter da = new OracleDataAdapter(myCmd);
-                
+
                 myCmd.Parameters.Add("rut", "varchar2").Value = rut;//entregar parámetro rut
                 da.Fill(dt);
                 dt.Columns.Add("Resultado");
@@ -92,10 +92,10 @@ namespace Vista
                 //Mostrar texto en la Grilla
                 dgLista.ItemsSource = null;
                 DataTable dt = new DataTable();
-                dt.Columns.Add("Resultado");                
-                dt.Rows.Add("El rut "+rut + " No corresponde a un cliente hipotecario de Banco Estado");
+                dt.Columns.Add("Resultado");
+                dt.Rows.Add("El rut " + rut + " No corresponde a un cliente hipotecario de Banco Estado");
                 dgLista.ItemsSource = dt.DefaultView;
-                
+
                 btnInvitación.Visibility = Visibility.Hidden;//Botón invitación no aparece para clientes no hipotecarios
 
             }
@@ -107,7 +107,7 @@ namespace Vista
             var x = await this.ShowProgressAsync("Por Favor Espere... ", "Enviando Invitación...");
 
             await Task.Delay(3000);
-            
+
             x.SetCancelable(false);
 
             await this.ShowMessageAsync("Mensaje:", "¡Invitación Enviada!");

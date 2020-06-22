@@ -35,7 +35,6 @@
           </Key>
           <Property Name="ID_BANCO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="10" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="1000" />
         </EntityType>
         <EntityType Name="CLIENTE">
           <Key>
@@ -244,7 +243,6 @@ advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ning
           </Key>
           <Property Name="ID_SOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="FECHA_SOLICITUD" Type="date" Nullable="false" />
-          <Property Name="HORA_SOLICITUD" Type="varchar2" MaxLength="5" Nullable="false" />
           <Property Name="DIRECCION_VIVIENDA" Type="varchar2" MaxLength="500" Nullable="false" />
           <Property Name="CONSTRUCTORA" Type="varchar2" MaxLength="500" Nullable="false" />
           <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="10" Nullable="false" />
@@ -869,16 +867,8 @@ advertencia 6002: La tabla o vista 'OKCASA.TIPO_PAGO_BANCO' no tiene definida ni
           <Parameter Name="RUT_CLIENTE" Type="varchar2" Mode="In" />
           <Parameter Name="ID_TIPO_USUARIO" Type="number" Mode="In" />
         </Function>
-        <Function Name="SP_BANCOESTADO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA">
-          <Parameter Name="RUT" Type="varchar2" Mode="In" />
-        </Function>
-        <Function Name="SP_GUARDAR_INSUMO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA">
-          <Parameter Name="P_ID_INSUMO" Type="number" Mode="In" />
-          <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
-        </Function>
         <Function Name="SP_LISTAR_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
         <Function Name="SP_LISTAR_CLIENTES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
-        <Function Name="SP_LISTAR_COMUNA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
         <Function Name="SP_LISTAR_INFORME_INSPECCION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
         <Function Name="SP_LISTAR_INFORME_MEDICION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
         <Function Name="SP_LISTAR_INFORME_TERMOGRAFIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
@@ -1144,7 +1134,6 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
           <Property Name="ID_BANCO" Type="Int32" Nullable="false" />
           <Property Name="RUT_CLIENTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="CLIENTE" Relationship="Self.BANCO_ESTADO_CLIENTE_FKV2" FromRole="BANCO_ESTADO" ToRole="CLIENTE" />
-          <Property Name="DESCRIPCION" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CLIENTE">
           <Key>
@@ -1158,7 +1147,6 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
           <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TELEFONO" Type="Int32" Nullable="false" />
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="HIPOTECARIO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="ID_COMUNA" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BANCO_ESTADO" Relationship="Self.BANCO_ESTADO_CLIENTE_FKV2" FromRole="CLIENTE" ToRole="BANCO_ESTADO" />
           <NavigationProperty Name="COMUNA" Relationship="Self.CLIENTE_COMUNA_FKV2" FromRole="CLIENTE" ToRole="COMUNA" />
@@ -1274,7 +1262,6 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
           </Key>
           <Property Name="ID_SOLICITUD" Type="Int32" Nullable="false" />
           <Property Name="FECHA_SOLICITUD" Type="DateTime" Nullable="false" />
-          <Property Name="HORA_SOLICITUD" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DIRECCION_VIVIENDA" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CONSTRUCTORA" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="RUT_CLIENTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
@@ -1696,13 +1683,6 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
             <End Role="TIPO_VIVIENDA" EntitySet="TIPO_VIVIENDA" />
             <End Role="INFORME_VERIFICACION" EntitySet="INFORME_VERIFICACION" />
           </AssociationSet>
-          <FunctionImport Name="SP_BANCOESTADO">
-          <Parameter Name="RUT" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="SP_GUARDAR_INSUMO">
-            <Parameter Name="P_ID_INSUMO" Mode="In" Type="Decimal" />
-            <Parameter Name="P_NOMBRE" Mode="In" Type="String" />
-          </FunctionImport>
         </EntityContainer>
         <EntityType Name="INFORME_INSPECCION">
           <Key>
@@ -2244,7 +2224,6 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
           <EntitySetMapping Name="BANCO_ESTADO">
             <EntityTypeMapping TypeName="ModeloOkCasa.BANCO_ESTADO">
               <MappingFragment StoreEntitySet="BANCO_ESTADO">
-                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
                 <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
                 <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
               </MappingFragment>
@@ -2364,7 +2343,6 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
                 <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
                 <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
                 <ScalarProperty Name="FECHA_SOLICITUD" ColumnName="FECHA_SOLICITUD" />
-                <ScalarProperty Name="HORA_SOLICITUD" ColumnName="HORA_SOLICITUD" />
                 <ScalarProperty Name="DIRECCION_VIVIENDA" ColumnName="DIRECCION_VIVIENDA" />
                 <ScalarProperty Name="CONSTRUCTORA" ColumnName="CONSTRUCTORA" />
                 <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
@@ -2421,7 +2399,6 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
               <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
             </EndProperty>
           </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="SP_LISTAR_COMUNA" FunctionName="ModeloOkCasa.Store.SP_LISTAR_COMUNA" />
           <EntitySetMapping Name="INFORME_INSPECCION">
             <EntityTypeMapping TypeName="ModeloOkCasa.INFORME_INSPECCION">
               <MappingFragment StoreEntitySet="INFORME_INSPECCION">
@@ -2553,8 +2530,6 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SP_BANCOESTADO" FunctionName="ModeloOkCasa.Store.SP_BANCOESTADO" />
-          <FunctionImportMapping FunctionImportName="SP_GUARDAR_INSUMO" FunctionName="ModeloOkCasa.Store.SP_GUARDAR_INSUMO" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

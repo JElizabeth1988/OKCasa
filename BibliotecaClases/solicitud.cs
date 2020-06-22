@@ -14,7 +14,7 @@ namespace BibliotecaNegocio
 
         public int id_solicitud { get; set; }
         public DateTime fecha_solicitud { get; set; }
-        public string hora_solicitud { get; set; }
+        
         public string direccion_vivienda { get; set; }
         public string constructora { get; set; }
         public string rut_cliente { get; set; }
@@ -40,7 +40,7 @@ namespace BibliotecaNegocio
                         {
                             id_solicitud = cli.ID_SOLICITUD,
                             fecha_solicitud = cli.FECHA_SOLICITUD,
-                            hora_solicitud = cli.HORA_SOLICITUD,
+                            
                             direccion_vivienda = cli.DIRECCION_VIVIENDA,
                             constructora = cli.CONSTRUCTORA,
                             id_agenda = cli.ID_AGENDA,

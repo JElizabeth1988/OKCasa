@@ -30,7 +30,6 @@
     </Key>
     <Property Name="ID_BANCO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="10" Nullable="false" />
-    <Property Name="DESCRIPCION" Type="varchar2" MaxLength="1000" />
   </EntityType>
   <EntityType Name="CLIENTE">
     <Key>
@@ -239,7 +238,6 @@ advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ning
     </Key>
     <Property Name="ID_SOLICITUD" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="FECHA_SOLICITUD" Type="date" Nullable="false" />
-    <Property Name="HORA_SOLICITUD" Type="varchar2" MaxLength="5" Nullable="false" />
     <Property Name="DIRECCION_VIVIENDA" Type="varchar2" MaxLength="500" Nullable="false" />
     <Property Name="CONSTRUCTORA" Type="varchar2" MaxLength="500" Nullable="false" />
     <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="10" Nullable="false" />
@@ -864,16 +862,8 @@ advertencia 6002: La tabla o vista 'OKCASA.TIPO_PAGO_BANCO' no tiene definida ni
     <Parameter Name="RUT_CLIENTE" Type="varchar2" Mode="In" />
     <Parameter Name="ID_TIPO_USUARIO" Type="number" Mode="In" />
   </Function>
-  <Function Name="SP_BANCOESTADO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA">
-    <Parameter Name="RUT" Type="varchar2" Mode="In" />
-  </Function>
-  <Function Name="SP_GUARDAR_INSUMO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA">
-    <Parameter Name="P_ID_INSUMO" Type="number" Mode="In" />
-    <Parameter Name="P_NOMBRE" Type="varchar2" Mode="In" />
-  </Function>
   <Function Name="SP_LISTAR_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
   <Function Name="SP_LISTAR_CLIENTES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
-  <Function Name="SP_LISTAR_COMUNA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
   <Function Name="SP_LISTAR_INFORME_INSPECCION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
   <Function Name="SP_LISTAR_INFORME_MEDICION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
   <Function Name="SP_LISTAR_INFORME_TERMOGRAFIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />

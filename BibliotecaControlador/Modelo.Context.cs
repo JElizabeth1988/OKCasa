@@ -215,27 +215,5 @@ namespace BibliotecaDALC
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_LISTAR_TECNICO");
         }
-    
-        public virtual int SP_BANCOESTADO(string rUT)
-        {
-            var rUTParameter = rUT != null ?
-                new ObjectParameter("RUT", rUT) :
-                new ObjectParameter("RUT", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_BANCOESTADO", rUTParameter);
-        }
-    
-        public virtual int SP_GUARDAR_INSUMO(Nullable<decimal> p_ID_INSUMO, string p_NOMBRE)
-        {
-            var p_ID_INSUMOParameter = p_ID_INSUMO.HasValue ?
-                new ObjectParameter("P_ID_INSUMO", p_ID_INSUMO) :
-                new ObjectParameter("P_ID_INSUMO", typeof(decimal));
-    
-            var p_NOMBREParameter = p_NOMBRE != null ?
-                new ObjectParameter("P_NOMBRE", p_NOMBRE) :
-                new ObjectParameter("P_NOMBRE", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_GUARDAR_INSUMO", p_ID_INSUMOParameter, p_NOMBREParameter);
-        }
     }
 }

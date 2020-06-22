@@ -24,7 +24,6 @@ namespace BibliotecaDALC
     
         public int ID_SOLICITUD { get; set; }
         public System.DateTime FECHA_SOLICITUD { get; set; }
-        public string HORA_SOLICITUD { get; set; }
         public string DIRECCION_VIVIENDA { get; set; }
         public string CONSTRUCTORA { get; set; }
         public string RUT_CLIENTE { get; set; }

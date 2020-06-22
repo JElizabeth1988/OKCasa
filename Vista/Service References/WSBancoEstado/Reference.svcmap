@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9a3d3387-f9b9-428f-996e-7e9fa8abccd9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="17dea799-3dba-4b3e-a6a1-5420aa9ffc5f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:32908/WSBancoEstado/WS_BANCO?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WS_BANCO.wsdl" MetadataType="Wsdl" ID="66a0eacc-9524-4cd9-9bf8-0de7c575514e" SourceId="1" SourceUrl="http://localhost:32908/WSBancoEstado/WS_BANCO?WSDL" />
-    <MetadataFile FileName="WS_BANCO.xsd" MetadataType="Schema" ID="f5a8ab4d-30f7-414f-a92a-03416fa27ff2" SourceId="1" SourceUrl="http://localhost:32908/WSBancoEstado/WS_BANCO?xsd=1" />
+    <MetadataFile FileName="WS_BANCO.wsdl" MetadataType="Wsdl" ID="6df4bcf0-5e0b-417a-a137-25b75494d1c0" SourceId="1" SourceUrl="http://localhost:32908/WSBancoEstado/WS_BANCO?WSDL" />
+    <MetadataFile FileName="WS_BANCO.xsd" MetadataType="Schema" ID="9aaffd69-2190-4b28-b885-80873aae6b1e" SourceId="1" SourceUrl="http://localhost:32908/WSBancoEstado/WS_BANCO?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
