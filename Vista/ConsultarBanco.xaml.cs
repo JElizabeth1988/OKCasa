@@ -108,7 +108,9 @@ namespace Vista
 
                            
                             dgLista.ItemsSource = lista_tipos;
+                        
                             dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
+                        btnInvitación.Visibility = Visibility.Visible;//Botón se ve
                       
 
                     }
