@@ -30,6 +30,7 @@
     </Key>
     <Property Name="ID_BANCO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="10" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="varchar2" MaxLength="2000" />
   </EntityType>
   <EntityType Name="CLIENTE">
     <Key>
@@ -832,6 +833,9 @@ advertencia 6002: La tabla o vista 'OKCASA.TIPO_PAGO_BANCO' no tiene definida ni
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="FN_BANCOESTADO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA">
+    <Parameter Name="RUT" Type="varchar2" Mode="In" />
+  </Function>
   <Function Name="SP_AGREGAR_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA">
     <Parameter Name="RUT_CLIENTE" Type="varchar2" Mode="In" />
     <Parameter Name="PRIMER_NOMBRE" Type="varchar2" Mode="In" />

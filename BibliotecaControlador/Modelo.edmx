@@ -35,6 +35,7 @@
           </Key>
           <Property Name="ID_BANCO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="2000" />
         </EntityType>
         <EntityType Name="CLIENTE">
           <Key>
@@ -837,6 +838,10 @@ advertencia 6002: La tabla o vista 'OKCASA.TIPO_PAGO_BANCO' no tiene definida ni
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="FN_BANCOESTADO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA">
+          <Parameter Name="RUT" Type="varchar2" Mode="In" />
+        </Function>
+        
         <Function Name="SP_AGREGAR_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA">
           <Parameter Name="RUT_CLIENTE" Type="varchar2" Mode="In" />
           <Parameter Name="PRIMER_NOMBRE" Type="varchar2" Mode="In" />
@@ -867,6 +872,10 @@ advertencia 6002: La tabla o vista 'OKCASA.TIPO_PAGO_BANCO' no tiene definida ni
           <Parameter Name="RUT_CLIENTE" Type="varchar2" Mode="In" />
           <Parameter Name="ID_TIPO_USUARIO" Type="number" Mode="In" />
         </Function>
+        
+        
+        
+        
         <Function Name="SP_LISTAR_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
         <Function Name="SP_LISTAR_CLIENTES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
         <Function Name="SP_LISTAR_INFORME_INSPECCION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
@@ -876,6 +885,7 @@ advertencia 6002: La tabla o vista 'OKCASA.TIPO_PAGO_BANCO' no tiene definida ni
         <Function Name="SP_LISTAR_INSUMOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
         <Function Name="SP_LISTAR_SOLICITUDES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
         <Function Name="SP_LISTAR_TECNICO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="OKCASA" />
+        
         <EntityContainer Name="ModeloOkCasaStoreContainer">
           <EntitySet Name="AGENDA" EntityType="Self.AGENDA" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="AGRUPAMIENTO" EntityType="Self.AGRUPAMIENTO" Schema="OKCASA" store:Type="Tables" />
@@ -1134,6 +1144,7 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
           <Property Name="ID_BANCO" Type="Int32" Nullable="false" />
           <Property Name="RUT_CLIENTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="CLIENTE" Relationship="Self.BANCO_ESTADO_CLIENTE_FKV2" FromRole="BANCO_ESTADO" ToRole="CLIENTE" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CLIENTE">
           <Key>
@@ -1683,6 +1694,9 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
             <End Role="TIPO_VIVIENDA" EntitySet="TIPO_VIVIENDA" />
             <End Role="INFORME_VERIFICACION" EntitySet="INFORME_VERIFICACION" />
           </AssociationSet>
+          <FunctionImport Name="FN_BANCOESTADO">
+          <Parameter Name="RUT" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="INFORME_INSPECCION">
           <Key>
@@ -2224,6 +2238,7 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
           <EntitySetMapping Name="BANCO_ESTADO">
             <EntityTypeMapping TypeName="ModeloOkCasa.BANCO_ESTADO">
               <MappingFragment StoreEntitySet="BANCO_ESTADO">
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
                 <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
                 <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
               </MappingFragment>
@@ -2530,6 +2545,7 @@ FROM "OKCASA"."TIPO_PAGO_BANCO" "TIPO_PAGO_BANCO"</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="FN_BANCOESTADO" FunctionName="ModeloOkCasa.Store.FN_BANCOESTADO" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

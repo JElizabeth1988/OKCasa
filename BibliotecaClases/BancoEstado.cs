@@ -13,13 +13,17 @@ namespace BibliotecaNegocio
         private OkCasa_Entities bdd = new OkCasa_Entities();
 
         public int id_banco { get; set; }
-        public string rut_cliente { get; set; }
+        public string rut { get; set; }
+
+        public string Descripción { get; set; }
 
 
         public BancoEstado()
         {
 
         }
+
+
 
     }
 }

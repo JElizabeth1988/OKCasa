@@ -16,6 +16,7 @@ namespace BibliotecaDALC
     {
         public int ID_BANCO { get; set; }
         public string RUT_CLIENTE { get; set; }
+        public string DESCRIPCION { get; set; }
     
         public virtual CLIENTE CLIENTE { get; set; }
     }

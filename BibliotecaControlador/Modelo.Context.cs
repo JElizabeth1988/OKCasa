@@ -215,5 +215,14 @@ namespace BibliotecaDALC
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_LISTAR_TECNICO");
         }
+    
+        public virtual int FN_BANCOESTADO(string rUT)
+        {
+            var rUTParameter = rUT != null ?
+                new ObjectParameter("RUT", rUT) :
+                new ObjectParameter("RUT", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("FN_BANCOESTADO", rUTParameter);
+        }
     }
 }

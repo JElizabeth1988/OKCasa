@@ -31,6 +31,7 @@
     <EntitySetMapping Name="BANCO_ESTADO">
       <EntityTypeMapping TypeName="ModeloOkCasa.BANCO_ESTADO">
         <MappingFragment StoreEntitySet="BANCO_ESTADO">
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
           <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
           <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
         </MappingFragment>
@@ -337,5 +338,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="FN_BANCOESTADO" FunctionName="ModeloOkCasa.Store.FN_BANCOESTADO" />
   </EntityContainerMapping>
 </Mapping>
