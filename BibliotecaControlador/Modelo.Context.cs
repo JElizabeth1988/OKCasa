@@ -28,25 +28,19 @@ namespace BibliotecaDALC
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<AGENDA> AGENDA { get; set; }
         public DbSet<AGRUPAMIENTO> AGRUPAMIENTO { get; set; }
         public DbSet<ART_SANITARIO> ART_SANITARIO { get; set; }
-        public DbSet<BANCO_ESTADO> BANCO_ESTADO { get; set; }
         public DbSet<CLIENTE> CLIENTE { get; set; }
         public DbSet<COMUNA> COMUNA { get; set; }
-        public DbSet<ENTIDAD_BANCARIA> ENTIDAD_BANCARIA { get; set; }
         public DbSet<EQUIPO_TECNICO> EQUIPO_TECNICO { get; set; }
         public DbSet<INST_AGUA_POTABLE> INST_AGUA_POTABLE { get; set; }
         public DbSet<INST_ALCANTARILLADO> INST_ALCANTARILLADO { get; set; }
         public DbSet<INST_ELECTRICA> INST_ELECTRICA { get; set; }
         public DbSet<INST_GAS> INST_GAS { get; set; }
         public DbSet<INSUMO> INSUMO { get; set; }
-        public DbSet<PAGO> PAGO { get; set; }
         public DbSet<RED_AGUA> RED_AGUA { get; set; }
         public DbSet<SERVICIO> SERVICIO { get; set; }
-        public DbSet<SOLICITUD> SOLICITUD { get; set; }
         public DbSet<TECNICO> TECNICO { get; set; }
-        public DbSet<TIPO_PAGO> TIPO_PAGO { get; set; }
         public DbSet<TIPO_VIVIENDA> TIPO_VIVIENDA { get; set; }
         public DbSet<INFORME_INSPECCION> INFORME_INSPECCION { get; set; }
         public DbSet<INFORME_MEDICION> INFORME_MEDICION { get; set; }
@@ -54,51 +48,60 @@ namespace BibliotecaDALC
         public DbSet<TIPO_USUARIO> TIPO_USUARIO { get; set; }
         public DbSet<USUARIO> USUARIO { get; set; }
         public DbSet<INFORME_VERIFICACION> INFORME_VERIFICACION { get; set; }
+        public DbSet<BANCO_ESTADO> BANCO_ESTADO { get; set; }
+        public DbSet<TIPO_CLIENTE> TIPO_CLIENTE { get; set; }
+        public DbSet<AGENDA> AGENDA { get; set; }
+        public DbSet<PAGO> PAGO { get; set; }
+        public DbSet<SOLICITUD> SOLICITUD { get; set; }
     
         public virtual int SP_LISTAR_COMUNA()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_LISTAR_COMUNA");
         }
     
-        public virtual int SP_AGREGAR_CLIENTE(string rUT_CLIENTE, string pRIMER_NOMBRE, string sEGUNDO_NOMBRE, string aP_PATERNO, string aP_MATERNO, string dIRECCION, Nullable<decimal> tELEFONO, string eMAIL, Nullable<decimal> iD_COMUNA)
+        public virtual int SP_AGREGAR_CLIENTE(string p_RUT_CLIENTE, string p_PRIMER_NOMBRE, string p_SEGUNDO_NOMBRE, string p_AP_PATERNO, string p_AP_MATERNO, string p_DIRECCION, Nullable<decimal> p_TELEFONO, string p_EMAIL, Nullable<decimal> p_ID_COMUNA, Nullable<decimal> p_ID_TIPO_CLIENTE)
         {
-            var rUT_CLIENTEParameter = rUT_CLIENTE != null ?
-                new ObjectParameter("RUT_CLIENTE", rUT_CLIENTE) :
-                new ObjectParameter("RUT_CLIENTE", typeof(string));
+            var p_RUT_CLIENTEParameter = p_RUT_CLIENTE != null ?
+                new ObjectParameter("P_RUT_CLIENTE", p_RUT_CLIENTE) :
+                new ObjectParameter("P_RUT_CLIENTE", typeof(string));
     
-            var pRIMER_NOMBREParameter = pRIMER_NOMBRE != null ?
-                new ObjectParameter("PRIMER_NOMBRE", pRIMER_NOMBRE) :
-                new ObjectParameter("PRIMER_NOMBRE", typeof(string));
+            var p_PRIMER_NOMBREParameter = p_PRIMER_NOMBRE != null ?
+                new ObjectParameter("P_PRIMER_NOMBRE", p_PRIMER_NOMBRE) :
+                new ObjectParameter("P_PRIMER_NOMBRE", typeof(string));
     
-            var sEGUNDO_NOMBREParameter = sEGUNDO_NOMBRE != null ?
-                new ObjectParameter("SEGUNDO_NOMBRE", sEGUNDO_NOMBRE) :
-                new ObjectParameter("SEGUNDO_NOMBRE", typeof(string));
+            var p_SEGUNDO_NOMBREParameter = p_SEGUNDO_NOMBRE != null ?
+                new ObjectParameter("P_SEGUNDO_NOMBRE", p_SEGUNDO_NOMBRE) :
+                new ObjectParameter("P_SEGUNDO_NOMBRE", typeof(string));
     
-            var aP_PATERNOParameter = aP_PATERNO != null ?
-                new ObjectParameter("AP_PATERNO", aP_PATERNO) :
-                new ObjectParameter("AP_PATERNO", typeof(string));
+            var p_AP_PATERNOParameter = p_AP_PATERNO != null ?
+                new ObjectParameter("P_AP_PATERNO", p_AP_PATERNO) :
+                new ObjectParameter("P_AP_PATERNO", typeof(string));
     
-            var aP_MATERNOParameter = aP_MATERNO != null ?
-                new ObjectParameter("AP_MATERNO", aP_MATERNO) :
-                new ObjectParameter("AP_MATERNO", typeof(string));
+            var p_AP_MATERNOParameter = p_AP_MATERNO != null ?
+                new ObjectParameter("P_AP_MATERNO", p_AP_MATERNO) :
+                new ObjectParameter("P_AP_MATERNO", typeof(string));
     
-            var dIRECCIONParameter = dIRECCION != null ?
-                new ObjectParameter("DIRECCION", dIRECCION) :
-                new ObjectParameter("DIRECCION", typeof(string));
+            var p_DIRECCIONParameter = p_DIRECCION != null ?
+                new ObjectParameter("P_DIRECCION", p_DIRECCION) :
+                new ObjectParameter("P_DIRECCION", typeof(string));
     
-            var tELEFONOParameter = tELEFONO.HasValue ?
-                new ObjectParameter("TELEFONO", tELEFONO) :
-                new ObjectParameter("TELEFONO", typeof(decimal));
+            var p_TELEFONOParameter = p_TELEFONO.HasValue ?
+                new ObjectParameter("P_TELEFONO", p_TELEFONO) :
+                new ObjectParameter("P_TELEFONO", typeof(decimal));
     
-            var eMAILParameter = eMAIL != null ?
-                new ObjectParameter("EMAIL", eMAIL) :
-                new ObjectParameter("EMAIL", typeof(string));
+            var p_EMAILParameter = p_EMAIL != null ?
+                new ObjectParameter("P_EMAIL", p_EMAIL) :
+                new ObjectParameter("P_EMAIL", typeof(string));
     
-            var iD_COMUNAParameter = iD_COMUNA.HasValue ?
-                new ObjectParameter("ID_COMUNA", iD_COMUNA) :
-                new ObjectParameter("ID_COMUNA", typeof(decimal));
+            var p_ID_COMUNAParameter = p_ID_COMUNA.HasValue ?
+                new ObjectParameter("P_ID_COMUNA", p_ID_COMUNA) :
+                new ObjectParameter("P_ID_COMUNA", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_AGREGAR_CLIENTE", rUT_CLIENTEParameter, pRIMER_NOMBREParameter, sEGUNDO_NOMBREParameter, aP_PATERNOParameter, aP_MATERNOParameter, dIRECCIONParameter, tELEFONOParameter, eMAILParameter, iD_COMUNAParameter);
+            var p_ID_TIPO_CLIENTEParameter = p_ID_TIPO_CLIENTE.HasValue ?
+                new ObjectParameter("P_ID_TIPO_CLIENTE", p_ID_TIPO_CLIENTE) :
+                new ObjectParameter("P_ID_TIPO_CLIENTE", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_AGREGAR_CLIENTE", p_RUT_CLIENTEParameter, p_PRIMER_NOMBREParameter, p_SEGUNDO_NOMBREParameter, p_AP_PATERNOParameter, p_AP_MATERNOParameter, p_DIRECCIONParameter, p_TELEFONOParameter, p_EMAILParameter, p_ID_COMUNAParameter, p_ID_TIPO_CLIENTEParameter);
         }
     
         public virtual int SP_AGREGAR_SOLICITUD(Nullable<decimal> iD_SOLICITUD, Nullable<System.DateTime> fECHA_SOLICITUD, string hORA_SOLICITUD, string dIRECCION_VIVIENDA, string cONSTRUCTORA, string rUT_CLIENTE, Nullable<decimal> iD_AGENDA, Nullable<decimal> iD_PAGO, Nullable<decimal> iD_COMUNA, Nullable<decimal> iD_SERVICIO)

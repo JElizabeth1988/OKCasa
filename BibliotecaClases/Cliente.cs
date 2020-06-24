@@ -110,29 +110,31 @@ namespace BibliotecaNegocio
                     }
             }
         }
+        public int telefono { get; set; }
+                                           //private int _telefono;
 
-        private int _telefono;
-
-        public int telefono
-        {
-            get { return _telefono; }
-            set {
-                    if (value != 0 && value >90000000 && value <10000000)
-                    {
-                        _telefono = value;
-                    }
-                    else
-                    {
-                        err.AgregarError("Campo Teléfono no puede estar Vacío y debe tener un largo de 9 dígitos");
-                        //throw new ArgumentException("- Campo Teléfono no puede estar Vacío y debe tener un largo de 9 dígitos");
-                    }
-            }
-        }
+        /* public int telefono
+         {
+             get { return _telefono; }
+             set {
+                     if (value != 0 && value >90000000 && value <10000000)
+                     {
+                         _telefono = value;
+                     }
+                     else
+                     {
+                         err.AgregarError("Campo Teléfono no puede estar Vacío y debe tener un largo de 9 dígitos");
+                         //throw new ArgumentException("- Campo Teléfono no puede estar Vacío y debe tener un largo de 9 dígitos");
+                     }
+             }
+         }*/
 
         public string email { get; set; }
 
         
         public int id_comuna { get; set; }
+
+        public int id_tipo_cliente { get; set; }
 
 
         public Cliente()
@@ -143,7 +145,7 @@ namespace BibliotecaNegocio
 
         //CRUD
         //Guardar
-        public Boolean Guardar()
+        /*public Boolean Guardar()
         {
             try
             {
@@ -163,7 +165,8 @@ namespace BibliotecaNegocio
                 return false;
                 Logger.Mensaje(ex.Message);
             }
-        }
+        }*/
+
 
         //Eliminar
         public bool Eliminar()
@@ -259,7 +262,8 @@ namespace BibliotecaNegocio
                             direccion = cli.DIRECCION,
                             telefono = cli.TELEFONO,
                             email = cli.EMAIL,
-                            id_comuna = cli.ID_COMUNA
+                            id_comuna = cli.ID_COMUNA,
+                            id_tipo_cliente = int.Parse(cli.ID_TIPO_CLIENTE.ToString())
                             
                         };
                 return c.ToList();
@@ -279,6 +283,8 @@ namespace BibliotecaNegocio
                 var c = from cli in bdd.CLIENTE
                         join comu in bdd.COMUNA //Join con Comuna para traer el nombre de la comuna y no su id igualando el dato en común (id_comuna)
                           on cli.ID_COMUNA equals comu.ID_COMUNA
+                        join tip in bdd.TIPO_CLIENTE
+                          on cli.ID_TIPO_CLIENTE equals tip.ID_TIPO_CLIENTE
                         select new ListaClientes()
                         {
                             Rut = cli.RUT_CLIENTE,
@@ -289,7 +295,8 @@ namespace BibliotecaNegocio
                             Direccion = cli.DIRECCION,
                             Telefono = cli.TELEFONO,
                             Mail = cli.EMAIL,
-                            Comuna = comu.NOMBRE//Traigo el nombre no el id
+                            Comuna = comu.NOMBRE,//Traigo el nombre no el id
+                            tipo_cliente = tip.NOMBRE
 
                         };
                 return c.ToList();
@@ -306,7 +313,9 @@ namespace BibliotecaNegocio
         {
             var cl = from cli in bdd.CLIENTE
                      join comu in bdd.COMUNA
-                     on cli.ID_COMUNA equals comu.ID_COMUNA
+                        on cli.ID_COMUNA equals comu.ID_COMUNA
+                     join tip in bdd.TIPO_CLIENTE
+                        on cli.ID_TIPO_CLIENTE equals tip.ID_TIPO_CLIENTE
                      where cli.RUT_CLIENTE == rut
                      select new ListaClientes()
                      {
@@ -318,7 +327,8 @@ namespace BibliotecaNegocio
                          Direccion = cli.DIRECCION,
                          Telefono = cli.TELEFONO,
                          Mail = cli.EMAIL,
-                         Comuna = comu.NOMBRE//Traigo el nombre no el id
+                         Comuna = comu.NOMBRE,//Traigo el nombre no el id
+                         tipo_cliente = tip.NOMBRE
                      };
 
             return cl.ToList();
@@ -337,6 +347,7 @@ namespace BibliotecaNegocio
             public int Telefono { get; set; }
             public string Mail { get; set; }
             public string Comuna { get; set; }//Nombre no id
+            public string tipo_cliente { get; set; }
 
             public ListaClientes()
             {

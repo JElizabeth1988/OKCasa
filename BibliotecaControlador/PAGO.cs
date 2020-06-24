@@ -14,19 +14,11 @@ namespace BibliotecaDALC
     
     public partial class PAGO
     {
-        public PAGO()
-        {
-            this.SOLICITUD = new HashSet<SOLICITUD>();
-        }
-    
         public int ID_PAGO { get; set; }
         public int VALOR { get; set; }
-        public decimal DESCUENTO { get; set; }
-        public int ID_TIPO { get; set; }
-        public string RUT_CLIENTE { get; set; }
+        public int DESCUENTO { get; set; }
+        public int ID_SOLICITUD { get; set; }
     
-        public virtual CLIENTE CLIENTE { get; set; }
-        public virtual TIPO_PAGO TIPO_PAGO { get; set; }
-        public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
+        public virtual SOLICITUD SOLICITUD { get; set; }
     }
 }

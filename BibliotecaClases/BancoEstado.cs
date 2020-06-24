@@ -14,7 +14,7 @@ namespace BibliotecaNegocio
 
         public int id_banco { get; set; }
         public string rut { get; set; }
-
+        public string nombre { get; set; }
         public string Descripción { get; set; }
 
 

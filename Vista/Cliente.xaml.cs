@@ -12,6 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
+
+using System.Configuration;
+using System.Data;
+
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
@@ -25,6 +31,7 @@ namespace Vista
     /// </summary>
     public partial class Cliente : MetroWindow
     {
+        OracleConnection conn = null;
         public Cliente()
         {
             InitializeComponent();
@@ -94,6 +101,8 @@ namespace Vista
            
             btnModificar.Visibility = Visibility.Hidden;
             btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
+            rbNo.IsChecked = true;
+            rbSi.IsChecked = false;
             txtRut.IsEnabled = true;
 
             txtRut.Focus();//Mover el cursor a la poscición Rut
@@ -101,6 +110,56 @@ namespace Vista
 
 
         }
+
+        public bool Agregar(BibliotecaNegocio.Cliente client)
+        {
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
+                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
+                //nucna una instruccion sql en el sistema solo en base de datos
+                OracleCommand CMD = new OracleCommand();
+                //que tipo de tipo voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                //NO INGRESA YA QUE TIENE EL ESTADO Y DEVUELVE 0 o 1 DE FILAS AFECTADAS
+                //SI CAE EN LA EXCEPCION DEVUELVE 0 Y SI NO CAE DEVUELVE 1
+                CMD.CommandText = "SP_AGREGAR_CLIENTE";
+                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al tiposito.ID
+                CMD.Parameters.Add(new OracleParameter("P_RUT_CLIENTE", OracleDbType.Varchar2, 10)).Value = client.rut_cliente;
+                CMD.Parameters.Add(new OracleParameter("P_PRIMER_NOMBRE", OracleDbType.Varchar2, 20)).Value = client.primer_nombre;
+                CMD.Parameters.Add(new OracleParameter("P_SEGUNDO_NOMBRE", OracleDbType.Varchar2, 20)).Value = client.segundo_nombre;
+                CMD.Parameters.Add(new OracleParameter("P_AP_PATERNO", OracleDbType.Varchar2, 20)).Value = client.ap_paterno;
+                CMD.Parameters.Add(new OracleParameter("P_AP_MATERNO", OracleDbType.Varchar2, 20)).Value = client.ap_materno;
+                CMD.Parameters.Add(new OracleParameter("P_DIRECCION", OracleDbType.Varchar2, 50)).Value = client.direccion;
+                CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = client.telefono;
+                CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 50)).Value = client.email;
+                CMD.Parameters.Add(new OracleParameter("P_ID_COMUNA", OracleDbType.Int32)).Value = client.id_comuna;
+                CMD.Parameters.Add(new OracleParameter("P_ID_TIPO_CLIENTE", OracleDbType.Int32)).Value = client.id_tipo_cliente;
+
+                //asi se indica que es parametro de salida// parametro de direccion, y hacia donde es
+                //CMD.Parameters.Add(new OracleParameter("P_RESP", OracleDbType.Int32)).Direction = System.Data.ParameterDirection.Output;
+                //se abre la conexion
+                conn.Open();
+                //se ejecuta la query CON  VARIABLE DE SALIDA UNA DE SALIDA
+                CMD.ExecuteNonQuery();
+                // SE CONVIERTE EL P_RESP EN INT 32
+                //int cantidad = Convert.ToInt32(CMD.Parameters["P_RESP"].Value);
+                //se cierra la conexioin
+                conn.Close();
+                //se ven las filas afectadas
+                //return cantidad > 0;
+               return true;
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
+
 
         //Botón Guardar
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
@@ -120,19 +179,18 @@ namespace Vista
                 String direccion = txtDireccion.Text;
                 
                 int telefono = int.Parse(txtTelefono.Text);
-                /*int telefono = 0;
-                if (int.TryParse(txtTelefono.Text, out telefono))
+                
+                int Comuna = ((comboBoxItem1)cboComuna.SelectedItem).id;//Guardo el id
+                int tipo = 0;
+                if (rbSi.IsChecked ==true)
                 {
-                    
+                    tipo = 1;
                 }
                 else
                 {
-                    await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Ingrese un número de 9 dígitos"));
-                   txtTelefono.Focus();
-                    return;
-                }*/
-                int Comuna = ((comboBoxItem1)cboComuna.SelectedItem).id;//Guardo el id
+                    tipo = 2;
+                }
+              
                 BibliotecaNegocio.Cliente c = new BibliotecaNegocio.Cliente()
                 {
                     rut_cliente = rut,
@@ -143,15 +201,15 @@ namespace Vista
                     direccion = direccion,
                     telefono = telefono,
                     email = mail,
-                    id_comuna = Comuna
+                    id_comuna = Comuna,
+                    id_tipo_cliente = tipo
                     
                 };
-                bool resp = c.Guardar();
+                bool resp = Agregar(c);
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format(resp ? "Guardado" : "No Guardado"));
                 /*MessageBox.Show(resp ? "Guardado" : "No Guardado");*/
-
-
+                
                 //-----------------------------------------------------------------------------------------------
                 //MOSTRAR LISTA DE ERRORES
                 if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito

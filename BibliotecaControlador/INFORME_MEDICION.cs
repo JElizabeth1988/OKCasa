@@ -37,8 +37,8 @@ namespace BibliotecaDALC
     
         public virtual AGRUPAMIENTO AGRUPAMIENTO { get; set; }
         public virtual CLIENTE CLIENTE { get; set; }
-        public virtual SOLICITUD SOLICITUD { get; set; }
         public virtual TECNICO TECNICO { get; set; }
         public virtual TIPO_VIVIENDA TIPO_VIVIENDA { get; set; }
+        public virtual SOLICITUD SOLICITUD { get; set; }
     }
 }

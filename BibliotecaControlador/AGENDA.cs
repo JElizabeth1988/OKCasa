@@ -22,8 +22,8 @@ namespace BibliotecaDALC
         public int ID_AGENDA { get; set; }
         public System.DateTime DIA { get; set; }
         public string HORA { get; set; }
+        public string DISPONIBLE { get; set; }
         public int ID_EQUIPO { get; set; }
-        public string ESTADO { get; set; }
     
         public virtual EQUIPO_TECNICO EQUIPO_TECNICO { get; set; }
         public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }

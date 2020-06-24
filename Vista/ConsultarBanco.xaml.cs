@@ -71,45 +71,43 @@ namespace Vista
                 {
                     try
                     {
-                            string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                            conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                            //se crea una lista de tipo cine
-                            List<BancoEstado> lista_tipos = new List<BancoEstado>();
-                            //se crea un comando de oracle
-                            OracleCommand cmd = new OracleCommand();
-                            //se ejecutan los comandos de procedimeintos
-                            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                            //conexion
-                            cmd.Connection = conn;
-                            //procedimiento
-                            cmd.CommandText = "SP_BANC";
+                        string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
+                        conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
+                        //se crea una lista de tipo cine
+                        List<BancoEstado> lista_tipos = new List<BancoEstado>();
+                        //se crea un comando de oracle
+                        OracleCommand cmd = new OracleCommand();
+                        //se ejecutan los comandos de procedimeintos
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        //conexion
+                        cmd.Connection = conn;
+                        //procedimiento
+                        cmd.CommandText = "SP_BANCO_ESTADO";
 
-                            cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
-                            //Se agrega el parametro de salida
-                            cmd.Parameters.Add(new OracleParameter("HIPOTECARIOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
-                            //se abre la conexion
-                            conn.Open();
-                            //se crea un reader
-                            OracleDataReader dr = cmd.ExecuteReader();
-                            //mientras lea
-                            while (dr.Read())
-                            {
-                                // se crea un tiposito de tipo tipocine
-                                BancoEstado be = new BancoEstado();
+                        cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
+                        //Se agrega el parametro de salida
+                        cmd.Parameters.Add(new OracleParameter("HIPOTECARIOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+                        //se abre la conexion
+                        conn.Open();
+                        //se crea un reader
+                        OracleDataReader dr = cmd.ExecuteReader();
+                        //mientras lea
+                        while (dr.Read())
+                        {
+                            // se crea un tiposito de tipo tipocine
+                            BancoEstado be = new BancoEstado();
                                 
-                                //se obtiene el valor con getvalue es lo mismo pero con get
-                                be.id_banco = int.Parse(dr.GetValue(0).ToString());
-                                be.rut = dr.GetValue(1).ToString();
-                                be.Descripción = dr.GetValue(2).ToString();
+                            //se obtiene el valor con getvalue es lo mismo pero con get
+                            be.id_banco = int.Parse(dr.GetValue(0).ToString());
+                            be.rut = dr.GetValue(1).ToString();
+                            be.nombre = dr.GetValue(2).ToString();
+                            be.Descripción = dr.GetValue(3).ToString();
 
-                                lista_tipos.Add(be);
-                            }
-                            conn.Close();
-
-                           
-                            dgLista.ItemsSource = lista_tipos;
-                        
-                            dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
+                            lista_tipos.Add(be);
+                        }
+                        conn.Close();
+                        dgLista.ItemsSource = lista_tipos;                      
+                        dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
                         btnInvitación.Visibility = Visibility.Visible;//Botón se ve
                       
 

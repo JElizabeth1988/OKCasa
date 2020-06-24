@@ -18,8 +18,10 @@ namespace BibliotecaNegocio
         public string direccion_vivienda { get; set; }
         public string constructora { get; set; }
         public string rut_cliente { get; set; }
+        
+        public int pago { get; set; }
+        public int descuento { get; set; }
         public int id_agenda { get; set; }
-        public int id_pago { get; set; }
         public int id_comuna { get; set; }
         public int id_servicio { get; set; }
 
@@ -35,18 +37,19 @@ namespace BibliotecaNegocio
         {
             try
             {
-                var c = from cli in bdd.SOLICITUD
+                var c = from sol in bdd.SOLICITUD
                         select new Solicitud()
                         {
-                            id_solicitud = cli.ID_SOLICITUD,
-                            fecha_solicitud = cli.FECHA_SOLICITUD,
-                            
-                            direccion_vivienda = cli.DIRECCION_VIVIENDA,
-                            constructora = cli.CONSTRUCTORA,
-                            id_agenda = cli.ID_AGENDA,
-                            id_pago = cli.ID_PAGO,
-                            id_comuna = cli.ID_COMUNA,
-                            id_servicio = cli.ID_SERVICIO
+                            id_solicitud = sol.ID_SOLICITUD,
+                            fecha_solicitud =DateTime.Parse( sol.FECHA_SOLICITUD.ToString()),                            
+                            direccion_vivienda = sol.DIRECCION_VIVIENDA,
+                            constructora = sol.CONSTRUCTORA,
+                            rut_cliente = sol.RUT_CLIENTE,
+                            pago = sol.PAGO,
+                            descuento = int.Parse(sol.DESCUENTO.ToString()),
+                            id_agenda = sol.ID_AGENDA,                            
+                            id_comuna = sol.ID_COMUNA,
+                            id_servicio = sol.ID_SERVICIO
 
                         };
                 return c.ToList();

@@ -41,8 +41,8 @@ namespace BibliotecaDALC
         public virtual INST_ELECTRICA INST_ELECTRICA { get; set; }
         public virtual INST_GAS INST_GAS { get; set; }
         public virtual RED_AGUA RED_AGUA { get; set; }
-        public virtual SOLICITUD SOLICITUD { get; set; }
         public virtual TECNICO TECNICO { get; set; }
         public virtual TIPO_VIVIENDA TIPO_VIVIENDA { get; set; }
+        public virtual SOLICITUD SOLICITUD { get; set; }
     }
 }

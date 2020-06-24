@@ -57,7 +57,6 @@
     <Compile Include="CommonBC.cs" />
     <Compile Include="Comuna.cs" />
     <Compile Include="DaoErrores.cs" />
-    <Compile Include="EntidadBancaria.cs" />
     <Compile Include="EquipoInsumo.cs" />
     <Compile Include="EquipoTecnico.cs" />
     <Compile Include="InformeInspeccion.cs" />
@@ -76,9 +75,8 @@
     <Compile Include="Servicio.cs" />
     <Compile Include="Solicitud.cs" />
     <Compile Include="Tecnico.cs" />
-    <Compile Include="TipoPago.cs" />
-    <Compile Include="TipoPagoBanco.cs" />
     <Compile Include="TipoVivienda.cs" />
+    <Compile Include="tipo_cliente.cs" />
     <Compile Include="Verificar.cs" />
   </ItemGroup>
   <ItemGroup>

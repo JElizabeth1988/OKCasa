@@ -16,13 +16,13 @@ namespace BibliotecaDALC
     {
         public SERVICIO()
         {
-            this.SOLICITUD1 = new HashSet<SOLICITUD>();
+            this.SOLICITUD = new HashSet<SOLICITUD>();
         }
     
         public int ID_SERVICIO { get; set; }
         public string NOMBRE { get; set; }
         public int VALOR { get; set; }
     
-        public virtual ICollection<SOLICITUD> SOLICITUD1 { get; set; }
+        public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
     }
 }

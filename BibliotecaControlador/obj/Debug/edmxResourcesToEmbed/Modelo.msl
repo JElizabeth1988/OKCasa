@@ -1,17 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ModeloOkCasaStoreContainer" CdmEntityContainer="OkCasa_Entities">
-    <EntitySetMapping Name="AGENDA">
-      <EntityTypeMapping TypeName="ModeloOkCasa.AGENDA">
-        <MappingFragment StoreEntitySet="AGENDA">
-          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-          <ScalarProperty Name="ID_AGENDA" ColumnName="ID_AGENDA" />
-          <ScalarProperty Name="DIA" ColumnName="DIA" />
-          <ScalarProperty Name="HORA" ColumnName="HORA" />
-          <ScalarProperty Name="ID_EQUIPO" ColumnName="ID_EQUIPO" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="AGRUPAMIENTO">
       <EntityTypeMapping TypeName="ModeloOkCasa.AGRUPAMIENTO">
         <MappingFragment StoreEntitySet="AGRUPAMIENTO">
@@ -28,18 +17,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="BANCO_ESTADO">
-      <EntityTypeMapping TypeName="ModeloOkCasa.BANCO_ESTADO">
-        <MappingFragment StoreEntitySet="BANCO_ESTADO">
-          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
-          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="CLIENTE">
       <EntityTypeMapping TypeName="ModeloOkCasa.CLIENTE">
         <MappingFragment StoreEntitySet="CLIENTE">
+          <ScalarProperty Name="ID_TIPO_CLIENTE" ColumnName="ID_TIPO_CLIENTE" />
           <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
           <ScalarProperty Name="PRIMER_NOMBRE" ColumnName="PRIMER_NOMBRE" />
           <ScalarProperty Name="SEGUNDO_NOMBRE" ColumnName="SEGUNDO_NOMBRE" />
@@ -56,14 +37,6 @@
       <EntityTypeMapping TypeName="ModeloOkCasa.COMUNA">
         <MappingFragment StoreEntitySet="COMUNA">
           <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ENTIDAD_BANCARIA">
-      <EntityTypeMapping TypeName="ModeloOkCasa.ENTIDAD_BANCARIA">
-        <MappingFragment StoreEntitySet="ENTIDAD_BANCARIA">
-          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -116,17 +89,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PAGO">
-      <EntityTypeMapping TypeName="ModeloOkCasa.PAGO">
-        <MappingFragment StoreEntitySet="PAGO">
-          <ScalarProperty Name="ID_PAGO" ColumnName="ID_PAGO" />
-          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
-          <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
-          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
-          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="RED_AGUA">
       <EntityTypeMapping TypeName="ModeloOkCasa.RED_AGUA">
         <MappingFragment StoreEntitySet="RED_AGUA">
@@ -141,21 +103,6 @@
           <ScalarProperty Name="ID_SERVICIO" ColumnName="ID_SERVICIO" />
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
           <ScalarProperty Name="VALOR" ColumnName="VALOR" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="SOLICITUD">
-      <EntityTypeMapping TypeName="ModeloOkCasa.SOLICITUD">
-        <MappingFragment StoreEntitySet="SOLICITUD">
-          <ScalarProperty Name="ID_SERVICIO" ColumnName="ID_SERVICIO" />
-          <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
-          <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
-          <ScalarProperty Name="FECHA_SOLICITUD" ColumnName="FECHA_SOLICITUD" />
-          <ScalarProperty Name="DIRECCION_VIVIENDA" ColumnName="DIRECCION_VIVIENDA" />
-          <ScalarProperty Name="CONSTRUCTORA" ColumnName="CONSTRUCTORA" />
-          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
-          <ScalarProperty Name="ID_AGENDA" ColumnName="ID_AGENDA" />
-          <ScalarProperty Name="ID_PAGO" ColumnName="ID_PAGO" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -175,14 +122,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TIPO_PAGO">
-      <EntityTypeMapping TypeName="ModeloOkCasa.TIPO_PAGO">
-        <MappingFragment StoreEntitySet="TIPO_PAGO">
-          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TIPO_VIVIENDA">
       <EntityTypeMapping TypeName="ModeloOkCasa.TIPO_VIVIENDA">
         <MappingFragment StoreEntitySet="TIPO_VIVIENDA">
@@ -197,14 +136,6 @@
       </EndProperty>
       <EndProperty Name="EQUIPO_TECNICO">
         <ScalarProperty Name="ID_EQUIPO" ColumnName="ID_EQUIPO" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="TIPO_PAGO_BANCO" TypeName="ModeloOkCasa.TIPO_PAGO_BANCO" StoreEntitySet="TIPO_PAGO_BANCO">
-      <EndProperty Name="TIPO_PAGO">
-        <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
-      </EndProperty>
-      <EndProperty Name="ENTIDAD_BANCARIA">
-        <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
       </EndProperty>
     </AssociationSetMapping>
     <EntitySetMapping Name="INFORME_INSPECCION">
@@ -338,6 +269,60 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="FN_BANCOESTADO" FunctionName="ModeloOkCasa.Store.FN_BANCOESTADO" />
+    <EntitySetMapping Name="BANCO_ESTADO">
+      <EntityTypeMapping TypeName="ModeloOkCasa.BANCO_ESTADO">
+        <MappingFragment StoreEntitySet="BANCO_ESTADO">
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="NOMBRE_CLIENTE" ColumnName="NOMBRE_CLIENTE" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_CLIENTE">
+      <EntityTypeMapping TypeName="ModeloOkCasa.TIPO_CLIENTE">
+        <MappingFragment StoreEntitySet="TIPO_CLIENTE">
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_TIPO_CLIENTE" ColumnName="ID_TIPO_CLIENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AGENDA">
+      <EntityTypeMapping TypeName="ModeloOkCasa.AGENDA">
+        <MappingFragment StoreEntitySet="AGENDA">
+          <ScalarProperty Name="ID_EQUIPO" ColumnName="ID_EQUIPO" />
+          <ScalarProperty Name="DISPONIBLE" ColumnName="DISPONIBLE" />
+          <ScalarProperty Name="HORA" ColumnName="HORA" />
+          <ScalarProperty Name="DIA" ColumnName="DIA" />
+          <ScalarProperty Name="ID_AGENDA" ColumnName="ID_AGENDA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAGO">
+      <EntityTypeMapping TypeName="ModeloOkCasa.PAGO">
+        <MappingFragment StoreEntitySet="PAGO">
+          <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
+          <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
+          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+          <ScalarProperty Name="ID_PAGO" ColumnName="ID_PAGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOLICITUD">
+      <EntityTypeMapping TypeName="ModeloOkCasa.SOLICITUD">
+        <MappingFragment StoreEntitySet="SOLICITUD">
+          <ScalarProperty Name="ID_SERVICIO" ColumnName="ID_SERVICIO" />
+          <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
+          <ScalarProperty Name="ID_AGENDA" ColumnName="ID_AGENDA" />
+          <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
+          <ScalarProperty Name="PAGO" ColumnName="PAGO" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+          <ScalarProperty Name="CONSTRUCTORA" ColumnName="CONSTRUCTORA" />
+          <ScalarProperty Name="DIRECCION_VIVIENDA" ColumnName="DIRECCION_VIVIENDA" />
+          <ScalarProperty Name="FECHA_SOLICITUD" ColumnName="FECHA_SOLICITUD" />
+          <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

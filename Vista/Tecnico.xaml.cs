@@ -12,6 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
+
+using System.Configuration;
+using System.Data;
+
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
@@ -25,6 +31,7 @@ namespace Vista
     /// </summary>
     public partial class Tecnico : MetroWindow
     {
+        OracleConnection conn = null;
         public Tecnico()
         {
             InitializeComponent();
@@ -211,6 +218,56 @@ namespace Vista
 
             txtRut.Focus();//Mover el cursor a la poscición Rut
         }
+        public bool Agregar(BibliotecaNegocio.Tecnico client)
+        {
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
+                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
+                //nucna una instruccion sql en el sistema solo en base de datos
+                OracleCommand CMD = new OracleCommand();
+                //que tipo de tipo voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                //NO INGRESA YA QUE TIENE EL ESTADO Y DEVUELVE 0 o 1 DE FILAS AFECTADAS
+                //SI CAE EN LA EXCEPCION DEVUELVE 0 Y SI NO CAE DEVUELVE 1
+                CMD.CommandText = "SP_AGREGAR_TECNICO";
+                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al tiposito.ID
+                CMD.Parameters.Add(new OracleParameter("P_RUT_TECNICO", OracleDbType.Varchar2, 10)).Value = client.rut_tecnico;
+                CMD.Parameters.Add(new OracleParameter("P_PRIMER_NOMBRE", OracleDbType.Varchar2, 20)).Value = client.primer_nombre;
+                CMD.Parameters.Add(new OracleParameter("P_SEGUNDO_NOMBRE", OracleDbType.Varchar2, 20)).Value = client.segundo_nombre;
+                CMD.Parameters.Add(new OracleParameter("P_AP_PATERNO", OracleDbType.Varchar2, 20)).Value = client.ap_paterno;
+                CMD.Parameters.Add(new OracleParameter("P_AP_MATERNO", OracleDbType.Varchar2, 20)).Value = client.ap_materno;
+                CMD.Parameters.Add(new OracleParameter("P_DIRECCION", OracleDbType.Varchar2, 50)).Value = client.direccion;
+                CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = client.telefono;
+                CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 50)).Value = client.email;
+                CMD.Parameters.Add(new OracleParameter("P_ID_EQUIPO", OracleDbType.Int32)).Value = client.id_equipo;
+                CMD.Parameters.Add(new OracleParameter("P_ID_COMUNA", OracleDbType.Int32)).Value = client.id_comuna;
+                
+
+                //asi se indica que es parametro de salida// parametro de direccion, y hacia donde es
+                //CMD.Parameters.Add(new OracleParameter("P_RESP", OracleDbType.Int32)).Direction = System.Data.ParameterDirection.Output;
+                //se abre la conexion
+                conn.Open();
+                //se ejecuta la query CON  VARIABLE DE SALIDA UNA DE SALIDA
+                CMD.ExecuteNonQuery();
+                // SE CONVIERTE EL P_RESP EN INT 32
+                //int cantidad = Convert.ToInt32(CMD.Parameters["P_RESP"].Value);
+                //se cierra la conexioin
+                conn.Close();
+                //se ven las filas afectadas
+                //return cantidad > 0;
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
+
 
         //Botón Guardar
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
@@ -228,22 +285,13 @@ namespace Vista
                 String apMaterno = txtApeMaterno.Text;
                 String mail = txtEmail.Text;
                 String direccion = txtDireccion.Text;
-                
-                int telefono = 0;
-                if (int.TryParse(txtTelefono.Text, out telefono))
-                {
 
-                }
-                else
-                {
-                    //await this.ShowMessageAsync("Mensaje:",
-                    //  string.Format("Ingrese un número de 9 dígitos"));
-                    //txtTelefono.Focus();
-                    return;
-                }
+                int telefono = int.Parse(txtTelefono.Text);
+                
                 int Comuna = ((comboBoxItem1)cboComuna.SelectedItem).id;//Guardo el id
                 int Equipo = ((comboBoxItem1)cbEquipo.SelectedItem).id;//Guardo el id
-                BibliotecaNegocio.Tecnico c = new BibliotecaNegocio.Tecnico()
+                
+                BibliotecaNegocio.Tecnico t = new BibliotecaNegocio.Tecnico()
                 {
                     rut_tecnico = rut,
                     primer_nombre = Nombre,
@@ -255,19 +303,19 @@ namespace Vista
                     email = mail,
                     id_equipo = Equipo,
                     id_comuna = Comuna
+                    
 
                 };
-                bool resp = c.Guardar();
+                bool resp = Agregar(t);
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format(resp ? "Guardado" : "No Guardado"));
                 /*MessageBox.Show(resp ? "Guardado" : "No Guardado");*/
-
 
                 //-----------------------------------------------------------------------------------------------
                 //MOSTRAR LISTA DE ERRORES
                 if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
                 {
-                    DaoErrores de = c.retornar();
+                    DaoErrores de = t.retornar();
                     string li = "";
                     foreach (string item in de.ListarErrores())
                     {
@@ -296,6 +344,7 @@ namespace Vista
 
             }
         }
+        
 
         //Botón modificar
         private async void btnModificar_Click(object sender, RoutedEventArgs e)

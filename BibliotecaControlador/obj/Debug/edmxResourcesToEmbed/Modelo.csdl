@@ -1,17 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ModeloOkCasa" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="AGENDA">
-    <Key>
-      <PropertyRef Name="ID_AGENDA" />
-    </Key>
-    <Property Name="ID_AGENDA" Type="Int32" Nullable="false" />
-    <Property Name="DIA" Type="DateTime" Nullable="false" />
-    <Property Name="HORA" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ID_EQUIPO" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="EQUIPO_TECNICO" Relationship="Self.AGENDA_EQUIPO_TECNICO_FK" FromRole="AGENDA" ToRole="EQUIPO_TECNICO" />
-    <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUD_AGENDA_FK" FromRole="AGENDA" ToRole="SOLICITUD" />
-    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="AGRUPAMIENTO">
     <Key>
       <PropertyRef Name="ID_AGRUP" />
@@ -31,15 +19,6 @@
     <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="INFORME_INSPECCION" Relationship="ModeloOkCasa.INFORME_ART_SANITARIO_FK" FromRole="ART_SANITARIO" ToRole="INFORME_INSPECCION" />
   </EntityType>
-  <EntityType Name="BANCO_ESTADO">
-    <Key>
-      <PropertyRef Name="ID_BANCO" />
-    </Key>
-    <Property Name="ID_BANCO" Type="Int32" Nullable="false" />
-    <Property Name="RUT_CLIENTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="CLIENTE" Relationship="Self.BANCO_ESTADO_CLIENTE_FKV2" FromRole="BANCO_ESTADO" ToRole="CLIENTE" />
-    <Property Name="DESCRIPCION" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="CLIENTE">
     <Key>
       <PropertyRef Name="RUT_CLIENTE" />
@@ -53,15 +32,15 @@
     <Property Name="TELEFONO" Type="Int32" Nullable="false" />
     <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ID_COMUNA" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="BANCO_ESTADO" Relationship="Self.BANCO_ESTADO_CLIENTE_FKV2" FromRole="CLIENTE" ToRole="BANCO_ESTADO" />
     <NavigationProperty Name="COMUNA" Relationship="Self.CLIENTE_COMUNA_FKV2" FromRole="CLIENTE" ToRole="COMUNA" />
-    <NavigationProperty Name="PAGO" Relationship="Self.PAGO_CLIENTE_FK" FromRole="CLIENTE" ToRole="PAGO" />
-    <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUD_CLIENTE_FK" FromRole="CLIENTE" ToRole="SOLICITUD" />
     <NavigationProperty Name="INFORME_INSPECCION" Relationship="ModeloOkCasa.INFORME_CLIENTE_FK" FromRole="CLIENTE" ToRole="INFORME_INSPECCION" />
     <NavigationProperty Name="INFORME_MEDICION" Relationship="ModeloOkCasa.INFORME_MED_CLIENTE_FK" FromRole="CLIENTE" ToRole="INFORME_MEDICION" />
     <NavigationProperty Name="INFORME_TERMOGRAFIA" Relationship="ModeloOkCasa.INFORME_TERMO_CLIENTE_FK" FromRole="CLIENTE" ToRole="INFORME_TERMOGRAFIA" />
     <NavigationProperty Name="USUARIO" Relationship="ModeloOkCasa.LOGIN_CLIENTE_FK" FromRole="CLIENTE" ToRole="USUARIO" />
     <NavigationProperty Name="INFORME_VERIFICACION" Relationship="ModeloOkCasa.INFORME_CLIENTE_FKV2" FromRole="CLIENTE" ToRole="INFORME_VERIFICACION" />
+    <Property Name="ID_TIPO_CLIENTE" Type="Int32" />
+    <NavigationProperty Name="TIPO_CLIENTE" Relationship="ModeloOkCasa.CLIENTE_TIPO_CLIENTE_FK" FromRole="CLIENTE" ToRole="TIPO_CLIENTE" />
+    <NavigationProperty Name="SOLICITUD" Relationship="ModeloOkCasa.SOLICITUD_CLIENTE_FK" FromRole="CLIENTE" ToRole="SOLICITUD" />
   </EntityType>
   <EntityType Name="COMUNA">
     <Key>
@@ -73,23 +52,15 @@
     <NavigationProperty Name="TECNICO" Relationship="Self.TECNICO_COMUNA_FKV2" FromRole="COMUNA" ToRole="TECNICO" />
     <NavigationProperty Name="SOLICITUD" Relationship="ModeloOkCasa.SOLICITUD_COMUNA_FK" FromRole="COMUNA" ToRole="SOLICITUD" />
   </EntityType>
-  <EntityType Name="ENTIDAD_BANCARIA">
-    <Key>
-      <PropertyRef Name="ID_BANCO" />
-    </Key>
-    <Property Name="ID_BANCO" Type="Int32" Nullable="false" />
-    <Property Name="NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="TIPO_PAGO" Relationship="Self.TIPO_PAGO_BANCO" FromRole="ENTIDAD_BANCARIA" ToRole="TIPO_PAGO" />
-  </EntityType>
   <EntityType Name="EQUIPO_TECNICO">
     <Key>
       <PropertyRef Name="ID_EQUIPO" />
     </Key>
     <Property Name="ID_EQUIPO" Type="Int32" Nullable="false" />
     <Property Name="NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="AGENDA" Relationship="Self.AGENDA_EQUIPO_TECNICO_FK" FromRole="EQUIPO_TECNICO" ToRole="AGENDA" />
     <NavigationProperty Name="TECNICO" Relationship="Self.TECNICO_EQUIPO_TECNICO_FK" FromRole="EQUIPO_TECNICO" ToRole="TECNICO" />
     <NavigationProperty Name="INSUMO" Relationship="Self.EQUIPO_INSUMO" FromRole="EQUIPO_TECNICO" ToRole="INSUMO" />
+    <NavigationProperty Name="AGENDA" Relationship="ModeloOkCasa.AGENDA_EQUIPO_TECNICO_FK" FromRole="EQUIPO_TECNICO" ToRole="AGENDA" />
   </EntityType>
   <EntityType Name="INST_AGUA_POTABLE">
     <Key>
@@ -131,19 +102,6 @@
     <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="EQUIPO_TECNICO" Relationship="Self.EQUIPO_INSUMO" FromRole="INSUMO" ToRole="EQUIPO_TECNICO" />
   </EntityType>
-  <EntityType Name="PAGO">
-    <Key>
-      <PropertyRef Name="ID_PAGO" />
-    </Key>
-    <Property Name="ID_PAGO" Type="Int32" Nullable="false" />
-    <Property Name="VALOR" Type="Int32" Nullable="false" />
-    <Property Name="DESCUENTO" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
-    <Property Name="ID_TIPO" Type="Int32" Nullable="false" />
-    <Property Name="RUT_CLIENTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="CLIENTE" Relationship="Self.PAGO_CLIENTE_FK" FromRole="PAGO" ToRole="CLIENTE" />
-    <NavigationProperty Name="TIPO_PAGO" Relationship="Self.PAGO_TIPO_PAGO_FK" FromRole="PAGO" ToRole="TIPO_PAGO" />
-    <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUD_PAGO_FK" FromRole="PAGO" ToRole="SOLICITUD" />
-  </EntityType>
   <EntityType Name="RED_AGUA">
     <Key>
       <PropertyRef Name="ID_AGUA" />
@@ -159,30 +117,7 @@
     <Property Name="ID_SERVICIO" Type="Int32" Nullable="false" />
     <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="VALOR" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="SOLICITUD1" Relationship="ModeloOkCasa.SOLICITUD_SERVICIO_FK" FromRole="SERVICIO" ToRole="SOLICITUD" />
-  </EntityType>
-  <EntityType Name="SOLICITUD">
-    <Key>
-      <PropertyRef Name="ID_SOLICITUD" />
-    </Key>
-    <Property Name="ID_SOLICITUD" Type="Int32" Nullable="false" />
-    <Property Name="FECHA_SOLICITUD" Type="DateTime" Nullable="false" />
-    <Property Name="DIRECCION_VIVIENDA" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="CONSTRUCTORA" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="RUT_CLIENTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ID_AGENDA" Type="Int32" Nullable="false" />
-    <Property Name="ID_PAGO" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="AGENDA" Relationship="Self.SOLICITUD_AGENDA_FK" FromRole="SOLICITUD" ToRole="AGENDA" />
-    <NavigationProperty Name="CLIENTE" Relationship="Self.SOLICITUD_CLIENTE_FK" FromRole="SOLICITUD" ToRole="CLIENTE" />
-    <NavigationProperty Name="PAGO" Relationship="Self.SOLICITUD_PAGO_FK" FromRole="SOLICITUD" ToRole="PAGO" />
-    <Property Name="ID_COMUNA" Type="Int32" Nullable="false" />
-    <Property Name="ID_SERVICIO" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="COMUNA" Relationship="ModeloOkCasa.SOLICITUD_COMUNA_FK" FromRole="SOLICITUD" ToRole="COMUNA" />
-    <NavigationProperty Name="INFORME_INSPECCION" Relationship="ModeloOkCasa.INFORME_SOLICITUD_FKV1" FromRole="SOLICITUD" ToRole="INFORME_INSPECCION" />
-    <NavigationProperty Name="INFORME_MEDICION" Relationship="ModeloOkCasa.INFORME_MED_SOLICITUD_FK" FromRole="SOLICITUD" ToRole="INFORME_MEDICION" />
-    <NavigationProperty Name="INFORME_TERMOGRAFIA" Relationship="ModeloOkCasa.INFORME_TERMO_SOLICITUD_FK" FromRole="SOLICITUD" ToRole="INFORME_TERMOGRAFIA" />
-    <NavigationProperty Name="SERVICIO1" Relationship="ModeloOkCasa.SOLICITUD_SERVICIO_FK" FromRole="SOLICITUD" ToRole="SERVICIO" />
-    <NavigationProperty Name="INFORME_VERIFICACION" Relationship="ModeloOkCasa.INFORME_SOLICITUD_FK" FromRole="SOLICITUD" ToRole="INFORME_VERIFICACION" />
+    <NavigationProperty Name="SOLICITUD" Relationship="ModeloOkCasa.SOLICITUD_SERVICIO_FK" FromRole="SERVICIO" ToRole="SOLICITUD" />
   </EntityType>
   <EntityType Name="TECNICO">
     <Key>
@@ -205,15 +140,6 @@
     <NavigationProperty Name="INFORME_TERMOGRAFIA" Relationship="ModeloOkCasa.INFORME_TERMO_TECNICO_FK" FromRole="TECNICO" ToRole="INFORME_TERMOGRAFIA" />
     <NavigationProperty Name="INFORME_VERIFICACION" Relationship="ModeloOkCasa.INFORME_TECNICO_FK" FromRole="TECNICO" ToRole="INFORME_VERIFICACION" />
   </EntityType>
-  <EntityType Name="TIPO_PAGO">
-    <Key>
-      <PropertyRef Name="ID_TIPO" />
-    </Key>
-    <Property Name="ID_TIPO" Type="Int32" Nullable="false" />
-    <Property Name="NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="PAGO" Relationship="Self.PAGO_TIPO_PAGO_FK" FromRole="TIPO_PAGO" ToRole="PAGO" />
-    <NavigationProperty Name="ENTIDAD_BANCARIA" Relationship="Self.TIPO_PAGO_BANCO" FromRole="TIPO_PAGO" ToRole="ENTIDAD_BANCARIA" />
-  </EntityType>
   <EntityType Name="TIPO_VIVIENDA">
     <Key>
       <PropertyRef Name="ID_TIPO" />
@@ -225,42 +151,6 @@
     <NavigationProperty Name="INFORME_TERMOGRAFIA" Relationship="ModeloOkCasa.INFORME_TERMO_TIPO_VIV_FK" FromRole="TIPO_VIVIENDA" ToRole="INFORME_TERMOGRAFIA" />
     <NavigationProperty Name="INFORME_VERIFICACION" Relationship="ModeloOkCasa.INFORME_TIPO_VIV_FK" FromRole="TIPO_VIVIENDA" ToRole="INFORME_VERIFICACION" />
   </EntityType>
-  <Association Name="AGENDA_EQUIPO_TECNICO_FK">
-    <End Role="EQUIPO_TECNICO" Type="Self.EQUIPO_TECNICO" Multiplicity="1" />
-    <End Role="AGENDA" Type="Self.AGENDA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="EQUIPO_TECNICO">
-        <PropertyRef Name="ID_EQUIPO" />
-      </Principal>
-      <Dependent Role="AGENDA">
-        <PropertyRef Name="ID_EQUIPO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="SOLICITUD_AGENDA_FK">
-    <End Role="AGENDA" Type="Self.AGENDA" Multiplicity="1" />
-    <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AGENDA">
-        <PropertyRef Name="ID_AGENDA" />
-      </Principal>
-      <Dependent Role="SOLICITUD">
-        <PropertyRef Name="ID_AGENDA" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="BANCO_ESTADO_CLIENTE_FKV2">
-    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
-    <End Role="BANCO_ESTADO" Type="Self.BANCO_ESTADO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CLIENTE">
-        <PropertyRef Name="RUT_CLIENTE" />
-      </Principal>
-      <Dependent Role="BANCO_ESTADO">
-        <PropertyRef Name="RUT_CLIENTE" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="CLIENTE_COMUNA_FKV2">
     <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="1" />
     <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
@@ -270,30 +160,6 @@
       </Principal>
       <Dependent Role="CLIENTE">
         <PropertyRef Name="ID_COMUNA" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PAGO_CLIENTE_FK">
-    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
-    <End Role="PAGO" Type="Self.PAGO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CLIENTE">
-        <PropertyRef Name="RUT_CLIENTE" />
-      </Principal>
-      <Dependent Role="PAGO">
-        <PropertyRef Name="RUT_CLIENTE" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="SOLICITUD_CLIENTE_FK">
-    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
-    <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CLIENTE">
-        <PropertyRef Name="RUT_CLIENTE" />
-      </Principal>
-      <Dependent Role="SOLICITUD">
-        <PropertyRef Name="RUT_CLIENTE" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -321,82 +187,28 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="PAGO_TIPO_PAGO_FK">
-    <End Role="TIPO_PAGO" Type="Self.TIPO_PAGO" Multiplicity="1" />
-    <End Role="PAGO" Type="Self.PAGO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TIPO_PAGO">
-        <PropertyRef Name="ID_TIPO" />
-      </Principal>
-      <Dependent Role="PAGO">
-        <PropertyRef Name="ID_TIPO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="SOLICITUD_PAGO_FK">
-    <End Role="PAGO" Type="Self.PAGO" Multiplicity="1" />
-    <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PAGO">
-        <PropertyRef Name="ID_PAGO" />
-      </Principal>
-      <Dependent Role="SOLICITUD">
-        <PropertyRef Name="ID_PAGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="EQUIPO_INSUMO">
     <End Role="INSUMO" Type="Self.INSUMO" Multiplicity="*" />
     <End Role="EQUIPO_TECNICO" Type="Self.EQUIPO_TECNICO" Multiplicity="*" />
   </Association>
-  <Association Name="TIPO_PAGO_BANCO">
-    <End Role="TIPO_PAGO" Type="Self.TIPO_PAGO" Multiplicity="*" />
-    <End Role="ENTIDAD_BANCARIA" Type="Self.ENTIDAD_BANCARIA" Multiplicity="*" />
-  </Association>
   <EntityContainer Name="OkCasa_Entities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="AGENDA" EntityType="Self.AGENDA" />
     <EntitySet Name="AGRUPAMIENTO" EntityType="Self.AGRUPAMIENTO" />
     <EntitySet Name="ART_SANITARIO" EntityType="Self.ART_SANITARIO" />
-    <EntitySet Name="BANCO_ESTADO" EntityType="Self.BANCO_ESTADO" />
     <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
     <EntitySet Name="COMUNA" EntityType="Self.COMUNA" />
-    <EntitySet Name="ENTIDAD_BANCARIA" EntityType="Self.ENTIDAD_BANCARIA" />
     <EntitySet Name="EQUIPO_TECNICO" EntityType="Self.EQUIPO_TECNICO" />
     <EntitySet Name="INST_AGUA_POTABLE" EntityType="Self.INST_AGUA_POTABLE" />
     <EntitySet Name="INST_ALCANTARILLADO" EntityType="Self.INST_ALCANTARILLADO" />
     <EntitySet Name="INST_ELECTRICA" EntityType="Self.INST_ELECTRICA" />
     <EntitySet Name="INST_GAS" EntityType="Self.INST_GAS" />
     <EntitySet Name="INSUMO" EntityType="Self.INSUMO" />
-    <EntitySet Name="PAGO" EntityType="Self.PAGO" />
     <EntitySet Name="RED_AGUA" EntityType="Self.RED_AGUA" />
     <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" />
-    <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" />
     <EntitySet Name="TECNICO" EntityType="Self.TECNICO" />
-    <EntitySet Name="TIPO_PAGO" EntityType="Self.TIPO_PAGO" />
     <EntitySet Name="TIPO_VIVIENDA" EntityType="Self.TIPO_VIVIENDA" />
-    <AssociationSet Name="AGENDA_EQUIPO_TECNICO_FK" Association="Self.AGENDA_EQUIPO_TECNICO_FK">
-      <End Role="EQUIPO_TECNICO" EntitySet="EQUIPO_TECNICO" />
-      <End Role="AGENDA" EntitySet="AGENDA" />
-    </AssociationSet>
-    <AssociationSet Name="SOLICITUD_AGENDA_FK" Association="Self.SOLICITUD_AGENDA_FK">
-      <End Role="AGENDA" EntitySet="AGENDA" />
-      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
-    </AssociationSet>
-    <AssociationSet Name="BANCO_ESTADO_CLIENTE_FKV2" Association="Self.BANCO_ESTADO_CLIENTE_FKV2">
-      <End Role="CLIENTE" EntitySet="CLIENTE" />
-      <End Role="BANCO_ESTADO" EntitySet="BANCO_ESTADO" />
-    </AssociationSet>
     <AssociationSet Name="CLIENTE_COMUNA_FKV2" Association="Self.CLIENTE_COMUNA_FKV2">
       <End Role="COMUNA" EntitySet="COMUNA" />
       <End Role="CLIENTE" EntitySet="CLIENTE" />
-    </AssociationSet>
-    <AssociationSet Name="PAGO_CLIENTE_FK" Association="Self.PAGO_CLIENTE_FK">
-      <End Role="CLIENTE" EntitySet="CLIENTE" />
-      <End Role="PAGO" EntitySet="PAGO" />
-    </AssociationSet>
-    <AssociationSet Name="SOLICITUD_CLIENTE_FK" Association="Self.SOLICITUD_CLIENTE_FK">
-      <End Role="CLIENTE" EntitySet="CLIENTE" />
-      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
     </AssociationSet>
     <AssociationSet Name="TECNICO_COMUNA_FKV2" Association="Self.TECNICO_COMUNA_FKV2">
       <End Role="COMUNA" EntitySet="COMUNA" />
@@ -406,21 +218,9 @@
       <End Role="EQUIPO_TECNICO" EntitySet="EQUIPO_TECNICO" />
       <End Role="TECNICO" EntitySet="TECNICO" />
     </AssociationSet>
-    <AssociationSet Name="PAGO_TIPO_PAGO_FK" Association="Self.PAGO_TIPO_PAGO_FK">
-      <End Role="TIPO_PAGO" EntitySet="TIPO_PAGO" />
-      <End Role="PAGO" EntitySet="PAGO" />
-    </AssociationSet>
-    <AssociationSet Name="SOLICITUD_PAGO_FK" Association="Self.SOLICITUD_PAGO_FK">
-      <End Role="PAGO" EntitySet="PAGO" />
-      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
-    </AssociationSet>
     <AssociationSet Name="EQUIPO_INSUMO" Association="Self.EQUIPO_INSUMO">
       <End Role="INSUMO" EntitySet="INSUMO" />
       <End Role="EQUIPO_TECNICO" EntitySet="EQUIPO_TECNICO" />
-    </AssociationSet>
-    <AssociationSet Name="TIPO_PAGO_BANCO" Association="Self.TIPO_PAGO_BANCO">
-      <End Role="TIPO_PAGO" EntitySet="TIPO_PAGO" />
-      <End Role="ENTIDAD_BANCARIA" EntitySet="ENTIDAD_BANCARIA" />
     </AssociationSet>
     <FunctionImport Name="SP_LISTAR_COMUNA" />
     <EntitySet Name="INFORME_INSPECCION" EntityType="ModeloOkCasa.INFORME_INSPECCION" />
@@ -460,10 +260,6 @@
       <End Role="CLIENTE" EntitySet="CLIENTE" />
       <End Role="USUARIO" EntitySet="USUARIO" />
     </AssociationSet>
-    <AssociationSet Name="SOLICITUD_COMUNA_FK" Association="ModeloOkCasa.SOLICITUD_COMUNA_FK">
-      <End Role="COMUNA" EntitySet="COMUNA" />
-      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
-    </AssociationSet>
     <AssociationSet Name="INFORME_AGUA_PO_FK" Association="ModeloOkCasa.INFORME_AGUA_PO_FK">
       <End Role="INST_AGUA_POTABLE" EntitySet="INST_AGUA_POTABLE" />
       <End Role="INFORME_INSPECCION" EntitySet="INFORME_INSPECCION" />
@@ -484,10 +280,6 @@
       <End Role="RED_AGUA" EntitySet="RED_AGUA" />
       <End Role="INFORME_INSPECCION" EntitySet="INFORME_INSPECCION" />
     </AssociationSet>
-    <AssociationSet Name="INFORME_SOLICITUD_FKV1" Association="ModeloOkCasa.INFORME_SOLICITUD_FKV1">
-      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
-      <End Role="INFORME_INSPECCION" EntitySet="INFORME_INSPECCION" />
-    </AssociationSet>
     <AssociationSet Name="INFORME_TECNICO_FKV1" Association="ModeloOkCasa.INFORME_TECNICO_FKV1">
       <End Role="TECNICO" EntitySet="TECNICO" />
       <End Role="INFORME_INSPECCION" EntitySet="INFORME_INSPECCION" />
@@ -495,10 +287,6 @@
     <AssociationSet Name="INFORME_TIPO_VIV_FKV1" Association="ModeloOkCasa.INFORME_TIPO_VIV_FKV1">
       <End Role="TIPO_VIVIENDA" EntitySet="TIPO_VIVIENDA" />
       <End Role="INFORME_INSPECCION" EntitySet="INFORME_INSPECCION" />
-    </AssociationSet>
-    <AssociationSet Name="INFORME_MED_SOLICITUD_FK" Association="ModeloOkCasa.INFORME_MED_SOLICITUD_FK">
-      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
-      <End Role="INFORME_MEDICION" EntitySet="INFORME_MEDICION" />
     </AssociationSet>
     <AssociationSet Name="INFORME_MED_TECNICO_FK" Association="ModeloOkCasa.INFORME_MED_TECNICO_FK">
       <End Role="TECNICO" EntitySet="TECNICO" />
@@ -508,10 +296,6 @@
       <End Role="TIPO_VIVIENDA" EntitySet="TIPO_VIVIENDA" />
       <End Role="INFORME_MEDICION" EntitySet="INFORME_MEDICION" />
     </AssociationSet>
-    <AssociationSet Name="INFORME_TERMO_SOLICITUD_FK" Association="ModeloOkCasa.INFORME_TERMO_SOLICITUD_FK">
-      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
-      <End Role="INFORME_TERMOGRAFIA" EntitySet="INFORME_TERMOGRAFIA" />
-    </AssociationSet>
     <AssociationSet Name="INFORME_TERMO_TECNICO_FK" Association="ModeloOkCasa.INFORME_TERMO_TECNICO_FK">
       <End Role="TECNICO" EntitySet="TECNICO" />
       <End Role="INFORME_TERMOGRAFIA" EntitySet="INFORME_TERMOGRAFIA" />
@@ -520,24 +304,21 @@
       <End Role="TIPO_VIVIENDA" EntitySet="TIPO_VIVIENDA" />
       <End Role="INFORME_TERMOGRAFIA" EntitySet="INFORME_TERMOGRAFIA" />
     </AssociationSet>
-    <AssociationSet Name="SOLICITUD_SERVICIO_FK" Association="ModeloOkCasa.SOLICITUD_SERVICIO_FK">
-      <End Role="SERVICIO" EntitySet="SERVICIO" />
-      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
-    </AssociationSet>
     <AssociationSet Name="USUARIO_TIPO_USUARIO_FK" Association="ModeloOkCasa.USUARIO_TIPO_USUARIO_FK">
       <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
       <End Role="USUARIO" EntitySet="USUARIO" />
     </AssociationSet>
     <FunctionImport Name="SP_AGREGAR_CLIENTE">
-      <Parameter Name="RUT_CLIENTE" Mode="In" Type="String" />
-      <Parameter Name="PRIMER_NOMBRE" Mode="In" Type="String" />
-      <Parameter Name="SEGUNDO_NOMBRE" Mode="In" Type="String" />
-      <Parameter Name="AP_PATERNO" Mode="In" Type="String" />
-      <Parameter Name="AP_MATERNO" Mode="In" Type="String" />
-      <Parameter Name="DIRECCION" Mode="In" Type="String" />
-      <Parameter Name="TELEFONO" Mode="In" Type="Decimal" />
-      <Parameter Name="EMAIL" Mode="In" Type="String" />
-      <Parameter Name="ID_COMUNA" Mode="In" Type="Decimal" />
+      <Parameter Name="P_RUT_CLIENTE" Mode="In" Type="String" />
+      <Parameter Name="P_PRIMER_NOMBRE" Mode="In" Type="String" />
+      <Parameter Name="P_SEGUNDO_NOMBRE" Mode="In" Type="String" />
+      <Parameter Name="P_AP_PATERNO" Mode="In" Type="String" />
+      <Parameter Name="P_AP_MATERNO" Mode="In" Type="String" />
+      <Parameter Name="P_DIRECCION" Mode="In" Type="String" />
+      <Parameter Name="P_TELEFONO" Mode="In" Type="Decimal" />
+      <Parameter Name="P_EMAIL" Mode="In" Type="String" />
+      <Parameter Name="P_ID_COMUNA" Mode="In" Type="Decimal" />
+      <Parameter Name="P_ID_TIPO_CLIENTE" Mode="In" Type="Decimal" />
     </FunctionImport>
     <FunctionImport Name="SP_AGREGAR_SOLICITUD">
       <Parameter Name="ID_SOLICITUD" Mode="In" Type="Decimal" />
@@ -576,10 +357,6 @@
       <End Role="CLIENTE" EntitySet="CLIENTE" />
       <End Role="INFORME_VERIFICACION" EntitySet="INFORME_VERIFICACION" />
     </AssociationSet>
-    <AssociationSet Name="INFORME_SOLICITUD_FK" Association="ModeloOkCasa.INFORME_SOLICITUD_FK">
-      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
-      <End Role="INFORME_VERIFICACION" EntitySet="INFORME_VERIFICACION" />
-    </AssociationSet>
     <AssociationSet Name="INFORME_TECNICO_FK" Association="ModeloOkCasa.INFORME_TECNICO_FK">
       <End Role="TECNICO" EntitySet="TECNICO" />
       <End Role="INFORME_VERIFICACION" EntitySet="INFORME_VERIFICACION" />
@@ -591,6 +368,55 @@
     <FunctionImport Name="FN_BANCOESTADO">
       <Parameter Name="RUT" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="BANCO_ESTADO" EntityType="ModeloOkCasa.BANCO_ESTADO" />
+    <EntitySet Name="TIPO_CLIENTE" EntityType="ModeloOkCasa.TIPO_CLIENTE" />
+    <AssociationSet Name="CLIENTE_TIPO_CLIENTE_FK" Association="ModeloOkCasa.CLIENTE_TIPO_CLIENTE_FK">
+      <End Role="TIPO_CLIENTE" EntitySet="TIPO_CLIENTE" />
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+    </AssociationSet>
+    <EntitySet Name="AGENDA" EntityType="ModeloOkCasa.AGENDA" />
+    <AssociationSet Name="AGENDA_EQUIPO_TECNICO_FK" Association="ModeloOkCasa.AGENDA_EQUIPO_TECNICO_FK">
+      <End Role="EQUIPO_TECNICO" EntitySet="EQUIPO_TECNICO" />
+      <End Role="AGENDA" EntitySet="AGENDA" />
+    </AssociationSet>
+    <EntitySet Name="PAGO" EntityType="ModeloOkCasa.PAGO" />
+    <EntitySet Name="SOLICITUD" EntityType="ModeloOkCasa.SOLICITUD" />
+    <AssociationSet Name="SOLICITUD_AGENDA_FK" Association="ModeloOkCasa.SOLICITUD_AGENDA_FK">
+      <End Role="AGENDA" EntitySet="AGENDA" />
+      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+    </AssociationSet>
+    <AssociationSet Name="SOLICITUD_CLIENTE_FK" Association="ModeloOkCasa.SOLICITUD_CLIENTE_FK">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+    </AssociationSet>
+    <AssociationSet Name="SOLICITUD_COMUNA_FK" Association="ModeloOkCasa.SOLICITUD_COMUNA_FK">
+      <End Role="COMUNA" EntitySet="COMUNA" />
+      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+    </AssociationSet>
+    <AssociationSet Name="INFORME_SOLICITUD_FKV1" Association="ModeloOkCasa.INFORME_SOLICITUD_FKV1">
+      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+      <End Role="INFORME_INSPECCION" EntitySet="INFORME_INSPECCION" />
+    </AssociationSet>
+    <AssociationSet Name="INFORME_MED_SOLICITUD_FK" Association="ModeloOkCasa.INFORME_MED_SOLICITUD_FK">
+      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+      <End Role="INFORME_MEDICION" EntitySet="INFORME_MEDICION" />
+    </AssociationSet>
+    <AssociationSet Name="INFORME_TERMO_SOLICITUD_FK" Association="ModeloOkCasa.INFORME_TERMO_SOLICITUD_FK">
+      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+      <End Role="INFORME_TERMOGRAFIA" EntitySet="INFORME_TERMOGRAFIA" />
+    </AssociationSet>
+    <AssociationSet Name="INFORME_SOLICITUD_FK" Association="ModeloOkCasa.INFORME_SOLICITUD_FK">
+      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+      <End Role="INFORME_VERIFICACION" EntitySet="INFORME_VERIFICACION" />
+    </AssociationSet>
+    <AssociationSet Name="PAGO_SOLICITUD_FK" Association="ModeloOkCasa.PAGO_SOLICITUD_FK">
+      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+      <End Role="PAGO" EntitySet="PAGO" />
+    </AssociationSet>
+    <AssociationSet Name="SOLICITUD_SERVICIO_FK" Association="ModeloOkCasa.SOLICITUD_SERVICIO_FK">
+      <End Role="SERVICIO" EntitySet="SERVICIO" />
+      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="INFORME_INSPECCION">
     <Key>
@@ -622,9 +448,9 @@
     <NavigationProperty Name="INST_ELECTRICA" Relationship="ModeloOkCasa.INFORME_ELECTRICA_FK" FromRole="INFORME_INSPECCION" ToRole="INST_ELECTRICA" />
     <NavigationProperty Name="INST_GAS" Relationship="ModeloOkCasa.INFORME_INST_GAS_FK" FromRole="INFORME_INSPECCION" ToRole="INST_GAS" />
     <NavigationProperty Name="RED_AGUA" Relationship="ModeloOkCasa.INFORME_RED_AGUA_FK" FromRole="INFORME_INSPECCION" ToRole="RED_AGUA" />
-    <NavigationProperty Name="SOLICITUD" Relationship="ModeloOkCasa.INFORME_SOLICITUD_FKV1" FromRole="INFORME_INSPECCION" ToRole="SOLICITUD" />
     <NavigationProperty Name="TECNICO" Relationship="ModeloOkCasa.INFORME_TECNICO_FKV1" FromRole="INFORME_INSPECCION" ToRole="TECNICO" />
     <NavigationProperty Name="TIPO_VIVIENDA" Relationship="ModeloOkCasa.INFORME_TIPO_VIV_FKV1" FromRole="INFORME_INSPECCION" ToRole="TIPO_VIVIENDA" />
+    <NavigationProperty Name="SOLICITUD" Relationship="ModeloOkCasa.INFORME_SOLICITUD_FKV1" FromRole="INFORME_INSPECCION" ToRole="SOLICITUD" />
   </EntityType>
   <EntityType Name="INFORME_MEDICION">
     <Key>
@@ -652,9 +478,9 @@
     <Property Name="ID_SOLICITUD" Type="Int32" Nullable="false" />
     <NavigationProperty Name="AGRUPAMIENTO" Relationship="ModeloOkCasa.INFORME_MED_AGRUP_FK" FromRole="INFORME_MEDICION" ToRole="AGRUPAMIENTO" />
     <NavigationProperty Name="CLIENTE" Relationship="ModeloOkCasa.INFORME_MED_CLIENTE_FK" FromRole="INFORME_MEDICION" ToRole="CLIENTE" />
-    <NavigationProperty Name="SOLICITUD" Relationship="ModeloOkCasa.INFORME_MED_SOLICITUD_FK" FromRole="INFORME_MEDICION" ToRole="SOLICITUD" />
     <NavigationProperty Name="TECNICO" Relationship="ModeloOkCasa.INFORME_MED_TECNICO_FK" FromRole="INFORME_MEDICION" ToRole="TECNICO" />
     <NavigationProperty Name="TIPO_VIVIENDA" Relationship="ModeloOkCasa.INFORME_MED_TIPO_VIV_FK" FromRole="INFORME_MEDICION" ToRole="TIPO_VIVIENDA" />
+    <NavigationProperty Name="SOLICITUD" Relationship="ModeloOkCasa.INFORME_MED_SOLICITUD_FK" FromRole="INFORME_MEDICION" ToRole="SOLICITUD" />
   </EntityType>
   <EntityType Name="INFORME_TERMOGRAFIA">
     <Key>
@@ -680,9 +506,9 @@
     <Property Name="ID_SOLICITUD" Type="Int32" Nullable="false" />
     <NavigationProperty Name="AGRUPAMIENTO" Relationship="ModeloOkCasa.INFORME_TERMO_AGRUP_FK" FromRole="INFORME_TERMOGRAFIA" ToRole="AGRUPAMIENTO" />
     <NavigationProperty Name="CLIENTE" Relationship="ModeloOkCasa.INFORME_TERMO_CLIENTE_FK" FromRole="INFORME_TERMOGRAFIA" ToRole="CLIENTE" />
-    <NavigationProperty Name="SOLICITUD" Relationship="ModeloOkCasa.INFORME_TERMO_SOLICITUD_FK" FromRole="INFORME_TERMOGRAFIA" ToRole="SOLICITUD" />
     <NavigationProperty Name="TECNICO" Relationship="ModeloOkCasa.INFORME_TERMO_TECNICO_FK" FromRole="INFORME_TERMOGRAFIA" ToRole="TECNICO" />
     <NavigationProperty Name="TIPO_VIVIENDA" Relationship="ModeloOkCasa.INFORME_TERMO_TIPO_VIV_FK" FromRole="INFORME_TERMOGRAFIA" ToRole="TIPO_VIVIENDA" />
+    <NavigationProperty Name="SOLICITUD" Relationship="ModeloOkCasa.INFORME_TERMO_SOLICITUD_FK" FromRole="INFORME_TERMOGRAFIA" ToRole="SOLICITUD" />
   </EntityType>
   <EntityType Name="TIPO_USUARIO">
     <Key>
@@ -802,18 +628,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="SOLICITUD_COMUNA_FK">
-    <End Type="ModeloOkCasa.COMUNA" Role="COMUNA" Multiplicity="1" />
-    <End Type="ModeloOkCasa.SOLICITUD" Role="SOLICITUD" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="COMUNA">
-        <PropertyRef Name="ID_COMUNA" />
-      </Principal>
-      <Dependent Role="SOLICITUD">
-        <PropertyRef Name="ID_COMUNA" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="INFORME_AGUA_PO_FK">
     <End Type="ModeloOkCasa.INST_AGUA_POTABLE" Role="INST_AGUA_POTABLE" Multiplicity="1" />
     <End Type="ModeloOkCasa.INFORME_INSPECCION" Role="INFORME_INSPECCION" Multiplicity="*" />
@@ -874,18 +688,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="INFORME_SOLICITUD_FKV1">
-    <End Type="ModeloOkCasa.SOLICITUD" Role="SOLICITUD" Multiplicity="1" />
-    <End Type="ModeloOkCasa.INFORME_INSPECCION" Role="INFORME_INSPECCION" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SOLICITUD">
-        <PropertyRef Name="ID_SOLICITUD" />
-      </Principal>
-      <Dependent Role="INFORME_INSPECCION">
-        <PropertyRef Name="ID_SOLICITUD" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="INFORME_TECNICO_FKV1">
     <End Type="ModeloOkCasa.TECNICO" Role="TECNICO" Multiplicity="1" />
     <End Type="ModeloOkCasa.INFORME_INSPECCION" Role="INFORME_INSPECCION" Multiplicity="*" />
@@ -907,18 +709,6 @@
       </Principal>
       <Dependent Role="INFORME_INSPECCION">
         <PropertyRef Name="ID_TIPO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="INFORME_MED_SOLICITUD_FK">
-    <End Type="ModeloOkCasa.SOLICITUD" Role="SOLICITUD" Multiplicity="1" />
-    <End Type="ModeloOkCasa.INFORME_MEDICION" Role="INFORME_MEDICION" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SOLICITUD">
-        <PropertyRef Name="ID_SOLICITUD" />
-      </Principal>
-      <Dependent Role="INFORME_MEDICION">
-        <PropertyRef Name="ID_SOLICITUD" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -946,18 +736,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="INFORME_TERMO_SOLICITUD_FK">
-    <End Type="ModeloOkCasa.SOLICITUD" Role="SOLICITUD" Multiplicity="1" />
-    <End Type="ModeloOkCasa.INFORME_TERMOGRAFIA" Role="INFORME_TERMOGRAFIA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SOLICITUD">
-        <PropertyRef Name="ID_SOLICITUD" />
-      </Principal>
-      <Dependent Role="INFORME_TERMOGRAFIA">
-        <PropertyRef Name="ID_SOLICITUD" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="INFORME_TERMO_TECNICO_FK">
     <End Type="ModeloOkCasa.TECNICO" Role="TECNICO" Multiplicity="1" />
     <End Type="ModeloOkCasa.INFORME_TERMOGRAFIA" Role="INFORME_TERMOGRAFIA" Multiplicity="*" />
@@ -979,18 +757,6 @@
       </Principal>
       <Dependent Role="INFORME_TERMOGRAFIA">
         <PropertyRef Name="ID_TIPO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="SOLICITUD_SERVICIO_FK">
-    <End Type="ModeloOkCasa.SERVICIO" Role="SERVICIO" Multiplicity="1" />
-    <End Type="ModeloOkCasa.SOLICITUD" Role="SOLICITUD" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SERVICIO">
-        <PropertyRef Name="ID_SERVICIO" />
-      </Principal>
-      <Dependent Role="SOLICITUD">
-        <PropertyRef Name="ID_SERVICIO" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1032,9 +798,9 @@
     <Property Name="ID_SOLICITUD" Type="Int32" Nullable="false" />
     <NavigationProperty Name="AGRUPAMIENTO" Relationship="ModeloOkCasa.INFORME_AGRUP_FK" FromRole="INFORME_VERIFICACION" ToRole="AGRUPAMIENTO" />
     <NavigationProperty Name="CLIENTE" Relationship="ModeloOkCasa.INFORME_CLIENTE_FKV2" FromRole="INFORME_VERIFICACION" ToRole="CLIENTE" />
-    <NavigationProperty Name="SOLICITUD" Relationship="ModeloOkCasa.INFORME_SOLICITUD_FK" FromRole="INFORME_VERIFICACION" ToRole="SOLICITUD" />
     <NavigationProperty Name="TECNICO" Relationship="ModeloOkCasa.INFORME_TECNICO_FK" FromRole="INFORME_VERIFICACION" ToRole="TECNICO" />
     <NavigationProperty Name="TIPO_VIVIENDA" Relationship="ModeloOkCasa.INFORME_TIPO_VIV_FK" FromRole="INFORME_VERIFICACION" ToRole="TIPO_VIVIENDA" />
+    <NavigationProperty Name="SOLICITUD" Relationship="ModeloOkCasa.INFORME_SOLICITUD_FK" FromRole="INFORME_VERIFICACION" ToRole="SOLICITUD" />
   </EntityType>
   <Association Name="INFORME_AGRUP_FK">
     <End Type="ModeloOkCasa.AGRUPAMIENTO" Role="AGRUPAMIENTO" Multiplicity="1" />
@@ -1060,18 +826,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="INFORME_SOLICITUD_FK">
-    <End Type="ModeloOkCasa.SOLICITUD" Role="SOLICITUD" Multiplicity="1" />
-    <End Type="ModeloOkCasa.INFORME_VERIFICACION" Role="INFORME_VERIFICACION" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SOLICITUD">
-        <PropertyRef Name="ID_SOLICITUD" />
-      </Principal>
-      <Dependent Role="INFORME_VERIFICACION">
-        <PropertyRef Name="ID_SOLICITUD" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="INFORME_TECNICO_FK">
     <End Type="ModeloOkCasa.TECNICO" Role="TECNICO" Multiplicity="1" />
     <End Type="ModeloOkCasa.INFORME_VERIFICACION" Role="INFORME_VERIFICACION" Multiplicity="*" />
@@ -1093,6 +847,201 @@
       </Principal>
       <Dependent Role="INFORME_VERIFICACION">
         <PropertyRef Name="ID_TIPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="BANCO_ESTADO">
+    <Key>
+      <PropertyRef Name="ID_BANCO" />
+    </Key>
+    <Property Name="ID_BANCO" Type="Int32" Nullable="false" />
+    <Property Name="RUT_CLIENTE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_CLIENTE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TIPO_CLIENTE">
+    <Key>
+      <PropertyRef Name="ID_TIPO_CLIENTE" />
+    </Key>
+    <Property Name="ID_TIPO_CLIENTE" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CLIENTE" Relationship="ModeloOkCasa.CLIENTE_TIPO_CLIENTE_FK" FromRole="TIPO_CLIENTE" ToRole="CLIENTE" />
+  </EntityType>
+  <Association Name="CLIENTE_TIPO_CLIENTE_FK">
+    <End Type="ModeloOkCasa.TIPO_CLIENTE" Role="TIPO_CLIENTE" Multiplicity="0..1" />
+    <End Type="ModeloOkCasa.CLIENTE" Role="CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_CLIENTE">
+        <PropertyRef Name="ID_TIPO_CLIENTE" />
+      </Principal>
+      <Dependent Role="CLIENTE">
+        <PropertyRef Name="ID_TIPO_CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AGENDA">
+    <Key>
+      <PropertyRef Name="ID_AGENDA" />
+    </Key>
+    <Property Name="ID_AGENDA" Type="Int32" Nullable="false" />
+    <Property Name="DIA" Type="DateTime" Nullable="false" />
+    <Property Name="HORA" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DISPONIBLE" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ID_EQUIPO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="EQUIPO_TECNICO" Relationship="ModeloOkCasa.AGENDA_EQUIPO_TECNICO_FK" FromRole="AGENDA" ToRole="EQUIPO_TECNICO" />
+    <NavigationProperty Name="SOLICITUD" Relationship="ModeloOkCasa.SOLICITUD_AGENDA_FK" FromRole="AGENDA" ToRole="SOLICITUD" />
+  </EntityType>
+  <Association Name="AGENDA_EQUIPO_TECNICO_FK">
+    <End Type="ModeloOkCasa.EQUIPO_TECNICO" Role="EQUIPO_TECNICO" Multiplicity="1" />
+    <End Type="ModeloOkCasa.AGENDA" Role="AGENDA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EQUIPO_TECNICO">
+        <PropertyRef Name="ID_EQUIPO" />
+      </Principal>
+      <Dependent Role="AGENDA">
+        <PropertyRef Name="ID_EQUIPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PAGO">
+    <Key>
+      <PropertyRef Name="ID_PAGO" />
+    </Key>
+    <Property Name="ID_PAGO" Type="Int32" Nullable="false" />
+    <Property Name="VALOR" Type="Int32" Nullable="false" />
+    <Property Name="DESCUENTO" Type="Int32" Nullable="false" />
+    <Property Name="ID_SOLICITUD" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SOLICITUD" Relationship="ModeloOkCasa.PAGO_SOLICITUD_FK" FromRole="PAGO" ToRole="SOLICITUD" />
+  </EntityType>
+  <EntityType Name="SOLICITUD">
+    <Key>
+      <PropertyRef Name="ID_SOLICITUD" />
+    </Key>
+    <Property Name="ID_SOLICITUD" Type="Int32" Nullable="false" />
+    <Property Name="FECHA_SOLICITUD" Type="DateTime" />
+    <Property Name="DIRECCION_VIVIENDA" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CONSTRUCTORA" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="RUT_CLIENTE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PAGO" Type="Int32" Nullable="false" />
+    <Property Name="DESCUENTO" Type="Int32" />
+    <Property Name="ID_AGENDA" Type="Int32" Nullable="false" />
+    <Property Name="ID_COMUNA" Type="Int32" Nullable="false" />
+    <Property Name="ID_SERVICIO" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AGENDA" Relationship="ModeloOkCasa.SOLICITUD_AGENDA_FK" FromRole="SOLICITUD" ToRole="AGENDA" />
+    <NavigationProperty Name="CLIENTE" Relationship="ModeloOkCasa.SOLICITUD_CLIENTE_FK" FromRole="SOLICITUD" ToRole="CLIENTE" />
+    <NavigationProperty Name="COMUNA" Relationship="ModeloOkCasa.SOLICITUD_COMUNA_FK" FromRole="SOLICITUD" ToRole="COMUNA" />
+    <NavigationProperty Name="INFORME_INSPECCION" Relationship="ModeloOkCasa.INFORME_SOLICITUD_FKV1" FromRole="SOLICITUD" ToRole="INFORME_INSPECCION" />
+    <NavigationProperty Name="INFORME_MEDICION" Relationship="ModeloOkCasa.INFORME_MED_SOLICITUD_FK" FromRole="SOLICITUD" ToRole="INFORME_MEDICION" />
+    <NavigationProperty Name="INFORME_TERMOGRAFIA" Relationship="ModeloOkCasa.INFORME_TERMO_SOLICITUD_FK" FromRole="SOLICITUD" ToRole="INFORME_TERMOGRAFIA" />
+    <NavigationProperty Name="INFORME_VERIFICACION" Relationship="ModeloOkCasa.INFORME_SOLICITUD_FK" FromRole="SOLICITUD" ToRole="INFORME_VERIFICACION" />
+    <NavigationProperty Name="PAGO1" Relationship="ModeloOkCasa.PAGO_SOLICITUD_FK" FromRole="SOLICITUD" ToRole="PAGO" />
+    <NavigationProperty Name="SERVICIO" Relationship="ModeloOkCasa.SOLICITUD_SERVICIO_FK" FromRole="SOLICITUD" ToRole="SERVICIO" />
+  </EntityType>
+  <Association Name="SOLICITUD_AGENDA_FK">
+    <End Type="ModeloOkCasa.AGENDA" Role="AGENDA" Multiplicity="1" />
+    <End Type="ModeloOkCasa.SOLICITUD" Role="SOLICITUD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AGENDA">
+        <PropertyRef Name="ID_AGENDA" />
+      </Principal>
+      <Dependent Role="SOLICITUD">
+        <PropertyRef Name="ID_AGENDA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SOLICITUD_CLIENTE_FK">
+    <End Type="ModeloOkCasa.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+    <End Type="ModeloOkCasa.SOLICITUD" Role="SOLICITUD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="RUT_CLIENTE" />
+      </Principal>
+      <Dependent Role="SOLICITUD">
+        <PropertyRef Name="RUT_CLIENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SOLICITUD_COMUNA_FK">
+    <End Type="ModeloOkCasa.COMUNA" Role="COMUNA" Multiplicity="1" />
+    <End Type="ModeloOkCasa.SOLICITUD" Role="SOLICITUD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMUNA">
+        <PropertyRef Name="ID_COMUNA" />
+      </Principal>
+      <Dependent Role="SOLICITUD">
+        <PropertyRef Name="ID_COMUNA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="INFORME_SOLICITUD_FKV1">
+    <End Type="ModeloOkCasa.SOLICITUD" Role="SOLICITUD" Multiplicity="1" />
+    <End Type="ModeloOkCasa.INFORME_INSPECCION" Role="INFORME_INSPECCION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOLICITUD">
+        <PropertyRef Name="ID_SOLICITUD" />
+      </Principal>
+      <Dependent Role="INFORME_INSPECCION">
+        <PropertyRef Name="ID_SOLICITUD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="INFORME_MED_SOLICITUD_FK">
+    <End Type="ModeloOkCasa.SOLICITUD" Role="SOLICITUD" Multiplicity="1" />
+    <End Type="ModeloOkCasa.INFORME_MEDICION" Role="INFORME_MEDICION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOLICITUD">
+        <PropertyRef Name="ID_SOLICITUD" />
+      </Principal>
+      <Dependent Role="INFORME_MEDICION">
+        <PropertyRef Name="ID_SOLICITUD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="INFORME_TERMO_SOLICITUD_FK">
+    <End Type="ModeloOkCasa.SOLICITUD" Role="SOLICITUD" Multiplicity="1" />
+    <End Type="ModeloOkCasa.INFORME_TERMOGRAFIA" Role="INFORME_TERMOGRAFIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOLICITUD">
+        <PropertyRef Name="ID_SOLICITUD" />
+      </Principal>
+      <Dependent Role="INFORME_TERMOGRAFIA">
+        <PropertyRef Name="ID_SOLICITUD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="INFORME_SOLICITUD_FK">
+    <End Type="ModeloOkCasa.SOLICITUD" Role="SOLICITUD" Multiplicity="1" />
+    <End Type="ModeloOkCasa.INFORME_VERIFICACION" Role="INFORME_VERIFICACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOLICITUD">
+        <PropertyRef Name="ID_SOLICITUD" />
+      </Principal>
+      <Dependent Role="INFORME_VERIFICACION">
+        <PropertyRef Name="ID_SOLICITUD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PAGO_SOLICITUD_FK">
+    <End Type="ModeloOkCasa.SOLICITUD" Role="SOLICITUD" Multiplicity="1" />
+    <End Type="ModeloOkCasa.PAGO" Role="PAGO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SOLICITUD">
+        <PropertyRef Name="ID_SOLICITUD" />
+      </Principal>
+      <Dependent Role="PAGO">
+        <PropertyRef Name="ID_SOLICITUD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SOLICITUD_SERVICIO_FK">
+    <End Type="ModeloOkCasa.SERVICIO" Role="SERVICIO" Multiplicity="1" />
+    <End Type="ModeloOkCasa.SOLICITUD" Role="SOLICITUD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SERVICIO">
+        <PropertyRef Name="ID_SERVICIO" />
+      </Principal>
+      <Dependent Role="SOLICITUD">
+        <PropertyRef Name="ID_SERVICIO" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
