@@ -189,23 +189,11 @@
     <Compile Include="FormularioInspeccion.xaml.cs">
       <DependentUpon>FormularioInspeccion.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FormularioMedicion.xaml.cs">
-      <DependentUpon>FormularioMedicion.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="FormularioTermografia.xaml.cs">
-      <DependentUpon>FormularioTermografia.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="FormularioVerificacion.xaml.cs">
-      <DependentUpon>FormularioVerificacion.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Horario.xaml.cs">
       <DependentUpon>Horario.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListadoInspectores.xaml.cs">
       <DependentUpon>ListadoInspectores.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MenuInforme.xaml.cs">
-      <DependentUpon>MenuInforme.xaml</DependentUpon>
     </Compile>
     <Compile Include="Seguimiento.xaml.cs">
       <DependentUpon>Seguimiento.xaml</DependentUpon>
@@ -242,18 +230,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FormularioInspeccion.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="FormularioMedicion.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="FormularioTermografia.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="FormularioVerificacion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -311,10 +287,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MenuInforme.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Resources\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

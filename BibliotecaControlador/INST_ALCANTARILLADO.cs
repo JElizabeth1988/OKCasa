@@ -16,12 +16,12 @@ namespace BibliotecaDALC
     {
         public INST_ALCANTARILLADO()
         {
-            this.INFORME_INSPECCION = new HashSet<INFORME_INSPECCION>();
+            this.INFORME = new HashSet<INFORME>();
         }
     
         public int ID_ALCANTARILLADO { get; set; }
         public string NOMBRE { get; set; }
     
-        public virtual ICollection<INFORME_INSPECCION> INFORME_INSPECCION { get; set; }
+        public virtual ICollection<INFORME> INFORME { get; set; }
     }
 }

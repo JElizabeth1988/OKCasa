@@ -18,6 +18,12 @@ using MahApps.Metro.Behaviours;
 
 using BibliotecaNegocio;
 
+using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
+
+using System.Configuration;
+using System.Data;
+
 namespace Vista
 {
     /// <summary>
@@ -29,10 +35,8 @@ namespace Vista
         Cliente cli;
         FormularioInspeccion form;
         ListadoFormulario liForm;
-        FormularioVerificacion forVe;
-        FormularioMedicion forMe;
-        FormularioTermografia forTer;
-       
+
+        OracleConnection conn = null;
 
         public ListadoCliente()
         {
@@ -47,6 +51,62 @@ namespace Vista
 
             try
             {
+                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
+                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
+                //se crea una lista de tipo cine
+                List<BibliotecaNegocio.Cliente.ListaClientes> lista = new List<BibliotecaNegocio.Cliente.ListaClientes>();
+                //se crea un comando de oracle
+                OracleCommand cmd = new OracleCommand();
+                //se ejecutan los comandos de procedimeintos
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //conexion
+                cmd.Connection = conn;
+                //procedimiento
+                cmd.CommandText = "SP_LISTAR_CLIENTE2";
+
+                //cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
+                //Se agrega el parametro de salida
+                cmd.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+                //se abre la conexion
+                conn.Open();
+                //se crea un reader
+                OracleDataReader dr = cmd.ExecuteReader();
+                //mientras lea
+                while (dr.Read())
+                {
+                    BibliotecaNegocio.Cliente.ListaClientes C = new BibliotecaNegocio.Cliente.ListaClientes();
+                    
+                    //se obtiene el valor con getvalue es lo mismo pero con get
+                    C.Rut = dr.GetValue(0).ToString();
+                    C.Nombre = dr.GetValue(1).ToString();
+                    C.Segundo_Nombre = dr.GetValue(2).ToString();
+                    C.Apellido_paterno = dr.GetValue(3).ToString();
+                    C.Apellido_Materno = dr.GetValue(4).ToString();
+                    C.Dirección = dr.GetValue(5).ToString();
+                    C.Teléfono = int.Parse(dr.GetValue(6).ToString());
+                    C.Email = dr.GetValue(7).ToString();
+                    
+                    C.Comuna = dr.GetValue(8).ToString();
+
+
+                    lista.Add(C);
+                }
+                conn.Close();
+                
+                dgLista.ItemsSource = lista;
+                dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
+                
+
+
+            }
+            catch (Exception ex)
+            {
+                
+                Logger.Mensaje(ex.Message);
+            }
+
+            /*try-----------> Código sin procedure
+            {
                 BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
                 dgLista.ItemsSource = cl.ReadAll2();
                 dgLista.Items.Refresh();
@@ -57,7 +117,7 @@ namespace Vista
 
                 MessageBox.Show("Error!" + ex.Message);
                 Logger.Mensaje(ex.Message);
-            }
+            }*/
 
 
         }
@@ -74,85 +134,61 @@ namespace Vista
 
             try
             {
-                BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
-                dgLista.ItemsSource = cl.ReadAll2();
-                dgLista.Items.Refresh();
+                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
+                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
+                //se crea una lista de tipo cine
+                List<BibliotecaNegocio.Cliente.ListaClientes> lista = new List<BibliotecaNegocio.Cliente.ListaClientes>();
+                //se crea un comando de oracle
+                OracleCommand cmd = new OracleCommand();
+                //se ejecutan los comandos de procedimeintos
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //conexion
+                cmd.Connection = conn;
+                //procedimiento
+                cmd.CommandText = "SP_LISTAR_CLIENTE2";
+
+                //cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
+                //Se agrega el parametro de salida
+                cmd.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+                //se abre la conexion
+                conn.Open();
+                //se crea un reader
+                OracleDataReader dr = cmd.ExecuteReader();
+                //mientras lea
+                while (dr.Read())
+                {
+                    BibliotecaNegocio.Cliente.ListaClientes C = new BibliotecaNegocio.Cliente.ListaClientes();
+
+                    //se obtiene el valor con getvalue es lo mismo pero con get
+                    C.Rut = dr.GetValue(0).ToString();
+                    C.Nombre = dr.GetValue(1).ToString();
+                    C.Segundo_Nombre = dr.GetValue(2).ToString();
+                    C.Apellido_paterno = dr.GetValue(3).ToString();
+                    C.Apellido_Materno = dr.GetValue(4).ToString();
+                    C.Dirección = dr.GetValue(5).ToString();
+                    C.Teléfono = int.Parse(dr.GetValue(6).ToString());
+                    C.Email = dr.GetValue(7).ToString();
+
+                    C.Comuna = dr.GetValue(8).ToString();
+
+
+                    lista.Add(C);
+                }
+                conn.Close();
+
+                dgLista.ItemsSource = lista;
+               // dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
+
+
 
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show("Error!" + ex.Message);
                 Logger.Mensaje(ex.Message);
             }
 
-        }
-        //Llamado desde medición
-        public ListadoCliente(FormularioMedicion origen)
-        {
-            InitializeComponent();
-            forMe = origen;
-
-            btnPasarAForm.Visibility = Visibility.Visible;//el botón traspasar se ve
-            btnEliminar.Visibility = Visibility.Hidden;//Botón eliminar no se ve
-            btnPasar.Visibility = Visibility.Hidden;
-            btnCrear.Visibility = Visibility.Hidden;
-
-            try
-            {
-                BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
-                dgLista.ItemsSource = cl.ReadAll2();
-                dgLista.Items.Refresh();
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("Error!" + ex.Message);
-                Logger.Mensaje(ex.Message);
-            }
-
-        }
-        //Llamado desde Termografía
-        public ListadoCliente(FormularioTermografia origen)
-        {
-            InitializeComponent();
-            forTer = origen;
-
-            btnPasarAForm.Visibility = Visibility.Visible;//el botón traspasar se ve
-            btnEliminar.Visibility = Visibility.Hidden;//Botón eliminar no se ve
-            btnPasar.Visibility = Visibility.Hidden;
-            btnCrear.Visibility = Visibility.Hidden;
-
-            try
-            {
-                BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
-                dgLista.ItemsSource = cl.ReadAll2();
-                dgLista.Items.Refresh();
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("Error!" + ex.Message);
-                Logger.Mensaje(ex.Message);
-            }
-
-        }
-
-       
-        //Llamado desde verificación
-        public ListadoCliente(FormularioVerificacion origen)
-        {
-            InitializeComponent();
-            forVe = origen;
-
-            btnPasarAForm.Visibility = Visibility.Visible;//el botón traspasar se ve
-            btnEliminar.Visibility = Visibility.Hidden;//Botón eliminar no se ve
-            btnPasar.Visibility = Visibility.Hidden;
-            btnCrear.Visibility = Visibility.Hidden;
-
-            try
+            /*try
             {
                 BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
                 dgLista.ItemsSource = cl.ReadAll2();
@@ -164,7 +200,7 @@ namespace Vista
 
                 MessageBox.Show("Error!" + ex.Message);
                 Logger.Mensaje(ex.Message);
-            }
+            }*/
 
         }
 
@@ -179,7 +215,61 @@ namespace Vista
             btnEliminar.Visibility = Visibility.Hidden;//Botón eliminar no se ve
             btnPasarAForm.Visibility = Visibility.Hidden;
             btnCrear.Visibility = Visibility.Hidden;
+           /* try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
+                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
+                //se crea una lista de tipo cine
+                List<BibliotecaNegocio.Cliente.ListaClientes> lista = new List<BibliotecaNegocio.Cliente.ListaClientes>();
+                //se crea un comando de oracle
+                OracleCommand cmd = new OracleCommand();
+                //se ejecutan los comandos de procedimeintos
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //conexion
+                cmd.Connection = conn;
+                //procedimiento
+                cmd.CommandText = "SP_LISTAR_CLIENTE2";
 
+                //cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
+                //Se agrega el parametro de salida
+                cmd.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+                //se abre la conexion
+                conn.Open();
+                //se crea un reader
+                OracleDataReader dr = cmd.ExecuteReader();
+                //mientras lea
+                while (dr.Read())
+                {
+                    BibliotecaNegocio.Cliente.ListaClientes C = new BibliotecaNegocio.Cliente.ListaClientes();
+
+                    //se obtiene el valor con getvalue es lo mismo pero con get
+                    C.Rut = dr.GetValue(0).ToString();
+                    C.Nombre = dr.GetValue(1).ToString();
+                    C.Segundo_Nombre = dr.GetValue(2).ToString();
+                    C.Apellido_paterno = dr.GetValue(3).ToString();
+                    C.Apellido_Materno = dr.GetValue(4).ToString();
+                    C.Dirección = dr.GetValue(5).ToString();
+                    C.Teléfono = int.Parse(dr.GetValue(6).ToString());
+                    C.Email = dr.GetValue(7).ToString();
+
+                    C.Comuna = dr.GetValue(8).ToString();
+
+
+                    lista.Add(C);
+                }
+                conn.Close();
+
+                dgLista.ItemsSource = lista;
+                dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Logger.Mensaje(ex.Message);
+            }*/
             try
             {
                 BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
@@ -204,8 +294,62 @@ namespace Vista
             btnEliminar.Visibility = Visibility.Hidden;//Botón eliminar no se ve
             btnPasarAForm.Visibility = Visibility.Hidden;
             btnCrear.Visibility = Visibility.Hidden;
-
             try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
+                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
+                //se crea una lista de tipo cine
+                List<BibliotecaNegocio.Cliente.ListaClientes> lista = new List<BibliotecaNegocio.Cliente.ListaClientes>();
+                //se crea un comando de oracle
+                OracleCommand cmd = new OracleCommand();
+                //se ejecutan los comandos de procedimeintos
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //conexion
+                cmd.Connection = conn;
+                //procedimiento
+                cmd.CommandText = "SP_LISTAR_CLIENTE2";
+
+                //cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
+                //Se agrega el parametro de salida
+                cmd.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+                //se abre la conexion
+                conn.Open();
+                //se crea un reader
+                OracleDataReader dr = cmd.ExecuteReader();
+                //mientras lea
+                while (dr.Read())
+                {
+                    BibliotecaNegocio.Cliente.ListaClientes C = new BibliotecaNegocio.Cliente.ListaClientes();
+
+                    //se obtiene el valor con getvalue es lo mismo pero con get
+                    C.Rut = dr.GetValue(0).ToString();
+                    C.Nombre = dr.GetValue(1).ToString();
+                    C.Segundo_Nombre = dr.GetValue(2).ToString();
+                    C.Apellido_paterno = dr.GetValue(3).ToString();
+                    C.Apellido_Materno = dr.GetValue(4).ToString();
+                    C.Dirección = dr.GetValue(5).ToString();
+                    C.Teléfono = int.Parse(dr.GetValue(6).ToString());
+                    C.Email = dr.GetValue(7).ToString();
+
+                    C.Comuna = dr.GetValue(8).ToString();
+
+
+                    lista.Add(C);
+                }
+                conn.Close();
+
+                dgLista.ItemsSource = lista;
+                dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Logger.Mensaje(ex.Message);
+            }
+            /*try
             {
                 BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
                 dgLista.ItemsSource = cl.ReadAll2();
@@ -217,7 +361,7 @@ namespace Vista
 
                 MessageBox.Show("Error!" + ex.Message);
                 Logger.Mensaje(ex.Message);
-            }
+            }*/
         }
 
 
@@ -240,9 +384,41 @@ namespace Vista
             Close();
         }
 
-        private void btnPasar_Click(object sender, RoutedEventArgs e)
+        private async void btnPasar_Click(object sender, RoutedEventArgs e)
         {
+            btnPasar.Visibility = Visibility.Visible;
+            try
+            {
 
+                if (cli == null)
+                {
+                    BibliotecaNegocio.Cliente.ListaClientes cl = (BibliotecaNegocio.Cliente.ListaClientes)dgLista.SelectedItem;
+                    form.txtRutCliente1.Text = cl.Rut;
+                    //form.Buscar();
+                }
+                else
+                {
+                    BibliotecaNegocio.Cliente.ListaClientes cl = (BibliotecaNegocio.Cliente.ListaClientes)dgLista.SelectedItem;
+                    string rutbuscar;
+                    rutbuscar = cli.txtRut + "-" + cli.txtDV;
+                    cli.txtRut.Text = cl.Rut;
+                    cli.Buscar();
+
+                }
+                /* ListaClientes clie = (ListaClientes)dgLista.SelectedItem;
+                 lc.txtfiltroRut.Text = clie.Rut;
+                 lc.BuscarCliente();*/
+
+                Close();
+            }
+            catch (Exception ex)
+            {
+
+                await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Error al traspasar la Información"));
+                /*MessageBox.Show("error al Filtrar Información");*/
+                Logger.Mensaje(ex.Message);
+            }
         }
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)

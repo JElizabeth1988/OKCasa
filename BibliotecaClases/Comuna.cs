@@ -28,9 +28,9 @@ namespace BibliotecaNegocio
         {
             try
             {
-                BibliotecaDALC.COMUNA comuna =
+                BibliotecaDALC.COMUNA com =
                     bdd.COMUNA.First(t => t.ID_COMUNA == id_comuna);
-                nombre = comuna.NOMBRE;
+                nombre = com.NOMBRE;
                 return true;
             }
             catch (Exception ex)

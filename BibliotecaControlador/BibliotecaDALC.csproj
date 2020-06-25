@@ -63,9 +63,6 @@
     <Compile Include="AGRUPAMIENTO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="ART_SANITARIO.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
     <Compile Include="BANCO_ESTADO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -78,16 +75,7 @@
     <Compile Include="EQUIPO_TECNICO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="INFORME_INSPECCION.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="INFORME_MEDICION.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="INFORME_TERMOGRAFIA.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
-    <Compile Include="INFORME_VERIFICACION.cs">
+    <Compile Include="INFORME.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="INST_AGUA_POTABLE.cs">
@@ -141,9 +129,6 @@
     <Compile Include="TECNICO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="TIPO_CLIENTE.cs">
-      <DependentUpon>Modelo.tt</DependentUpon>
-    </Compile>
     <Compile Include="TIPO_USUARIO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -171,6 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Modelo.Context.tt">

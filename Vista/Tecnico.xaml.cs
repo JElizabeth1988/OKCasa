@@ -84,7 +84,7 @@ namespace Vista
 
         private void btnPregunta_Click(object sender, RoutedEventArgs e)
         {
-            ListadoInspectores list = new ListadoInspectores();
+            ListadoInspectores list = new ListadoInspectores(this);
             list.ShowDialog();
         }
 
@@ -93,16 +93,60 @@ namespace Vista
         {
             try
             {
-                BibliotecaNegocio.Tecnico c = new BibliotecaNegocio.Tecnico();
-                c.rut_tecnico = txtRut.Text;
-                bool buscar = c.Buscar();
+                string rut = txtRut.Text + "-" + txtDV.Text;
 
-                if (buscar)
+                if (rut.Length == 9)
                 {
-                    txtRut.Text = c.rut_tecnico.Substring(0, 10);
-                    txtDV.Text = c.rut_tecnico.Substring(11, 1);
+                    rut = "0" + txtRut.Text + "-" + txtDV.Text;
+                }
+                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
+                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
+                //nucna una instruccion sql en el sistema solo en base de datos
+                OracleCommand CMD = new OracleCommand();
+                //que tipo de tipo voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+
+                List<BibliotecaNegocio.Tecnico> tec = new List<BibliotecaNegocio.Tecnico>();
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_BUSCAR_TECNICO";
+                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al tiposito.ID
+                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 10)).Value = rut;
+                CMD.Parameters.Add(new OracleParameter("TECNICOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+
+                //se abre la conexion
+                conn.Open();
+                OracleDataReader reader = CMD.ExecuteReader();
+                BibliotecaNegocio.Tecnico c = null;
+                while (reader.Read())
+                {
+                    c = new BibliotecaNegocio.Tecnico();
+
+                    c.rut_tecnico = reader[0].ToString();
+                    c.primer_nombre = reader[1].ToString();
+                    c.segundo_nombre = reader[2].ToString();
+                    c.ap_paterno = reader[3].ToString();
+                    c.ap_materno = reader[4].ToString();
+                    c.direccion = reader[5].ToString();
+                    c.telefono = int.Parse(reader[6].ToString());
+                    c.email = reader[7].ToString();
+                    c.id_equipo = int.Parse(reader[8].ToString());
+                    c.id_comuna = int.Parse(reader[9].ToString());
+
+                    tec.Add(c);
+
+                }
+                conn.Close();
+
+
+                if (c != null)
+                {
+                    txtRut.Text = c.rut_tecnico.Substring(0, 8);
+                    txtDV.Text = c.rut_tecnico.Substring(9, 1);
                     txtRut.IsEnabled = false;
                     txtDV.IsEnabled = false;
+
                     txtNombre.Text = c.primer_nombre;
                     txtSegNombre.Text = c.segundo_nombre;
                     txtApeMaterno.Text = c.ap_paterno;
@@ -110,55 +154,97 @@ namespace Vista
                     txtEmail.Text = c.email;
                     txtDireccion.Text = c.direccion;
                     txtTelefono.Text = c.telefono.ToString();
+                    EquipoTecnico eq = new EquipoTecnico();
+                    eq.id_equipo = c.id_equipo;
+                    eq.Read();
+                    cbEquipo.Text = eq.nombre;//Cambiar a nombre
 
                     Comuna co = new Comuna();
                     co.id_comuna = c.id_comuna;
                     co.Read();
                     cboComuna.Text = co.nombre;//Cambiar a nombre
 
-                    EquipoTecnico eq = new EquipoTecnico();
-                    eq.id_equipo = c.id_equipo;
-                    eq.Read();
-                    cbEquipo.Text = eq.nombre;//Cambiar a nombre
-
-
                     btnModificar.Visibility = Visibility.Visible;
                     btnGuardar.Visibility = Visibility.Hidden;
 
-                    
                 }
                 else
                 {
                     await this.ShowMessageAsync("Mensaje:",
-                      string.Format("No se encontraron resultados!"));
+                        string.Format("No se encontraron resultados!"));
                     /*MessageBox.Show("No se encontraron resultados!");*/
                 }
             }
             catch (Exception ex)
             {
                 await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Error al Buscar Información"));
+                     string.Format("Error al Buscar Información! "));
                 /*MessageBox.Show("error al buscar");*/
                 Logger.Mensaje(ex.Message);
 
-
             }
-        }
+        
+    }
 
         //Botón Buscar (de administrar)
         private async void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                BibliotecaNegocio.Tecnico c = new BibliotecaNegocio.Tecnico();
-                c.rut_tecnico = txtRut.Text + "-" + txtDV.Text;
-                bool buscar = c.Buscar();
-                if (buscar)
+                string rut = txtRut.Text + "-" + txtDV.Text;
+
+                if (rut.Length == 9)
                 {
-                    txtRut.Text = c.rut_tecnico.Substring(0, 10);
-                    txtDV.Text = c.rut_tecnico.Substring(11, 1);
+                    rut = "0" + txtRut.Text + "-" + txtDV.Text;
+                }
+                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
+                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
+                //nucna una instruccion sql en el sistema solo en base de datos
+                OracleCommand CMD = new OracleCommand();
+                //que tipo de tipo voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+
+                List<BibliotecaNegocio.Tecnico> tec = new List<BibliotecaNegocio.Tecnico>();
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_BUSCAR_TECNICO";
+                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al tiposito.ID
+                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 10)).Value = rut;
+                CMD.Parameters.Add(new OracleParameter("TECNICOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+
+                //se abre la conexion
+                conn.Open();
+                OracleDataReader reader = CMD.ExecuteReader();
+                BibliotecaNegocio.Tecnico c = null;
+                while (reader.Read())
+                {
+                    c = new BibliotecaNegocio.Tecnico();
+
+                    c.rut_tecnico = reader[0].ToString();
+                    c.primer_nombre = reader[1].ToString();
+                    c.segundo_nombre = reader[2].ToString();
+                    c.ap_paterno = reader[3].ToString();
+                    c.ap_materno = reader[4].ToString();
+                    c.direccion = reader[5].ToString();
+                    c.telefono = int.Parse(reader[6].ToString());
+                    c.email = reader[7].ToString();
+                    c.id_equipo = int.Parse(reader[8].ToString());
+                    c.id_comuna = int.Parse(reader[9].ToString());
+
+                    tec.Add(c);
+
+                }
+                conn.Close();
+
+
+                if (c != null)
+                {
+                    txtRut.Text = c.rut_tecnico.Substring(0, 8);
+                    txtDV.Text = c.rut_tecnico.Substring(9, 1);
                     txtRut.IsEnabled = false;
                     txtDV.IsEnabled = false;
+
                     txtNombre.Text = c.primer_nombre;
                     txtSegNombre.Text = c.segundo_nombre;
                     txtApeMaterno.Text = c.ap_paterno;
@@ -166,16 +252,15 @@ namespace Vista
                     txtEmail.Text = c.email;
                     txtDireccion.Text = c.direccion;
                     txtTelefono.Text = c.telefono.ToString();
+                    EquipoTecnico eq = new EquipoTecnico();
+                    eq.id_equipo = c.id_equipo;
+                    eq.Read();
+                    cbEquipo.Text = eq.nombre;//Cambiar a nombre
 
                     Comuna co = new Comuna();
                     co.id_comuna = c.id_comuna;
                     co.Read();
                     cboComuna.Text = co.nombre;//Cambiar a nombre
-
-                    EquipoTecnico eq = new EquipoTecnico();
-                    eq.id_equipo = c.id_equipo;
-                    eq.Read();
-                    cbEquipo.Text = eq.nombre;//Cambiar a nombre
 
                     btnModificar.Visibility = Visibility.Visible;
                     btnGuardar.Visibility = Visibility.Hidden;
@@ -184,7 +269,7 @@ namespace Vista
                 else
                 {
                     await this.ShowMessageAsync("Mensaje:",
-                     string.Format("No se encontraron resultados!"));
+                        string.Format("No se encontraron resultados!"));
                     /*MessageBox.Show("No se encontraron resultados!");*/
                 }
             }

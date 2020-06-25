@@ -75,13 +75,6 @@ namespace Vista
                 cbInstAgua.Items.Add(cb);
             }
 
-            foreach (ArtSanitario item in new ArtSanitario().ReadAll())
-            {
-                comboBoxItem1 cb = new comboBoxItem1();
-                cb.id = item.id_articulo;
-                cb.nombre = item.nombre;
-                cbSanitario.Items.Add(cb);
-            }
 
             foreach (TipoVivienda item in new TipoVivienda().ReadAll())
             {
@@ -104,12 +97,21 @@ namespace Vista
             cbElectrica.SelectedIndex = 0;
             cbRedAgua.SelectedIndex = 0;
             cbInstAgua.SelectedIndex = 0;
-            cbSanitario.SelectedIndex = 0;
             cbTipoV.SelectedIndex = 0;
             cbTipoAg.SelectedIndex = 0;
 
             txtPisos.Text = "0";
             txtHabitac.Text = "0";
+
+            txtTotalReal.Text = "0";
+            txtTotalReg.Text = "0";
+            txtIConstReal.Text = "0";
+            txtConsReg.Text = "0";
+            txtDistancia.Text = "0";
+            txtEmisividad.Text = "0";
+            txtTempRefle.Text = "0";
+            txtTempAtmo.Text = "0";
+            txtHumedad.Text = "0";
 
 
 
@@ -223,9 +225,25 @@ namespace Vista
             cbGas.SelectedIndex = 0;
             cbInstAgua.SelectedIndex = 0;
             cbRedAgua.SelectedIndex = 0;
-            cbSanitario.SelectedIndex = 0;
             cbTipoAg.SelectedIndex = 0;
             cbTipoV.SelectedIndex = 0;
+
+            RbNoFuego.IsChecked = true;
+            RbSiFuego.IsChecked = false;
+            RbNoHab.IsChecked = true;
+            RbSiHab.IsChecked = false;
+            RbNoTerm.IsChecked = false;
+
+            txtTotalReal.Text="0";
+            txtTotalReg.Text="0";
+            txtIConstReal.Text="0";
+            txtConsReg.Text="0";
+            txtDistancia.Text = "0";
+            txtEmisividad.Text = "0";
+            txtTempRefle.Text = "0";
+            txtTempAtmo.Text = "0";
+            txtHumedad.Text = "0";
+
 
             rbBueno.IsChecked = true;
             rbDeficiente.IsChecked = false;

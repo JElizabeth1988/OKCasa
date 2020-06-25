@@ -4,71 +4,49 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0e8bac389b7946719299fa70c40f12b5" Name="Diagram1" ZoomLevel="63">
-        <EntityTypeShape EntityType="ModeloOkCasa.AGRUPAMIENTO" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModeloOkCasa.ART_SANITARIO" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModeloOkCasa.CLIENTE" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModeloOkCasa.COMUNA" Width="1.5" PointX="1.5" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModeloOkCasa.EQUIPO_TECNICO" Width="1.5" PointX="0.75" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModeloOkCasa.INST_AGUA_POTABLE" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModeloOkCasa.INST_ALCANTARILLADO" Width="1.5" PointX="5.25" PointY="15.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModeloOkCasa.INST_ELECTRICA" Width="1.5" PointX="5.25" PointY="18.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModeloOkCasa.INST_GAS" Width="1.5" PointX="5.25" PointY="20.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModeloOkCasa.INSUMO" Width="1.5" PointX="1.5" PointY="16.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModeloOkCasa.RED_AGUA" Width="1.5" PointX="5.25" PointY="22.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModeloOkCasa.SERVICIO" Width="1.5" PointX="1.625" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModeloOkCasa.TECNICO" Width="1.5" PointX="5.25" PointY="25.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ModeloOkCasa.TIPO_VIVIENDA" Width="1.5" PointX="5.25" PointY="29.5" IsExpanded="true" />
-        <AssociationConnector Association="ModeloOkCasa.CLIENTE_COMUNA_FKV2" ManuallyRouted="false" />
-        <AssociationConnector Association="ModeloOkCasa.TECNICO_COMUNA_FKV2" ManuallyRouted="false" />
-        <AssociationConnector Association="ModeloOkCasa.TECNICO_EQUIPO_TECNICO_FK" ManuallyRouted="false" />
-        <AssociationConnector Association="ModeloOkCasa.EQUIPO_INSUMO" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ModeloOkCasa.INFORME_INSPECCION" Width="1.5" PointX="7.5" PointY="6.875" />
-        <EntityTypeShape EntityType="ModeloOkCasa.INFORME_MEDICION" Width="1.5" PointX="7.5" PointY="14.25" />
-        <EntityTypeShape EntityType="ModeloOkCasa.INFORME_TERMOGRAFIA" Width="1.5" PointX="13.5" PointY="14.5" />
-        <EntityTypeShape EntityType="ModeloOkCasa.TIPO_USUARIO" Width="1.5" PointX="3.75" PointY="33.125" />
-        <EntityTypeShape EntityType="ModeloOkCasa.USUARIO" Width="1.5" PointX="6" PointY="0.75" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_MED_AGRUP_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_TERMO_AGRUP_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_VER_AGRUP_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_ART_SANITARIO_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_CLIENTE_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_MED_CLIENTE_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_TERMO_CLIENTE_FK" />
-        <AssociationConnector Association="ModeloOkCasa.LOGIN_CLIENTE_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_AGUA_PO_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_ALCA_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_ELECTRICA_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_INST_GAS_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_RED_AGUA_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_TECNICO_FKV1" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_TIPO_VIV_FKV1" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_MED_TECNICO_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_MED_TIPO_VIV_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_TERMO_TECNICO_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_TERMO_TIPO_VIV_FK" />
-        <AssociationConnector Association="ModeloOkCasa.USUARIO_TIPO_USUARIO_FK" />
-        <EntityTypeShape EntityType="ModeloOkCasa.INFORME_VERIFICACION" Width="1.5" PointX="10.5" PointY="14.125" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_AGRUP_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_CLIENTE_FKV2" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_TECNICO_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_TIPO_VIV_FK" />
-        <EntityTypeShape EntityType="ModeloOkCasa.BANCO_ESTADO" Width="1.5" PointX="10.375" PointY="0.75" />
-        <EntityTypeShape EntityType="ModeloOkCasa.TIPO_CLIENTE" Width="1.5" PointX="8.375" PointY="0.875" />
-        <AssociationConnector Association="ModeloOkCasa.CLIENTE_TIPO_CLIENTE_FK" />
-        <EntityTypeShape EntityType="ModeloOkCasa.AGENDA" Width="1.5" PointX="3" PointY="19" />
-        <AssociationConnector Association="ModeloOkCasa.AGENDA_EQUIPO_TECNICO_FK" />
-        <EntityTypeShape EntityType="ModeloOkCasa.PAGO" Width="1.5" PointX="12.5" PointY="9" />
-        <EntityTypeShape EntityType="ModeloOkCasa.SOLICITUD" Width="1.5" PointX="10.25" PointY="7.625" />
-        <AssociationConnector Association="ModeloOkCasa.SOLICITUD_AGENDA_FK" />
-        <AssociationConnector Association="ModeloOkCasa.SOLICITUD_CLIENTE_FK" />
-        <AssociationConnector Association="ModeloOkCasa.SOLICITUD_COMUNA_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_SOLICITUD_FKV1" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_MED_SOLICITUD_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_TERMO_SOLICITUD_FK" />
-        <AssociationConnector Association="ModeloOkCasa.INFORME_SOLICITUD_FK" />
-        <AssociationConnector Association="ModeloOkCasa.PAGO_SOLICITUD_FK" />
-        <AssociationConnector Association="ModeloOkCasa.SOLICITUD_SERVICIO_FK" />
+      <Diagram DiagramId="b0b07cb4b94a494980ea3c0dc8e61e61" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="Modelo.AGENDA" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.AGRUPAMIENTO" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.BANCO_ESTADO" Width="1.5" PointX="8.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.CLIENTE" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.COMUNA" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.EQUIPO_TECNICO" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.INFORME" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.INST_AGUA_POTABLE" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.INST_ALCANTARILLADO" Width="1.5" PointX="3" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.INST_ELECTRICA" Width="1.5" PointX="3" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.INST_GAS" Width="1.5" PointX="3" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.INSUMO" Width="1.5" PointX="1.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.PAGO" Width="1.5" PointX="10.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.RED_AGUA" Width="1.5" PointX="3" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.SERVICIO" Width="1.5" PointX="6" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.SOLICITUD" Width="1.5" PointX="8.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.TECNICO" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.TIPO_USUARIO" Width="1.5" PointX="6" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.TIPO_VIVIENDA" Width="1.5" PointX="3" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo.USUARIO" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="Modelo.AGENDA_EQUIPO_TECNICO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.SOLICITUD_AGENDA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.INFORME_AGRUP_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.CLIENTE_COMUNA_FKV2" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.INFORME_CLIENTE_FKV2" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.LOGIN_CLIENTE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.SOLICITUD_CLIENTE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.SOLICITUD_COMUNA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.TECNICO_COMUNA_FKV2" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.TECNICO_EQUIPO_TECNICO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.INF_AGUA_POTABLE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.INF_ALCANT_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.INF_ELECTRICA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.INFORME_INST_GAS_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.INFORME_RED_AGUA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.INFORME_SOLICITUD_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.INFORME_TECNICO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.INFORME_TIPO_VIV_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.PAGO_SOLICITUD_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.SOLICITUD_SERVICIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.USUARIO_TIPO_USUARIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo.EQUIPO_INSUMO" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

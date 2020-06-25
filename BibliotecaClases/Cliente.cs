@@ -42,16 +42,17 @@ namespace BibliotecaNegocio
         public string primer_nombre
         {
             get { return _primer_nombre; }
-            set {
-                    if (value != string.Empty )
-                    {
-                        _primer_nombre = value;
-                    }
-                    else
-                    {
-                        //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                        err.AgregarError("Campo Nombre no puede estar Vacío");
-                    }
+            set
+            {
+                if (value != string.Empty)
+                {
+                    _primer_nombre = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("Campo Nombre no puede estar Vacío");
+                }
             }
         }
 
@@ -62,16 +63,17 @@ namespace BibliotecaNegocio
         public string ap_paterno
         {
             get { return _ap_paterno; }
-            set {
-                    if (value != string.Empty)
-                    {
-                        _ap_paterno = value;
-                    }
-                    else
-                    {
-                        //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                        err.AgregarError("Campo Apellido Paterno no puede estar Vacío");
-                    }
+            set
+            {
+                if (value != string.Empty)
+                {
+                    _ap_paterno = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("Campo Apellido Paterno no puede estar Vacío");
+                }
             }
         }
 
@@ -80,16 +82,17 @@ namespace BibliotecaNegocio
         public string ap_materno
         {
             get { return _ap_materno; }
-            set {
-                    if (value != string.Empty)
-                    {
-                        _ap_materno = value;
-                    }
-                    else
-                    {
-                        //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                        err.AgregarError("Campo Apellido Materno no puede estar Vacío");
-                    }
+            set
+            {
+                if (value != string.Empty)
+                {
+                    _ap_materno = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("Campo Apellido Materno no puede estar Vacío");
+                }
             }
         }
 
@@ -98,20 +101,21 @@ namespace BibliotecaNegocio
         public string direccion
         {
             get { return _direccion; }
-            set {
-                    if (value != string.Empty)
-                    {
-                        _direccion = value;
-                    }
-                    else
-                    {
-                        //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                        err.AgregarError("Campo Direccion no puede estar Vacío");
-                    }
+            set
+            {
+                if (value != string.Empty)
+                {
+                    _direccion = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("Campo Direccion no puede estar Vacío");
+                }
             }
         }
         public int telefono { get; set; }
-                                           //private int _telefono;
+        //private int _telefono;
 
         /* public int telefono
          {
@@ -131,10 +135,9 @@ namespace BibliotecaNegocio
 
         public string email { get; set; }
 
-        
+
         public int id_comuna { get; set; }
 
-        public int id_tipo_cliente { get; set; }
 
 
         public Cliente()
@@ -145,7 +148,7 @@ namespace BibliotecaNegocio
 
         //CRUD
         //Guardar
-        /*public Boolean Guardar()
+        public Boolean Guardar()
         {
             try
             {
@@ -165,7 +168,7 @@ namespace BibliotecaNegocio
                 return false;
                 Logger.Mensaje(ex.Message);
             }
-        }*/
+        }
 
 
         //Eliminar
@@ -262,9 +265,8 @@ namespace BibliotecaNegocio
                             direccion = cli.DIRECCION,
                             telefono = cli.TELEFONO,
                             email = cli.EMAIL,
-                            id_comuna = cli.ID_COMUNA,
-                            id_tipo_cliente = int.Parse(cli.ID_TIPO_CLIENTE.ToString())
-                            
+                            id_comuna = cli.ID_COMUNA
+
                         };
                 return c.ToList();
 
@@ -283,20 +285,18 @@ namespace BibliotecaNegocio
                 var c = from cli in bdd.CLIENTE
                         join comu in bdd.COMUNA //Join con Comuna para traer el nombre de la comuna y no su id igualando el dato en común (id_comuna)
                           on cli.ID_COMUNA equals comu.ID_COMUNA
-                        join tip in bdd.TIPO_CLIENTE
-                          on cli.ID_TIPO_CLIENTE equals tip.ID_TIPO_CLIENTE
                         select new ListaClientes()
                         {
                             Rut = cli.RUT_CLIENTE,
-                            PrimerNombre = cli.PRIMER_NOMBRE,
-                            SegundoNombre = cli.SEGUNDO_NOMBRE,
-                            ApPaterno = cli.AP_PATERNO,
-                            ApMaterno = cli.AP_MATERNO,
-                            Direccion = cli.DIRECCION,
-                            Telefono = cli.TELEFONO,
-                            Mail = cli.EMAIL,
-                            Comuna = comu.NOMBRE,//Traigo el nombre no el id
-                            tipo_cliente = tip.NOMBRE
+                            Nombre = cli.PRIMER_NOMBRE,
+                            Segundo_Nombre = cli.SEGUNDO_NOMBRE,
+                            Apellido_paterno = cli.AP_PATERNO,
+                            Apellido_Materno = cli.AP_MATERNO,
+                            Dirección = cli.DIRECCION,
+                            Teléfono = cli.TELEFONO,
+                            Email = cli.EMAIL,
+                            Comuna = comu.NOMBRE
+
 
                         };
                 return c.ToList();
@@ -314,21 +314,18 @@ namespace BibliotecaNegocio
             var cl = from cli in bdd.CLIENTE
                      join comu in bdd.COMUNA
                         on cli.ID_COMUNA equals comu.ID_COMUNA
-                     join tip in bdd.TIPO_CLIENTE
-                        on cli.ID_TIPO_CLIENTE equals tip.ID_TIPO_CLIENTE
                      where cli.RUT_CLIENTE == rut
                      select new ListaClientes()
                      {
                          Rut = cli.RUT_CLIENTE,
-                         PrimerNombre = cli.PRIMER_NOMBRE,
-                         SegundoNombre = cli.SEGUNDO_NOMBRE,
-                         ApPaterno = cli.AP_PATERNO,
-                         ApMaterno = cli.AP_MATERNO,
-                         Direccion = cli.DIRECCION,
-                         Telefono = cli.TELEFONO,
-                         Mail = cli.EMAIL,
+                         Nombre = cli.PRIMER_NOMBRE,
+                         Segundo_Nombre = cli.SEGUNDO_NOMBRE,
+                         Apellido_paterno = cli.AP_PATERNO,
+                         Apellido_Materno = cli.AP_MATERNO,
+                         Dirección = cli.DIRECCION,
+                         Teléfono = cli.TELEFONO,
+                         Email = cli.EMAIL,
                          Comuna = comu.NOMBRE,//Traigo el nombre no el id
-                         tipo_cliente = tip.NOMBRE
                      };
 
             return cl.ToList();
@@ -339,21 +336,36 @@ namespace BibliotecaNegocio
         public class ListaClientes
         {
             public string Rut { get; set; }
-            public string PrimerNombre { get; set; }
-            public string SegundoNombre { get; set; }
-            public string ApPaterno { get; set; }
-            public string ApMaterno { get; set; }
-            public string Direccion { get; set; }
-            public int Telefono { get; set; }
-            public string Mail { get; set; }
+            public string Nombre { get; set; }
+            public string Segundo_Nombre { get; set; }
+            public string Apellido_paterno { get; set; }
+            public string Apellido_Materno { get; set; }
+            public string Dirección { get; set; }
+            public int Teléfono { get; set; }
+            public string Email { get; set; }
             public string Comuna { get; set; }//Nombre no id
-            public string tipo_cliente { get; set; }
 
             public ListaClientes()
             {
 
             }
         }
-
     }
+        public class ListillaCliente
+        {
+            public string Rut { get; set; }
+            public string Nombre { get; set; }
+            public string Segundo_Nombre { get; set; }
+            public string Apellido_paterno { get; set; }
+            public string Apellido_Materno { get; set; }
+            public string Dirección { get; set; }
+            public int Teléfono { get; set; }
+            public string Email { get; set; }
+            public string Comuna { get; set; }//Nombre no id
+
+            public ListillaCliente()
+            {
+
+            }
+        }
 }

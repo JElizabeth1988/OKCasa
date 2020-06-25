@@ -94,7 +94,6 @@ namespace Vista
                         //mientras lea
                         while (dr.Read())
                         {
-                            // se crea un tiposito de tipo tipocine
                             BancoEstado be = new BancoEstado();
                                 
                             //se obtiene el valor con getvalue es lo mismo pero con get

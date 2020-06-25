@@ -16,6 +16,12 @@ using BibliotecaNegocio;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
+
+using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
+
+using System.Configuration;
+using System.Data;
 namespace Vista
 {
     /// <summary>
@@ -23,6 +29,13 @@ namespace Vista
     /// </summary>
     public partial class ListadoInspectores : MetroWindow
     {
+        //This
+        Tecnico tec;
+        FormularioInspeccion form;
+        ListadoFormulario liForm;
+
+        OracleConnection conn = null;
+
         public ListadoInspectores()
         {
             InitializeComponent();
@@ -40,8 +53,62 @@ namespace Vista
             }
 
             cbEquipo.SelectedIndex = 0;
-
             try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
+                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
+                //se crea una lista de tipo cine
+                List<BibliotecaNegocio.Tecnico.ListaTecnico> lista = new List<BibliotecaNegocio.Tecnico.ListaTecnico>();
+                //se crea un comando de oracle
+                OracleCommand cmd = new OracleCommand();
+                //se ejecutan los comandos de procedimeintos
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //conexion
+                cmd.Connection = conn;
+                //procedimiento
+                cmd.CommandText = "SP_LISTAR_TECNICO";
+
+                //cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
+                //Se agrega el parametro de salida
+                cmd.Parameters.Add(new OracleParameter("TECNICOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+                //se abre la conexion
+                conn.Open();
+                //se crea un reader
+                OracleDataReader dr = cmd.ExecuteReader();
+                //mientras lea
+                while (dr.Read())
+                {
+                    BibliotecaNegocio.Tecnico.ListaTecnico C = new BibliotecaNegocio.Tecnico.ListaTecnico();
+
+                    //se obtiene el valor con getvalue es lo mismo pero con get
+                    C.Rut = dr.GetValue(0).ToString();
+                    C.Nombre = dr.GetValue(1).ToString();
+                    C.Segundo_Nombre = dr.GetValue(2).ToString();
+                    C.ApellidoPaterno = dr.GetValue(3).ToString();
+                    C.ApellidoMaterno = dr.GetValue(4).ToString();
+                    C.Dirección = dr.GetValue(5).ToString();
+                    C.Teléfono = int.Parse(dr.GetValue(6).ToString());
+                    C.Email = dr.GetValue(7).ToString();
+                    C.Equipo= dr.GetValue(8).ToString();
+                    C.Comuna = dr.GetValue(9).ToString();
+
+
+                    lista.Add(C);
+                }
+                conn.Close();
+
+                dgLista.ItemsSource = lista;
+                //dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Logger.Mensaje(ex.Message);
+            }
+            /*try
             {
                 BibliotecaNegocio.Tecnico cl = new BibliotecaNegocio.Tecnico();
                 dgLista.ItemsSource = cl.ReadAll2();
@@ -53,13 +120,96 @@ namespace Vista
 
                 MessageBox.Show("Error!" + ex.Message);
                 Logger.Mensaje(ex.Message);
-            }
+            }*/
         }
 
-        private void btnListCliente_Click(object sender, RoutedEventArgs e)
+        public ListadoInspectores(Tecnico origen)
         {
-            ListadoCliente liCli = new ListadoCliente();
-            liCli.ShowDialog();
+            InitializeComponent();
+            tec = origen;
+            txtFiltroRut.Focus();
+
+            btnPasar.Visibility = Visibility.Visible;//Btn no se ve
+            btnEliminar.Visibility = Visibility.Hidden;//Botón eliminar no se ve
+
+            //llenar CB
+            foreach (EquipoTecnico item in new EquipoTecnico().ReadAll())
+            {
+                comboBoxItem1 cb = new comboBoxItem1();
+                cb.id = item.id_equipo;
+                cb.nombre = item.nombre;
+                cbEquipo.Items.Add(cb);
+            }
+
+            cbEquipo.SelectedIndex = 0;
+            try
+            {
+                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
+                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
+                //se crea una lista de tipo cine
+                List<BibliotecaNegocio.Tecnico.ListaTecnico> lista = new List<BibliotecaNegocio.Tecnico.ListaTecnico>();
+                //se crea un comando de oracle
+                OracleCommand cmd = new OracleCommand();
+                //se ejecutan los comandos de procedimeintos
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //conexion
+                cmd.Connection = conn;
+                //procedimiento
+                cmd.CommandText = "SP_LISTAR_TECNICO";
+
+                //cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
+                //Se agrega el parametro de salida
+                cmd.Parameters.Add(new OracleParameter("TECNICOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+                //se abre la conexion
+                conn.Open();
+                //se crea un reader
+                OracleDataReader dr = cmd.ExecuteReader();
+                //mientras lea
+                while (dr.Read())
+                {
+                    BibliotecaNegocio.Tecnico.ListaTecnico C = new BibliotecaNegocio.Tecnico.ListaTecnico();
+
+                    //se obtiene el valor con getvalue es lo mismo pero con get
+                    C.Rut = dr.GetValue(0).ToString();
+                    C.Nombre = dr.GetValue(1).ToString();
+                    C.Segundo_Nombre = dr.GetValue(2).ToString();
+                    C.ApellidoPaterno = dr.GetValue(3).ToString();
+                    C.ApellidoMaterno = dr.GetValue(4).ToString();
+                    C.Dirección = dr.GetValue(5).ToString();
+                    C.Teléfono = int.Parse(dr.GetValue(6).ToString());
+                    C.Email = dr.GetValue(7).ToString();
+                    C.Equipo = dr.GetValue(8).ToString();
+                    C.Comuna = dr.GetValue(9).ToString();
+
+
+                    lista.Add(C);
+                }
+                conn.Close();
+
+                dgLista.ItemsSource = lista;
+                //dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
+
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Logger.Mensaje(ex.Message);
+            }
+            /*try
+            {
+                BibliotecaNegocio.Tecnico cl = new BibliotecaNegocio.Tecnico();
+                dgLista.ItemsSource = cl.ReadAll2();
+                dgLista.Items.Refresh();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error!" + ex.Message);
+                Logger.Mensaje(ex.Message);
+            }*/
         }
 
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
@@ -125,9 +275,41 @@ namespace Vista
 
         }
 
-        private void btnPasar_Click(object sender, RoutedEventArgs e)
+        private async void btnPasar_Click(object sender, RoutedEventArgs e)
         {
+            btnPasar.Visibility = Visibility.Visible;
+            try
+            {
 
+                if (tec == null)
+                {
+                    BibliotecaNegocio.Tecnico.ListaTecnico cl = (BibliotecaNegocio.Tecnico.ListaTecnico)dgLista.SelectedItem;
+                    form.txtRutTecnico.Text = cl.Rut;
+                    //form.Buscar();
+                }
+                else
+                {
+                    BibliotecaNegocio.Tecnico.ListaTecnico cl = (BibliotecaNegocio.Tecnico.ListaTecnico)dgLista.SelectedItem;
+                    string rutbuscar;
+                    rutbuscar = tec.txtRut + "-" + tec.txtDV;
+                    tec.txtRut.Text = cl.Rut;
+                    tec.Buscar();
+
+                }
+                /* ListaClientes clie = (ListaClientes)dgLista.SelectedItem;
+                 lc.txtfiltroRut.Text = clie.Rut;
+                 lc.BuscarCliente();*/
+
+                Close();
+            }
+            catch (Exception ex)
+            {
+
+                await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Error al traspasar la Información"));
+                /*MessageBox.Show("error al Filtrar Información");*/
+                Logger.Mensaje(ex.Message);
+            }
         }
     }
 }

@@ -9,9 +9,9 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="Administrar Cliente" Height="497.784" Width="580.124" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/Logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" >
-    <GroupBox x:Name="groupBox" Header="Información de Cliente" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" Height="437" Width="538" Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
-        <Grid HorizontalAlignment="Left" Height="407" VerticalAlignment="Top" Width="528" Margin="0,-2,0,-11.667" Background="#FFDBDFE3">
+        Title="Administrar Cliente" Height="497.784" Width="539.124" WindowStartupLocation="CenterScreen" Cursor="Arrow" FontWeight="Bold" WindowTitleBrush="Black" Icon="Imagenes/Logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal" Background="#FFDBDFE3" >
+    <GroupBox x:Name="groupBox" Header="Información de Cliente" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" Height="437" Width="497" Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
+        <Grid HorizontalAlignment="Left" Height="407" VerticalAlignment="Top" Width="483" Margin="0,-2,0,-3.667" Background="#FFDBDFE3">
             <Label x:Name="label" Content="Rut:" HorizontalAlignment="Left" Margin="23,19,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy" Content="Apellido Paterno:" HorizontalAlignment="Left" Margin="23,127,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy1" Content="Primer Nombre:" HorizontalAlignment="Left" Margin="23,55,0,0" VerticalAlignment="Top"/>
@@ -46,14 +46,7 @@
             <Label x:Name="label_Copy6" Content="Comuna:" HorizontalAlignment="Left" Margin="23,271,0,0" VerticalAlignment="Top"/>
 
 
-            <GroupBox x:Name="groupBox1" Header="Consultar con Banco Estado" HorizontalAlignment="Left" Margin="338,141,0,0" VerticalAlignment="Top" Height="146" Width="178" Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="12" mah:ControlsHelper.HeaderFontSize="11">
-                <Grid HorizontalAlignment="Left" Height="115" VerticalAlignment="Top" Width="168" Margin="0,-2,0,-1">
-                    <Button x:Name="btnBanco" Content="Consultar" HorizontalAlignment="Left" Margin="35,15,0,0" VerticalAlignment="Top" Height="32" Width="95" Cursor="Arrow" FontWeight="Normal"  mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnBanco_Click"/>
-                    <Label x:Name="label2" Content="Cliente Hipotecario:" HorizontalAlignment="Left" Margin="21,58,0,0" VerticalAlignment="Top"/>
-                    <RadioButton x:Name="rbSi" Content="Si" HorizontalAlignment="Left" Margin="27,89,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="Hipotecario"/>
-                    <RadioButton x:Name="rbNo" Content="No" HorizontalAlignment="Left" Margin="90,89,0,0" VerticalAlignment="Top" GroupName="Hipotecario" IsChecked="True"/>
-                </Grid>
-            </GroupBox>
+
 
         </Grid>
     </GroupBox>

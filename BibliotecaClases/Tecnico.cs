@@ -109,8 +109,8 @@ namespace BibliotecaNegocio
                 }
             }
         }
-
-        private int _telefono;
+        public int telefono { get; set; }
+        /* private int _telefono;
 
         public int telefono
         {
@@ -127,7 +127,7 @@ namespace BibliotecaNegocio
                     //throw new ArgumentException("- Campo Teléfono no puede estar Vacío y debe tener un largo de 9 dígitos");
                 }
             }
-        }
+        }*/
         public string email { get; set; }
         public int id_equipo { get; set; }
         public int id_comuna { get; set; }
@@ -281,13 +281,13 @@ namespace BibliotecaNegocio
                         select new ListaTecnico()
                         {
                             Rut = tec.RUT_TECNICO,
-                            PrimerNombre = tec.PRIMER_NOMBRE,
-                            SegundoNombre = tec.SEGUNDO_NOMBRE,
-                            ApPaterno = tec.AP_PATERNO,
-                            ApMaterno = tec.AP_MATERNO,
-                            Direccion = tec.DIRECCION,
-                            Telefono = tec.TELEFONO,
-                            Mail = tec.EMAIL,
+                            Nombre = tec.PRIMER_NOMBRE,
+                            Segundo_Nombre = tec.SEGUNDO_NOMBRE,
+                            ApellidoPaterno = tec.AP_PATERNO,
+                            ApellidoMaterno = tec.AP_MATERNO,
+                            Dirección = tec.DIRECCION,
+                            Teléfono = tec.TELEFONO,
+                            Email = tec.EMAIL,
                             Equipo = equi.NOMBRE,//Traigo el nombre no el id
                             Comuna = comu.NOMBRE//Traigo el nombre no el id
 
@@ -313,13 +313,13 @@ namespace BibliotecaNegocio
                      select new ListaTecnico()
                      {
                          Rut = tec.RUT_TECNICO,
-                         PrimerNombre = tec.PRIMER_NOMBRE,
-                         SegundoNombre = tec.SEGUNDO_NOMBRE,
-                         ApPaterno = tec.AP_PATERNO,
-                         ApMaterno = tec.AP_MATERNO,
-                         Direccion = tec.DIRECCION,
-                         Telefono = tec.TELEFONO,
-                         Mail = tec.EMAIL,
+                         Nombre = tec.PRIMER_NOMBRE,
+                         Segundo_Nombre = tec.SEGUNDO_NOMBRE,
+                         ApellidoPaterno = tec.AP_PATERNO,
+                         ApellidoMaterno = tec.AP_MATERNO,
+                         Dirección = tec.DIRECCION,
+                         Teléfono = tec.TELEFONO,
+                         Email = tec.EMAIL,
                          Equipo = equi.NOMBRE,//Traigo el nombre no el id
                          Comuna = comu.NOMBRE//Traigo el nombre no el id
                      };
@@ -339,13 +339,13 @@ namespace BibliotecaNegocio
                      select new ListaTecnico()
                      {
                          Rut = tec.RUT_TECNICO,
-                         PrimerNombre = tec.PRIMER_NOMBRE,
-                         SegundoNombre = tec.SEGUNDO_NOMBRE,
-                         ApPaterno = tec.AP_PATERNO,
-                         ApMaterno = tec.AP_MATERNO,
-                         Direccion = tec.DIRECCION,
-                         Telefono = tec.TELEFONO,
-                         Mail = tec.EMAIL,
+                         Nombre = tec.PRIMER_NOMBRE,
+                         Segundo_Nombre = tec.SEGUNDO_NOMBRE,
+                         ApellidoPaterno = tec.AP_PATERNO,
+                         ApellidoMaterno = tec.AP_MATERNO,
+                         Dirección = tec.DIRECCION,
+                         Teléfono = tec.TELEFONO,
+                         Email = tec.EMAIL,
                          Equipo = equi.NOMBRE,//Traigo el nombre no el id
                          Comuna = comu.NOMBRE//Traigo el nombre no el id
                      };
@@ -358,13 +358,13 @@ namespace BibliotecaNegocio
         public class ListaTecnico
         {
             public string Rut { get; set; }
-            public string PrimerNombre { get; set; }
-            public string SegundoNombre { get; set; }
-            public string ApPaterno { get; set; }
-            public string ApMaterno { get; set; }
-            public string Direccion { get; set; }
-            public int Telefono { get; set; }
-            public string Mail { get; set; }
+            public string Nombre { get; set; }
+            public string Segundo_Nombre { get; set; }
+            public string ApellidoPaterno { get; set; }
+            public string ApellidoMaterno { get; set; }
+            public string Dirección { get; set; }
+            public int Teléfono { get; set; }
+            public string Email { get; set; }
             public string Equipo { get; set; }//Nombre no id
             public string Comuna { get; set; }//Nombre no id
 

@@ -25,10 +25,6 @@ namespace Vista
     public partial class ListadoFormulario : MetroWindow
     {
         FormularioInspeccion formu;
-        FormularioMedicion forMe;
-        FormularioTermografia forTer;
-        FormularioVerificacion formVe;
-
 
         public ListadoFormulario()
         {
@@ -39,21 +35,10 @@ namespace Vista
 
             try
             {
-                BibliotecaNegocio.InformeInspeccion ii = new BibliotecaNegocio.InformeInspeccion();
+                BibliotecaNegocio.Informe ii = new BibliotecaNegocio.Informe();
                 dgLista.ItemsSource = ii.ReadAll2();
                 dgLista.Items.Refresh();
 
-                BibliotecaNegocio.InformeMedicion im = new BibliotecaNegocio.InformeMedicion();
-                dgLista.ItemsSource = im.ReadAll2();
-                dgLista.Items.Refresh();
-
-                BibliotecaNegocio.InformeTermografia it = new BibliotecaNegocio.InformeTermografia();
-                dgLista.ItemsSource = it.ReadAll2();
-                dgLista.Items.Refresh();
-
-                BibliotecaNegocio.InformeVerificacion iv = new BibliotecaNegocio.InformeVerificacion();
-                dgLista.ItemsSource = iv.ReadAll2();
-                dgLista.Items.Refresh();
 
             }
             catch (Exception ex)
@@ -74,40 +59,7 @@ namespace Vista
 
         }
 
-        //Llamado desde FormularioMedicion
-        public ListadoFormulario(FormularioMedicion origen)
-        {
-            InitializeComponent();
-            forMe = origen;
 
-            btnPasar.Visibility = Visibility.Visible;//el botón traspasar se ve
-            btnCrear.Visibility = Visibility.Hidden;
-
-        }
-
-        //Llamado desde FormularioTermografia
-        public ListadoFormulario(FormularioTermografia origen)
-        {
-            InitializeComponent();
-            forTer = origen;
-
-            btnPasar.Visibility = Visibility.Visible;//el botón traspasar se ve
-            btnCrear.Visibility = Visibility.Hidden;
-
-        }
-
-        
-
-        //Llamado desde FormularioVerificacion
-        public ListadoFormulario(FormularioVerificacion origen)
-        {
-            InitializeComponent();
-            formVe = origen;
-
-            btnPasar.Visibility = Visibility.Visible;//el botón traspasar se ve
-            btnCrear.Visibility = Visibility.Hidden;
-
-        }
 
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {

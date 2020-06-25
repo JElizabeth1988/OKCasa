@@ -51,7 +51,6 @@
   <ItemGroup>
     <Compile Include="Agenda.cs" />
     <Compile Include="Agrupamiento.cs" />
-    <Compile Include="ArtSanitario.cs" />
     <Compile Include="BancoEstado.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="CommonBC.cs" />
@@ -59,12 +58,9 @@
     <Compile Include="DaoErrores.cs" />
     <Compile Include="EquipoInsumo.cs" />
     <Compile Include="EquipoTecnico.cs" />
-    <Compile Include="InformeInspeccion.cs" />
-    <Compile Include="InformeMedicion.cs" />
-    <Compile Include="InformeTermografia.cs" />
-    <Compile Include="InformeVerificacion.cs" />
-    <Compile Include="InstAlcantarillado.cs" />
+    <Compile Include="Informe.cs" />
     <Compile Include="InstAguaPotable.cs" />
+    <Compile Include="InstAlcantarillado.cs" />
     <Compile Include="InstElectrica.cs" />
     <Compile Include="InstGas.cs" />
     <Compile Include="Insumo.cs" />
@@ -76,18 +72,20 @@
     <Compile Include="Solicitud.cs" />
     <Compile Include="Tecnico.cs" />
     <Compile Include="TipoVivienda.cs" />
-    <Compile Include="tipo_cliente.cs" />
     <Compile Include="Verificar.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BibliotecaControlador\BibliotecaDALC.csproj">
       <Project>{d97da004-87c2-415b-b9f0-d776cf72634c}</Project>
       <Name>BibliotecaDALC</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

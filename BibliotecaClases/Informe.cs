@@ -7,7 +7,7 @@ using BibliotecaDALC;
 
 namespace BibliotecaNegocio
 {
-    public class InformeMedicion
+    public class Informe
     {
         //Crear objeto de la Bdd
         private OkCasa_Entities bdd = new OkCasa_Entities();
@@ -19,23 +19,31 @@ namespace BibliotecaNegocio
         public int num_habitaciones { get; set; }
         public int num_pisos { get; set; }
         public string observacion { get; set; }
-
+        public string habitabilidad { get; set; }
+        public string termica { get; set; }
+        public string fuego { get; set; }
         public int area_regis { get; set; }
         public int area_real { get; set; }
-        public int sup_util_regis { get; set; }
-        public int sup_util_real { get; set; }
         public int sup_constr_regis { get; set; }
         public int sup_constr_real { get; set; }
-        public int sup_elem_regis { get; set; }
-        public int sup_elem_real { get; set; }
+        public int emisividad { get; set; }
+        public int temp_reflejada { get; set; }
+        public int distancia { get; set; }
+        public int humedad_rel { get; set; }
+        public int temp_atmosferica { get; set; }
         
         public string rut_cliente { get; set; }
         public string rut_tecnico { get; set; }
         public int id_tipo { get; set; }
         public int id_agrup { get; set; }
         public int id_solicitud { get; set; }
+        public int id_alcantarillado { get; set; }
+        public int id_gas { get; set; }
+        public int id_electrica { get; set; }
+        public int id_agua { get; set; }
+        public int id_agua_potable { get; set; }
 
-        public InformeMedicion()
+        public Informe()
         {
 
         }
@@ -47,9 +55,9 @@ namespace BibliotecaNegocio
             try
             {
                 //creo un modelo de la tabla
-                INFORME_MEDICION inf = new INFORME_MEDICION();
+                INFORME inf = new INFORME();
                 CommonBC.Syncronize(this, inf);
-                bdd.INFORME_MEDICION.Add(inf);
+                bdd.INFORME.Add(inf);
                 bdd.SaveChanges();
 
                 return true;
@@ -69,10 +77,10 @@ namespace BibliotecaNegocio
         {
             try
             {
-                INFORME_MEDICION inf =
-                bdd.INFORME_MEDICION.Find(num_formulario);
+                INFORME inf =
+                bdd.INFORME.Find(num_formulario);
 
-                bdd.INFORME_MEDICION.Remove(inf);
+                bdd.INFORME.Remove(inf);
                 bdd.SaveChanges();
 
                 return true;
@@ -90,8 +98,8 @@ namespace BibliotecaNegocio
         {
             try
             {
-                INFORME_MEDICION info =
-                bdd.INFORME_MEDICION.First(inf => inf.NUM_FORMULARIO.Equals(num_formulario));
+                INFORME info =
+                bdd.INFORME.First(inf => inf.NUM_FORMULARIO.Equals(num_formulario));
 
                 CommonBC.Syncronize(info, this);
 
@@ -112,7 +120,7 @@ namespace BibliotecaNegocio
             try
             {
                 //creo un modelo de la tabla 
-                INFORME_MEDICION info = bdd.INFORME_MEDICION.Find(num_formulario);
+                INFORME info = bdd.INFORME.Find(num_formulario);
                 CommonBC.Syncronize(this, info);
                 bdd.SaveChanges();
                 return true;
@@ -131,7 +139,7 @@ namespace BibliotecaNegocio
         {
             try
             {
-                INFORME_MEDICION info = bdd.INFORME_MEDICION.Find(num_formulario);
+                INFORME info = bdd.INFORME.Find(num_formulario);
                 CommonBC.Syncronize(info, this);
                 return true;
             }
@@ -142,12 +150,12 @@ namespace BibliotecaNegocio
             }
 
         }
-        public List<InformeMedicion> ReadAll()
+        public List<Informe> ReadAll()
         {
             try
             {
-                var c = from info in bdd.INFORME_MEDICION
-                        select new InformeMedicion()
+                var c = from info in bdd.INFORME
+                        select new Informe()
                         {
                             num_formulario = info.NUM_FORMULARIO,
                             estado_servicio = info.ESTADO_SERVICIO,
@@ -156,20 +164,28 @@ namespace BibliotecaNegocio
                             num_pisos = info.NUM_PISOS,
                             fecha_insp = info.FECHA_INSP,
                             observacion = info.OBSERVACION,
-                            area_regis = info.AREA_REGIS,
-                            area_real = info.AREA_REAL,
-                            sup_util_regis = info.SUP_UTIL_REGIS,
-                            sup_util_real = info.SUP_UTIL_REAL,
-                            sup_constr_regis = info.SUP_CONSTR_REGIS,
-                            sup_constr_real = info.SUP_CONSTR_REAL,
-                            sup_elem_regis = info.SUP_ELEM_REGIS,
-                            sup_elem_real = int.Parse(info.SUP_ELEM_REAL.ToString()),
+                            habitabilidad = info.HABITABILIDAD,
+                            termica = info.TERMICA,
+                            fuego = info.FUEGO,
+                            area_regis = int.Parse(info.AREA_REGIS.ToString()),
+                            area_real = int.Parse(info.AREA_REAL.ToString()),
+                            sup_constr_regis = int.Parse(info.SUP_CONSTR_REGIS.ToString()),
+                            sup_constr_real = int.Parse(info.SUP_CONSTR_REAL.ToString()),
+                            emisividad = int.Parse(info.EMISIVIDAD.ToString()),
+                            temp_reflejada= int.Parse(info.TEMP_REFLEJADA.ToString()),
+                            distancia = int.Parse(info.DISTANCIA.ToString()),
+                            humedad_rel= int.Parse(info.HUMEDAD_REL.ToString()),
+                            temp_atmosferica= int.Parse(info.TEMP_ATMOSFERICA.ToString()),
                             rut_cliente = info.RUT_CLIENTE,
                             rut_tecnico = info.RUT_TECNICO,
                             id_tipo = info.ID_TIPO,
                             id_agrup = info.ID_AGRUP,
-                            id_solicitud = info.ID_SOLICITUD
-
+                            id_solicitud = info.ID_SOLICITUD,
+                            id_alcantarillado = info.ID_ALCANTARILLADO,
+                            id_gas = info.ID_GAS,
+                            id_electrica = info.ID_ELECTRICA,
+                            id_agua = info.ID_AGUA,
+                            id_agua_potable = info.ID_AGUA_POTABLE
 
                         };
                 return c.ToList();
@@ -186,7 +202,17 @@ namespace BibliotecaNegocio
         {
             try
             {
-                var c = from info in bdd.INFORME_MEDICION
+                var c = from info in bdd.INFORME
+                        join alc in bdd.INST_ALCANTARILLADO
+                          on info.ID_ALCANTARILLADO equals alc.ID_ALCANTARILLADO
+                        join gas in bdd.INST_GAS
+                          on info.ID_GAS equals gas.ID_GAS
+                        join ele in bdd.INST_ELECTRICA
+                          on info.ID_ELECTRICA equals ele.ID_ELECTRICA
+                        join ag in bdd.RED_AGUA
+                          on info.ID_AGUA equals ag.ID_AGUA
+                        join agp in bdd.INST_AGUA_POTABLE
+                          on info.ID_AGUA_POTABLE equals agp.ID_AGUA_POTABLE
                         join tipo in bdd.TIPO_VIVIENDA
                           on info.ID_TIPO equals tipo.ID_TIPO
                         join agr in bdd.AGRUPAMIENTO
@@ -202,19 +228,29 @@ namespace BibliotecaNegocio
                             Pisos = info.NUM_PISOS,
                             Fecha = info.FECHA_INSP,
                             Observacion = info.OBSERVACION,
-                            AreaRegistrada = info.AREA_REGIS,
-                            AreaReal = info.AREA_REAL,
-                            SuperfUtilRegistrada = info.SUP_UTIL_REGIS,
-                            SuperfUtilReal = info.SUP_UTIL_REAL,
-                            SupConstrRegistrada = info.SUP_CONSTR_REGIS,
-                            SupConstrReal = info.SUP_CONSTR_REAL,
-                            SupElemComunRegist = info.SUP_ELEM_REGIS,
-                            SupElemComunReal = int.Parse(info.SUP_ELEM_REAL.ToString()),
+                            habitabilidad = info.HABITABILIDAD,
+                            termica = info.TERMICA,
+                            fuego = info.FUEGO,
+                            area_regis = int.Parse(info.AREA_REGIS.ToString()),
+                            area_real = int.Parse(info.AREA_REAL.ToString()),
+                            sup_constr_regis = int.Parse(info.SUP_CONSTR_REGIS.ToString()),
+                            sup_constr_real = int.Parse(info.SUP_CONSTR_REAL.ToString()),
+                            emisividad = int.Parse(info.EMISIVIDAD.ToString()),
+                            temp_reflejada = int.Parse(info.TEMP_REFLEJADA.ToString()),
+                            distancia = int.Parse(info.DISTANCIA.ToString()),
+                            humedad_rel = int.Parse(info.HUMEDAD_REL.ToString()),
+                            temp_atmosferica = int.Parse(info.TEMP_ATMOSFERICA.ToString()),
+                            
                             RutCliente = info.RUT_CLIENTE,
                             RutTecnico = info.RUT_TECNICO,
                             TipoVivienda = tipo.NOMBRE_TIPO,
                             Agrupamiento = agr.NOMBRE_AGR,
-                            Solicitud = sol.ID_SOLICITUD
+                            Solicitud = sol.ID_SOLICITUD,
+                            Alcantarillado = alc.NOMBRE,
+                            Gas = gas.NOMBRE,
+                            Electrica = ele.NOMBRE,
+                            Agua = ag.NOMBRE,
+                            AguaPotable = agp.NOMBRE,
 
                         };
                 return c.ToList();
@@ -229,7 +265,17 @@ namespace BibliotecaNegocio
         //Filtro por Rut
         public List<ListaInforme> FiltroRut(string rut)
         {
-            var cl = from info in bdd.INFORME_MEDICION
+            var cl = from info in bdd.INFORME
+                     join alc in bdd.INST_ALCANTARILLADO
+                          on info.ID_ALCANTARILLADO equals alc.ID_ALCANTARILLADO
+                     join gas in bdd.INST_GAS
+                       on info.ID_GAS equals gas.ID_GAS
+                     join ele in bdd.INST_ELECTRICA
+                       on info.ID_ELECTRICA equals ele.ID_ELECTRICA
+                     join ag in bdd.RED_AGUA
+                       on info.ID_AGUA equals ag.ID_AGUA
+                     join agp in bdd.INST_AGUA_POTABLE
+                       on info.ID_AGUA_POTABLE equals agp.ID_AGUA_POTABLE
                      join tipo in bdd.TIPO_VIVIENDA
                        on info.ID_TIPO equals tipo.ID_TIPO
                      join agr in bdd.AGRUPAMIENTO
@@ -246,19 +292,29 @@ namespace BibliotecaNegocio
                          Pisos = info.NUM_PISOS,
                          Fecha = info.FECHA_INSP,
                          Observacion = info.OBSERVACION,
-                         AreaRegistrada = info.AREA_REGIS,
-                         AreaReal = info.AREA_REAL,
-                         SuperfUtilRegistrada = info.SUP_UTIL_REGIS,
-                         SuperfUtilReal = info.SUP_UTIL_REAL,
-                         SupConstrRegistrada = info.SUP_CONSTR_REGIS,
-                         SupConstrReal = info.SUP_CONSTR_REAL,
-                         SupElemComunRegist = info.SUP_ELEM_REGIS,
-                         SupElemComunReal = int.Parse(info.SUP_ELEM_REAL.ToString()),
+                         habitabilidad = info.HABITABILIDAD,
+                         termica = info.TERMICA,
+                         fuego = info.FUEGO,
+                         area_regis = int.Parse(info.AREA_REGIS.ToString()),
+                         area_real = int.Parse(info.AREA_REAL.ToString()),
+                         sup_constr_regis = int.Parse(info.SUP_CONSTR_REGIS.ToString()),
+                         sup_constr_real = int.Parse(info.SUP_CONSTR_REAL.ToString()),
+                         emisividad = int.Parse(info.EMISIVIDAD.ToString()),
+                         temp_reflejada = int.Parse(info.TEMP_REFLEJADA.ToString()),
+                         distancia = int.Parse(info.DISTANCIA.ToString()),
+                         humedad_rel = int.Parse(info.HUMEDAD_REL.ToString()),
+                         temp_atmosferica = int.Parse(info.TEMP_ATMOSFERICA.ToString()),
+                         
                          RutCliente = info.RUT_CLIENTE,
                          RutTecnico = info.RUT_TECNICO,
                          TipoVivienda = tipo.NOMBRE_TIPO,
                          Agrupamiento = agr.NOMBRE_AGR,
-                         Solicitud = sol.ID_SOLICITUD
+                         Solicitud = sol.ID_SOLICITUD,
+                         Alcantarillado = alc.NOMBRE,
+                         Gas = gas.NOMBRE,
+                         Electrica = ele.NOMBRE,
+                         Agua = ag.NOMBRE,
+                         AguaPotable = agp.NOMBRE
                      };
 
             return cl.ToList();
@@ -275,28 +331,34 @@ namespace BibliotecaNegocio
             public int Habitaciones { get; set; }
             public int Pisos { get; set; }
             public string Observacion { get; set; }
-            public int AreaRegistrada { get; set; }
-            public int AreaReal { get; set; }
-            public int SuperfUtilRegistrada { get; set; }
-            public int SuperfUtilReal { get; set; }
-            public int SupConstrRegistrada { get; set; }
-            public int SupConstrReal { get; set; }
-            public int SupElemComunRegist { get; set; }
-            public int SupElemComunReal { get; set; }
+            public string habitabilidad { get; set; }
+            public string termica { get; set; }
+            public string fuego { get; set; }
+            public int area_regis { get; set; }
+            public int area_real { get; set; }
+            public int sup_constr_regis { get; set; }
+            public int sup_constr_real { get; set; }
+            public int emisividad { get; set; }
+            public int temp_reflejada { get; set; }
+            public int distancia { get; set; }
+            public int humedad_rel { get; set; }
+            public int temp_atmosferica { get; set; }
 
             public string RutCliente { get; set; }
             public string RutTecnico { get; set; }
             public string TipoVivienda { get; set; }
             public string Agrupamiento { get; set; }
             public int Solicitud { get; set; }
+            public string Alcantarillado { get; set; }
+            public string Gas { get; set; }
+            public string Electrica { get; set; }
+            public string Agua { get; set; }
+            public string AguaPotable { get; set; }
 
             public ListaInforme()
             {
 
             }
         }
-
     }
-
-    
 }

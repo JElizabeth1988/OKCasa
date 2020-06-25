@@ -89,7 +89,7 @@ namespace Vista
         //Informe
         private void Tile_Click_Informe(object sender, RoutedEventArgs e)
         {
-            MenuInforme mi = new MenuInforme();
+            FormularioInspeccion mi = new FormularioInspeccion();
             mi.ShowDialog();
         }
         //Historial
