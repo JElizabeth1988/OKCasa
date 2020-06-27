@@ -505,24 +505,6 @@ advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ning
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <EntityContainer Name="ModeloStoreContainer">
           <EntitySet Name="AGENDA" EntityType="Self.AGENDA" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="AGRUPAMIENTO" EntityType="Self.AGRUPAMIENTO" Schema="OKCASA" store:Type="Tables" />
@@ -718,7 +700,7 @@ FROM "OKCASA"."EQUIPO_INSUMO" "EQUIPO_INSUMO"</DefiningQuery>
           <Key>
             <PropertyRef Name="NUM_FORMULARIO" />
           </Key>
-          <Property Name="NUM_FORMULARIO" Type="Int32" Nullable="false" />
+          <Property Name="NUM_FORMULARIO" Type="Int64" Nullable="false" />
           <Property Name="ESTADO_SERVICIO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FECHA_INSP" Type="DateTime" Nullable="false" />
           <Property Name="RESULTADO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />

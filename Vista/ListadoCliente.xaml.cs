@@ -145,7 +145,7 @@ namespace Vista
                 //conexion
                 cmd.Connection = conn;
                 //procedimiento
-                cmd.CommandText = "SP_LISTAR_CLIENTE2";
+                cmd.CommandText = "SP_LISTAR_CLIENTE_INF";
 
                 //cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
                 //Se agrega el parametro de salida
@@ -393,7 +393,7 @@ namespace Vista
                 if (cli == null)
                 {
                     BibliotecaNegocio.Cliente.ListaClientes cl = (BibliotecaNegocio.Cliente.ListaClientes)dgLista.SelectedItem;
-                    form.txtRutCliente1.Text = cl.Rut;
+                    form.txtRutCliente.Text = cl.Rut;
                     //form.Buscar();
                 }
                 else

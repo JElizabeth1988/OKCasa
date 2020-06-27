@@ -11,8 +11,10 @@ namespace BibliotecaNegocio
     {
         //Crear objeto de la Bdd
         private OkCasa_Entities bdd = new OkCasa_Entities();
+        DaoErrores err = new DaoErrores();
+        public DaoErrores retornar() { return err; }
 
-        public int num_formulario { get; set; }
+        public long num_formulario { get; set; }
         public string estado_servicio { get; set; }
         public DateTime fecha_insp { get; set; }
         public string resultado { get; set; }
@@ -31,12 +33,51 @@ namespace BibliotecaNegocio
         public int distancia { get; set; }
         public int humedad_rel { get; set; }
         public int temp_atmosferica { get; set; }
-        
-        public string rut_cliente { get; set; }
+
+        //public string rut_cliente { get; set; }
+        private string _rut_cliente;
+
+        public string rut_cliente
+        {
+            get { return _rut_cliente; }
+            set {
+                    if (value != string.Empty && value.Length >= 9 && value.Length <= 10)
+                    {
+                        _rut_cliente = value;
+                    }
+                    else
+                    {
+                        //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                        err.AgregarError("Campo Rut  no puede estar Vacío");
+                    }
+            }
+        }
+
         public string rut_tecnico { get; set; }
         public int id_tipo { get; set; }
         public int id_agrup { get; set; }
-        public int id_solicitud { get; set; }
+        //public int id_solicitud { get; set; }
+        private int _id_solicitud;
+
+        public int id_solicitud
+        {
+            get { return _id_solicitud; }
+            set
+            {
+                if (value != 0)
+                {
+                    _id_solicitud = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("Debe Buscar la Solicitud de Servicio");
+                }
+            }
+        }
+
+
+
         public int id_alcantarillado { get; set; }
         public int id_gas { get; set; }
         public int id_electrica { get; set; }
@@ -48,6 +89,7 @@ namespace BibliotecaNegocio
 
         }
 
+        
         //CRUD
         //Guardar
         public Boolean Guardar()
@@ -324,7 +366,7 @@ namespace BibliotecaNegocio
         //Lista para read all2 trae nombres no id
         public class ListaInforme
         {
-            public int Numero { get; set; }
+            public long Numero { get; set; }
             public string Estado { get; set; }
             public DateTime Fecha { get; set; }
             public string Resultado { get; set; }
@@ -354,6 +396,12 @@ namespace BibliotecaNegocio
             public string Electrica { get; set; }
             public string Agua { get; set; }
             public string AguaPotable { get; set; }
+            public string Dirección { get; set; }
+            public string Constructora { get; set; }
+            public DateTime Fecha_solicitud { get; set; }
+            public string Cliente { get; set; }
+            public string Técnico { get; set; }
+            public string Equipo { get; set; }
 
             public ListaInforme()
             {

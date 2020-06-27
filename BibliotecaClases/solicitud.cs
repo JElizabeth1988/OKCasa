@@ -14,11 +14,11 @@ namespace BibliotecaNegocio
 
         public int id_solicitud { get; set; }
         public DateTime fecha_solicitud { get; set; }
-        
+
         public string direccion_vivienda { get; set; }
         public string constructora { get; set; }
         public string rut_cliente { get; set; }
-        
+
         public int pago { get; set; }
         public int descuento { get; set; }
         public int id_agenda { get; set; }
@@ -41,13 +41,13 @@ namespace BibliotecaNegocio
                         select new Solicitud()
                         {
                             id_solicitud = sol.ID_SOLICITUD,
-                            fecha_solicitud =DateTime.Parse( sol.FECHA_SOLICITUD.ToString()),                            
+                            fecha_solicitud = DateTime.Parse(sol.FECHA_SOLICITUD.ToString()),
                             direccion_vivienda = sol.DIRECCION_VIVIENDA,
                             constructora = sol.CONSTRUCTORA,
                             rut_cliente = sol.RUT_CLIENTE,
                             pago = sol.PAGO,
                             descuento = int.Parse(sol.DESCUENTO.ToString()),
-                            id_agenda = sol.ID_AGENDA,                            
+                            id_agenda = sol.ID_AGENDA,
                             id_comuna = sol.ID_COMUNA,
                             id_servicio = sol.ID_SERVICIO
 
@@ -62,5 +62,21 @@ namespace BibliotecaNegocio
             }
         }
 
+        public class ListaSolicitud
+        {
+            public string Rut { get; set; }
+            public string Nombre { get; set; }
+            public DateTime Fecha { get; set; }
+            public int id_solicitud { get; set; }
+            public string Direccion { get; set; }
+            public string Constructora { get; set; }
+
+
+            public ListaSolicitud()
+            {
+
+            }
+
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace BibliotecaDALC
     
     public partial class INFORME
     {
-        public int NUM_FORMULARIO { get; set; }
+        public long NUM_FORMULARIO { get; set; }
         public string ESTADO_SERVICIO { get; set; }
         public System.DateTime FECHA_INSP { get; set; }
         public string RESULTADO { get; set; }

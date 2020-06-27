@@ -139,7 +139,6 @@ namespace BibliotecaNegocio
         public int id_comuna { get; set; }
 
 
-
         public Cliente()
         {
 

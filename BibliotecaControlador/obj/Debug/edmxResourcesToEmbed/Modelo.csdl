@@ -71,7 +71,7 @@
     <Key>
       <PropertyRef Name="NUM_FORMULARIO" />
     </Key>
-    <Property Name="NUM_FORMULARIO" Type="Int32" Nullable="false" />
+    <Property Name="NUM_FORMULARIO" Type="Int64" Nullable="false" />
     <Property Name="ESTADO_SERVICIO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="FECHA_INSP" Type="DateTime" Nullable="false" />
     <Property Name="RESULTADO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />

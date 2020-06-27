@@ -62,8 +62,8 @@ namespace Vista
             txtTelefono.Text = "0";
         }
 
-        //Solo se aceptan valores numéricos
-        private void txtTelefono_KeyDown(object sender, KeyEventArgs e)
+        //--------------Validación Solo se aceptan valores numéricos
+        private void txtNumeros_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
             {
@@ -76,19 +76,21 @@ namespace Vista
             }
 
         }
-
+        //-----------Botón Cancelar
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
+
+        //Llama al listado para traspasar información para ser modificada en caso que se desconozca rut
         private void btnPregunta_Click(object sender, RoutedEventArgs e)
         {
             ListadoInspectores list = new ListadoInspectores(this);
             list.ShowDialog();
         }
 
-        //Llamado del botón traspasar
+        //--------------Este buscar se usa para el Llamado del botón traspasar
         public async void Buscar()
         {
             try
@@ -185,7 +187,29 @@ namespace Vista
             }
         
     }
+        //----------------Botón Limpiar
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            txtRut.Clear();
+            txtDV.Clear();
+            txtNombre.Clear();
+            txtSegNombre.Clear();
+            txtApPaterno.Clear();
+            txtApeMaterno.Clear();
+            txtDireccion.Clear();
+            txtTelefono.Text = "0";
+            txtEmail.Clear();
+            cboComuna.SelectedIndex = 0;
+            cbEquipo.SelectedIndex = 0;
 
+            btnModificar.Visibility = Visibility.Hidden;
+            btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
+            txtRut.IsEnabled = true;
+
+            txtRut.Focus();//Mover el cursor a la poscición Rut
+        }
+        //-----------------------CRUD con Procedimientos----------------------------------------------
+        //--------------------------------------------------------------------------------------------
         //Botón Buscar (de administrar)
         private async void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
@@ -282,27 +306,7 @@ namespace Vista
 
             }
         }
-
-        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
-        {
-            txtRut.Clear();
-            txtDV.Clear();
-            txtNombre.Clear();
-            txtSegNombre.Clear();
-            txtApPaterno.Clear();
-            txtApeMaterno.Clear();
-            txtDireccion.Clear();
-            txtTelefono.Text = "0";
-            txtEmail.Clear();
-            cboComuna.SelectedIndex = 0;
-            cbEquipo.SelectedIndex = 0;
-
-            btnModificar.Visibility = Visibility.Hidden;
-            btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
-            txtRut.IsEnabled = true;
-
-            txtRut.Focus();//Mover el cursor a la poscición Rut
-        }
+       //--------------Método Guardar---------------------------
         public bool Agregar(BibliotecaNegocio.Tecnico client)
         {
             try
@@ -354,7 +358,7 @@ namespace Vista
         }
 
 
-        //Botón Guardar
+        //--------------Botón Guardar---------------------------
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -429,9 +433,54 @@ namespace Vista
 
             }
         }
-        
 
-        //Botón modificar
+        //-----------Método Modificar----------------------------------       
+        public bool Actualizar(BibliotecaNegocio.Tecnico tec)
+        {
+            try
+            {
+                string rut = txtRut.Text + "-" + txtDV.Text;
+                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
+                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
+                //nucna una instruccion sql en el sistema solo en base de datos
+                OracleCommand CMD = new OracleCommand();
+                //que tipo de tipo voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                //NO INGRESA YA QUE TIENE EL ESTADO Y DEVUELVE 0 o 1 DE FILAS AFECTADAS
+                //SI CAE EN LA EXCEPCION DEVUELVE 0 Y SI NO CAE DEVUELVE 1
+                CMD.CommandText = "SP_ACTUALIZAR_TECNICO";
+                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al tiposito.ID
+                CMD.Parameters.Add(new OracleParameter("P_RUT_TECNICO", OracleDbType.Varchar2, 10)).Value = rut;
+                CMD.Parameters.Add(new OracleParameter("P_PRIMER_NOMBRE", OracleDbType.Varchar2, 20)).Value = tec.primer_nombre;
+                CMD.Parameters.Add(new OracleParameter("P_SEGUNDO_NOMBRE", OracleDbType.Varchar2, 20)).Value = tec.segundo_nombre;
+                CMD.Parameters.Add(new OracleParameter("P_AP_PATERNO", OracleDbType.Varchar2, 20)).Value = tec.ap_paterno;
+                CMD.Parameters.Add(new OracleParameter("P_AP_MATERNO", OracleDbType.Varchar2, 20)).Value = tec.ap_materno;
+                CMD.Parameters.Add(new OracleParameter("P_DIRECCION", OracleDbType.Varchar2, 50)).Value = tec.direccion;
+                CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = tec.telefono;
+                CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 50)).Value = tec.email;
+                CMD.Parameters.Add(new OracleParameter("P_ID_EQUIPO", OracleDbType.Int32)).Value = tec.id_equipo;
+                CMD.Parameters.Add(new OracleParameter("P_ID_COMUNA", OracleDbType.Int32)).Value = tec.id_comuna;
+
+                //asi se indica que es parametro de salida// parametro de direccion, y hacia donde es
+                //CMD.Parameters.Add(new OracleParameter("P_RESP", OracleDbType.Int32)).Direction = System.Data.ParameterDirection.Output;
+                //se abre la conexion
+                conn.Open();
+                //se ejecuta la query CON  VARIABLE DE SALIDA
+                CMD.ExecuteNonQuery();
+                //se cierra la conexioin
+                conn.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
+        //----------Botón modificar-------------------------------
         private async void btnModificar_Click(object sender, RoutedEventArgs e)
         {
 
@@ -444,20 +493,7 @@ namespace Vista
                 String apMaterno = txtApeMaterno.Text;
                 String mail = txtEmail.Text;
                 String direccion = txtDireccion.Text;
-                
-                int telefono = 0;
-                if (int.TryParse(txtTelefono.Text, out telefono))
-                {
-
-                }
-                else
-                {
-                    await this.ShowMessageAsync("Mensaje:",
-                      string.Format("Ingrese un número de 9 dígitos"));
-                    txtTelefono.Focus();
-                    return;
-                }
-
+                int telefono = int.Parse(txtTelefono.Text);
                 int Comuna = ((comboBoxItem1)cboComuna.SelectedItem).id;
                 int Equipo = ((comboBoxItem1)cbEquipo.SelectedItem).id;
                 BibliotecaNegocio.Tecnico c = new BibliotecaNegocio.Tecnico()
@@ -474,7 +510,7 @@ namespace Vista
                     id_comuna = Comuna
 
                 };
-                bool resp = c.Modificar();
+                bool resp = Actualizar(c);
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Actualizado" : "No Actualizado"));
                 /*MessageBox.Show(resp ? "Actualizado" : "No Actualizado, (El rut no se debe modificar)");*/
@@ -512,21 +548,10 @@ namespace Vista
 
             }
         }
+       
 
-        private void txtRut_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
-            {
-                e.Handled = false;
-
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
-        //añadir formato al rut
+        //-----------------Formato Rut (calculo DV)-------------
+        //--------------------------------------------------------------
 
         private void txtRut_LostFocus(object sender, RoutedEventArgs e)
         {

@@ -54,8 +54,8 @@ namespace Vista
 
             
         }
-        //Solo acepta valores numéricos
-        private void txtTelefono_KeyDown(object sender, KeyEventArgs e)
+        //----------Validación Solo acepta valores numéricos
+        private void txtNumeros_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
             {
@@ -68,12 +68,12 @@ namespace Vista
             }
 
         }
-
+        //-----------Botón Cancelar-------------------
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
+        //-----------Botón Pregunta Llama al listado de Clientes en caso de que se desconozca el Rut-------------------
         private void btnPregunta_Click(object sender, RoutedEventArgs e)
         {
             ListadoCliente liCli = new ListadoCliente(this);
@@ -81,7 +81,7 @@ namespace Vista
         }
 
 
-
+        //-----------Botón Limpiar-------------------
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
             txtRut.Clear();
@@ -96,32 +96,31 @@ namespace Vista
             cboComuna.SelectedIndex = 0;
             txtRut.IsEnabled = true;
            
-            btnModificar.Visibility = Visibility.Hidden;
+            btnModificar.Visibility = Visibility.Hidden;//Botón modificar se esconde
             btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
 
             txtRut.Focus();//Mover el cursor a la poscición Rut
 
-
-
         }
+        //------------------------CRUD----------------------------------------------------------------
+        //--------------------------------------------------------------------------------------------
 
+        //----------------Método agregar----------------------
         public bool Agregar(BibliotecaNegocio.Cliente client)
         {
             try
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
                 conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //nucna una instruccion sql en el sistema solo en base de datos
+                //nunca una instruccion sql en el sistema solo en base de datos
                 OracleCommand CMD = new OracleCommand();
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
-                //NO INGRESA YA QUE TIENE EL ESTADO Y DEVUELVE 0 o 1 DE FILAS AFECTADAS
-                //SI CAE EN LA EXCEPCION DEVUELVE 0 Y SI NO CAE DEVUELVE 1
                 CMD.CommandText = "SP_AGREGAR_CLIENTE";
-                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al tiposito.ID
+                //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
                 CMD.Parameters.Add(new OracleParameter("P_RUT_CLIENTE", OracleDbType.Varchar2, 10)).Value = client.rut_cliente;
                 CMD.Parameters.Add(new OracleParameter("P_PRIMER_NOMBRE", OracleDbType.Varchar2, 20)).Value = client.primer_nombre;
                 CMD.Parameters.Add(new OracleParameter("P_SEGUNDO_NOMBRE", OracleDbType.Varchar2, 20)).Value = client.segundo_nombre;
@@ -131,36 +130,35 @@ namespace Vista
                 CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = client.telefono;
                 CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 50)).Value = client.email;
                 CMD.Parameters.Add(new OracleParameter("P_ID_COMUNA", OracleDbType.Int32)).Value = client.id_comuna;
+                
 
                 //asi se indica que es parametro de salida// parametro de direccion, y hacia donde es
                 //CMD.Parameters.Add(new OracleParameter("P_RESP", OracleDbType.Int32)).Direction = System.Data.ParameterDirection.Output;
                 //se abre la conexion
                 conn.Open();
-                //se ejecuta la query CON  VARIABLE DE SALIDA UNA DE SALIDA
+                //se ejecuta la query CON  VARIABLE DE SALIDA en caso de tener
                 CMD.ExecuteNonQuery();
-                // SE CONVIERTE EL P_RESP EN INT 32
-                //int cantidad = Convert.ToInt32(CMD.Parameters["P_RESP"].Value);
                 //se cierra la conexioin
                 conn.Close();
-                //se ven las filas afectadas
-                //return cantidad > 0;
                return true;
             }
             catch (Exception ex)
             {
 
                 return false;
+                Logger.Mensaje(ex.Message);
+
             }
         }
 
 
-        //Botón Guardar
+        //----------------Botón Guardar-----------------------
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 String rut = txtRut.Text + "-" + txtDV.Text;
-                if (rut.Length == 9)
+                if (rut.Length == 9)//Si el rut tiene solo 9 caracteres se le agrega cero al comienzo para que quede de 10
                 {
                     rut = "0" + txtRut.Text + "-" + txtDV.Text;
                 }
@@ -169,13 +167,11 @@ namespace Vista
                 String apPaterno = txtApPaterno.Text;
                 String apMaterno = txtApeMaterno.Text;
                 String mail = txtEmail.Text;
-                String direccion = txtDireccion.Text;
-                
-                int telefono = int.Parse(txtTelefono.Text);
-                
+                String direccion = txtDireccion.Text;    
+                int telefono = int.Parse(txtTelefono.Text); 
                 int Comuna = ((comboBoxItem1)cboComuna.SelectedItem).id;//Guardo el id
-                
-              
+
+                             
                 BibliotecaNegocio.Cliente c = new BibliotecaNegocio.Cliente()
                 {
                     rut_cliente = rut,
@@ -189,6 +185,7 @@ namespace Vista
                     id_comuna = Comuna
                     
                     
+                    
                 };
                 bool resp = Agregar(c);
                 await this.ShowMessageAsync("Mensaje:",
@@ -196,7 +193,7 @@ namespace Vista
                 /*MessageBox.Show(resp ? "Guardado" : "No Guardado");*/
                 
                 //-----------------------------------------------------------------------------------------------
-                //MOSTRAR LISTA DE ERRORES
+                //MOSTRAR LISTA DE ERRORES (validación de la clase)
                 if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
                 {
                     DaoErrores de = c.retornar();
@@ -208,11 +205,7 @@ namespace Vista
                     await this.ShowMessageAsync("Mensaje:",
                         string.Format(li));
                 }
-
-
                 //-----------------------------------------------------------------------------------------------
-
-
             }
             catch (ArgumentException exa)//mensajes de reglas de negocios
             {
@@ -228,11 +221,52 @@ namespace Vista
 
             }
         }
+        //------------Método Actualizar------------------------------------------
+        public bool Actualizar(BibliotecaNegocio.Cliente client)
+        {
+            try
+            {
+                string rut = txtRut.Text+"-"+txtDV.Text;
+                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
+                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
+                //nucna una instruccion sql en el sistema solo en base de datos
+                OracleCommand CMD = new OracleCommand();
+                //que tipo de tipo voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_ACTUALIZAR_CLIENTE";
+                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al de la clase
+                CMD.Parameters.Add(new OracleParameter("P_RUT_CLIENTE", OracleDbType.Varchar2, 10)).Value = rut;
+                CMD.Parameters.Add(new OracleParameter("P_PRIMER_NOMBRE", OracleDbType.Varchar2, 20)).Value = client.primer_nombre;
+                CMD.Parameters.Add(new OracleParameter("P_SEGUNDO_NOMBRE", OracleDbType.Varchar2, 20)).Value = client.segundo_nombre;
+                CMD.Parameters.Add(new OracleParameter("P_AP_PATERNO", OracleDbType.Varchar2, 20)).Value = client.ap_paterno;
+                CMD.Parameters.Add(new OracleParameter("P_AP_MATERNO", OracleDbType.Varchar2, 20)).Value = client.ap_materno;
+                CMD.Parameters.Add(new OracleParameter("P_DIRECCION", OracleDbType.Varchar2, 50)).Value = client.direccion;
+                CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = client.telefono;
+                CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 50)).Value = client.email;
+                CMD.Parameters.Add(new OracleParameter("P_ID_COMUNA", OracleDbType.Int32)).Value = client.id_comuna;
 
-        //Botón modificar
+                //asi se indica que es parametro de salida// parametro de direccion, y hacia donde es
+                //CMD.Parameters.Add(new OracleParameter("P_RESP", OracleDbType.Int32)).Direction = System.Data.ParameterDirection.Output;
+                //se abre la conexion
+                conn.Open();
+                //se ejecuta la query CON  VARIABLE DE SALIDA (si tiene)
+                CMD.ExecuteNonQuery();
+                //se cierra la conexioin
+                conn.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+            }
+        }
+        //--------------Botón modificar------------------------------------------------
         private async void btnModificar_Click(object sender, RoutedEventArgs e)
         {
-
             try
             {
                 String rut = txtRut.Text + "-" + txtDV.Text;
@@ -242,20 +276,7 @@ namespace Vista
                 String apMaterno = txtApeMaterno.Text;
                 String mail = txtEmail.Text;
                 String direccion = txtDireccion.Text;
-                
-                int telefono = 0;
-                if (int.TryParse(txtTelefono.Text, out telefono))
-                {
-
-                }
-                else
-                {
-                    await this.ShowMessageAsync("Mensaje:",
-                      string.Format("Ingrese un número de 9 dígitos"));
-                        txtTelefono.Focus();
-                    return;
-                }
-
+                int telefono = int.Parse(txtTelefono.Text);
                 int Comuna = ((comboBoxItem1)cboComuna.SelectedItem).id;
                 
                 BibliotecaNegocio.Cliente c = new BibliotecaNegocio.Cliente()
@@ -271,7 +292,7 @@ namespace Vista
                     id_comuna = Comuna
 
                 };
-                bool resp = c.Modificar();
+                bool resp = Actualizar(c);
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Actualizado" : "No Actualizado"));
                 /*MessageBox.Show(resp ? "Actualizado" : "No Actualizado, (El rut no se debe modificar)");*/
@@ -290,8 +311,6 @@ namespace Vista
                     await this.ShowMessageAsync("Mensaje:",
                         string.Format(li));
                 }
-
-
                 //-----------------------------------------------------------------------------------------------
 
             }
@@ -310,7 +329,7 @@ namespace Vista
             }
         }
 
-        //Llamado del botón traspasar
+        //------------------Llamado del botón traspasar--------------
         public async void Buscar()
          {
              try
@@ -333,7 +352,7 @@ namespace Vista
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
                 CMD.CommandText = "SP_BUSCAR_CLIENTE";
-                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al tiposito.ID
+                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// 
                 CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 10)).Value = rut;
                 CMD.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
 
@@ -341,7 +360,7 @@ namespace Vista
                 conn.Open();
                 OracleDataReader reader = CMD.ExecuteReader();
                 BibliotecaNegocio.Cliente c = null;
-                while (reader.Read())
+                while (reader.Read())//Mientras lee
                 {
                     c = new BibliotecaNegocio.Cliente();
 
@@ -359,14 +378,12 @@ namespace Vista
 
                 }
                 conn.Close();
-
-
-                if (c != null)
+                if (c != null)//Si la lista no esta vacía entrego parámetros a los textBox y CB
                 {
                     txtRut.Text = c.rut_cliente.Substring(0, 8);
                     txtDV.Text = c.rut_cliente.Substring(9, 1);
-                    txtRut.IsEnabled = false;
-                    txtDV.IsEnabled = false;
+                    txtRut.IsEnabled = false;//Rut no se modifica
+                    txtDV.IsEnabled = false;//DV tampoco
 
                     txtNombre.Text = c.primer_nombre;
                     txtSegNombre.Text = c.segundo_nombre;
@@ -375,14 +392,14 @@ namespace Vista
                     txtEmail.Text = c.email;
                     txtDireccion.Text = c.direccion;
                     txtTelefono.Text = c.telefono.ToString();
-
+                    //-------Cambiar a nombre
                     Comuna co = new Comuna();
                     co.id_comuna = c.id_comuna;
                     co.Read();
                     cboComuna.Text = co.nombre;//Cambiar a nombre
-
+                    //--------------------
                     btnModificar.Visibility = Visibility.Visible;
-                    btnGuardar.Visibility = Visibility.Hidden;
+                    btnGuardar.Visibility = Visibility.Hidden;//Guardar desaparece
 
                 }
                 else
@@ -404,30 +421,30 @@ namespace Vista
 
 
        
-        //Botón Buscar (de administrar cliente)
+        //----------------------Botón Buscar (de administrar cliente)---------------
         private async void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                    string rut = txtRut.Text + "-" + txtDV.Text;
+                string rut = txtRut.Text + "-" + txtDV.Text;
 
-                    if (rut.Length == 9)
-                    {
-                        rut = "0" + txtRut.Text + "-" + txtDV.Text;
-                    }
-                    string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                    conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                    //nucna una instruccion sql en el sistema solo en base de datos
-                    OracleCommand CMD = new OracleCommand();
-                    //que tipo de tipo voy a ejecutar
-                    CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                if (rut.Length == 9)
+                {
+                    rut = "0" + txtRut.Text + "-" + txtDV.Text;
+                }
+                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
+                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
+                //nucna una instruccion sql en el sistema solo en base de datos
+                OracleCommand CMD = new OracleCommand();
+                //que tipo de tipo voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 
                 List<BibliotecaNegocio.Cliente> clie = new List<BibliotecaNegocio.Cliente>();
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
                 CMD.CommandText = "SP_BUSCAR_CLIENTE";
-                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al tiposito.ID
+                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
                 CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 10)).Value = rut;
                 CMD.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
 
@@ -496,21 +513,9 @@ namespace Vista
             }
         }
 
-        private void txtRut_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
-            {
-                e.Handled = false;
-
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
-        //añadir formato al rut
-
+       //-------------------------------------------------------------------------------------
+        //----------------------añadir formato al rut-----------------------------------------
+        //--------------------------------------------------------------------------------------
         private void txtRut_LostFocus(object sender, RoutedEventArgs e)
         {
             if (txtRut.Text.Length >= 7 && txtRut.Text.Length <= 8)
