@@ -1142,12 +1142,7 @@ namespace Vista
         {
             try
             {
-                string rut = txtRut.Text + "-" + txtDV.Text;
-
-                if (rut.Length == 9)
-                {
-                    rut = "0" + txtRut.Text + "-" + txtDV.Text;
-                }
+                string rut = txtRutCliente.Text;
                 string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
                 conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
                 //nucna una instruccion sql en el sistema solo en base de datos
@@ -1155,59 +1150,47 @@ namespace Vista
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
 
-                List<BibliotecaNegocio.Cliente> clie = new List<BibliotecaNegocio.Cliente>();
+                List<BibliotecaNegocio.Solicitud.ListaSolicitud> clie = new List<BibliotecaNegocio.Solicitud.ListaSolicitud>();
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_BUSCAR_CLIENTE";
-                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// 
-                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 10)).Value = rut;
-                CMD.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+                CMD.CommandText = "SP_BUSCAR_CLI";
+                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
+                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 20)).Value = rut;
+                CMD.Parameters.Add(new OracleParameter("INFORMES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
 
                 //se abre la conexion
                 conn.Open();
                 OracleDataReader reader = CMD.ExecuteReader();
-                BibliotecaNegocio.Cliente c = null;
-                while (reader.Read())//Mientras lee
+                BibliotecaNegocio.Solicitud.ListaSolicitud c = null;
+                while (reader.Read())
                 {
-                    c = new BibliotecaNegocio.Cliente();
+                    c = new BibliotecaNegocio.Solicitud.ListaSolicitud();
 
-                    c.rut_cliente = reader[0].ToString();
-                    c.primer_nombre = reader[1].ToString();
-                    c.segundo_nombre = reader[2].ToString();
-                    c.ap_paterno = reader[3].ToString();
-                    c.ap_materno = reader[4].ToString();
-                    c.direccion = reader[5].ToString();
-                    c.telefono = int.Parse(reader[6].ToString());
-                    c.email = reader[7].ToString();
-                    c.id_comuna = int.Parse(reader[8].ToString());
+                    c.Rut = reader[0].ToString();
+                    c.Nombre = reader[1].ToString();
+                    c.Fecha = DateTime.Parse(reader[2].ToString());
+                    c.id_solicitud = int.Parse(reader[3].ToString());
+                    c.Direccion = reader[4].ToString();
+                    c.Constructora = reader[5].ToString();
 
                     clie.Add(c);
 
                 }
                 conn.Close();
-                if (c != null)//Si la lista no esta vacía entrego parámetros a los textBox y CB
-                {
-                    txtRut.Text = c.rut_cliente.Substring(0, 8);
-                    txtDV.Text = c.rut_cliente.Substring(9, 1);
-                    txtRut.IsEnabled = false;//Rut no se modifica
-                    txtDV.IsEnabled = false;//DV tampoco
 
-                    txtNombre.Text = c.primer_nombre;
-                    txtSegNombre.Text = c.segundo_nombre;
-                    txtApeMaterno.Text = c.ap_paterno;
-                    txtApPaterno.Text = c.ap_materno;
-                    txtEmail.Text = c.email;
-                    txtDireccion.Text = c.direccion;
-                    txtTelefono.Text = c.telefono.ToString();
-                    //-------Cambiar a nombre
-                    Comuna co = new Comuna();
-                    co.id_comuna = c.id_comuna;
-                    co.Read();
-                    cboComuna.Text = co.nombre;//Cambiar a nombre
-                    //--------------------
-                    btnModificar.Visibility = Visibility.Visible;
-                    btnGuardar.Visibility = Visibility.Hidden;//Guardar desaparece
+
+                if (c != null)
+                {
+                    txtRutCliente.Text = c.Rut;
+                    txtNombreCliente.Text = c.Nombre;
+                    dtfechaSol.Text = c.Fecha.ToString();
+                    lblIdSolicitud.Content = c.id_solicitud;
+                    txtDireccion.Text = c.Direccion;
+                    txtConstr.Text = c.Constructora;
+
+                    lblIdSolicitud.Visibility = Visibility.Hidden;
+                    txtRutCliente.IsEnabled = false;
 
                 }
                 else

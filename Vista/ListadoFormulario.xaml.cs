@@ -77,10 +77,5 @@ namespace Vista
             form.ShowDialog();
         }
 
-        private void btnListCliente_Click(object sender, RoutedEventArgs e)
-        {
-            ListadoCliente listCli = new ListadoCliente();
-            listCli.ShowDialog();
-        }
     }
 }

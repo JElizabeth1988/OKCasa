@@ -35,7 +35,6 @@
                 <TextBox x:Name="txtFiltroNumero"  Controls:TextBoxHelper.Watermark="Ingrese número" HorizontalAlignment="Left" Height="23" Margin="116,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
                 <Label x:Name="label_Copy" Content="N° Informe:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,5,0,0"/>
                 <Button x:Name="btnFiltrarRut" Content="Filtrar" HorizontalAlignment="Left" Margin="299,39,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
-                <Button x:Name="btnListCliente" Content="?" HorizontalAlignment="Left" Margin="390,38,0,0" VerticalAlignment="Top" Width="27" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnListCliente_Click"/>
             </Grid>
         </GroupBox>
         <Button x:Name="btnRefrescar" HorizontalAlignment="Left" Margin="611,396,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click"  >

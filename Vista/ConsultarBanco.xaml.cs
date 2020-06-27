@@ -54,9 +54,6 @@ namespace Vista
 
         }
 
-
-
-
         private async void btnConsultar_Click(object sender, RoutedEventArgs e)
         {
             //Crear Cliente del WS

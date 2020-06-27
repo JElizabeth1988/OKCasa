@@ -62,6 +62,33 @@ namespace BibliotecaNegocio
             }
         }
 
+        //Read all 3 (se llena con método ListaCliente2 que está abajo)
+        public List<ListaSolicitud> ReadAll2()
+        {
+            try
+            {
+                var c = from sol in bdd.SOLICITUD
+                        join cli in bdd.CLIENTE //Join con Comuna para traer el nombre de la comuna y no su id igualando el dato en común (id_comuna)
+                          on sol.RUT_CLIENTE equals cli.RUT_CLIENTE
+                        select new ListaSolicitud()
+                        {
+                            Rut = sol.RUT_CLIENTE,
+                            Nombre = cli.PRIMER_NOMBRE,
+                            Direccion = sol.DIRECCION_VIVIENDA,
+                            Constructora = sol.CONSTRUCTORA,
+                            Fecha = DateTime.Parse(sol.FECHA_SOLICITUD.ToString()),
+                            id_solicitud = sol.ID_SOLICITUD
+                        };
+                return c.ToList();
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+      
         public class ListaSolicitud
         {
             public string Rut { get; set; }
@@ -70,6 +97,7 @@ namespace BibliotecaNegocio
             public int id_solicitud { get; set; }
             public string Direccion { get; set; }
             public string Constructora { get; set; }
+
 
 
             public ListaSolicitud()

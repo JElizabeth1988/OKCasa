@@ -307,6 +307,7 @@ namespace BibliotecaNegocio
             }
         }
 
+
         //Filtro por Rut
         public List<ListaClientes> FiltroRut(string rut)
         {
@@ -349,7 +350,21 @@ namespace BibliotecaNegocio
 
             }
         }
-    }
+
+        public class ListaClientes2
+        {
+            public string Rut { get; set; }
+            public string Nombre { get; set; }
+            public string Dirección { get; set; }
+            public string Constructora { get; set; }
+            public DateTime Fecha { get; set; }
+            public int Solicitud { get; set; }
+
+            public ListaClientes2()
+            {
+
+            }
+        }
         public class ListillaCliente
         {
             public string Rut { get; set; }
@@ -362,9 +377,11 @@ namespace BibliotecaNegocio
             public string Email { get; set; }
             public string Comuna { get; set; }//Nombre no id
 
+
             public ListillaCliente()
             {
 
             }
         }
+    }
 }
