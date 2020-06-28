@@ -64,6 +64,9 @@
     <EntitySetMapping Name="INFORME">
       <EntityTypeMapping TypeName="Modelo.INFORME">
         <MappingFragment StoreEntitySet="INFORME">
+          <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
+          <ScalarProperty Name="CONSTRUCTORA" ColumnName="CONSTRUCTORA" />
+          <ScalarProperty Name="DIRECCION_VIVIENDA" ColumnName="DIRECCION_VIVIENDA" />
           <ScalarProperty Name="NUM_FORMULARIO" ColumnName="NUM_FORMULARIO" />
           <ScalarProperty Name="ESTADO_SERVICIO" ColumnName="ESTADO_SERVICIO" />
           <ScalarProperty Name="FECHA_INSP" ColumnName="FECHA_INSP" />
@@ -136,16 +139,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PAGO">
-      <EntityTypeMapping TypeName="Modelo.PAGO">
-        <MappingFragment StoreEntitySet="PAGO">
-          <ScalarProperty Name="ID_PAGO" ColumnName="ID_PAGO" />
-          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
-          <ScalarProperty Name="DESCUENTO" ColumnName="DESCUENTO" />
-          <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="RED_AGUA">
       <EntityTypeMapping TypeName="Modelo.RED_AGUA">
         <MappingFragment StoreEntitySet="RED_AGUA">
@@ -159,13 +152,13 @@
         <MappingFragment StoreEntitySet="SERVICIO">
           <ScalarProperty Name="ID_SERVICIO" ColumnName="ID_SERVICIO" />
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-          <ScalarProperty Name="VALOR" ColumnName="VALOR" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SOLICITUD">
       <EntityTypeMapping TypeName="Modelo.SOLICITUD">
         <MappingFragment StoreEntitySet="SOLICITUD">
+          <ScalarProperty Name="TIPO_PAGO" ColumnName="TIPO_PAGO" />
           <ScalarProperty Name="ID_SOLICITUD" ColumnName="ID_SOLICITUD" />
           <ScalarProperty Name="FECHA_SOLICITUD" ColumnName="FECHA_SOLICITUD" />
           <ScalarProperty Name="DIRECCION_VIVIENDA" ColumnName="DIRECCION_VIVIENDA" />

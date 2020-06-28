@@ -21,7 +21,6 @@ namespace BibliotecaDALC
     
         public int ID_SERVICIO { get; set; }
         public string NOMBRE { get; set; }
-        public int VALOR { get; set; }
     
         public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
     }

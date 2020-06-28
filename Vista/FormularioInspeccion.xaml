@@ -27,9 +27,9 @@
                             <Grid Margin="0,0,0.333,-2.667">
 
                                 <Label x:Name="label4" Content="Dirección:" HorizontalAlignment="Left" Margin="18,2,0,0" VerticalAlignment="Top"/>
-                                <TextBox x:Name="txtDireccion" mah:TextBoxHelper.Watermark="" Height="8" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"  mah:TextBoxHelper.ClearTextButton="True" Margin="165,2,173.334,0"/>
+                                <TextBox x:Name="txtDireccion" mah:TextBoxHelper.Watermark="" Height="8" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"  mah:TextBoxHelper.ClearTextButton="True" Margin="165,2,188.334,0"/>
                                 <Label x:Name="label5" Content="Constructora:" HorizontalAlignment="Left" Margin="18,32,0,64"/>
-                                <TextBox x:Name="txtConstr" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="" Height="8" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" Margin="165,32,0,0"/>
+                                <TextBox x:Name="txtConstr" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="" Height="8" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" Margin="165,32,0,0"/>
                                 <Label x:Name="label7" Content="Tipo de Vivienda:" Margin="18,63,542.334,0" VerticalAlignment="Top"/>
                                 <ComboBox x:Name="cbTipoV" Margin="165,63,341.334,0" VerticalAlignment="Top" FontWeight="Normal"/>
                                 <Label x:Name="label8" Content="Tipo de Agrupamiento:" Margin="18,93,503.334,0" VerticalAlignment="Top"/>
@@ -38,6 +38,8 @@
                                 <Label x:Name="label8_Copy1" Content="N° de Pisos:" Margin="365,63,224.334,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="txtPisos" KeyDown="txtNumeros_KeyDown"  HorizontalAlignment="Left" Height="23" Margin="491,62,0,0" TextWrapping="Wrap" mah:TextBoxHelper.ClearTextButton="True" Text="" VerticalAlignment="Top" Width="80" FontWeight="Normal"/>
                                 <TextBox x:Name="txtHabitac" KeyDown="txtNumeros_KeyDown" HorizontalAlignment="Left" Height="23" Margin="491,93,0,0" TextWrapping="Wrap" Text="" mah:TextBoxHelper.ClearTextButton="True" VerticalAlignment="Top" Width="80" FontWeight="Normal"/>
+                                <Label x:Name="label4_Copy" Content="Comuna:" HorizontalAlignment="Left" Margin="420,32,0,0" VerticalAlignment="Top"/>
+                                <ComboBox x:Name="cbComuna" Margin="491,32,14.334,0" VerticalAlignment="Top" FontWeight="Normal"/>
                             </Grid>
                         </GroupBox>
                         <GroupBox x:Name="groupBox3" Header=" Datos de Responsable" Margin="28,332,43,0" VerticalAlignment="Top" Height="127" Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10" FontSize="13.333">

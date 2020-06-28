@@ -14,7 +14,6 @@ namespace BibliotecaNegocio
 
         public int id_servicio { get; set; }
         public string nombre { get; set; }
-        public int valor { get; set; }
 
 
         public Servicio()
@@ -134,7 +133,6 @@ namespace BibliotecaNegocio
                     Servicio serv = new Servicio();
                     serv.id_servicio = item.ID_SERVICIO;//number no los toma el int
                     serv.nombre = item.NOMBRE;
-                    serv.valor = item.VALOR;
                     lista.Add(serv);
                 }
                 return lista;

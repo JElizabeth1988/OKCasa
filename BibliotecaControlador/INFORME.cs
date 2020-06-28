@@ -43,6 +43,9 @@ namespace BibliotecaDALC
         public int ID_ELECTRICA { get; set; }
         public int ID_AGUA { get; set; }
         public int ID_AGUA_POTABLE { get; set; }
+        public string DIRECCION_VIVIENDA { get; set; }
+        public string CONSTRUCTORA { get; set; }
+        public int ID_COMUNA { get; set; }
     
         public virtual AGRUPAMIENTO AGRUPAMIENTO { get; set; }
         public virtual CLIENTE CLIENTE { get; set; }
@@ -54,5 +57,6 @@ namespace BibliotecaDALC
         public virtual SOLICITUD SOLICITUD { get; set; }
         public virtual TECNICO TECNICO { get; set; }
         public virtual TIPO_VIVIENDA TIPO_VIVIENDA { get; set; }
+        public virtual COMUNA COMUNA { get; set; }
     }
 }

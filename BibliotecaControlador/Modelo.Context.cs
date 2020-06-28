@@ -37,7 +37,6 @@ namespace BibliotecaDALC
         public DbSet<INST_ELECTRICA> INST_ELECTRICA { get; set; }
         public DbSet<INST_GAS> INST_GAS { get; set; }
         public DbSet<INSUMO> INSUMO { get; set; }
-        public DbSet<PAGO> PAGO { get; set; }
         public DbSet<RED_AGUA> RED_AGUA { get; set; }
         public DbSet<SERVICIO> SERVICIO { get; set; }
         public DbSet<SOLICITUD> SOLICITUD { get; set; }

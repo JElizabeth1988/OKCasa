@@ -20,6 +20,8 @@ namespace BibliotecaNegocio
         public string resultado { get; set; }
         public int num_habitaciones { get; set; }
         public int num_pisos { get; set; }
+        public string direccion_vivienda { get; set; }
+        public string constructora { get; set; }
         public string observacion { get; set; }
         public string habitabilidad { get; set; }
         public string termica { get; set; }
@@ -83,6 +85,7 @@ namespace BibliotecaNegocio
         public int id_electrica { get; set; }
         public int id_agua { get; set; }
         public int id_agua_potable { get; set; }
+        public int id_comuna { get; set; }
 
         public Informe()
         {
@@ -204,6 +207,8 @@ namespace BibliotecaNegocio
                             resultado = info.RESULTADO,
                             num_habitaciones = info.NUM_HABITACIONES,
                             num_pisos = info.NUM_PISOS,
+                            direccion_vivienda = info.DIRECCION_VIVIENDA,
+                            constructora = info.CONSTRUCTORA,
                             fecha_insp = info.FECHA_INSP,
                             observacion = info.OBSERVACION,
                             habitabilidad = info.HABITABILIDAD,
@@ -227,7 +232,8 @@ namespace BibliotecaNegocio
                             id_gas = info.ID_GAS,
                             id_electrica = info.ID_ELECTRICA,
                             id_agua = info.ID_AGUA,
-                            id_agua_potable = info.ID_AGUA_POTABLE
+                            id_agua_potable = info.ID_AGUA_POTABLE,
+                            id_comuna = info.ID_COMUNA
 
                         };
                 return c.ToList();
@@ -261,6 +267,8 @@ namespace BibliotecaNegocio
                           on info.ID_AGRUP equals agr.ID_AGRUP
                         join sol in bdd.SOLICITUD
                           on info.ID_SOLICITUD equals sol.ID_SOLICITUD
+                        join co in bdd.COMUNA
+                            on info.ID_COMUNA equals co.ID_COMUNA
                         select new ListaInforme()
                         {
                             Numero = info.NUM_FORMULARIO,
@@ -268,6 +276,8 @@ namespace BibliotecaNegocio
                             Resultado = info.RESULTADO,
                             Habitaciones = info.NUM_HABITACIONES,
                             Pisos = info.NUM_PISOS,
+                            Dirección = info.DIRECCION_VIVIENDA,
+                            Constructora = info.CONSTRUCTORA,
                             Fecha = info.FECHA_INSP,
                             Observacion = info.OBSERVACION,
                             habitabilidad = info.HABITABILIDAD,
@@ -293,6 +303,7 @@ namespace BibliotecaNegocio
                             Electrica = ele.NOMBRE,
                             Agua = ag.NOMBRE,
                             AguaPotable = agp.NOMBRE,
+                            Comuna = co.NOMBRE
 
                         };
                 return c.ToList();
@@ -309,7 +320,8 @@ namespace BibliotecaNegocio
         {
             var cl = from info in bdd.INFORME
                      join alc in bdd.INST_ALCANTARILLADO
-                          on info.ID_ALCANTARILLADO equals alc.ID_ALCANTARILLADO
+                       on info.ID_ALCANTARILLADO equals alc.ID_ALCANTARILLADO
+
                      join gas in bdd.INST_GAS
                        on info.ID_GAS equals gas.ID_GAS
                      join ele in bdd.INST_ELECTRICA
@@ -322,6 +334,8 @@ namespace BibliotecaNegocio
                        on info.ID_TIPO equals tipo.ID_TIPO
                      join agr in bdd.AGRUPAMIENTO
                        on info.ID_AGRUP equals agr.ID_AGRUP
+                     join co in bdd.COMUNA
+                       on info.ID_COMUNA equals co.ID_COMUNA
                      join sol in bdd.SOLICITUD
                        on info.ID_SOLICITUD equals sol.ID_SOLICITUD
                      where info.RUT_CLIENTE == rut
@@ -332,6 +346,8 @@ namespace BibliotecaNegocio
                          Resultado = info.RESULTADO,
                          Habitaciones = info.NUM_HABITACIONES,
                          Pisos = info.NUM_PISOS,
+                         Dirección = info.DIRECCION_VIVIENDA,
+                         Constructora = info.CONSTRUCTORA,
                          Fecha = info.FECHA_INSP,
                          Observacion = info.OBSERVACION,
                          habitabilidad = info.HABITABILIDAD,
@@ -356,7 +372,8 @@ namespace BibliotecaNegocio
                          Gas = gas.NOMBRE,
                          Electrica = ele.NOMBRE,
                          Agua = ag.NOMBRE,
-                         AguaPotable = agp.NOMBRE
+                         AguaPotable = agp.NOMBRE,
+                         Comuna = co.NOMBRE
                      };
 
             return cl.ToList();
@@ -372,6 +389,8 @@ namespace BibliotecaNegocio
             public string Resultado { get; set; }
             public int Habitaciones { get; set; }
             public int Pisos { get; set; }
+            public string Dirección { get; set; }
+            public string Constructora { get; set; }
             public string Observacion { get; set; }
             public string habitabilidad { get; set; }
             public string termica { get; set; }
@@ -396,12 +415,12 @@ namespace BibliotecaNegocio
             public string Electrica { get; set; }
             public string Agua { get; set; }
             public string AguaPotable { get; set; }
-            public string Dirección { get; set; }
-            public string Constructora { get; set; }
+
             public DateTime Fecha_solicitud { get; set; }
             public string Cliente { get; set; }
             public string Técnico { get; set; }
             public string Equipo { get; set; }
+            public string Comuna { get; set; }
 
             public ListaInforme()
             {

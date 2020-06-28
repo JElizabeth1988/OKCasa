@@ -17,7 +17,6 @@ namespace BibliotecaDALC
         public SOLICITUD()
         {
             this.INFORME = new HashSet<INFORME>();
-            this.PAGO1 = new HashSet<PAGO>();
         }
     
         public int ID_SOLICITUD { get; set; }
@@ -31,12 +30,12 @@ namespace BibliotecaDALC
         public int ID_AGENDA { get; set; }
         public int ID_COMUNA { get; set; }
         public int ID_SERVICIO { get; set; }
+        public string TIPO_PAGO { get; set; }
     
         public virtual AGENDA AGENDA { get; set; }
         public virtual CLIENTE CLIENTE { get; set; }
         public virtual COMUNA COMUNA { get; set; }
         public virtual ICollection<INFORME> INFORME { get; set; }
-        public virtual ICollection<PAGO> PAGO1 { get; set; }
         public virtual SERVICIO SERVICIO { get; set; }
     }
 }

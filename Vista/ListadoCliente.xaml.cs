@@ -176,6 +176,7 @@ namespace Vista
                     C.Constructora = dr.GetValue(3).ToString();
                     C.Fecha = DateTime.Parse(dr.GetValue(4).ToString());
                     C.id_solicitud = int.Parse(dr.GetValue(5).ToString());
+                    C.Comuna = dr.GetValue(6).ToString();
 
 
                     lista.Add(C);
@@ -308,6 +309,7 @@ namespace Vista
             btnFiltrarRut.Visibility = Visibility.Visible;
             btnFiltrarRutFor.Visibility = Visibility.Hidden;
         }
+        //-----------Refrescar 2---------------------------------------------------------
         private void btnRefrescar2_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -344,6 +346,7 @@ namespace Vista
                     C.Constructora = dr.GetValue(3).ToString();
                     C.Fecha = DateTime.Parse(dr.GetValue(4).ToString());
                     C.id_solicitud = int.Parse(dr.GetValue(5).ToString());
+                    C.Comuna = dr.GetValue(6).ToString();
 
 
                     lista.Add(C);
@@ -370,7 +373,7 @@ namespace Vista
             }
            
         }
-
+        //--------------Salir---------------------------------------
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -399,7 +402,7 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
             }
         }
-
+        //------------Eliminar----------------------------------------------------
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
 
@@ -489,6 +492,7 @@ namespace Vista
                     c.id_solicitud = int.Parse(reader[3].ToString());
                     c.Direccion = reader[4].ToString();
                     c.Constructora = reader[5].ToString();
+                    c.Comuna= reader[6].ToString();
 
                     clie.Add(c);
 

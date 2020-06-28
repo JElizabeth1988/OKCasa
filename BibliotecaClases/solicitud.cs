@@ -18,9 +18,10 @@ namespace BibliotecaNegocio
         public string direccion_vivienda { get; set; }
         public string constructora { get; set; }
         public string rut_cliente { get; set; }
-
         public int pago { get; set; }
+        public string tipo_pago { get; set; }
         public int descuento { get; set; }
+        public string estado { get; set; }
         public int id_agenda { get; set; }
         public int id_comuna { get; set; }
         public int id_servicio { get; set; }
@@ -46,7 +47,9 @@ namespace BibliotecaNegocio
                             constructora = sol.CONSTRUCTORA,
                             rut_cliente = sol.RUT_CLIENTE,
                             pago = sol.PAGO,
+                            tipo_pago = sol.TIPO_PAGO,
                             descuento = int.Parse(sol.DESCUENTO.ToString()),
+                            estado = sol.ESTADO,
                             id_agenda = sol.ID_AGENDA,
                             id_comuna = sol.ID_COMUNA,
                             id_servicio = sol.ID_SERVICIO
@@ -70,6 +73,8 @@ namespace BibliotecaNegocio
                 var c = from sol in bdd.SOLICITUD
                         join cli in bdd.CLIENTE //Join con Comuna para traer el nombre de la comuna y no su id igualando el dato en común (id_comuna)
                           on sol.RUT_CLIENTE equals cli.RUT_CLIENTE
+                        join co in bdd.COMUNA
+                          on sol.ID_COMUNA equals co.ID_COMUNA
                         select new ListaSolicitud()
                         {
                             Rut = sol.RUT_CLIENTE,
@@ -77,7 +82,8 @@ namespace BibliotecaNegocio
                             Direccion = sol.DIRECCION_VIVIENDA,
                             Constructora = sol.CONSTRUCTORA,
                             Fecha = DateTime.Parse(sol.FECHA_SOLICITUD.ToString()),
-                            id_solicitud = sol.ID_SOLICITUD
+                            id_solicitud = sol.ID_SOLICITUD,
+                            Comuna = co.NOMBRE
                         };
                 return c.ToList();
 
@@ -97,6 +103,7 @@ namespace BibliotecaNegocio
             public int id_solicitud { get; set; }
             public string Direccion { get; set; }
             public string Constructora { get; set; }
+            public string Comuna { get; set; }
 
 
 

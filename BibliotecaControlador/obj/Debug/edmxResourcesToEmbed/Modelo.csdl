@@ -56,6 +56,7 @@
     <NavigationProperty Name="CLIENTE" Relationship="Self.CLIENTE_COMUNA_FKV2" FromRole="COMUNA" ToRole="CLIENTE" />
     <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUD_COMUNA_FK" FromRole="COMUNA" ToRole="SOLICITUD" />
     <NavigationProperty Name="TECNICO" Relationship="Self.TECNICO_COMUNA_FKV2" FromRole="COMUNA" ToRole="TECNICO" />
+    <NavigationProperty Name="INFORME" Relationship="Modelo.INFORME_COMUNA_FK" FromRole="COMUNA" ToRole="INFORME" />
   </EntityType>
   <EntityType Name="EQUIPO_TECNICO">
     <Key>
@@ -110,6 +111,10 @@
     <NavigationProperty Name="SOLICITUD" Relationship="Self.INFORME_SOLICITUD_FK" FromRole="INFORME" ToRole="SOLICITUD" />
     <NavigationProperty Name="TECNICO" Relationship="Self.INFORME_TECNICO_FK" FromRole="INFORME" ToRole="TECNICO" />
     <NavigationProperty Name="TIPO_VIVIENDA" Relationship="Self.INFORME_TIPO_VIV_FK" FromRole="INFORME" ToRole="TIPO_VIVIENDA" />
+    <Property Name="DIRECCION_VIVIENDA" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CONSTRUCTORA" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ID_COMUNA" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="COMUNA" Relationship="Modelo.INFORME_COMUNA_FK" FromRole="INFORME" ToRole="COMUNA" />
   </EntityType>
   <EntityType Name="INST_AGUA_POTABLE">
     <Key>
@@ -151,16 +156,6 @@
     <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="EQUIPO_TECNICO" Relationship="Self.EQUIPO_INSUMO" FromRole="INSUMO" ToRole="EQUIPO_TECNICO" />
   </EntityType>
-  <EntityType Name="PAGO">
-    <Key>
-      <PropertyRef Name="ID_PAGO" />
-    </Key>
-    <Property Name="ID_PAGO" Type="Int32" Nullable="false" />
-    <Property Name="VALOR" Type="Int32" Nullable="false" />
-    <Property Name="DESCUENTO" Type="Int32" Nullable="false" />
-    <Property Name="ID_SOLICITUD" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="SOLICITUD" Relationship="Self.PAGO_SOLICITUD_FK" FromRole="PAGO" ToRole="SOLICITUD" />
-  </EntityType>
   <EntityType Name="RED_AGUA">
     <Key>
       <PropertyRef Name="ID_AGUA" />
@@ -175,7 +170,6 @@
     </Key>
     <Property Name="ID_SERVICIO" Type="Int32" Nullable="false" />
     <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="VALOR" Type="Int32" Nullable="false" />
     <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUD_SERVICIO_FK" FromRole="SERVICIO" ToRole="SOLICITUD" />
   </EntityType>
   <EntityType Name="SOLICITUD">
@@ -197,8 +191,8 @@
     <NavigationProperty Name="CLIENTE" Relationship="Self.SOLICITUD_CLIENTE_FK" FromRole="SOLICITUD" ToRole="CLIENTE" />
     <NavigationProperty Name="COMUNA" Relationship="Self.SOLICITUD_COMUNA_FK" FromRole="SOLICITUD" ToRole="COMUNA" />
     <NavigationProperty Name="INFORME" Relationship="Self.INFORME_SOLICITUD_FK" FromRole="SOLICITUD" ToRole="INFORME" />
-    <NavigationProperty Name="PAGO1" Relationship="Self.PAGO_SOLICITUD_FK" FromRole="SOLICITUD" ToRole="PAGO" />
     <NavigationProperty Name="SERVICIO" Relationship="Self.SOLICITUD_SERVICIO_FK" FromRole="SOLICITUD" ToRole="SERVICIO" />
+    <Property Name="TIPO_PAGO" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="TECNICO">
     <Key>
@@ -472,20 +466,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="PAGO_SOLICITUD_FK">
-    <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="PAGO" Type="Self.PAGO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="SOLICITUD">
-        <PropertyRef Name="ID_SOLICITUD" />
-      </Principal>
-      <Dependent Role="PAGO">
-        <PropertyRef Name="ID_SOLICITUD" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="SOLICITUD_SERVICIO_FK">
     <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="1" />
     <End Role="SOLICITUD" Type="Self.SOLICITUD" Multiplicity="*" />
@@ -527,7 +507,6 @@
     <EntitySet Name="INST_ELECTRICA" EntityType="Self.INST_ELECTRICA" />
     <EntitySet Name="INST_GAS" EntityType="Self.INST_GAS" />
     <EntitySet Name="INSUMO" EntityType="Self.INSUMO" />
-    <EntitySet Name="PAGO" EntityType="Self.PAGO" />
     <EntitySet Name="RED_AGUA" EntityType="Self.RED_AGUA" />
     <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" />
     <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" />
@@ -607,10 +586,6 @@
       <End Role="TIPO_VIVIENDA" EntitySet="TIPO_VIVIENDA" />
       <End Role="INFORME" EntitySet="INFORME" />
     </AssociationSet>
-    <AssociationSet Name="PAGO_SOLICITUD_FK" Association="Self.PAGO_SOLICITUD_FK">
-      <End Role="SOLICITUD" EntitySet="SOLICITUD" />
-      <End Role="PAGO" EntitySet="PAGO" />
-    </AssociationSet>
     <AssociationSet Name="SOLICITUD_SERVICIO_FK" Association="Self.SOLICITUD_SERVICIO_FK">
       <End Role="SERVICIO" EntitySet="SERVICIO" />
       <End Role="SOLICITUD" EntitySet="SOLICITUD" />
@@ -623,5 +598,21 @@
       <End Role="INSUMO" EntitySet="INSUMO" />
       <End Role="EQUIPO_TECNICO" EntitySet="EQUIPO_TECNICO" />
     </AssociationSet>
+    <AssociationSet Name="INFORME_COMUNA_FK" Association="Modelo.INFORME_COMUNA_FK">
+      <End Role="COMUNA" EntitySet="COMUNA" />
+      <End Role="INFORME" EntitySet="INFORME" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="INFORME_COMUNA_FK">
+    <End Type="Modelo.COMUNA" Role="COMUNA" Multiplicity="1" />
+    <End Type="Modelo.INFORME" Role="INFORME" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMUNA">
+        <PropertyRef Name="ID_COMUNA" />
+      </Principal>
+      <Dependent Role="INFORME">
+        <PropertyRef Name="ID_COMUNA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

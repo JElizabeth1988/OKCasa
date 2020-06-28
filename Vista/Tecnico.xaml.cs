@@ -185,8 +185,10 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
 
             }
-        
-    }
+
+        }
+
+
         //----------------Botón Limpiar
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {

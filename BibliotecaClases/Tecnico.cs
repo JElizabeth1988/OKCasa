@@ -20,16 +20,17 @@ namespace BibliotecaNegocio
         public string rut_tecnico
         {
             get { return _rut_tecnico; }
-            set {
-                    if (value != string.Empty && value.Length >= 9 && value.Length <= 10)
-                    {
-                        _rut_tecnico = value;
-                    }
-                    else
-                    {
-                        //throw new ArgumentException("Campo Rut no puede estar Vacío");
-                        err.AgregarError("Campo Rut  no puede estar Vacío");
-                    }
+            set
+            {
+                if (value != string.Empty && value.Length >= 9 && value.Length <= 10)
+                {
+                    _rut_tecnico = value;
+                }
+                else
+                {
+                    //throw new ArgumentException("Campo Rut no puede estar Vacío");
+                    err.AgregarError("Campo Rut  no puede estar Vacío");
+                }
             }
         }
 
@@ -369,6 +370,21 @@ namespace BibliotecaNegocio
             public string Comuna { get; set; }//Nombre no id
 
             public ListaTecnico()
+            {
+
+            }
+
+
+
+        }
+        public class ListaTecnico2
+        {
+            public string Rut { get; set; }
+            public string Nombre { get; set; }
+            public string Equipo { get; set; }//Nombre no id
+
+
+            public ListaTecnico2()
             {
 
             }
