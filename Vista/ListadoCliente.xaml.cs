@@ -402,10 +402,87 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
             }
         }
-        //------------Eliminar----------------------------------------------------
-        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        //---------Método Eliminar-----------------------------------------------
+        public bool Eliminar(BibliotecaNegocio.Cliente.ListaClientes client)
         {
+            try
+            {
+                BibliotecaNegocio.Cliente.ListaClientes cli = (BibliotecaNegocio.Cliente.ListaClientes)dgLista.SelectedItem;
+                string rut = cli.Rut;
+                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
+                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
+                //nunca una instruccion sql en el sistema solo en base de datos
+                OracleCommand CMD = new OracleCommand();
+                //que tipo de tipo voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_ELIMINAR_CLIENTE";
+                //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
+                CMD.Parameters.Add(new OracleParameter("P_RUT_CLIENTE", OracleDbType.Varchar2, 20)).Value = rut;
 
+                //se abre la conexion
+                conn.Open();
+                //se ejecuta la query CON  VARIABLE DE SALIDA en caso de tener
+                CMD.ExecuteNonQuery();
+                //se cierra la conexioin
+                conn.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+                Logger.Mensaje(ex.Message);
+
+            }
+        }
+        //-------------Botón Eliminar------------------------------------------------------
+        private async void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                BibliotecaNegocio.Cliente.ListaClientes cli = new BibliotecaNegocio.Cliente.ListaClientes();
+                var x = await this.ShowMessageAsync("Eliminar Datos de Cliente " + cli.Rut,
+                         "¿Desea eliminar al Cliente?",
+                        MessageDialogStyle.AffirmativeAndNegative);
+                if (x == MessageDialogResult.Affirmative)
+                {
+                    bool resp = Eliminar(cli);
+                    if (resp == true)
+                    {
+                        await this.ShowMessageAsync("Éxito:",
+                          string.Format("Cliente Eliminado"));
+                        /*MessageBox.Show("Cliente eliminado"); */
+                        //dgLista.ItemsSource =
+                        //cli.ReadAll2();
+                        dgLista.Items.Refresh();
+                    }
+                    else
+                    {
+                        await this.ShowMessageAsync("Error:",
+                          string.Format("No Eliminado"));
+                        /*MessageBox.Show("No se eliminó al Cliente");*/
+                    }
+
+                }
+                else
+                {
+                    await this.ShowMessageAsync("Mensaje:",
+                          string.Format("Operación Cancelada"));
+                    /*MessageBox.Show("Operación Cancelada");*/
+                }
+            }
+            catch (Exception ex)
+            {
+
+                await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Error al Eliminar la Información"));
+                /*MessageBox.Show("error al Filtrar Información");*/
+                Logger.Mensaje(ex.Message);
+            }
         }
         //---------------Botón Pasar a Formulario (Traspasa la info del cliente y solicitud al formulario)
         private async void btnPasarAForm_Click(object sender, RoutedEventArgs e)
