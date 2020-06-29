@@ -96,16 +96,15 @@ namespace Vista
                                 BancoEstado be = new BancoEstado();
 
                                 //se obtiene el valor con getvalue es lo mismo pero con get
-                                be.id_banco = int.Parse(dr.GetValue(0).ToString());
-                                be.rut = dr.GetValue(1).ToString();
-                                be.nombre = dr.GetValue(2).ToString();
-                                be.Descripción = dr.GetValue(3).ToString();
+                                be.rut = dr.GetValue(0).ToString();
+                                be.nombre = dr.GetValue(1).ToString();
+                                be.Descripción = dr.GetValue(2).ToString();
 
                                 lista_tipos.Add(be);
                             }
                             conn.Close();
                             dgLista.ItemsSource = lista_tipos;
-                            dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
+                            //dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
                             btnInvitación.Visibility = Visibility.Visible;//Botón se ve
 
 

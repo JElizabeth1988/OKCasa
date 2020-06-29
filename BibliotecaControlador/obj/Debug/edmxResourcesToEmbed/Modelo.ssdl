@@ -19,9 +19,8 @@
   </EntityType>
   <EntityType Name="BANCO_ESTADO">
     <Key>
-      <PropertyRef Name="ID_BANCO" />
+      <PropertyRef Name="RUT_CLIENTE" />
     </Key>
-    <Property Name="ID_BANCO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="10" Nullable="false" />
     <Property Name="NOMBRE_CLIENTE" Type="varchar2" MaxLength="50" Nullable="false" />
     <Property Name="DESCRIPCION" Type="varchar2" MaxLength="2000" />
@@ -135,6 +134,13 @@ advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ning
     </Key>
     <Property Name="ID_INSUMO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="NOMBRE" Type="varchar2" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PAGO_EXTERNO">
+    <Key>
+      <PropertyRef Name="RUT_CLIENTE" />
+    </Key>
+    <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" Nullable="false" />
+    <Property Name="CLAVE" Type="number" Precision="38" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="RED_AGUA">
     <Key>
@@ -505,6 +511,7 @@ advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ning
     <EntitySet Name="INST_ELECTRICA" EntityType="Self.INST_ELECTRICA" Schema="OKCASA" store:Type="Tables" />
     <EntitySet Name="INST_GAS" EntityType="Self.INST_GAS" Schema="OKCASA" store:Type="Tables" />
     <EntitySet Name="INSUMO" EntityType="Self.INSUMO" Schema="OKCASA" store:Type="Tables" />
+    <EntitySet Name="PAGO_EXTERNO" EntityType="Self.PAGO_EXTERNO" Schema="OKCASA" store:Type="Tables" />
     <EntitySet Name="RED_AGUA" EntityType="Self.RED_AGUA" Schema="OKCASA" store:Type="Tables" />
     <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" Schema="OKCASA" store:Type="Tables" />
     <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" Schema="OKCASA" store:Type="Tables" />

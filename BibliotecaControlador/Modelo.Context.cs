@@ -27,7 +27,6 @@ namespace BibliotecaDALC
     
         public DbSet<AGENDA> AGENDA { get; set; }
         public DbSet<AGRUPAMIENTO> AGRUPAMIENTO { get; set; }
-        public DbSet<BANCO_ESTADO> BANCO_ESTADO { get; set; }
         public DbSet<CLIENTE> CLIENTE { get; set; }
         public DbSet<COMUNA> COMUNA { get; set; }
         public DbSet<EQUIPO_TECNICO> EQUIPO_TECNICO { get; set; }
@@ -44,5 +43,7 @@ namespace BibliotecaDALC
         public DbSet<TIPO_USUARIO> TIPO_USUARIO { get; set; }
         public DbSet<TIPO_VIVIENDA> TIPO_VIVIENDA { get; set; }
         public DbSet<USUARIO> USUARIO { get; set; }
+        public DbSet<BANCO_ESTADO> BANCO_ESTADO { get; set; }
+        public DbSet<PAGO_EXTERNO> PAGO_EXTERNO { get; set; }
     }
 }

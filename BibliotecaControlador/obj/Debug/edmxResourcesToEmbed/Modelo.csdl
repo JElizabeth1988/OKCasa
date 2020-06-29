@@ -20,15 +20,6 @@
     <Property Name="NOMBRE_AGR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="INFORME" Relationship="Self.INFORME_AGRUP_FK" FromRole="AGRUPAMIENTO" ToRole="INFORME" />
   </EntityType>
-  <EntityType Name="BANCO_ESTADO">
-    <Key>
-      <PropertyRef Name="ID_BANCO" />
-    </Key>
-    <Property Name="ID_BANCO" Type="Int32" Nullable="false" />
-    <Property Name="RUT_CLIENTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="NOMBRE_CLIENTE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="DESCRIPCION" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="CLIENTE">
     <Key>
       <PropertyRef Name="RUT_CLIENTE" />
@@ -497,7 +488,6 @@
   <EntityContainer Name="OkCasa_Entities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AGENDA" EntityType="Self.AGENDA" />
     <EntitySet Name="AGRUPAMIENTO" EntityType="Self.AGRUPAMIENTO" />
-    <EntitySet Name="BANCO_ESTADO" EntityType="Self.BANCO_ESTADO" />
     <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
     <EntitySet Name="COMUNA" EntityType="Self.COMUNA" />
     <EntitySet Name="EQUIPO_TECNICO" EntityType="Self.EQUIPO_TECNICO" />
@@ -602,6 +592,8 @@
       <End Role="COMUNA" EntitySet="COMUNA" />
       <End Role="INFORME" EntitySet="INFORME" />
     </AssociationSet>
+    <EntitySet Name="BANCO_ESTADO" EntityType="Modelo.BANCO_ESTADO" />
+    <EntitySet Name="PAGO_EXTERNO" EntityType="Modelo.PAGO_EXTERNO" />
   </EntityContainer>
   <Association Name="INFORME_COMUNA_FK">
     <End Type="Modelo.COMUNA" Role="COMUNA" Multiplicity="1" />
@@ -615,4 +607,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="BANCO_ESTADO">
+    <Key>
+      <PropertyRef Name="RUT_CLIENTE" />
+    </Key>
+    <Property Name="RUT_CLIENTE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_CLIENTE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PAGO_EXTERNO">
+    <Key>
+      <PropertyRef Name="RUT_CLIENTE" />
+    </Key>
+    <Property Name="RUT_CLIENTE" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="CLAVE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+  </EntityType>
 </Schema>

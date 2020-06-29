@@ -329,9 +329,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\WSBancoEstado\Vista.WSBancoEstado.HipotecarioResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\WSBancoEstado\Vista.WSBancoEstado.TipoClienteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

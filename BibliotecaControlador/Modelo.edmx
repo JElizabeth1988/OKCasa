@@ -24,9 +24,8 @@
         </EntityType>
         <EntityType Name="BANCO_ESTADO">
           <Key>
-            <PropertyRef Name="ID_BANCO" />
+            <PropertyRef Name="RUT_CLIENTE" />
           </Key>
-          <Property Name="ID_BANCO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="10" Nullable="false" />
           <Property Name="NOMBRE_CLIENTE" Type="varchar2" MaxLength="50" Nullable="false" />
           <Property Name="DESCRIPCION" Type="varchar2" MaxLength="2000" />
@@ -140,6 +139,13 @@ advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ning
           </Key>
           <Property Name="ID_INSUMO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="NOMBRE" Type="varchar2" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAGO_EXTERNO">
+          <Key>
+            <PropertyRef Name="RUT_CLIENTE" />
+          </Key>
+          <Property Name="RUT_CLIENTE" Type="varchar2" MaxLength="12" Nullable="false" />
+          <Property Name="CLAVE" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="RED_AGUA">
           <Key>
@@ -497,36 +503,6 @@ advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ning
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <EntityContainer Name="ModeloStoreContainer">
           <EntitySet Name="AGENDA" EntityType="Self.AGENDA" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="AGRUPAMIENTO" EntityType="Self.AGRUPAMIENTO" Schema="OKCASA" store:Type="Tables" />
@@ -540,6 +516,7 @@ advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ning
           <EntitySet Name="INST_ELECTRICA" EntityType="Self.INST_ELECTRICA" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="INST_GAS" EntityType="Self.INST_GAS" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="INSUMO" EntityType="Self.INSUMO" Schema="OKCASA" store:Type="Tables" />
+          <EntitySet Name="PAGO_EXTERNO" EntityType="Self.PAGO_EXTERNO" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="RED_AGUA" EntityType="Self.RED_AGUA" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="SOLICITUD" EntityType="Self.SOLICITUD" Schema="OKCASA" store:Type="Tables" />
@@ -669,15 +646,6 @@ FROM "OKCASA"."EQUIPO_INSUMO" "EQUIPO_INSUMO"</DefiningQuery>
           <Property Name="ID_AGRUP" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE_AGR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="INFORME" Relationship="Self.INFORME_AGRUP_FK" FromRole="AGRUPAMIENTO" ToRole="INFORME" />
-        </EntityType>
-        <EntityType Name="BANCO_ESTADO">
-          <Key>
-            <PropertyRef Name="ID_BANCO" />
-          </Key>
-          <Property Name="ID_BANCO" Type="Int32" Nullable="false" />
-          <Property Name="RUT_CLIENTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NOMBRE_CLIENTE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CLIENTE">
           <Key>
@@ -1147,7 +1115,6 @@ FROM "OKCASA"."EQUIPO_INSUMO" "EQUIPO_INSUMO"</DefiningQuery>
         <EntityContainer Name="OkCasa_Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AGENDA" EntityType="Self.AGENDA" />
           <EntitySet Name="AGRUPAMIENTO" EntityType="Self.AGRUPAMIENTO" />
-          <EntitySet Name="BANCO_ESTADO" EntityType="Self.BANCO_ESTADO" />
           <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
           <EntitySet Name="COMUNA" EntityType="Self.COMUNA" />
           <EntitySet Name="EQUIPO_TECNICO" EntityType="Self.EQUIPO_TECNICO" />
@@ -1252,6 +1219,8 @@ FROM "OKCASA"."EQUIPO_INSUMO" "EQUIPO_INSUMO"</DefiningQuery>
             <End Role="COMUNA" EntitySet="COMUNA" />
             <End Role="INFORME" EntitySet="INFORME" />
           </AssociationSet>
+          <EntitySet Name="BANCO_ESTADO" EntityType="Modelo.BANCO_ESTADO" />
+          <EntitySet Name="PAGO_EXTERNO" EntityType="Modelo.PAGO_EXTERNO" />
         </EntityContainer>
         <Association Name="INFORME_COMUNA_FK">
           <End Type="Modelo.COMUNA" Role="COMUNA" Multiplicity="1" />
@@ -1265,6 +1234,21 @@ FROM "OKCASA"."EQUIPO_INSUMO" "EQUIPO_INSUMO"</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="BANCO_ESTADO">
+          <Key>
+            <PropertyRef Name="RUT_CLIENTE" />
+          </Key>
+          <Property Name="RUT_CLIENTE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_CLIENTE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PAGO_EXTERNO">
+          <Key>
+            <PropertyRef Name="RUT_CLIENTE" />
+          </Key>
+          <Property Name="RUT_CLIENTE" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="CLAVE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1287,16 +1271,6 @@ FROM "OKCASA"."EQUIPO_INSUMO" "EQUIPO_INSUMO"</DefiningQuery>
               <MappingFragment StoreEntitySet="AGRUPAMIENTO">
                 <ScalarProperty Name="ID_AGRUP" ColumnName="ID_AGRUP" />
                 <ScalarProperty Name="NOMBRE_AGR" ColumnName="NOMBRE_AGR" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BANCO_ESTADO">
-            <EntityTypeMapping TypeName="Modelo.BANCO_ESTADO">
-              <MappingFragment StoreEntitySet="BANCO_ESTADO">
-                <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
-                <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
-                <ScalarProperty Name="NOMBRE_CLIENTE" ColumnName="NOMBRE_CLIENTE" />
-                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1494,6 +1468,23 @@ FROM "OKCASA"."EQUIPO_INSUMO" "EQUIPO_INSUMO"</DefiningQuery>
               <ScalarProperty Name="ID_EQUIPO" ColumnName="ID_EQUIPO" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="BANCO_ESTADO">
+            <EntityTypeMapping TypeName="Modelo.BANCO_ESTADO">
+              <MappingFragment StoreEntitySet="BANCO_ESTADO">
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="NOMBRE_CLIENTE" ColumnName="NOMBRE_CLIENTE" />
+                <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAGO_EXTERNO">
+            <EntityTypeMapping TypeName="Modelo.PAGO_EXTERNO">
+              <MappingFragment StoreEntitySet="PAGO_EXTERNO">
+                <ScalarProperty Name="CLAVE" ColumnName="CLAVE" />
+                <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

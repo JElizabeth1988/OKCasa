@@ -667,8 +667,9 @@ namespace Vista
             try
             {
                 BibliotecaNegocio.Cliente cli = new BibliotecaNegocio.Cliente();
-                var x = await this.ShowMessageAsync("Eliminar Datos de Cliente " + cli.rut_cliente,
-                         "¿Desea eliminar al Cliente?",
+                string nombre = txtNombre.Text + " " + txtApPaterno.Text;
+                var x = await this.ShowMessageAsync("Eliminar Datos: ",
+                         "¿Está Seguro de eliminar a "+nombre +"?",
                         MessageDialogStyle.AffirmativeAndNegative);
                 if (x == MessageDialogResult.Affirmative)
                 {

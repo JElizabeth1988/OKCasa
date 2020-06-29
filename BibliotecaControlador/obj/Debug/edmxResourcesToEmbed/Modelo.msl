@@ -20,16 +20,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="BANCO_ESTADO">
-      <EntityTypeMapping TypeName="Modelo.BANCO_ESTADO">
-        <MappingFragment StoreEntitySet="BANCO_ESTADO">
-          <ScalarProperty Name="ID_BANCO" ColumnName="ID_BANCO" />
-          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
-          <ScalarProperty Name="NOMBRE_CLIENTE" ColumnName="NOMBRE_CLIENTE" />
-          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="CLIENTE">
       <EntityTypeMapping TypeName="Modelo.CLIENTE">
         <MappingFragment StoreEntitySet="CLIENTE">
@@ -224,5 +214,22 @@
         <ScalarProperty Name="ID_EQUIPO" ColumnName="ID_EQUIPO" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="BANCO_ESTADO">
+      <EntityTypeMapping TypeName="Modelo.BANCO_ESTADO">
+        <MappingFragment StoreEntitySet="BANCO_ESTADO">
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="NOMBRE_CLIENTE" ColumnName="NOMBRE_CLIENTE" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAGO_EXTERNO">
+      <EntityTypeMapping TypeName="Modelo.PAGO_EXTERNO">
+        <MappingFragment StoreEntitySet="PAGO_EXTERNO">
+          <ScalarProperty Name="CLAVE" ColumnName="CLAVE" />
+          <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

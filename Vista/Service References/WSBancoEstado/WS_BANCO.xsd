@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://WS/" targetNamespace="http://WS/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="Hipotecario" type="tns:Hipotecario" />
-  <xs:element name="HipotecarioResponse" type="tns:HipotecarioResponse" />
   <xs:element name="TipoCliente" type="tns:TipoCliente" />
   <xs:element name="TipoClienteResponse" type="tns:TipoClienteResponse" />
   <xs:complexType name="TipoCliente">
@@ -12,16 +10,6 @@
   <xs:complexType name="TipoClienteResponse">
     <xs:sequence>
       <xs:element name="return" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="Hipotecario">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="rut" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="HipotecarioResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

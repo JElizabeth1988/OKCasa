@@ -715,8 +715,9 @@ namespace Vista
             {
 
                 BibliotecaNegocio.Tecnico tec = new BibliotecaNegocio.Tecnico();
-                var x = await this.ShowMessageAsync("Eliminar Datos de Cliente " + tec.rut_tecnico,
-                         "¿Desea eliminar al Cliente?",
+                string nombre = txtNombre.Text+" "+txtApPaterno.Text;
+                var x = await this.ShowMessageAsync("Eliminar Datos:",
+                         "¿Está Seguro de eliminar a " + nombre + "?",
                         MessageDialogStyle.AffirmativeAndNegative);
                 if (x == MessageDialogResult.Affirmative)
                 {

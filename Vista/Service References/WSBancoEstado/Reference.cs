@@ -16,86 +16,11 @@ namespace Vista.WSBancoEstado {
     public interface WS_BANCO {
         
         // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento rut del espacio de nombres  no está marcado para aceptar valores nil.
-        [System.ServiceModel.OperationContractAttribute(Action="http://WS/WS_BANCO/HipotecarioRequest", ReplyAction="http://WS/WS_BANCO/HipotecarioResponse")]
-        Vista.WSBancoEstado.HipotecarioResponse Hipotecario(Vista.WSBancoEstado.HipotecarioRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://WS/WS_BANCO/HipotecarioRequest", ReplyAction="http://WS/WS_BANCO/HipotecarioResponse")]
-        System.Threading.Tasks.Task<Vista.WSBancoEstado.HipotecarioResponse> HipotecarioAsync(Vista.WSBancoEstado.HipotecarioRequest request);
-        
-        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento rut del espacio de nombres  no está marcado para aceptar valores nil.
         [System.ServiceModel.OperationContractAttribute(Action="http://WS/WS_BANCO/TipoClienteRequest", ReplyAction="http://WS/WS_BANCO/TipoClienteResponse")]
         Vista.WSBancoEstado.TipoClienteResponse TipoCliente(Vista.WSBancoEstado.TipoClienteRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://WS/WS_BANCO/TipoClienteRequest", ReplyAction="http://WS/WS_BANCO/TipoClienteResponse")]
         System.Threading.Tasks.Task<Vista.WSBancoEstado.TipoClienteResponse> TipoClienteAsync(Vista.WSBancoEstado.TipoClienteRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HipotecarioRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="Hipotecario", Namespace="http://WS/", Order=0)]
-        public Vista.WSBancoEstado.HipotecarioRequestBody Body;
-        
-        public HipotecarioRequest() {
-        }
-        
-        public HipotecarioRequest(Vista.WSBancoEstado.HipotecarioRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class HipotecarioRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string rut;
-        
-        public HipotecarioRequestBody() {
-        }
-        
-        public HipotecarioRequestBody(string rut) {
-            this.rut = rut;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class HipotecarioResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="HipotecarioResponse", Namespace="http://WS/", Order=0)]
-        public Vista.WSBancoEstado.HipotecarioResponseBody Body;
-        
-        public HipotecarioResponse() {
-        }
-        
-        public HipotecarioResponse(Vista.WSBancoEstado.HipotecarioResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
-    public partial class HipotecarioResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string @return;
-        
-        public HipotecarioResponseBody() {
-        }
-        
-        public HipotecarioResponseBody(string @return) {
-            this.@return = @return;
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -191,31 +116,6 @@ namespace Vista.WSBancoEstado {
         
         public WS_BANCOClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Vista.WSBancoEstado.HipotecarioResponse Vista.WSBancoEstado.WS_BANCO.Hipotecario(Vista.WSBancoEstado.HipotecarioRequest request) {
-            return base.Channel.Hipotecario(request);
-        }
-        
-        public string Hipotecario(string rut) {
-            Vista.WSBancoEstado.HipotecarioRequest inValue = new Vista.WSBancoEstado.HipotecarioRequest();
-            inValue.Body = new Vista.WSBancoEstado.HipotecarioRequestBody();
-            inValue.Body.rut = rut;
-            Vista.WSBancoEstado.HipotecarioResponse retVal = ((Vista.WSBancoEstado.WS_BANCO)(this)).Hipotecario(inValue);
-            return retVal.Body.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Vista.WSBancoEstado.HipotecarioResponse> Vista.WSBancoEstado.WS_BANCO.HipotecarioAsync(Vista.WSBancoEstado.HipotecarioRequest request) {
-            return base.Channel.HipotecarioAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Vista.WSBancoEstado.HipotecarioResponse> HipotecarioAsync(string rut) {
-            Vista.WSBancoEstado.HipotecarioRequest inValue = new Vista.WSBancoEstado.HipotecarioRequest();
-            inValue.Body = new Vista.WSBancoEstado.HipotecarioRequestBody();
-            inValue.Body.rut = rut;
-            return ((Vista.WSBancoEstado.WS_BANCO)(this)).HipotecarioAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
