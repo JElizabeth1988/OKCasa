@@ -46,7 +46,6 @@
         </Button>
         <Button x:Name="btnPasar" Content="Traspasar" HorizontalAlignment="Left" Margin="356,401,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnPasar_Click"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="64" Margin="523,39,0,0" VerticalAlignment="Top" Width="149" Source="Imagenes/logo12.png"/>
-        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="249,402,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"   Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnEliminar_Click"/>
         <Button x:Name="btnPasarInf" Content="Traspasar" HorizontalAlignment="Left" Margin="356,401,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnPasarInf_Click"/>
         <Button x:Name="btnRefrescarInf" HorizontalAlignment="Left" Margin="609,396,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescarInf_Click"  >
             <Button.Background>

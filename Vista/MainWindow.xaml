@@ -108,7 +108,7 @@
                 </Label>
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="854,175,174,345" Click="Tile_Click_Equipo" Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto">
+        <Controls:Tile Margin="854,363,174,88" Click="Tile_Click_Equipo" Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF211104"/>
             </Controls:Tile.Effect>
@@ -120,7 +120,7 @@
                 </LinearGradientBrush>
             </Controls:Tile.Background>
             <Grid Height="100" Width="100">
-                <Image x:Name="image10" HorizontalAlignment="Left" Height="55" Margin="23,8,0,0" VerticalAlignment="Top" Width="55" Source="img/Equipo-Blanco.png">
+                <Image x:Name="image10" HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="96" Source="img/eq.png">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.8"/>
                     </Image.Effect>
@@ -152,32 +152,6 @@
                     </Image.Effect>
                 </Image>
                 <Label x:Name="label5" Content="Listar Clientes" HorizontalAlignment="Left" Margin="-3,60,-16,0" VerticalAlignment="Top" Width="118" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="1">
-                    <Label.Effect>
-                        <DropShadowEffect Opacity="0.9" ShadowDepth="2" BlurRadius="6"/>
-                    </Label.Effect>
-                </Label>
-
-            </Grid>
-        </Controls:Tile>
-        <Controls:Tile Margin="446,432,579,88"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_Seguimiento">
-            <Controls:Tile.Effect>
-                <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
-            </Controls:Tile.Effect>
-            <Controls:Tile.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
-                    <GradientStop Color="#FFB9F659" Offset="0.987"/>
-                    <GradientStop Color="#FFED3E70"/>
-                    <GradientStop Color="#FFEE9798" Offset="0.385"/>
-                    <GradientStop Color="#FFDCBA93" Offset="0.621"/>
-                </LinearGradientBrush>
-            </Controls:Tile.Background>
-            <Grid Height="100" Width="107">
-                <Image x:Name="image12" HorizontalAlignment="Left" Height="56" Margin="24,10,0,0" VerticalAlignment="Top" Width="55" Source="Img/Seguimiento.png">
-                    <Image.Effect>
-                        <DropShadowEffect Opacity="0.8"/>
-                    </Image.Effect>
-                </Image>
-                <Label x:Name="label6" Content="Seguimiento" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Width="92" Foreground="White" FontSize="13.5" FontWeight="Bold" BorderThickness="1">
                     <Label.Effect>
                         <DropShadowEffect Opacity="0.9" ShadowDepth="2" BlurRadius="6"/>
                     </Label.Effect>
@@ -222,7 +196,7 @@
                 </LinearGradientBrush>
             </Controls:Tile.Background>
             <Grid Height="228" Width="117">
-                <Image x:Name="image14" HorizontalAlignment="Left" Height="68" Margin="23,109,0,0" VerticalAlignment="Top" Width="78" Source="img/Técnico-Blanco.png">
+                <Image x:Name="image14" HorizontalAlignment="Left" Height="130" Margin="6,96,0,0" VerticalAlignment="Top" Width="107" Source="img/tec2.png">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.8"/>
                     </Image.Effect>
@@ -235,7 +209,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="854,303,174,218"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_ListaInsp">
+        <Controls:Tile Margin="854,175,174,283"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_ListaInsp">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
             </Controls:Tile.Effect>
@@ -248,7 +222,7 @@
                 </LinearGradientBrush>
             </Controls:Tile.Background>
             <Grid Height="100" Width="102">
-                <Image x:Name="image5" HorizontalAlignment="Left" Height="51" Margin="26,10,0,0" VerticalAlignment="Top" Width="59" Source="Img/Listado-Tecnico-Blanco.png">
+                <Image x:Name="image5" HorizontalAlignment="Left" Height="90" Margin="8,-20,0,0" VerticalAlignment="Top" Width="90" Source="img/tecList.png">
                     <Image.Effect>
                         <DropShadowEffect Opacity="0.8"/>
                     </Image.Effect>
@@ -261,7 +235,7 @@
 
             </Grid>
         </Controls:Tile>
-        <Controls:Tile Margin="854,432,174,88"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_Insumos">
+        <Controls:Tile Margin="458,432,570,88"  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_Insumos">
             <Controls:Tile.Effect>
                 <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
             </Controls:Tile.Effect>

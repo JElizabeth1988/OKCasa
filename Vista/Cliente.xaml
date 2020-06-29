@@ -29,12 +29,12 @@
             <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ingrese Dirección" Height="8" Margin="156,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
             <ComboBox x:Name="cboComuna" HorizontalAlignment="Left" Margin="156,271,0,0" VerticalAlignment="Top" Width="163" FontWeight="Normal"/>
             <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Controls:TextBoxHelper.Watermark="Ej. 988888888" Height="8" Margin="156,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="False"  KeyDown="txtNumeros_KeyDown"  />
-            <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="144,368,0,0" VerticalAlignment="Top" Width="75" Cursor="Arrow" FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True"  RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnGuardar_Click"/>
+            <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="136,368,0,0" VerticalAlignment="Top" Width="75" Cursor="Arrow" FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True"  RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnGuardar_Click"/>
             <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="386,368,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal" Cursor="Arrow"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnCancelar_Click"/>
             <Button x:Name="btnPregunta" Content="?" HorizontalAlignment="Left" Margin="361,19,0,0" VerticalAlignment="Top" Width="33"  FontWeight="Normal" Height="25" Cursor="Arrow"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnPregunta_Click"/>
             <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="407,19,0,0" VerticalAlignment="Top" Height="25" Width="64" Cursor="Arrow" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnBuscar_Click"/>
             <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="28,368,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnLimpiar_Click"/>
-            <Button x:Name="btnModificar" Content="Actualizar" HorizontalAlignment="Left" Margin="145,368,0,0" VerticalAlignment="Top" Cursor="Arrow" Width="80" FontWeight="Normal"   Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnModificar_Click" />
+            <Button x:Name="btnModificar" Content="Actualizar" HorizontalAlignment="Left" Margin="135,368,0,0" VerticalAlignment="Top" Cursor="Arrow" Width="80" FontWeight="Normal"   Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnModificar_Click" />
             <Image x:Name="image" HorizontalAlignment="Left" Height="46" Margin="354,75,0,0" VerticalAlignment="Top" Width="113" Source="Imagenes/logo12.png"/>
 
 
@@ -44,6 +44,7 @@
             <Label x:Name="label_Copy5" Content="Segundo Nombre:" HorizontalAlignment="Left" Margin="23,91,0,0" VerticalAlignment="Top"/>
 
             <Label x:Name="label_Copy6" Content="Comuna:" HorizontalAlignment="Left" Margin="23,271,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="251,368,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"   mah:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnEliminar_Click"/>
 
 
 

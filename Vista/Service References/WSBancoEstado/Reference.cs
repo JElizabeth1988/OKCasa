@@ -21,6 +21,13 @@ namespace Vista.WSBancoEstado {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://WS/WS_BANCO/HipotecarioRequest", ReplyAction="http://WS/WS_BANCO/HipotecarioResponse")]
         System.Threading.Tasks.Task<Vista.WSBancoEstado.HipotecarioResponse> HipotecarioAsync(Vista.WSBancoEstado.HipotecarioRequest request);
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento rut del espacio de nombres  no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://WS/WS_BANCO/TipoClienteRequest", ReplyAction="http://WS/WS_BANCO/TipoClienteResponse")]
+        Vista.WSBancoEstado.TipoClienteResponse TipoCliente(Vista.WSBancoEstado.TipoClienteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://WS/WS_BANCO/TipoClienteRequest", ReplyAction="http://WS/WS_BANCO/TipoClienteResponse")]
+        System.Threading.Tasks.Task<Vista.WSBancoEstado.TipoClienteResponse> TipoClienteAsync(Vista.WSBancoEstado.TipoClienteRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -91,6 +98,74 @@ namespace Vista.WSBancoEstado {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class TipoClienteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="TipoCliente", Namespace="http://WS/", Order=0)]
+        public Vista.WSBancoEstado.TipoClienteRequestBody Body;
+        
+        public TipoClienteRequest() {
+        }
+        
+        public TipoClienteRequest(Vista.WSBancoEstado.TipoClienteRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class TipoClienteRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string rut;
+        
+        public TipoClienteRequestBody() {
+        }
+        
+        public TipoClienteRequestBody(string rut) {
+            this.rut = rut;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class TipoClienteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="TipoClienteResponse", Namespace="http://WS/", Order=0)]
+        public Vista.WSBancoEstado.TipoClienteResponseBody Body;
+        
+        public TipoClienteResponse() {
+        }
+        
+        public TipoClienteResponse(Vista.WSBancoEstado.TipoClienteResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class TipoClienteResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int @return;
+        
+        public TipoClienteResponseBody() {
+        }
+        
+        public TipoClienteResponseBody(int @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface WS_BANCOChannel : Vista.WSBancoEstado.WS_BANCO, System.ServiceModel.IClientChannel {
     }
@@ -141,6 +216,31 @@ namespace Vista.WSBancoEstado {
             inValue.Body = new Vista.WSBancoEstado.HipotecarioRequestBody();
             inValue.Body.rut = rut;
             return ((Vista.WSBancoEstado.WS_BANCO)(this)).HipotecarioAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Vista.WSBancoEstado.TipoClienteResponse Vista.WSBancoEstado.WS_BANCO.TipoCliente(Vista.WSBancoEstado.TipoClienteRequest request) {
+            return base.Channel.TipoCliente(request);
+        }
+        
+        public int TipoCliente(string rut) {
+            Vista.WSBancoEstado.TipoClienteRequest inValue = new Vista.WSBancoEstado.TipoClienteRequest();
+            inValue.Body = new Vista.WSBancoEstado.TipoClienteRequestBody();
+            inValue.Body.rut = rut;
+            Vista.WSBancoEstado.TipoClienteResponse retVal = ((Vista.WSBancoEstado.WS_BANCO)(this)).TipoCliente(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Vista.WSBancoEstado.TipoClienteResponse> Vista.WSBancoEstado.WS_BANCO.TipoClienteAsync(Vista.WSBancoEstado.TipoClienteRequest request) {
+            return base.Channel.TipoClienteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Vista.WSBancoEstado.TipoClienteResponse> TipoClienteAsync(string rut) {
+            Vista.WSBancoEstado.TipoClienteRequest inValue = new Vista.WSBancoEstado.TipoClienteRequest();
+            inValue.Body = new Vista.WSBancoEstado.TipoClienteRequestBody();
+            inValue.Body.rut = rut;
+            return ((Vista.WSBancoEstado.WS_BANCO)(this)).TipoClienteAsync(inValue);
         }
     }
 }

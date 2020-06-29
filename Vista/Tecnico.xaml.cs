@@ -38,6 +38,7 @@ namespace Vista
 
             txtDV.IsEnabled = false;
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
+            btnEliminar.Visibility = Visibility.Hidden;
             txtRut.Focus();
 
             //llenar el combo box 
@@ -168,6 +169,7 @@ namespace Vista
 
                     btnModificar.Visibility = Visibility.Visible;
                     btnGuardar.Visibility = Visibility.Hidden;
+                    btnEliminar.Visibility = Visibility.Visible;
 
                 }
                 else
@@ -206,6 +208,7 @@ namespace Vista
 
             btnModificar.Visibility = Visibility.Hidden;
             btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
+            btnEliminar.Visibility = Visibility.Hidden;
             txtRut.IsEnabled = true;
 
             txtRut.Focus();//Mover el cursor a la poscición Rut
@@ -290,6 +293,7 @@ namespace Vista
 
                     btnModificar.Visibility = Visibility.Visible;
                     btnGuardar.Visibility = Visibility.Hidden;
+                    btnEliminar.Visibility = Visibility.Visible;
 
                 }
                 else
@@ -400,7 +404,7 @@ namespace Vista
                 bool resp = Agregar(t);
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format(resp ? "Guardado" : "No Guardado"));
-                /*MessageBox.Show(resp ? "Guardado" : "No Guardado");*/
+                
 
                 //-----------------------------------------------------------------------------------------------
                 //MOSTRAR LISTA DE ERRORES
@@ -414,6 +418,29 @@ namespace Vista
                     }
                     await this.ShowMessageAsync("Mensaje:",
                         string.Format(li));
+                }
+                else
+                {
+
+                    txtRut.Clear();
+                    txtDV.Clear();
+                    txtNombre.Clear();
+                    txtSegNombre.Clear();
+                    txtApPaterno.Clear();
+                    txtApeMaterno.Clear();
+                    txtDireccion.Clear();
+                    txtTelefono.Text = "0";
+                    txtEmail.Clear();
+                    cboComuna.SelectedIndex = 0;
+                    cbEquipo.SelectedIndex = 0;
+
+                    btnModificar.Visibility = Visibility.Hidden;
+                    btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
+                    btnEliminar.Visibility = Visibility.Hidden;
+                    txtRut.IsEnabled = true;
+
+                    txtRut.Focus();//Mover el cursor a la poscición Rut
+
                 }
 
 
@@ -531,6 +558,29 @@ namespace Vista
                     await this.ShowMessageAsync("Mensaje:",
                         string.Format(li));
                 }
+                else
+                {
+                        
+                        txtRut.Clear();
+                        txtDV.Clear();
+                        txtNombre.Clear();
+                        txtSegNombre.Clear();
+                        txtApPaterno.Clear();
+                        txtApeMaterno.Clear();
+                        txtDireccion.Clear();
+                        txtTelefono.Text = "0";
+                        txtEmail.Clear();
+                        cboComuna.SelectedIndex = 0;
+                        cbEquipo.SelectedIndex = 0;
+
+                        btnModificar.Visibility = Visibility.Hidden;
+                        btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
+                        btnEliminar.Visibility = Visibility.Hidden;
+                        txtRut.IsEnabled = true;
+
+                        txtRut.Focus();//Mover el cursor a la poscición Rut
+                    
+                }
 
 
                 //-----------------------------------------------------------------------------------------------
@@ -616,6 +666,106 @@ namespace Vista
             else
             {
                 txtRut.Text = "";
+            }
+        }
+
+        //---------Método Eliminar-----------------------------------------------
+        public bool Eliminar(BibliotecaNegocio.Tecnico client)
+        {
+            try
+            {
+                string rut = txtRut.Text+"-"+txtDV.Text;
+                if (rut.Length == 9)
+                {
+                    rut = "0" + txtRut.Text + "-" + txtDV.Text;
+                }
+                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
+                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
+                //nunca una instruccion sql en el sistema solo en base de datos
+                OracleCommand CMD = new OracleCommand();
+                //que tipo de tipo voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_ELIMINAR_TECNICO";
+                //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
+                CMD.Parameters.Add(new OracleParameter("P_RUT_TECNICO", OracleDbType.Varchar2, 20)).Value = rut;
+
+                //se abre la conexion
+                conn.Open();
+                //se ejecuta la query CON  VARIABLE DE SALIDA en caso de tener
+                CMD.ExecuteNonQuery();
+                //se cierra la conexioin
+                conn.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+                Logger.Mensaje(ex.Message);
+
+            }
+        }
+        //-------------Botón Eliminar------------------------------------------------------
+        private async void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                BibliotecaNegocio.Tecnico tec = new BibliotecaNegocio.Tecnico();
+                var x = await this.ShowMessageAsync("Eliminar Datos de Cliente " + tec.rut_tecnico,
+                         "¿Desea eliminar al Cliente?",
+                        MessageDialogStyle.AffirmativeAndNegative);
+                if (x == MessageDialogResult.Affirmative)
+                {
+                    bool resp = Eliminar(tec);
+                    if (resp == true)
+                    {
+                        await this.ShowMessageAsync("Éxito:",
+                          string.Format("Inspector Técnico Eliminado"));
+                        txtRut.Clear();
+                        txtDV.Clear();
+                        txtNombre.Clear();
+                        txtSegNombre.Clear();
+                        txtApPaterno.Clear();
+                        txtApeMaterno.Clear();
+                        txtDireccion.Clear();
+                        txtTelefono.Text = "0";
+                        txtEmail.Clear();
+                        cboComuna.SelectedIndex = 0;
+                        cbEquipo.SelectedIndex = 0;
+
+                        btnModificar.Visibility = Visibility.Hidden;
+                        btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
+                        btnEliminar.Visibility = Visibility.Hidden;
+                        txtRut.IsEnabled = true;
+
+                        txtRut.Focus();//Mover el cursor a la poscición Rut
+                    }
+                    else
+                    {
+                        await this.ShowMessageAsync("Error:",
+                          string.Format("No Eliminado"));
+                        /*MessageBox.Show("No se eliminó al Cliente");*/
+                    }
+
+                }
+                else
+                {
+                    await this.ShowMessageAsync("Mensaje:",
+                          string.Format("Operación Cancelada"));
+                    /*MessageBox.Show("Operación Cancelada");*/
+                }
+            }
+            catch (Exception ex)
+            {
+
+                await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Error al Eliminar la Información"));
+                /*MessageBox.Show("error al Filtrar Información");*/
+                Logger.Mensaje(ex.Message);
             }
         }
     }

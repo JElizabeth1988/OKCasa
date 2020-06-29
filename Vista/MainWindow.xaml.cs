@@ -74,12 +74,6 @@ namespace Vista
             Servicio ser = new Servicio();
             ser.ShowDialog();
         }
-        //Seguimiento
-        private void Tile_Click_Seguimiento(object sender, RoutedEventArgs e)
-        {
-            Seguimiento seg = new Seguimiento();
-            seg.ShowDialog();
-        }
         //Agenda
         private void Tile_Click_Agenda(object sender, RoutedEventArgs e)
         {

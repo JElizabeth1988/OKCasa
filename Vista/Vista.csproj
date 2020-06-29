@@ -195,9 +195,6 @@
     <Compile Include="ListadoInspectores.xaml.cs">
       <DependentUpon>ListadoInspectores.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Seguimiento.xaml.cs">
-      <DependentUpon>Seguimiento.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Service References\WSBancoEstado\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -295,10 +292,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Seguimiento.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Servicio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -339,6 +332,9 @@
     <None Include="Service References\WSBancoEstado\Vista.WSBancoEstado.HipotecarioResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\WSBancoEstado\Vista.WSBancoEstado.TipoClienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WSBancoEstado\WS_BANCO.wsdl" />
     <None Include="Service References\WSBancoEstado\WS_BANCO.xsd">
       <SubType>Designer</SubType>
@@ -350,6 +346,8 @@
     <None Include="Service References\WSLOGIN\WSLOGIN.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Resource Include="img\tec2.png" />
+    <Resource Include="img\tec3.png" />
     <Resource Include="Resources\Entypo.ttf" />
   </ItemGroup>
   <ItemGroup>
@@ -458,6 +456,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\Medicion1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\computer-icons-construction-worker-laborer-construction-worker.jpg" />
+    <Resource Include="img\eq.png" />
+    <Resource Include="img\tec.png" />
+    <Resource Include="img\tec4.png" />
+    <Resource Include="img\tecList.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\WSBancoEstado\configuration91.svcinfo" />

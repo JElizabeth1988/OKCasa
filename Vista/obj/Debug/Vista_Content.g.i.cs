@@ -8,6 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/medicion1.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/computer-icons-construction-worker-laborer-construction-worker.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/eq.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/tec.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/tec2.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/tec3.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/tec4.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("img/teclist.png")]
 
 
