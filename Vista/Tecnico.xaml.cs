@@ -189,10 +189,8 @@ namespace Vista
             }
 
         }
-
-
-        //----------------Botón Limpiar
-        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        //--------Limpiar (método)-----------------------
+        private void Limpiar()
         {
             txtRut.Clear();
             txtDV.Clear();
@@ -212,6 +210,12 @@ namespace Vista
             txtRut.IsEnabled = true;
 
             txtRut.Focus();//Mover el cursor a la poscición Rut
+        }
+
+        //----------------Botón Limpiar
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            Limpiar();
         }
         //-----------------------CRUD con Procedimientos----------------------------------------------
         //--------------------------------------------------------------------------------------------
@@ -421,26 +425,7 @@ namespace Vista
                 }
                 else
                 {
-
-                    txtRut.Clear();
-                    txtDV.Clear();
-                    txtNombre.Clear();
-                    txtSegNombre.Clear();
-                    txtApPaterno.Clear();
-                    txtApeMaterno.Clear();
-                    txtDireccion.Clear();
-                    txtTelefono.Text = "0";
-                    txtEmail.Clear();
-                    cboComuna.SelectedIndex = 0;
-                    cbEquipo.SelectedIndex = 0;
-
-                    btnModificar.Visibility = Visibility.Hidden;
-                    btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
-                    btnEliminar.Visibility = Visibility.Hidden;
-                    txtRut.IsEnabled = true;
-
-                    txtRut.Focus();//Mover el cursor a la poscición Rut
-
+                    Limpiar();                    
                 }
 
 
@@ -560,26 +545,7 @@ namespace Vista
                 }
                 else
                 {
-                        
-                        txtRut.Clear();
-                        txtDV.Clear();
-                        txtNombre.Clear();
-                        txtSegNombre.Clear();
-                        txtApPaterno.Clear();
-                        txtApeMaterno.Clear();
-                        txtDireccion.Clear();
-                        txtTelefono.Text = "0";
-                        txtEmail.Clear();
-                        cboComuna.SelectedIndex = 0;
-                        cbEquipo.SelectedIndex = 0;
-
-                        btnModificar.Visibility = Visibility.Hidden;
-                        btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
-                        btnEliminar.Visibility = Visibility.Hidden;
-                        txtRut.IsEnabled = true;
-
-                        txtRut.Focus();//Mover el cursor a la poscición Rut
-                    
+                    Limpiar();
                 }
 
 
@@ -726,24 +692,8 @@ namespace Vista
                     {
                         await this.ShowMessageAsync("Éxito:",
                           string.Format("Inspector Técnico Eliminado"));
-                        txtRut.Clear();
-                        txtDV.Clear();
-                        txtNombre.Clear();
-                        txtSegNombre.Clear();
-                        txtApPaterno.Clear();
-                        txtApeMaterno.Clear();
-                        txtDireccion.Clear();
-                        txtTelefono.Text = "0";
-                        txtEmail.Clear();
-                        cboComuna.SelectedIndex = 0;
-                        cbEquipo.SelectedIndex = 0;
 
-                        btnModificar.Visibility = Visibility.Hidden;
-                        btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
-                        btnEliminar.Visibility = Visibility.Hidden;
-                        txtRut.IsEnabled = true;
-
-                        txtRut.Focus();//Mover el cursor a la poscición Rut
+                        Limpiar();
                     }
                     else
                     {

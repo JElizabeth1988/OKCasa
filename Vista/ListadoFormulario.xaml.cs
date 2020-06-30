@@ -39,6 +39,13 @@ namespace Vista
             txtFiltroNumero.Focus();
 
             btnPasar.Visibility = Visibility.Hidden;
+            CargarGrilla();
+
+        }
+
+        //-----------------Cargar Grilla--------------------
+        private void CargarGrilla()
+        {
             try
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
@@ -77,7 +84,7 @@ namespace Vista
                     i.Constructora = dr.GetValue(7).ToString();
                     i.N_Habitaciones = int.Parse(dr.GetValue(8).ToString());
                     i.N_Pisos = int.Parse(dr.GetValue(9).ToString());
-                    i.Tipo_Agrupamiento  = dr.GetValue(10).ToString();
+                    i.Tipo_Agrupamiento = dr.GetValue(10).ToString();
                     i.Tipo_Vivienda = dr.GetValue(11).ToString();
                     i.Rut_Tecnico = dr.GetValue(12).ToString();
                     i.Técnico = dr.GetValue(13).ToString();
@@ -120,10 +127,9 @@ namespace Vista
 
                 Logger.Mensaje(ex.Message);
             }
-
-
         }
-        //Llamado desde Formulario
+
+        //---------------------Llamado desde Formulario botón ?
         public ListadoFormulario(FormularioInspeccion origen)
         {
             InitializeComponent();
@@ -131,87 +137,7 @@ namespace Vista
 
             btnPasar.Visibility = Visibility.Visible;//el botón traspasar se ve
 
-            try
-            {
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //se crea una lista 
-                List<BibliotecaNegocio.Informe.ListaInforme> lista = new List<BibliotecaNegocio.Informe.ListaInforme>();
-                //se crea un comando de oracle
-                OracleCommand cmd = new OracleCommand();
-                //se ejecutan los comandos de procedimeintos
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                //conexion
-                cmd.Connection = conn;
-                //procedimiento
-                cmd.CommandText = "SP_LISTAR_INFORME";
-
-                //cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
-                //Se agrega el parametro de salida
-                cmd.Parameters.Add(new OracleParameter("INFORMES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
-                //se abre la conexion
-                conn.Open();
-                //se crea un reader
-                OracleDataReader dr = cmd.ExecuteReader();
-                //mientras lea
-                while (dr.Read())
-                {
-                    BibliotecaNegocio.Informe.ListaInforme i = new BibliotecaNegocio.Informe.ListaInforme();
-
-                    //se obtiene el valor con getvalue es lo mismo pero con get
-                    i.Numero = long.Parse(dr.GetValue(0).ToString());
-                    i.Estado_Servicio = dr.GetValue(1).ToString();
-                    i.Fecha_Inspeccion = DateTime.Parse(dr.GetValue(2).ToString());
-                    i.Rut_Cliente = dr.GetValue(3).ToString();
-                    i.Cliente = dr.GetValue(4).ToString();
-                    i.Dirección = dr.GetValue(5).ToString();
-                    i.Comuna = dr.GetValue(6).ToString();
-                    i.Constructora = dr.GetValue(7).ToString();
-                    i.N_Habitaciones = int.Parse(dr.GetValue(8).ToString());
-                    i.N_Pisos = int.Parse(dr.GetValue(9).ToString());
-                    i.Tipo_Agrupamiento = dr.GetValue(10).ToString();
-                    i.Tipo_Vivienda = dr.GetValue(11).ToString();
-                    i.Rut_Tecnico = dr.GetValue(12).ToString();
-                    i.Técnico = dr.GetValue(13).ToString();
-                    i.Equipo = dr.GetValue(14).ToString();
-                    i.Resultado = dr.GetValue(15).ToString();
-                    i.Observacion = dr.GetValue(16).ToString();
-                    i.habitabilidad = dr.GetValue(17).ToString();
-                    i.Resistencia_Térmica = dr.GetValue(18).ToString();
-                    i.Resistencia_Fuego = dr.GetValue(19).ToString();
-                    i.Area_regis = int.Parse(dr.GetValue(20).ToString());
-                    i.Area_real = int.Parse(dr.GetValue(21).ToString());
-                    i.sup_construida_reg = int.Parse(dr.GetValue(22).ToString());
-                    i.Sup_construida_real = int.Parse(dr.GetValue(23).ToString());
-                    i.Emisividad = int.Parse(dr.GetValue(24).ToString());
-                    i.Temp_reflejada = int.Parse(dr.GetValue(25).ToString());
-                    i.Distancia = int.Parse(dr.GetValue(26).ToString());
-                    i.Humedad_relativa = int.Parse(dr.GetValue(27).ToString());
-                    i.temp_atmosferica = int.Parse(dr.GetValue(28).ToString());
-                    i.Inst_Agua_Potable = dr.GetValue(29).ToString();
-                    i.Inst_Alcantarillado = dr.GetValue(30).ToString();
-                    i.Inst_Gas = dr.GetValue(31).ToString();
-                    i.Inst_Electrica = dr.GetValue(32).ToString();
-                    i.Red_Agua = dr.GetValue(33).ToString();
-                    i.Solicitud = int.Parse(dr.GetValue(34).ToString());
-                    i.Fecha_solicitud = DateTime.Parse(dr.GetValue(35).ToString());
-
-
-                    lista.Add(i);
-                }
-                conn.Close();
-
-                dgLista.ItemsSource = lista;
-                // dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
-
-
-
-            }
-            catch (Exception ex)
-            {
-
-                Logger.Mensaje(ex.Message);
-            }
+            CargarGrilla();
 
         }
 
@@ -219,89 +145,8 @@ namespace Vista
         //-----------Botón Refrescar lista--------------------------------------
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {
-            //btnPasar.Visibility = Visibility.Visible;//el botón traspasar se ve
-
-            try
-            {
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //se crea una lista 
-                List<BibliotecaNegocio.Informe.ListaInforme> lista = new List<BibliotecaNegocio.Informe.ListaInforme>();
-                //se crea un comando de oracle
-                OracleCommand cmd = new OracleCommand();
-                //se ejecutan los comandos de procedimeintos
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                //conexion
-                cmd.Connection = conn;
-                //procedimiento
-                cmd.CommandText = "SP_LISTAR_INFORME";
-
-                //cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
-                //Se agrega el parametro de salida
-                cmd.Parameters.Add(new OracleParameter("INFORMES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
-                //se abre la conexion
-                conn.Open();
-                //se crea un reader
-                OracleDataReader dr = cmd.ExecuteReader();
-                //mientras lea
-                while (dr.Read())
-                {
-                    BibliotecaNegocio.Informe.ListaInforme i = new BibliotecaNegocio.Informe.ListaInforme();
-
-                    //se obtiene el valor con getvalue es lo mismo pero con get
-                    i.Numero = long.Parse(dr.GetValue(0).ToString());
-                    i.Estado_Servicio = dr.GetValue(1).ToString();
-                    i.Fecha_Inspeccion = DateTime.Parse(dr.GetValue(2).ToString());
-                    i.Rut_Cliente = dr.GetValue(3).ToString();
-                    i.Cliente = dr.GetValue(4).ToString();
-                    i.Dirección = dr.GetValue(5).ToString();
-                    i.Comuna = dr.GetValue(6).ToString();
-                    i.Constructora = dr.GetValue(7).ToString();
-                    i.N_Habitaciones = int.Parse(dr.GetValue(8).ToString());
-                    i.N_Pisos = int.Parse(dr.GetValue(9).ToString());
-                    i.Tipo_Agrupamiento = dr.GetValue(10).ToString();
-                    i.Tipo_Vivienda = dr.GetValue(11).ToString();
-                    i.Rut_Tecnico = dr.GetValue(12).ToString();
-                    i.Técnico = dr.GetValue(13).ToString();
-                    i.Equipo = dr.GetValue(14).ToString();
-                    i.Resultado = dr.GetValue(15).ToString();
-                    i.Observacion = dr.GetValue(16).ToString();
-                    i.habitabilidad = dr.GetValue(17).ToString();
-                    i.Resistencia_Térmica = dr.GetValue(18).ToString();
-                    i.Resistencia_Fuego = dr.GetValue(19).ToString();
-                    i.Area_regis = int.Parse(dr.GetValue(20).ToString());
-                    i.Area_real = int.Parse(dr.GetValue(21).ToString());
-                    i.sup_construida_reg = int.Parse(dr.GetValue(22).ToString());
-                    i.Sup_construida_real = int.Parse(dr.GetValue(23).ToString());
-                    i.Emisividad = int.Parse(dr.GetValue(24).ToString());
-                    i.Temp_reflejada = int.Parse(dr.GetValue(25).ToString());
-                    i.Distancia = int.Parse(dr.GetValue(26).ToString());
-                    i.Humedad_relativa = int.Parse(dr.GetValue(27).ToString());
-                    i.temp_atmosferica = int.Parse(dr.GetValue(28).ToString());
-                    i.Inst_Agua_Potable = dr.GetValue(29).ToString();
-                    i.Inst_Alcantarillado = dr.GetValue(30).ToString();
-                    i.Inst_Gas = dr.GetValue(31).ToString();
-                    i.Inst_Electrica = dr.GetValue(32).ToString();
-                    i.Red_Agua = dr.GetValue(33).ToString();
-                    i.Solicitud = int.Parse(dr.GetValue(34).ToString());
-                    i.Fecha_solicitud = DateTime.Parse(dr.GetValue(35).ToString());
-
-
-                    lista.Add(i);
-                }
-                conn.Close();
-
-                dgLista.ItemsSource = lista;
-                // dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
-
-
-
-            }
-            catch (Exception ex)
-            {
-
-                Logger.Mensaje(ex.Message);
-            }
+            CargarGrilla();
+            
         }
         //----------Botón Salir---------------------------------------------------
         private void btnSalir_Click(object sender, RoutedEventArgs e)

@@ -59,89 +59,13 @@ namespace Vista
             }
 
             cbEquipo.SelectedIndex = 0;
-            try
-            {
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //se crea una lista de tipo cine
-                List<BibliotecaNegocio.Tecnico.ListaTecnico> lista = new List<BibliotecaNegocio.Tecnico.ListaTecnico>();
-                //se crea un comando de oracle
-                OracleCommand cmd = new OracleCommand();
-                //se ejecutan los comandos de procedimeintos
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                //conexion
-                cmd.Connection = conn;
-                //procedimiento
-                cmd.CommandText = "SP_LISTAR_TECNICO";
-
-                //cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
-                //Se agrega el parametro de salida
-                cmd.Parameters.Add(new OracleParameter("TECNICOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
-                //se abre la conexion
-                conn.Open();
-                //se crea un reader
-                OracleDataReader dr = cmd.ExecuteReader();
-                //mientras lea
-                while (dr.Read())
-                {
-                    BibliotecaNegocio.Tecnico.ListaTecnico C = new BibliotecaNegocio.Tecnico.ListaTecnico();
-
-                    //se obtiene el valor con getvalue es lo mismo pero con get
-                    C.Rut = dr.GetValue(0).ToString();
-                    C.Nombre = dr.GetValue(1).ToString();
-                    C.Segundo_Nombre = dr.GetValue(2).ToString();
-                    C.ApellidoPaterno = dr.GetValue(3).ToString();
-                    C.ApellidoMaterno = dr.GetValue(4).ToString();
-                    C.Dirección = dr.GetValue(5).ToString();
-                    C.Teléfono = int.Parse(dr.GetValue(6).ToString());
-                    C.Email = dr.GetValue(7).ToString();
-                    C.Equipo= dr.GetValue(8).ToString();
-                    C.Comuna = dr.GetValue(9).ToString();
-
-
-                    lista.Add(C);
-                }
-                conn.Close();
-
-                dgLista.ItemsSource = lista;
-                //dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
-
-
-
-            }
-            catch (Exception ex)
-            {
-
-                Logger.Mensaje(ex.Message);
-            }
+            CargarGrilla();
+            
             
         }
-        //--------Llamado desde Técnico------------------------------------
-        public ListadoInspectores(Tecnico origen)
+        //-------------Cargar Grilla------------------------------
+        private void CargarGrilla()
         {
-            InitializeComponent();
-            tec = origen;
-            txtFiltroRut.Focus();
-
-            btnPasar.Visibility = Visibility.Visible;//Btn no se ve
-            btnPasarInf.Visibility = Visibility.Hidden;
-            
-            btnRefrescarInf.Visibility = Visibility.Hidden;
-            btnFiltrarRut.Visibility = Visibility.Visible;
-            btnFiltrarRutInf.Visibility = Visibility.Hidden;
-            btnFiltrarEquipo.Visibility = Visibility.Visible;
-            btnFiltrarEquipoInf.Visibility = Visibility.Hidden;
-
-            //llenar CB
-            foreach (EquipoTecnico item in new EquipoTecnico().ReadAll())
-            {
-                comboBoxItem1 cb = new comboBoxItem1();
-                cb.id = item.id_equipo;
-                cb.nombre = item.nombre;
-                cbEquipo.Items.Add(cb);
-            }
-
-            cbEquipo.SelectedIndex = 0;
             try
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
@@ -197,24 +121,22 @@ namespace Vista
 
                 Logger.Mensaje(ex.Message);
             }
-            
         }
-        //-----------Llamado desde Informe-----------------------------------
-        public ListadoInspectores(FormularioInspeccion origen)
+        //--------Llamado desde Técnico------------------------------------
+        public ListadoInspectores(Tecnico origen)
         {
             InitializeComponent();
-            form = origen;
+            tec = origen;
             txtFiltroRut.Focus();
 
-            btnPasar.Visibility = Visibility.Hidden;//Btn no se ve
+            btnPasar.Visibility = Visibility.Visible;//Btn no se ve
+            btnPasarInf.Visibility = Visibility.Hidden;
             
-            btnPasarInf.Visibility = Visibility.Visible;
-            btnRefrescar.Visibility = Visibility.Hidden;
-            btnRefrescarInf.Visibility = Visibility.Visible;
-            btnFiltrarRut.Visibility = Visibility.Hidden;
-            btnFiltrarRutInf.Visibility = Visibility.Visible;
-            btnFiltrarEquipo.Visibility = Visibility.Hidden;
-            btnFiltrarEquipoInf.Visibility = Visibility.Visible;
+            btnRefrescarInf.Visibility = Visibility.Hidden;
+            btnFiltrarRut.Visibility = Visibility.Visible;
+            btnFiltrarRutInf.Visibility = Visibility.Hidden;
+            btnFiltrarEquipo.Visibility = Visibility.Visible;
+            btnFiltrarEquipoInf.Visibility = Visibility.Hidden;
 
             //llenar CB
             foreach (EquipoTecnico item in new EquipoTecnico().ReadAll())
@@ -226,6 +148,12 @@ namespace Vista
             }
 
             cbEquipo.SelectedIndex = 0;
+            CargarGrilla();
+            
+        }
+        //-----Cargar Grilla para informe-----------------
+        private void CargarInforme()
+        {
             try
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
@@ -257,7 +185,7 @@ namespace Vista
                     C.Rut = dr.GetValue(0).ToString();
                     C.Nombre = dr.GetValue(1).ToString();
                     C.Equipo = dr.GetValue(2).ToString();
- 
+
                     lista.Add(C);
                 }
                 conn.Close();
@@ -273,14 +201,41 @@ namespace Vista
 
                 Logger.Mensaje(ex.Message);
             }
+        }
+        //-----------Llamado desde Informe-----------------------------------
+        public ListadoInspectores(FormularioInspeccion origen)
+        {
+            InitializeComponent();
+            form = origen;
+            txtFiltroRut.Focus();
+
+            btnPasar.Visibility = Visibility.Hidden;//Btn no se ve
+            
+            btnPasarInf.Visibility = Visibility.Visible;
+            btnRefrescar.Visibility = Visibility.Hidden;
+            btnRefrescarInf.Visibility = Visibility.Visible;
+            btnFiltrarRut.Visibility = Visibility.Hidden;
+            btnFiltrarRutInf.Visibility = Visibility.Visible;
+            btnFiltrarEquipo.Visibility = Visibility.Hidden;
+            btnFiltrarEquipoInf.Visibility = Visibility.Visible;
+
+            //llenar CB
+            foreach (EquipoTecnico item in new EquipoTecnico().ReadAll())
+            {
+                comboBoxItem1 cb = new comboBoxItem1();
+                cb.id = item.id_equipo;
+                cb.nombre = item.nombre;
+                cbEquipo.Items.Add(cb);
+            }
+
+            cbEquipo.SelectedIndex = 0;
+            CargarInforme();
          
         }
         //-------------BOTÓN REFRESCAR-----------------------------
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {
-            BibliotecaNegocio.Tecnico cl = new BibliotecaNegocio.Tecnico();
-            dgLista.ItemsSource = cl.ReadAll2();
-            dgLista.Items.Refresh();
+            CargarGrilla();
         }
         //-------Botón Salir--------------------------------------
         private void btnSalir_Click(object sender, RoutedEventArgs e)
@@ -384,53 +339,7 @@ namespace Vista
         //---------------Refrescar 2-----------------------------------------
         private void btnRefrescarInf_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //se crea una lista 
-                List<BibliotecaNegocio.Tecnico.ListaTecnico2> lista = new List<BibliotecaNegocio.Tecnico.ListaTecnico2>();
-                //se crea un comando de oracle
-                OracleCommand cmd = new OracleCommand();
-                //se ejecutan los comandos de procedimeintos
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                //conexion
-                cmd.Connection = conn;
-                //procedimiento
-                cmd.CommandText = "SP_LISTAR_TECNICO_INF";
-
-                //cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
-                //Se agrega el parametro de salida
-                cmd.Parameters.Add(new OracleParameter("TECNICOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
-                //se abre la conexion
-                conn.Open();
-                //se crea un reader
-                OracleDataReader dr = cmd.ExecuteReader();
-                //mientras lea
-                while (dr.Read())
-                {
-                    BibliotecaNegocio.Tecnico.ListaTecnico2 C = new BibliotecaNegocio.Tecnico.ListaTecnico2();
-
-                    //se obtiene el valor con getvalue es lo mismo pero con get
-                    C.Rut = dr.GetValue(0).ToString();
-                    C.Nombre = dr.GetValue(1).ToString();
-                    C.Equipo = dr.GetValue(2).ToString();
-
-                    lista.Add(C);
-                }
-                conn.Close();
-
-                dgLista.ItemsSource = lista;
-                //dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
-
-
-
-            }
-            catch (Exception ex)
-            {
-
-                Logger.Mensaje(ex.Message);
-            }
+            CargarInforme();
         }
 
         private async void btnFiltrarRutInf_Click(object sender, RoutedEventArgs e)

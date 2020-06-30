@@ -97,13 +97,15 @@ namespace BibliotecaNegocio
       
         public class ListaSolicitud
         {
+            public int id_solicitud { get; set; }
             public string Rut { get; set; }
             public string Nombre { get; set; }
             public DateTime Fecha { get; set; }
-            public int id_solicitud { get; set; }
+
             public string Direccion { get; set; }
             public string Constructora { get; set; }
             public string Comuna { get; set; }
+
 
 
 

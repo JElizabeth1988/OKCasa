@@ -81,9 +81,8 @@ namespace Vista
             liCli.ShowDialog();
         }
 
-
-        //-----------Botón Limpiar-------------------
-        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        //---------Método Limpiar--------------------
+        private void Limpiar()
         {
             txtRut.Clear();
             txtDV.Clear();
@@ -92,16 +91,21 @@ namespace Vista
             txtApPaterno.Clear();
             txtApeMaterno.Clear();
             txtDireccion.Clear();
-            txtTelefono.Text="0";
+            txtTelefono.Text = "0";
             txtEmail.Clear();
             cboComuna.SelectedIndex = 0;
             txtRut.IsEnabled = true;
-           
+
             btnModificar.Visibility = Visibility.Hidden;//Botón modificar se esconde
             btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
             btnEliminar.Visibility = Visibility.Hidden;
 
             txtRut.Focus();//Mover el cursor a la poscición Rut
+        }
+        //-----------Botón Limpiar-------------------
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            Limpiar();
 
         }
         //------------------------CRUD----------------------------------------------------------------
@@ -209,23 +213,7 @@ namespace Vista
                 }
                 else
                 {
-                    txtRut.Clear();
-                    txtDV.Clear();
-                    txtNombre.Clear();
-                    txtSegNombre.Clear();
-                    txtApPaterno.Clear();
-                    txtApeMaterno.Clear();
-                    txtDireccion.Clear();
-                    txtTelefono.Text = "0";
-                    txtEmail.Clear();
-                    cboComuna.SelectedIndex = 0;
-                    txtRut.IsEnabled = true;
-
-                    btnModificar.Visibility = Visibility.Hidden;//Botón modificar se esconde
-                    btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
-                    btnEliminar.Visibility = Visibility.Hidden;
-
-                    txtRut.Focus();//Mover el cursor a la poscición Rut
+                    Limpiar();
                 }
             }
             catch (ArgumentException exa)//mensajes de reglas de negocios
@@ -334,23 +322,7 @@ namespace Vista
                 }
                 else
                 {
-                    txtRut.Clear();
-                    txtDV.Clear();
-                    txtNombre.Clear();
-                    txtSegNombre.Clear();
-                    txtApPaterno.Clear();
-                    txtApeMaterno.Clear();
-                    txtDireccion.Clear();
-                    txtTelefono.Text = "0";
-                    txtEmail.Clear();
-                    cboComuna.SelectedIndex = 0;
-                    txtRut.IsEnabled = true;
-
-                    btnModificar.Visibility = Visibility.Hidden;//Botón modificar se esconde
-                    btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
-                    btnEliminar.Visibility = Visibility.Hidden;
-
-                    txtRut.Focus();//Mover el cursor a la poscición Rut
+                    Limpiar();
                 }
 
             }
@@ -614,23 +586,7 @@ namespace Vista
                         await this.ShowMessageAsync("Éxito:",
                           string.Format("Cliente Eliminado"));
                         /*MessageBox.Show("Cliente eliminado"); */
-                        txtRut.Clear();
-                        txtDV.Clear();
-                        txtNombre.Clear();
-                        txtSegNombre.Clear();
-                        txtApPaterno.Clear();
-                        txtApeMaterno.Clear();
-                        txtDireccion.Clear();
-                        txtTelefono.Text = "0";
-                        txtEmail.Clear();
-                        cboComuna.SelectedIndex = 0;
-                        txtRut.IsEnabled = true;
-
-                        btnModificar.Visibility = Visibility.Hidden;//Botón modificar se esconde
-                        btnGuardar.Visibility = Visibility.Visible;//botón guardar aparece
-                        btnEliminar.Visibility = Visibility.Hidden;
-
-                        txtRut.Focus();//Mover el cursor a la poscición Rut
+                        Limpiar();
 
                     }
                     else

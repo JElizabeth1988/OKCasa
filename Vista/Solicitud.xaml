@@ -12,22 +12,19 @@
                       
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="Solicitudes" Height="526.51" Width="611.832" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Icon="Imagenes/logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal">
+        Title="Solicitudes" Height="449.177" Width="861.165" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Icon="Imagenes/logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal">
 
     <Grid Background="#FFDBDFE3" Margin="0,0,-5.333,-1.667">
-        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="499,445,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
 
-        <GroupBox x:Name="gbFiltrar_Copy" Header="Solicitudes " HorizontalAlignment="Left" Margin="38,33,0,0" VerticalAlignment="Top" Height="378" Width="536"  Background="#FF0971B8" Controls:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
-            <Grid HorizontalAlignment="Left" Height="317" Margin="10,4,0,0" VerticalAlignment="Top" Width="499">
-                <Label x:Name="label_Copy" Content="Equipo Técnico:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,9,0,0"/>
-                <ComboBox x:Name="cbEquipo" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top" Width="156"/>
-                <Label x:Name="label_Copy3" Content="Fecha:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,43,0,0"/>
-                <DatePicker x:Name="dtfechaSol"  HorizontalAlignment="Left" Margin="155,45,0,0" VerticalAlignment="Top"  SelectedDate="{x:Static sys:DateTime.Now}" FontWeight="Normal" Height="17"/>
-                <Image x:Name="image" HorizontalAlignment="Left" Height="45" Margin="375,-4,0,0" VerticalAlignment="Top" Width="100" Source="Imagenes/logo12.png"/>
-                <Button x:Name="btnVerificar" Content="Verificar" HorizontalAlignment="Left" Margin="330,44,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
-                <DataGrid x:Name="dgResultado" HorizontalAlignment="Left" Margin="24,99,0,0" VerticalAlignment="Top" Height="161" Width="451"/>
-                <Button x:Name="btnConfirmar" Content="Confirmar" HorizontalAlignment="Left" Margin="258,273,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
-                <Button x:Name="btnEnviarConf" Content="Enviar Notificación" HorizontalAlignment="Left" Margin="361,273,0,0" VerticalAlignment="Top" Width="114"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
+        <GroupBox x:Name="gbFiltrar_Copy" Header="Solicitudes " HorizontalAlignment="Left" Margin="38,33,0,0" VerticalAlignment="Top" Height="351" Width="782"  Background="#FF0971B8" Controls:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
+            <Grid HorizontalAlignment="Left" Height="321" Margin="10,4,0,0" VerticalAlignment="Top" Width="762">
+                <Image x:Name="image" HorizontalAlignment="Left" Height="58" Margin="581,8,0,0" VerticalAlignment="Top" Width="133" Source="Imagenes/logo12.png"/>
+                <DataGrid x:Name="dgResultado" HorizontalAlignment="Left" Margin="24,75,0,0" VerticalAlignment="Top" Height="175" Width="693"/>
+                <Button x:Name="btnConfirmar" Content="Confirmar" HorizontalAlignment="Left" Margin="514,273,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnConfirmar_Click"/>
+                <Button x:Name="btnSalir" Content="Cancelar" HorizontalAlignment="Left" Margin="639,273,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
+                <Label x:Name="label" Content="Servicio:" HorizontalAlignment="Left" Margin="44,30,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="cbFiltro" HorizontalAlignment="Left" Margin="121,30,0,0" VerticalAlignment="Top" Width="322"/>
+                <Button x:Name="btnFiltro" Content="Filtrar" HorizontalAlignment="Left" Margin="462,30,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnFiltro_Click"/>
             </Grid>
         </GroupBox>
 
