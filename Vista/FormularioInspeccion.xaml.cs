@@ -31,17 +31,18 @@ namespace Vista
     public partial class FormularioInspeccion : MetroWindow
     {
         OracleConnection conn = null;
+        //---------Main Window------------------------------------------
         public FormularioInspeccion()
         {
             InitializeComponent();
             this.DataContext = this;
             txtRutCliente.Focus();
 
-            lblNumForm.Content = DateTime.Now.ToString("yyMMddHHmmss");
+            lblNumForm.Content = DateTime.Now.ToString("yyMMddHHmmss");//Fecha y hora actual
 
             btnActualizar.Visibility = Visibility.Hidden;
 
-            //---------llenar el combo box 
+            //---------llenar el combo box ---------------------------------------
             foreach (InstAlcantarillado item in new InstAlcantarillado().ReadAll())
             {
                 comboBoxItem1 cb = new comboBoxItem1();
@@ -106,7 +107,7 @@ namespace Vista
                 cb.nombre = item.nombre;
                 cbComuna.Items.Add(cb);
             }
-            //_------------------------------
+            //_------------------------------------------------
 
             cbAlcanta.SelectedIndex = 0;
             cbGas.SelectedIndex = 0;
@@ -127,9 +128,10 @@ namespace Vista
             txtTempAtmo.Text = "0";
             txtHumedad.Text = "0";
             cbComuna.SelectedIndex = 0;
+
             lblIdSolicitud.Visibility = Visibility.Hidden;
         }
-        //--------BOTÓN CANCELAR
+        //--------BOTÓN CANCELAR-----------------------------------------------
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -305,7 +307,7 @@ namespace Vista
             }
         }
 
-        //---------GUARDAR---------------------
+        //--------------------------BOTÓN GUARDAR----------------------------
         private async void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -433,9 +435,7 @@ namespace Vista
                 bool resp = Agregar(c);
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format(resp ? "Guardado" : "No Guardado"));
-                /*MessageBox.Show(resp ? "Guardado" : "No Guardado");*/
-
-                //-----------------------------------------------------------------------------------------------
+                
                 //MOSTRAR LISTA DE ERRORES (validación de la clase)
                 if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
                 {
@@ -448,7 +448,6 @@ namespace Vista
                     await this.ShowMessageAsync("Mensaje:",
                         string.Format(li));
                 }
-                //-----------------------------------------------------------------------------------------------
                 if (resp == true)
                 {
                     lblNumForm.Content = DateTime.Now.ToString("yyMMddHHmmss");
@@ -523,6 +522,7 @@ namespace Vista
 
             }
         }
+
         //------------Método Actualizar------------------------------------------
         public bool Actualizar(BibliotecaNegocio.Informe inf)
         {
@@ -573,10 +573,7 @@ namespace Vista
                 CMD.Parameters.Add(new OracleParameter("P_ID_AGUA_POTABLE", OracleDbType.Int32)).Value = inf.id_agua_potable;
                 CMD.Parameters.Add(new OracleParameter("P_ID_COMUNA", OracleDbType.Int32)).Value = inf.id_comuna;
 
-
-                //asi se indica que es parametro de salida// parametro de direccion, y hacia donde es
-                //CMD.Parameters.Add(new OracleParameter("P_RESP", OracleDbType.Int32)).Direction = System.Data.ParameterDirection.Output;
-                //se abre la conexion
+                
                 conn.Open();
                 //se ejecuta la query CON  VARIABLE DE SALIDA (si tiene)
                 CMD.ExecuteNonQuery();
@@ -719,9 +716,7 @@ namespace Vista
                 bool resp = Actualizar(c);
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Actualizado" : "No Actualizado"));
-                /*MessageBox.Show(resp ? "Actualizado" : "No Actualizado, (El rut no se debe modificar)");*/
-
-                //-----------------------------------------------------------------------------------------------
+               
                 //MOSTRAR LISTA DE ERRORES
                 if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
                 {
@@ -735,7 +730,6 @@ namespace Vista
                     await this.ShowMessageAsync("Mensaje:",
                         string.Format(li));
                 }
-                //-----------------------------------------------------------------------------------------------
                 if (resp == true)
                 {
                     lblNumForm.Content = DateTime.Now.ToString("yyMMddHHmmss");
@@ -816,7 +810,7 @@ namespace Vista
         {
             try
             {
-                string numero = txtNFormBuscar.Text;
+                long numero = long.Parse(txtNFormBuscar.Text);
                 string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
                 conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
                 //nucna una instruccion sql en el sistema solo en base de datos
@@ -830,7 +824,7 @@ namespace Vista
                 //nombre del procedimeinto almacenado
                 CMD.CommandText = "SP_BUSCAR_INFORME_NUM";
                 //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
-                CMD.Parameters.Add(new OracleParameter("P_NUM_FORMULARIO", OracleDbType.Int32)).Value = numero;
+                CMD.Parameters.Add(new OracleParameter("P_NUM_FORMULARIO", OracleDbType.Int64)).Value = numero;
                 CMD.Parameters.Add(new OracleParameter("INFORMES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
 
                 //se abre la conexion
@@ -841,44 +835,42 @@ namespace Vista
                 {
                     c = new BibliotecaNegocio.Informe.ListaInforme();
 
-                    c.Numero = int.Parse(reader[0].ToString());
-                    c.Estado = reader[1].ToString();
-                    c.Fecha = DateTime.Parse(reader[2].ToString());
-                    c.Resultado = reader[3].ToString();
-                    c.Habitaciones = int.Parse(reader[4].ToString());
-                    c.Pisos = int.Parse(reader[5].ToString());
-                    c.Dirección = reader[6].ToString();
+                    c.Numero = long.Parse(reader[0].ToString());
+                    c.Estado_Servicio = reader[1].ToString();
+                    c.Fecha_Inspeccion = DateTime.Parse(reader[2].ToString());
+                    c.Rut_Cliente = reader[3].ToString();
+                    c.Cliente = reader[4].ToString();
+                    c.Dirección = reader[5].ToString();
+                    c.Comuna = reader[6].ToString();
                     c.Constructora = reader[7].ToString();
-                    c.Observacion = reader[8].ToString();
-                    c.habitabilidad = reader[9].ToString();
-                    c.termica = reader[10].ToString();
-                    c.fuego = reader[11].ToString();
-                    c.area_regis = int.Parse(reader[12].ToString());
-                    c.area_real = int.Parse(reader[13].ToString());
-                    c.sup_constr_regis = int.Parse(reader[14].ToString());
-                    c.sup_constr_real = int.Parse(reader[15].ToString());
-                    c.emisividad = int.Parse(reader[16].ToString());
-                    c.temp_reflejada = int.Parse(reader[17].ToString());
-                    c.distancia = int.Parse(reader[18].ToString());
-                    c.humedad_rel = int.Parse(reader[19].ToString());
-                    c.temp_atmosferica = int.Parse(reader[20].ToString());
-                    c.RutCliente = reader[21].ToString();
-                    c.RutTecnico = reader[22].ToString();
-                    c.TipoVivienda = reader[23].ToString();
-                    c.Agrupamiento = reader[24].ToString();
-                    c.Solicitud = int.Parse(reader[25].ToString());
-                    c.Alcantarillado = reader[26].ToString();
-                    c.Gas = reader[27].ToString();
-                    c.Electrica = reader[28].ToString();
-                    c.Agua = reader[29].ToString();
-                    c.AguaPotable = reader[30].ToString();
-                    c.Dirección = reader[31].ToString();
-                    c.Constructora = reader[32].ToString();
-                    c.Fecha_solicitud = DateTime.Parse(reader[33].ToString());
-                    c.Cliente = reader[34].ToString();
-                    c.Técnico = reader[35].ToString();
-                    c.Equipo = reader[36].ToString();
-                    c.Comuna = reader[37].ToString();
+                    c.N_Habitaciones = int.Parse(reader[8].ToString());
+                    c.N_Pisos = int.Parse(reader[9].ToString());
+                    c.Tipo_Agrupamiento = reader[10].ToString();
+                    c.Tipo_Vivienda = reader[11].ToString();
+                    c.Rut_Tecnico = reader[12].ToString();
+                    c.Técnico = reader[13].ToString();
+                    c.Equipo = reader[14].ToString();
+                    c.Resultado = reader[15].ToString();
+                    c.Observacion = reader[16].ToString();
+                    c.habitabilidad = reader[17].ToString();
+                    c.Resistencia_Térmica = reader[18].ToString();
+                    c.Resistencia_Fuego = reader[19].ToString();
+                    c.Area_regis = int.Parse(reader[20].ToString());
+                    c.Area_real = int.Parse(reader[21].ToString());
+                    c.sup_construida_reg = int.Parse(reader[22].ToString());
+                    c.Sup_construida_real = int.Parse(reader[23].ToString());
+                    c.Emisividad = int.Parse(reader[24].ToString());
+                    c.Temp_reflejada = int.Parse(reader[25].ToString());
+                    c.Distancia = int.Parse(reader[26].ToString());
+                    c.Humedad_relativa = int.Parse(reader[27].ToString());
+                    c.temp_atmosferica = int.Parse(reader[28].ToString());
+                    c.Inst_Agua_Potable = reader[29].ToString();
+                    c.Inst_Alcantarillado = reader[30].ToString();
+                    c.Inst_Gas = reader[31].ToString();
+                    c.Inst_Electrica = reader[32].ToString();
+                    c.Red_Agua = reader[33].ToString();
+                    c.Solicitud = int.Parse(reader[34].ToString());
+                    c.Fecha_solicitud = DateTime.Parse(reader[35].ToString());
 
                     clie.Add(c);
 
@@ -889,7 +881,7 @@ namespace Vista
                 if (c != null)
                 {
                     lblNumForm.Content = c.Numero;
-                    if (c.Estado == "Primera Revisión")
+                    if (c.Estado_Servicio == "Primera Revisión")
                     {
                         rbPrimera.IsChecked = true;
                     }
@@ -897,7 +889,7 @@ namespace Vista
                     {
                         rbPrimera.IsChecked = false;
                     }
-                    if (c.Estado == "Segunda Revisión")
+                    if (c.Estado_Servicio == "Segunda Revisión")
                     {
                         rbSegunda.IsChecked = true;
                     }
@@ -905,7 +897,7 @@ namespace Vista
                     {
                         rbSegunda.IsChecked = false;
                     }
-                    if (c.Estado == "Cierre")
+                    if (c.Estado_Servicio == "Cierre")
                     {
                         rbCierre.IsChecked = true;
                     }
@@ -913,7 +905,7 @@ namespace Vista
                     {
                         rbCierre.IsChecked = false;
                     }
-                    dtfechaIns.Text = c.Fecha.ToString();
+                    dtfechaIns.Text = c.Fecha_Inspeccion.ToString();
                     if (c.Resultado == "Bueno")
                     {
                         rbBueno.IsChecked = true;
@@ -947,8 +939,8 @@ namespace Vista
                         rbDeficiente.IsChecked = false;
                     }                
 
-                    txtHabitac.Text = c.Habitaciones.ToString();
-                    txtPisos.Text = c.Pisos.ToString();
+                    txtHabitac.Text = c.N_Habitaciones.ToString();
+                    txtPisos.Text = c.N_Pisos.ToString();
                     txtDireccion.Text = c.Dirección;
                     txtConstr.Text = c.Constructora;
                     txtObserv.Text = c.Observacion;
@@ -962,7 +954,7 @@ namespace Vista
                             RbNoHab.IsChecked = true;
                             RbSiHab.IsChecked = false;                     
                     }
-                    if (c.termica == "Si")
+                    if (c.Resistencia_Térmica == "Si")
                     {
                         RbSiTerm.IsChecked = true;
                         RbNoTerm.IsChecked = false;
@@ -973,7 +965,7 @@ namespace Vista
                             RbSiTerm.IsChecked = false;
 
                     }
-                    if (c.fuego == "Si")
+                    if (c.Resistencia_Fuego == "Si")
                     {
                         RbSiFuego.IsChecked = true;
                         RbNoFuego.IsChecked = false;
@@ -985,26 +977,26 @@ namespace Vista
                         
                     }
                    
-                    txtTotalReg.Text = c.area_regis.ToString();
-                    txtTotalReal.Text = c.area_real.ToString();
-                    txtConsReg.Text = c.sup_constr_regis.ToString();
-                    txtIConstReal.Text = c.sup_constr_real.ToString();
-                    txtEmisividad.Text = c.emisividad.ToString();
-                    txtTempRefle.Text = c.temp_reflejada.ToString();
-                    txtDistancia.Text = c.distancia.ToString();
-                    txtHumedad.Text = c.humedad_rel.ToString();
+                    txtTotalReg.Text = c.Area_regis.ToString();
+                    txtTotalReal.Text = c.Area_real.ToString();
+                    txtConsReg.Text = c.sup_construida_reg.ToString();
+                    txtIConstReal.Text = c.Sup_construida_real.ToString();
+                    txtEmisividad.Text = c.Emisividad.ToString();
+                    txtTempRefle.Text = c.Temp_reflejada.ToString();
+                    txtDistancia.Text = c.Distancia.ToString();
+                    txtHumedad.Text = c.Humedad_relativa.ToString();
                     txtTempAtmo.Text = c.temp_atmosferica.ToString();
-                    txtRutCliente.Text = c.RutCliente.ToString();
-                    txtRutTecnico.Text = c.RutTecnico.ToString();
-                    cbTipoV.Text = c.TipoVivienda;
-                    cbTipoAg.Text = c.Agrupamiento;
+                    txtRutCliente.Text = c.Rut_Cliente.ToString();
+                    txtRutTecnico.Text = c.Rut_Tecnico.ToString();
+                    cbTipoV.Text = c.Tipo_Vivienda;
+                    cbTipoAg.Text = c.Tipo_Agrupamiento;
                     lblIdSolicitud.Content = c.Solicitud;
                     lblIdSolicitud.Visibility = Visibility.Hidden;
-                    cbAlcanta.Text = c.Alcantarillado;
-                    cbGas.Text = c.Gas;
-                    cbElectrica.Text = c.Electrica;
-                    cbRedAgua.Text = c.Agua;
-                    cbInstAgua.Text = c.AguaPotable;
+                    cbAlcanta.Text = c.Inst_Alcantarillado;
+                    cbGas.Text = c.Inst_Gas;
+                    cbElectrica.Text = c.Inst_Electrica;
+                    cbRedAgua.Text = c.Red_Agua;
+                    cbInstAgua.Text = c.Inst_Agua_Potable;
                     cbComuna.Text = c.Comuna;
                     dtfechaSol.Text = c.Fecha_solicitud.ToString();
                     txtNombreCliente.Text = c.Cliente;
@@ -1139,7 +1131,7 @@ namespace Vista
                 {
                     c = new BibliotecaNegocio.Informe.ListaInforme();
 
-                    c.RutTecnico = reader[0].ToString();
+                    c.Rut_Tecnico = reader[0].ToString();
                     c.Técnico = reader[1].ToString();
                     c.Equipo = reader[2].ToString();
                     
@@ -1151,7 +1143,7 @@ namespace Vista
 
                 if (c != null)
                 {
-                    txtRutTecnico.Text = c.RutTecnico;
+                    txtRutTecnico.Text = c.Rut_Tecnico;
                     txtNombreTec.Text = c.Técnico;
                     txtEquipo.Text = c.Equipo;
                     
@@ -1177,6 +1169,224 @@ namespace Vista
             }
         }
         //----------Buscar para el traspasar (Listado de Informes)------------------------------
+        public async void BuscarInf()
+        {
+            try
+            {
+                long numero = long.Parse(txtNFormBuscar.Text);
+                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
+                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
+                //nucna una instruccion sql en el sistema solo en base de datos
+                OracleCommand CMD = new OracleCommand();
+                //que tipo de tipo voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+
+                List<BibliotecaNegocio.Informe.ListaInforme> clie = new List<BibliotecaNegocio.Informe.ListaInforme>();
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_BUSCAR_INFORME_NUM";
+                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
+                CMD.Parameters.Add(new OracleParameter("P_NUM_FORMULARIO", OracleDbType.Int64)).Value = numero;
+                CMD.Parameters.Add(new OracleParameter("INFORMES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+
+                //se abre la conexion
+                conn.Open();
+                OracleDataReader reader = CMD.ExecuteReader();
+                BibliotecaNegocio.Informe.ListaInforme c = null;
+                while (reader.Read())
+                {
+                    c = new BibliotecaNegocio.Informe.ListaInforme();
+
+                    c.Numero = long.Parse(reader[0].ToString());
+                    c.Estado_Servicio = reader[1].ToString();
+                    c.Fecha_Inspeccion = DateTime.Parse(reader[2].ToString());
+                    c.Rut_Cliente = reader[3].ToString();
+                    c.Cliente = reader[4].ToString();
+                    c.Dirección = reader[5].ToString();
+                    c.Comuna = reader[6].ToString();
+                    c.Constructora = reader[7].ToString();
+                    c.N_Habitaciones = int.Parse(reader[8].ToString());
+                    c.N_Pisos = int.Parse(reader[9].ToString());
+                    c.Tipo_Agrupamiento = reader[10].ToString();
+                    c.Tipo_Vivienda = reader[11].ToString();
+                    c.Rut_Tecnico = reader[12].ToString();
+                    c.Técnico = reader[13].ToString();
+                    c.Equipo = reader[14].ToString();
+                    c.Resultado = reader[15].ToString();
+                    c.Observacion = reader[16].ToString();
+                    c.habitabilidad = reader[17].ToString();
+                    c.Resistencia_Térmica = reader[18].ToString();
+                    c.Resistencia_Fuego = reader[19].ToString();
+                    c.Area_regis = int.Parse(reader[20].ToString());
+                    c.Area_real = int.Parse(reader[21].ToString());
+                    c.sup_construida_reg = int.Parse(reader[22].ToString());
+                    c.Sup_construida_real = int.Parse(reader[23].ToString());
+                    c.Emisividad = int.Parse(reader[24].ToString());
+                    c.Temp_reflejada = int.Parse(reader[25].ToString());
+                    c.Distancia = int.Parse(reader[26].ToString());
+                    c.Humedad_relativa = int.Parse(reader[27].ToString());
+                    c.temp_atmosferica = int.Parse(reader[28].ToString());
+                    c.Inst_Agua_Potable = reader[29].ToString();
+                    c.Inst_Alcantarillado = reader[30].ToString();
+                    c.Inst_Gas = reader[31].ToString();
+                    c.Inst_Electrica = reader[32].ToString();
+                    c.Red_Agua = reader[33].ToString();
+                    c.Solicitud = int.Parse(reader[34].ToString());
+                    c.Fecha_solicitud = DateTime.Parse(reader[35].ToString());
+
+                    clie.Add(c);
+
+                }
+                conn.Close();
+
+
+                if (c != null)
+                {
+                    lblNumForm.Content = c.Numero;
+                    if (c.Estado_Servicio == "Primera Revisión")
+                    {
+                        rbPrimera.IsChecked = true;
+                    }
+                    else
+                    {
+                        rbPrimera.IsChecked = false;
+                    }
+                    if (c.Estado_Servicio == "Segunda Revisión")
+                    {
+                        rbSegunda.IsChecked = true;
+                    }
+                    else
+                    {
+                        rbSegunda.IsChecked = false;
+                    }
+                    if (c.Estado_Servicio == "Cierre")
+                    {
+                        rbCierre.IsChecked = true;
+                    }
+                    else
+                    {
+                        rbCierre.IsChecked = false;
+                    }
+                    dtfechaIns.Text = c.Fecha_Inspeccion.ToString();
+                    if (c.Resultado == "Bueno")
+                    {
+                        rbBueno.IsChecked = true;
+                    }
+                    else
+                    {
+                        rbBueno.IsChecked = false;
+                    }
+                    if (c.Resultado == "Regular")
+                    {
+                        rbRegular.IsChecked = true;
+                    }
+                    else
+                    {
+                        rbRegular.IsChecked = false;
+                    }
+                    if (c.Resultado == "Malo")
+                    {
+                        rbMalo.IsChecked = true;
+                    }
+                    else
+                    {
+                        rbMalo.IsChecked = false;
+                    }
+                    if (c.Resultado == "Deficiente")
+                    {
+                        rbDeficiente.IsChecked = true;
+                    }
+                    else
+                    {
+                        rbDeficiente.IsChecked = false;
+                    }
+
+                    txtHabitac.Text = c.N_Habitaciones.ToString();
+                    txtPisos.Text = c.N_Pisos.ToString();
+                    txtDireccion.Text = c.Dirección;
+                    txtConstr.Text = c.Constructora;
+                    txtObserv.Text = c.Observacion;
+                    if (c.habitabilidad == "Si")
+                    {
+                        RbSiHab.IsChecked = true;
+                        RbNoHab.IsChecked = false;
+                    }
+                    else
+                    {
+                        RbNoHab.IsChecked = true;
+                        RbSiHab.IsChecked = false;
+                    }
+                    if (c.Resistencia_Térmica == "Si")
+                    {
+                        RbSiTerm.IsChecked = true;
+                        RbNoTerm.IsChecked = false;
+                    }
+                    else
+                    {
+                        RbNoTerm.IsChecked = true;
+                        RbSiTerm.IsChecked = false;
+
+                    }
+                    if (c.Resistencia_Fuego == "Si")
+                    {
+                        RbSiFuego.IsChecked = true;
+                        RbNoFuego.IsChecked = false;
+                    }
+                    else
+                    {
+                        RbNoFuego.IsChecked = true;
+                        RbSiFuego.IsChecked = false;
+
+                    }
+
+                    txtTotalReg.Text = c.Area_regis.ToString();
+                    txtTotalReal.Text = c.Area_real.ToString();
+                    txtConsReg.Text = c.sup_construida_reg.ToString();
+                    txtIConstReal.Text = c.Sup_construida_real.ToString();
+                    txtEmisividad.Text = c.Emisividad.ToString();
+                    txtTempRefle.Text = c.Temp_reflejada.ToString();
+                    txtDistancia.Text = c.Distancia.ToString();
+                    txtHumedad.Text = c.Humedad_relativa.ToString();
+                    txtTempAtmo.Text = c.temp_atmosferica.ToString();
+                    txtRutCliente.Text = c.Rut_Cliente.ToString();
+                    txtRutTecnico.Text = c.Rut_Tecnico.ToString();
+                    cbTipoV.Text = c.Tipo_Vivienda;
+                    cbTipoAg.Text = c.Tipo_Agrupamiento;
+                    lblIdSolicitud.Content = c.Solicitud;
+                    lblIdSolicitud.Visibility = Visibility.Hidden;
+                    cbAlcanta.Text = c.Inst_Alcantarillado;
+                    cbGas.Text = c.Inst_Gas;
+                    cbElectrica.Text = c.Inst_Electrica;
+                    cbRedAgua.Text = c.Red_Agua;
+                    cbInstAgua.Text = c.Inst_Agua_Potable;
+                    cbComuna.Text = c.Comuna;
+                    dtfechaSol.Text = c.Fecha_solicitud.ToString();
+                    txtNombreCliente.Text = c.Cliente;
+                    txtNombreTec.Text = c.Técnico;
+                    txtEquipo.Text = c.Equipo;
+
+
+                    btnActualizar.Visibility = Visibility.Visible;
+                    btnGuardar.Visibility = Visibility.Hidden;
+
+                }
+                else
+                {
+                    await this.ShowMessageAsync("Mensaje:",
+                        string.Format("No se encontraron resultados!"));
+                    /*MessageBox.Show("No se encontraron resultados!");*/
+                }
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Error al Buscar Información! "));
+                /*MessageBox.Show("error al buscar");*/
+                Logger.Mensaje(ex.Message);
+
+            }
+        }
 
         //----------Buscar para el traspasar (Listado de Clientes)------------------------------
         public async void Buscar()

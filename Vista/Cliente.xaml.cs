@@ -555,72 +555,7 @@ namespace Vista
             }
         }
 
-       //-------------------------------------------------------------------------------------
-        //----------------------añadir formato al rut-----------------------------------------
-        //--------------------------------------------------------------------------------------
-        private void txtRut_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtRut.Text.Length >= 7 && txtRut.Text.Length <= 8)
-            {
-                string v = new Verificar().ValidarRut(txtRut.Text);
-                txtDV.Text = v;
-                try
-                {
-                    string rutSinFormato = txtRut.Text;
 
-                    //si el rut ingresado tiene "." o "," o "-" son ratirados para realizar la formula 
-                    rutSinFormato = rutSinFormato.Replace(",", "");
-                    rutSinFormato = rutSinFormato.Replace(".", "");
-                    rutSinFormato = rutSinFormato.Replace("-", "");
-                    string rutFormateado = String.Empty;
-
-                    //obtengo la parte numerica del RUT
-                    //string rutTemporal = rutSinFormato.Substring(0, rutSinFormato.Length - 1);
-                    string rutTemporal = rutSinFormato;
-                    //obtengo el Digito Verificador del RUT
-                    //string dv = rutSinFormato.Substring(rutSinFormato.Length - 1, 1);
-
-                    Int64 rut;
-
-                    //aqui convierto a un numero el RUT si ocurre un error lo deja en CERO
-                    if (!Int64.TryParse(rutTemporal, out rut))
-                    {
-                        rut = 0;
-                    }
-
-                    //este comando es el que formatea con los separadores de miles
-                    //rutFormateado = rut.ToString("N0"); (11.111.111-1)
-                    rutFormateado = rut.ToString();
-
-                    if (rutFormateado.Equals("0"))
-                    {
-                        rutFormateado = string.Empty;
-                    }
-                    else
-                    {
-                        //si no hubo problemas con el formateo agrego el DV a la salida
-                        // rutFormateado += "-" + dv;
-
-                        //y hago este replace por si el servidor tuviese configuracion anglosajona y reemplazo las comas por puntos
-                        rutFormateado = rutFormateado.Replace(",", ".");
-                    }
-
-                    //se pasa a mayuscula si tiene letra k
-                    rutFormateado = rutFormateado.ToUpper();
-
-                    //Si se uso rutFormateado = rut.ToString("N0"); la salida esperada para el ejemplo es 99.999.999-K
-                    txtRut.Text = rutFormateado;
-                }
-                catch (Exception)
-                {
-
-                }
-            }
-            else
-            {
-                txtRut.Text = "";
-            }
-        }
 
         //---------Método Eliminar-----------------------------------------------
         public bool Eliminar(BibliotecaNegocio.Cliente client)
@@ -722,6 +657,73 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
             }
         }
-        
+
+        //-------------------------------------------------------------------------------------
+        //----------------------añadir formato al rut-----------------------------------------
+        //--------------------------------------------------------------------------------------
+        private void txtRut_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtRut.Text.Length >= 7 && txtRut.Text.Length <= 8)
+            {
+                string v = new Verificar().ValidarRut(txtRut.Text);
+                txtDV.Text = v;
+                try
+                {
+                    string rutSinFormato = txtRut.Text;
+
+                    //si el rut ingresado tiene "." o "," o "-" son ratirados para realizar la formula 
+                    rutSinFormato = rutSinFormato.Replace(",", "");
+                    rutSinFormato = rutSinFormato.Replace(".", "");
+                    rutSinFormato = rutSinFormato.Replace("-", "");
+                    string rutFormateado = String.Empty;
+
+                    //obtengo la parte numerica del RUT
+                    //string rutTemporal = rutSinFormato.Substring(0, rutSinFormato.Length - 1);
+                    string rutTemporal = rutSinFormato;
+                    //obtengo el Digito Verificador del RUT
+                    //string dv = rutSinFormato.Substring(rutSinFormato.Length - 1, 1);
+
+                    Int64 rut;
+
+                    //aqui convierto a un numero el RUT si ocurre un error lo deja en CERO
+                    if (!Int64.TryParse(rutTemporal, out rut))
+                    {
+                        rut = 0;
+                    }
+
+                    //este comando es el que formatea con los separadores de miles
+                    //rutFormateado = rut.ToString("N0"); (11.111.111-1)
+                    rutFormateado = rut.ToString();
+
+                    if (rutFormateado.Equals("0"))
+                    {
+                        rutFormateado = string.Empty;
+                    }
+                    else
+                    {
+                        //si no hubo problemas con el formateo agrego el DV a la salida
+                        // rutFormateado += "-" + dv;
+
+                        //y hago este replace por si el servidor tuviese configuracion anglosajona y reemplazo las comas por puntos
+                        rutFormateado = rutFormateado.Replace(",", ".");
+                    }
+
+                    //se pasa a mayuscula si tiene letra k
+                    rutFormateado = rutFormateado.ToUpper();
+
+                    //Si se uso rutFormateado = rut.ToString("N0"); la salida esperada para el ejemplo es 99.999.999-K
+                    txtRut.Text = rutFormateado;
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+            else
+            {
+                txtRut.Text = "";
+            }
+        }
     }
+
 }

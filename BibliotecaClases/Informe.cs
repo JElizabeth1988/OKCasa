@@ -246,7 +246,7 @@ namespace BibliotecaNegocio
             }
         }
         //Read all 2 (se llena con método ListaCliente que está abajo)
-        public List<ListaInforme> ReadAll2()
+      /*  public List<ListaInforme> ReadAll2()
         {
             try
             {
@@ -377,50 +377,49 @@ namespace BibliotecaNegocio
                      };
 
             return cl.ToList();
-        }
+        }*/
 
 
         //Lista para read all2 trae nombres no id
         public class ListaInforme
         {
             public long Numero { get; set; }
-            public string Estado { get; set; }
-            public DateTime Fecha { get; set; }
-            public string Resultado { get; set; }
-            public int Habitaciones { get; set; }
-            public int Pisos { get; set; }
-            public string Dirección { get; set; }
-            public string Constructora { get; set; }
-            public string Observacion { get; set; }
-            public string habitabilidad { get; set; }
-            public string termica { get; set; }
-            public string fuego { get; set; }
-            public int area_regis { get; set; }
-            public int area_real { get; set; }
-            public int sup_constr_regis { get; set; }
-            public int sup_constr_real { get; set; }
-            public int emisividad { get; set; }
-            public int temp_reflejada { get; set; }
-            public int distancia { get; set; }
-            public int humedad_rel { get; set; }
-            public int temp_atmosferica { get; set; }
-
-            public string RutCliente { get; set; }
-            public string RutTecnico { get; set; }
-            public string TipoVivienda { get; set; }
-            public string Agrupamiento { get; set; }
-            public int Solicitud { get; set; }
-            public string Alcantarillado { get; set; }
-            public string Gas { get; set; }
-            public string Electrica { get; set; }
-            public string Agua { get; set; }
-            public string AguaPotable { get; set; }
-
-            public DateTime Fecha_solicitud { get; set; }
+            public string Estado_Servicio { get; set; }
+            public DateTime Fecha_Inspeccion { get; set; }
+            public string Rut_Cliente { get; set; }
             public string Cliente { get; set; }
+            public string Dirección { get; set; }
+            public string Comuna { get; set; }
+            public string Constructora { get; set; }
+            public int N_Habitaciones { get; set; }
+            public int N_Pisos { get; set; }
+            public string Tipo_Vivienda { get; set; }
+            public string Tipo_Agrupamiento { get; set; }
+            public string Rut_Tecnico { get; set; }
             public string Técnico { get; set; }
             public string Equipo { get; set; }
-            public string Comuna { get; set; }
+            public string Resultado { get; set; }
+            public string Observacion { get; set; }
+            public string habitabilidad { get; set; }
+            public string Resistencia_Térmica { get; set; }
+            public string Resistencia_Fuego { get; set; }
+            public int Area_regis { get; set; }
+            public int Area_real { get; set; }
+            public int sup_construida_reg { get; set; }
+            public int Sup_construida_real { get; set; }
+            public int Emisividad { get; set; }
+            public int Temp_reflejada { get; set; }
+            public int Distancia { get; set; }
+            public int Humedad_relativa { get; set; }
+            public int temp_atmosferica { get; set; }
+            public string Inst_Agua_Potable { get; set; }
+            public string Inst_Alcantarillado { get; set; }
+            public string Inst_Gas { get; set; }
+            public string Inst_Electrica { get; set; }
+            public string Red_Agua { get; set; }
+            public int Solicitud { get; set; }
+            public DateTime Fecha_solicitud { get; set; }
+
 
             public ListaInforme()
             {

@@ -31,10 +31,10 @@
             <Grid HorizontalAlignment="Left" Height="80" Margin="10,4,0,0" VerticalAlignment="Top" Width="428">
                 <Label x:Name="label" Content="Rut Cliente:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,39,0,0"/>
                 <TextBox x:Name="txtFiltroRut"  Controls:TextBoxHelper.Watermark="Ej. 11222333-1" HorizontalAlignment="Left" Height="23" Margin="116,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
-                <Button x:Name="btnFiltrarNumero" Content="Filtrar" HorizontalAlignment="Left" Margin="299,3,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
+                <Button x:Name="btnFiltrarNumero" Content="Filtrar" HorizontalAlignment="Left" Margin="299,3,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnFiltrarNumero_Click"/>
                 <TextBox x:Name="txtFiltroNumero"  Controls:TextBoxHelper.Watermark="Ingrese número" HorizontalAlignment="Left" Height="23" Margin="116,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
                 <Label x:Name="label_Copy" Content="N° Informe:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,5,0,0"/>
-                <Button x:Name="btnFiltrarRut" Content="Filtrar" HorizontalAlignment="Left" Margin="299,39,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
+                <Button x:Name="btnFiltrarRut" Content="Filtrar" HorizontalAlignment="Left" Margin="299,39,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnFiltrarRut_Click"/>
             </Grid>
         </GroupBox>
         <Button x:Name="btnRefrescar" HorizontalAlignment="Left" Margin="611,396,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click"  >
@@ -42,8 +42,7 @@
                 <ImageBrush ImageSource="Imagenes/Command-Refresh-Blue.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnPasar" Content="Traspasar" HorizontalAlignment="Left" Margin="118,401,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
-        <Button x:Name="btnCrear" Content="Nuevo Informe " HorizontalAlignment="Left" Margin="281,401,0,0" VerticalAlignment="Top" Width="91" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnCrear_Click"/>
+        <Button x:Name="btnPasar" Content="Traspasar" HorizontalAlignment="Left" Margin="312,401,0,0" VerticalAlignment="Top" Width="73" FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnPasar_Click"/>
         <Image x:Name="image" HorizontalAlignment="Left" Height="64" Margin="523,39,0,0" VerticalAlignment="Top" Width="149" Source="Imagenes/logo12.png"/>
 
     </Grid>
