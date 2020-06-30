@@ -49,13 +49,15 @@ namespace Vista
 
 
         }
+    
         private void CargarGrilla()
         {
             try
             {
+                btnConfirmar.Visibility = Visibility.Hidden;
                 string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
                 conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-
+                int contador = 0;
                 List<BibliotecaNegocio.Solicitud.ListaSolicitud2> lista = new List<BibliotecaNegocio.Solicitud.ListaSolicitud2>();
                 OracleCommand cmd = new OracleCommand();
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -80,12 +82,25 @@ namespace Vista
                     sol.Hora = dr.GetValue(8).ToString();
 
                     lista.Add(sol);
+                    contador = lista.Count();
                 }
                 conn.Close();
-
-                dgResultado.ItemsSource = lista;
-                dgResultado.Columns[0].Visibility = Visibility.Hidden;
-                
+                if ( contador >0)
+                {
+                    btnConfirmar.Visibility = Visibility.Visible;
+                    dgResultado.ItemsSource = lista;
+                    //dgResultado.Columns[0].Visibility = Visibility.Visible;
+                    
+                }
+                else
+                {
+                    btnConfirmar.Visibility = Visibility.Hidden;
+                    dgResultado.ItemsSource = null;
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("Solicitudes:");
+                    dt.Rows.Add("No existen solicitudes Pendientes");
+                    dgResultado.ItemsSource = dt.DefaultView;
+                }
 
 
 

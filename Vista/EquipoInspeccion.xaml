@@ -11,9 +11,9 @@
                       
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="Administrador de Servicios" Height="489.166" Width="635.667" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Icon="Imagenes/logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal">
+        Title="Administrador de Equipos de Inspección" Height="489.166" Width="635.667" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Icon="Imagenes/logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal">
     <Grid Background="#FFDCDDDF">
-        <GroupBox x:Name="gbFiltrar" Header="Administrar Servicios" HorizontalAlignment="Left" Margin="46,12,0,0" VerticalAlignment="Top" Height="119" Width="453"  Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
+        <GroupBox x:Name="gbFiltrar" Header="Administrar Equipos" HorizontalAlignment="Left" Margin="46,12,0,0" VerticalAlignment="Top" Height="119" Width="453"  Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
             <Grid HorizontalAlignment="Left" Height="82" Margin="2,2,0,0" VerticalAlignment="Top" Width="435">
                 <Button x:Name="btnGuardar" Content="Guardar" Margin="344,37,22,0" VerticalAlignment="Top"  FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnGuardar_Click"/>
                 <Label x:Name="label_Copy1" Content="Nombre:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,3,0,0"/>
@@ -21,7 +21,7 @@
             </Grid>
         </GroupBox>
         <Image x:Name="image" HorizontalAlignment="Left" Height="57" Margin="504,50,0,0" VerticalAlignment="Top" Width="95" Source="Imagenes/logo12.png"/>
-        <GroupBox x:Name="groupBox" Header="Listado de Servicios" HorizontalAlignment="Left" Margin="46,142,0,0" VerticalAlignment="Top" Height="288" Width="542" Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
+        <GroupBox x:Name="groupBox" Header="Listado de Equipos" HorizontalAlignment="Left" Margin="46,142,0,0" VerticalAlignment="Top" Height="288" Width="542" Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
             <Grid HorizontalAlignment="Left" Height="255" VerticalAlignment="Top" Width="532" Margin="0,0,0,-1.667">
                 <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="23,43,0,0" VerticalAlignment="Top" Height="155" Width="483" FontWeight="Normal" >
 

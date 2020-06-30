@@ -70,12 +70,17 @@ namespace Vista
                     lista.Add(s);
                 }
                 conn.Close();
+                if (lista != null)
+                {
+                    dgLista.ItemsSource = lista;
+                    dgLista.Columns[0].Visibility = Visibility.Collapsed;//Ocullto la columna id, para que no sea modificada
+                    btnActualizar.Visibility = Visibility.Visible;
+                    btnEliminar.Visibility = Visibility.Visible;
+                }
 
-                dgLista.ItemsSource = lista;
-                dgLista.Columns[0].Visibility = Visibility.Collapsed;//Ocullto la columna id, para que no sea modificada
-                btnActualizar.Visibility = Visibility.Visible;
-                btnEliminar.Visibility = Visibility.Visible;
             }
+
+
             catch (Exception ex)
             {
 

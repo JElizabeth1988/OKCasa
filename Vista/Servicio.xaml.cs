@@ -104,7 +104,7 @@ namespace Vista
                 CMD.CommandText = "SP_ACTUALIZAR_SERVICIO";
                 //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al de la clase
                 CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Int32)).Value = id;
-                CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 20)).Value = client.nombre;
+                CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 50)).Value = client.nombre;
                 
                 //se abre la conexion
                 conn.Open();
@@ -196,7 +196,7 @@ namespace Vista
                 //nombre del procedimeinto almacenado
                 CMD.CommandText = "SP_AGREGAR_SERVICIO";
                 //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
-                CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 20)).Value = serv.nombre;
+                CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 50)).Value = serv.nombre;
                 //se abre la conexion
                 conn.Open();
                 //se ejecuta la query CON  VARIABLE DE SALIDA en caso de tener

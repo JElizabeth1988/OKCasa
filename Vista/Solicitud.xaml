@@ -22,9 +22,9 @@
                 <DataGrid x:Name="dgResultado" HorizontalAlignment="Left" Margin="24,75,0,0" VerticalAlignment="Top" Height="175" Width="693"/>
                 <Button x:Name="btnConfirmar" Content="Confirmar" HorizontalAlignment="Left" Margin="462,273,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnConfirmar_Click"/>
                 <Button x:Name="btnSalir" Content="Cancelar" HorizontalAlignment="Left" Margin="581,273,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
-                <Label x:Name="label" Content="Servicio:" HorizontalAlignment="Left" Margin="44,30,0,0" VerticalAlignment="Top"/>
-                <ComboBox x:Name="cbFiltro" HorizontalAlignment="Left" Margin="121,30,0,0" VerticalAlignment="Top" Width="322"/>
-                <Button x:Name="btnFiltro" Content="Filtrar" HorizontalAlignment="Left" Margin="462,30,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnFiltro_Click"/>
+                <Label x:Name="label" Content="Servicio:" HorizontalAlignment="Left" Margin="44,22,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="cbFiltro" HorizontalAlignment="Left" Margin="121,22,0,0" VerticalAlignment="Top" Width="322"/>
+                <Button x:Name="btnFiltro" Content="Filtrar" HorizontalAlignment="Left" Margin="462,22,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnFiltro_Click"/>
                 <Button x:Name="btnRefrescar" HorizontalAlignment="Left" Margin="681,271,0,0" VerticalAlignment="Top" Width="36"  Style="{DynamicResource MahApps.Metro.Styles.MetroCircleButtonStyle}" Height="36" BorderBrush="Black" Click="btnRefrescar_Click"  >
                     <Button.Background>
                         <ImageBrush ImageSource="Imagenes/Command-Refresh-blue.png"/>
