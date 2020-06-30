@@ -69,20 +69,22 @@ namespace Vista
                     BibliotecaNegocio.Solicitud.ListaSolicitud2 sol = new BibliotecaNegocio.Solicitud.ListaSolicitud2();
 
                     //se obtiene el valor con getvalue es lo mismo pero con get
-                    sol.Rut = dr.GetValue(0).ToString();
-                    sol.Nombre = dr.GetValue(1).ToString();
-                    sol.Fecha = dr.GetValue(2).ToString();
-                    sol.Dirección = dr.GetValue(3).ToString();        
-                    sol.Comuna = dr.GetValue(4).ToString();
-                    sol.Estado = dr.GetValue(5).ToString();
-                    sol.Fecha__agendada = dr.GetValue(6).ToString();
-                    sol.Hora = dr.GetValue(7).ToString();
+                    sol.id = int.Parse(dr.GetValue(0).ToString());
+                    sol.Rut = dr.GetValue(1).ToString();
+                    sol.Nombre = dr.GetValue(2).ToString();
+                    sol.Fecha = dr.GetValue(3).ToString();
+                    sol.Dirección = dr.GetValue(4).ToString();
+                    sol.Comuna = dr.GetValue(5).ToString();
+                    sol.Estado = dr.GetValue(6).ToString();
+                    sol.Fecha__agendada = dr.GetValue(7).ToString();
+                    sol.Hora = dr.GetValue(8).ToString();
 
                     lista.Add(sol);
                 }
                 conn.Close();
 
                 dgResultado.ItemsSource = lista;
+                dgResultado.Columns[0].Visibility = Visibility.Hidden;
                 
 
 
@@ -104,8 +106,8 @@ namespace Vista
         {
             try
             {
-                BibliotecaNegocio.Solicitud.ListaSolicitud cli = (BibliotecaNegocio.Solicitud.ListaSolicitud)dgResultado.SelectedItem;
-                int id = cli.id_solicitud;
+                BibliotecaNegocio.Solicitud.ListaSolicitud2 cli = (BibliotecaNegocio.Solicitud.ListaSolicitud2)dgResultado.SelectedItem;
+                int id = cli.id;
                 string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
                 conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
                 //nucna una instruccion sql en el sistema solo en base de datos
@@ -164,15 +166,15 @@ namespace Vista
                 while (reader.Read())
                 {
                     sol = new BibliotecaNegocio.Solicitud.ListaSolicitud2();
-
-                    sol.Rut = reader[0].ToString();
-                    sol.Nombre = reader[1].ToString();
-                    sol.Fecha = reader[2].ToString();
-                    sol.Dirección = reader[3].ToString();
-                    sol.Comuna = reader[4].ToString();
-                    sol.Estado = reader[5].ToString();
-                    sol.Fecha__agendada = reader[6].ToString();
-                    sol.Hora = reader[7].ToString();
+                    sol.id = int.Parse(reader[0].ToString());
+                    sol.Rut = reader[1].ToString();
+                    sol.Nombre = reader[2].ToString();
+                    sol.Fecha = reader[3].ToString();
+                    sol.Dirección = reader[4].ToString();
+                    sol.Comuna = reader[5].ToString();
+                    sol.Estado = reader[6].ToString();
+                    sol.Fecha__agendada = reader[7].ToString();
+                    sol.Hora = reader[8].ToString();
 
                     clie.Add(sol);
 

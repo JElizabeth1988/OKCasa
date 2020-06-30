@@ -118,7 +118,7 @@ namespace BibliotecaNegocio
         //Para Llenar Grilla
         public class ListaSolicitud2
         {
-            
+            public int id { get; set; }
             public string Rut { get; set; }
             public string Nombre { get; set; }
             public string Fecha { get; set; }
