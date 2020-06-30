@@ -43,8 +43,9 @@ namespace Vista
             //Validar Credenciales en el WS
             if (cliente.Login(user, pass) == 1)
             {
+                
                 await this.ShowMessageAsync("Mensaje:",
-                string.Format("Bienvenido "+user));
+                string.Format("Bienvenido "+ user.Substring(0,1).ToUpper())+user.Substring(1).ToLower());
                 MainWindow main = new MainWindow();
                 this.Close();
                 main.ShowDialog();
