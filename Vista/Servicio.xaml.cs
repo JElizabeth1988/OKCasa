@@ -74,6 +74,7 @@ namespace Vista
                 conn.Close();
 
                 dgLista.ItemsSource = lista;
+                dgLista.Columns[0].Visibility = Visibility.Collapsed;//Ocullto la columna id, para que no sea modificada
                 btnActualizar.Visibility = Visibility.Visible;
                 btnEliminar.Visibility = Visibility.Visible;
             }

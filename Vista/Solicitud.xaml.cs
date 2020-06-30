@@ -56,7 +56,7 @@ namespace Vista
                 string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
                 conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
 
-                List<BibliotecaNegocio.Solicitud.ListaSolicitud> lista = new List<BibliotecaNegocio.Solicitud.ListaSolicitud>();
+                List<BibliotecaNegocio.Solicitud.ListaSolicitud2> lista = new List<BibliotecaNegocio.Solicitud.ListaSolicitud2>();
                 OracleCommand cmd = new OracleCommand();
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Connection = conn;
@@ -66,23 +66,24 @@ namespace Vista
                 OracleDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    BibliotecaNegocio.Solicitud.ListaSolicitud sol = new BibliotecaNegocio.Solicitud.ListaSolicitud();
+                    BibliotecaNegocio.Solicitud.ListaSolicitud2 sol = new BibliotecaNegocio.Solicitud.ListaSolicitud2();
 
                     //se obtiene el valor con getvalue es lo mismo pero con get
-                    sol.id_solicitud = int.Parse(dr.GetValue(0).ToString());
-                    sol.Rut = dr.GetValue(1).ToString();
-                    sol.Nombre = dr.GetValue(2).ToString();
-                    sol.Fecha = DateTime.Parse(dr.GetValue(3).ToString());
-                    sol.Direccion = dr.GetValue(4).ToString();
-                    sol.Constructora = dr.GetValue(5).ToString();
-                    sol.Comuna = dr.GetValue(6).ToString();
+                    sol.Rut = dr.GetValue(0).ToString();
+                    sol.Nombre = dr.GetValue(1).ToString();
+                    sol.Fecha = dr.GetValue(2).ToString();
+                    sol.Dirección = dr.GetValue(3).ToString();        
+                    sol.Comuna = dr.GetValue(4).ToString();
+                    sol.Estado = dr.GetValue(5).ToString();
+                    sol.Fecha__agendada = dr.GetValue(6).ToString();
+                    sol.Hora = dr.GetValue(7).ToString();
 
                     lista.Add(sol);
                 }
                 conn.Close();
 
                 dgResultado.ItemsSource = lista;
-                dgResultado.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
+                
 
 
 
@@ -147,30 +148,31 @@ namespace Vista
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
 
-                List<BibliotecaNegocio.Solicitud.ListaSolicitud> clie = new List<BibliotecaNegocio.Solicitud.ListaSolicitud>();
+                List<BibliotecaNegocio.Solicitud.ListaSolicitud2> clie = new List<BibliotecaNegocio.Solicitud.ListaSolicitud2>();
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
                 CMD.CommandText = "SP_FILTRO_SOLICITUD";
                 //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
-                CMD.Parameters.Add(new OracleParameter("P_SERVICIO", OracleDbType.Varchar2, 20)).Value = nombre;
+                CMD.Parameters.Add(new OracleParameter("P_SERVICIO", OracleDbType.Varchar2, 50)).Value = nombre;
                 CMD.Parameters.Add(new OracleParameter("SOLICITUDES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
 
                 //se abre la conexion
                 conn.Open();
                 OracleDataReader reader = CMD.ExecuteReader();
-                BibliotecaNegocio.Solicitud.ListaSolicitud sol = null;
+                BibliotecaNegocio.Solicitud.ListaSolicitud2 sol = null;
                 while (reader.Read())
                 {
-                    sol = new BibliotecaNegocio.Solicitud.ListaSolicitud();
+                    sol = new BibliotecaNegocio.Solicitud.ListaSolicitud2();
 
-                    sol.id_solicitud = int.Parse(reader[0].ToString());
-                    sol.Rut = reader[1].ToString();
-                    sol.Nombre = reader[2].ToString();
-                    sol.Fecha = DateTime.Parse(reader[3].ToString());
-                    sol.Direccion = reader[4].ToString(); ;
-                    sol.Constructora = reader[5].ToString();
-                    sol.Comuna = reader[6].ToString();
+                    sol.Rut = reader[0].ToString();
+                    sol.Nombre = reader[1].ToString();
+                    sol.Fecha = reader[2].ToString();
+                    sol.Dirección = reader[3].ToString();
+                    sol.Comuna = reader[4].ToString();
+                    sol.Estado = reader[5].ToString();
+                    sol.Fecha__agendada = reader[6].ToString();
+                    sol.Hora = reader[7].ToString();
 
                     clie.Add(sol);
 
@@ -187,6 +189,11 @@ namespace Vista
 
                 dgResultado.Items.Refresh();
             }
+        }
+
+        private void btnRefrescar_Click(object sender, RoutedEventArgs e)
+        {
+            CargarGrilla();
         }
     }
 }

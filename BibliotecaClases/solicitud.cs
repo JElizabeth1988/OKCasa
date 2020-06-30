@@ -115,5 +115,24 @@ namespace BibliotecaNegocio
             }
 
         }
+        //Para Llenar Grilla
+        public class ListaSolicitud2
+        {
+            
+            public string Rut { get; set; }
+            public string Nombre { get; set; }
+            public string Fecha { get; set; }
+            public string Dirección { get; set; }
+            public string Comuna { get; set; }
+            public string Estado { get; set; }
+            public string Fecha__agendada { get; set; }
+            public string Hora { get; set; }
+
+            public ListaSolicitud2()
+            {
+
+            }
+
+        }
     }
 }
