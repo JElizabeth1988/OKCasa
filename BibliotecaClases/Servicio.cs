@@ -12,6 +12,9 @@ namespace BibliotecaNegocio
         //Crear objeto de la Bdd
         private OkCasa_Entities bdd = new OkCasa_Entities();
 
+        DaoErrores err = new DaoErrores();
+        public DaoErrores retornar() { return err; }
+
         public int id_servicio { get; set; }
         public string nombre { get; set; }
 
@@ -141,6 +144,17 @@ namespace BibliotecaNegocio
             catch (Exception ex)
             {
                 return null;
+            }
+        }
+
+        public class ListaServicios
+        {
+            public int id { get; set; }
+            public string Nombre { get; set; }
+
+            public ListaServicios()
+            {
+
             }
         }
     }
