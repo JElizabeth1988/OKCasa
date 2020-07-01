@@ -1,7 +1,9 @@
 ﻿
 FC:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\App.xaml;;
+FC:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\AsignarInsumo.xaml;;
 FC:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\Cliente.xaml;;
 FC:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\ConsultarBanco.xaml;;
+FC:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\DevolverInsumo.xaml;;
 FC:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\EquipoInspeccion.xaml;;
 FC:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\FormularioInspeccion.xaml;;
 FC:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\Horario.xaml;;
@@ -11,6 +13,7 @@ FC:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\ListadoFormulario.xaml;;
 FC:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\ListadoInspectores.xaml;;
 FC:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\Login.xaml;;
 FC:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\MainWindow.xaml;;
+FC:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\MenuInsumo.xaml;;
 FC:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\Servicio.xaml;;
 FC:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\Solicitud.xaml;;
 FC:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\Tecnico.xaml;;

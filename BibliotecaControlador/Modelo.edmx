@@ -51,16 +51,6 @@
           <Property Name="ID_COMUNA" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="NOMBRE" Type="varchar2" MaxLength="20" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-        <EntityType Name="EQUIPO_INSUMO">
-          <Key>
-            <PropertyRef Name="ID_EQUIPO" />
-            <PropertyRef Name="ID_INSUMO" />
-          </Key>
-          <Property Name="ID_EQUIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_INSUMO" Type="number" Precision="38" Scale="0" Nullable="false" />
-        </EntityType>
         <EntityType Name="EQUIPO_TECNICO">
           <Key>
             <PropertyRef Name="ID_EQUIPO" />
@@ -139,6 +129,8 @@ advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ning
           </Key>
           <Property Name="ID_INSUMO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="NOMBRE" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="ID_EQUIPO" Type="number" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="PAGO_EXTERNO">
           <Key>
@@ -240,18 +232,6 @@ advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ning
             </Principal>
             <Dependent Role="CLIENTE">
               <PropertyRef Name="ID_COMUNA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="EQUIPO_INSUMO_FK">
-          <End Role="INSUMO" Type="Self.INSUMO" Multiplicity="1" />
-          <End Role="EQUIPO_INSUMO" Type="Self.EQUIPO_INSUMO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="INSUMO">
-              <PropertyRef Name="ID_INSUMO" />
-            </Principal>
-            <Dependent Role="EQUIPO_INSUMO">
-              <PropertyRef Name="ID_INSUMO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -392,13 +372,13 @@ advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ning
           </ReferentialConstraint>
         </Association>
         <Association Name="INSUMO_EQUIPO_TECNICO_FK">
-          <End Role="EQUIPO_TECNICO" Type="Self.EQUIPO_TECNICO" Multiplicity="1" />
-          <End Role="EQUIPO_INSUMO" Type="Self.EQUIPO_INSUMO" Multiplicity="*" />
+          <End Role="EQUIPO_TECNICO" Type="Self.EQUIPO_TECNICO" Multiplicity="0..1" />
+          <End Role="INSUMO" Type="Self.INSUMO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EQUIPO_TECNICO">
               <PropertyRef Name="ID_EQUIPO" />
             </Principal>
-            <Dependent Role="EQUIPO_INSUMO">
+            <Dependent Role="INSUMO">
               <PropertyRef Name="ID_EQUIPO" />
             </Dependent>
           </ReferentialConstraint>
@@ -524,12 +504,6 @@ advertencia 6002: La tabla o vista 'OKCASA.EQUIPO_INSUMO' no tiene definida ning
           <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="TIPO_VIVIENDA" EntityType="Self.TIPO_VIVIENDA" Schema="OKCASA" store:Type="Tables" />
           <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="OKCASA" store:Type="Tables" />
-          <EntitySet Name="EQUIPO_INSUMO" EntityType="Self.EQUIPO_INSUMO" store:Type="Tables" store:Schema="OKCASA">
-            <DefiningQuery>SELECT 
-"EQUIPO_INSUMO"."ID_EQUIPO" AS "ID_EQUIPO", 
-"EQUIPO_INSUMO"."ID_INSUMO" AS "ID_INSUMO"
-FROM "OKCASA"."EQUIPO_INSUMO" "EQUIPO_INSUMO"</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="AGENDA_EQUIPO_TECNICO_FK" Association="Self.AGENDA_EQUIPO_TECNICO_FK">
             <End Role="EQUIPO_TECNICO" EntitySet="EQUIPO_TECNICO" />
             <End Role="AGENDA" EntitySet="AGENDA" />
@@ -537,10 +511,6 @@ FROM "OKCASA"."EQUIPO_INSUMO" "EQUIPO_INSUMO"</DefiningQuery>
           <AssociationSet Name="CLIENTE_COMUNA_FKV2" Association="Self.CLIENTE_COMUNA_FKV2">
             <End Role="COMUNA" EntitySet="COMUNA" />
             <End Role="CLIENTE" EntitySet="CLIENTE" />
-          </AssociationSet>
-          <AssociationSet Name="EQUIPO_INSUMO_FK" Association="Self.EQUIPO_INSUMO_FK">
-            <End Role="INSUMO" EntitySet="INSUMO" />
-            <End Role="EQUIPO_INSUMO" EntitySet="EQUIPO_INSUMO" />
           </AssociationSet>
           <AssociationSet Name="INF_AGUA_POTABLE_FK" Association="Self.INF_AGUA_POTABLE_FK">
             <End Role="INST_AGUA_POTABLE" EntitySet="INST_AGUA_POTABLE" />
@@ -588,7 +558,7 @@ FROM "OKCASA"."EQUIPO_INSUMO" "EQUIPO_INSUMO"</DefiningQuery>
           </AssociationSet>
           <AssociationSet Name="INSUMO_EQUIPO_TECNICO_FK" Association="Self.INSUMO_EQUIPO_TECNICO_FK">
             <End Role="EQUIPO_TECNICO" EntitySet="EQUIPO_TECNICO" />
-            <End Role="EQUIPO_INSUMO" EntitySet="EQUIPO_INSUMO" />
+            <End Role="INSUMO" EntitySet="INSUMO" />
           </AssociationSet>
           <AssociationSet Name="LOGIN_CLIENTE_FK" Association="Self.LOGIN_CLIENTE_FK">
             <End Role="CLIENTE" EntitySet="CLIENTE" />
@@ -684,7 +654,7 @@ FROM "OKCASA"."EQUIPO_INSUMO" "EQUIPO_INSUMO"</DefiningQuery>
           <Property Name="NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="AGENDA" Relationship="Self.AGENDA_EQUIPO_TECNICO_FK" FromRole="EQUIPO_TECNICO" ToRole="AGENDA" />
           <NavigationProperty Name="TECNICO" Relationship="Self.TECNICO_EQUIPO_TECNICO_FK" FromRole="EQUIPO_TECNICO" ToRole="TECNICO" />
-          <NavigationProperty Name="INSUMO" Relationship="Self.EQUIPO_INSUMO" FromRole="EQUIPO_TECNICO" ToRole="INSUMO" />
+          <NavigationProperty Name="INSUMO" Relationship="Modelo.INSUMO_EQUIPO_TECNICO_FK" FromRole="EQUIPO_TECNICO" ToRole="INSUMO" />
         </EntityType>
         <EntityType Name="INFORME">
           <Key>
@@ -772,7 +742,9 @@ FROM "OKCASA"."EQUIPO_INSUMO" "EQUIPO_INSUMO"</DefiningQuery>
           </Key>
           <Property Name="ID_INSUMO" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="EQUIPO_TECNICO" Relationship="Self.EQUIPO_INSUMO" FromRole="INSUMO" ToRole="EQUIPO_TECNICO" />
+          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_EQUIPO" Type="Int32" />
+          <NavigationProperty Name="EQUIPO_TECNICO" Relationship="Modelo.INSUMO_EQUIPO_TECNICO_FK" FromRole="INSUMO" ToRole="EQUIPO_TECNICO" />
         </EntityType>
         <EntityType Name="RED_AGUA">
           <Key>
@@ -1108,10 +1080,6 @@ FROM "OKCASA"."EQUIPO_INSUMO" "EQUIPO_INSUMO"</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EQUIPO_INSUMO">
-          <End Role="INSUMO" Type="Self.INSUMO" Multiplicity="*" />
-          <End Role="EQUIPO_TECNICO" Type="Self.EQUIPO_TECNICO" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="OkCasa_Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AGENDA" EntityType="Self.AGENDA" />
           <EntitySet Name="AGRUPAMIENTO" EntityType="Self.AGRUPAMIENTO" />
@@ -1211,16 +1179,16 @@ FROM "OKCASA"."EQUIPO_INSUMO" "EQUIPO_INSUMO"</DefiningQuery>
             <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
-          <AssociationSet Name="EQUIPO_INSUMO" Association="Self.EQUIPO_INSUMO">
-            <End Role="INSUMO" EntitySet="INSUMO" />
-            <End Role="EQUIPO_TECNICO" EntitySet="EQUIPO_TECNICO" />
-          </AssociationSet>
           <AssociationSet Name="INFORME_COMUNA_FK" Association="Modelo.INFORME_COMUNA_FK">
             <End Role="COMUNA" EntitySet="COMUNA" />
             <End Role="INFORME" EntitySet="INFORME" />
           </AssociationSet>
           <EntitySet Name="BANCO_ESTADO" EntityType="Modelo.BANCO_ESTADO" />
           <EntitySet Name="PAGO_EXTERNO" EntityType="Modelo.PAGO_EXTERNO" />
+          <AssociationSet Name="INSUMO_EQUIPO_TECNICO_FK" Association="Modelo.INSUMO_EQUIPO_TECNICO_FK">
+            <End Role="EQUIPO_TECNICO" EntitySet="EQUIPO_TECNICO" />
+            <End Role="INSUMO" EntitySet="INSUMO" />
+          </AssociationSet>
         </EntityContainer>
         <Association Name="INFORME_COMUNA_FK">
           <End Type="Modelo.COMUNA" Role="COMUNA" Multiplicity="1" />
@@ -1249,6 +1217,18 @@ FROM "OKCASA"."EQUIPO_INSUMO" "EQUIPO_INSUMO"</DefiningQuery>
           <Property Name="RUT_CLIENTE" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="CLAVE" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
         </EntityType>
+        <Association Name="INSUMO_EQUIPO_TECNICO_FK">
+          <End Type="Modelo.EQUIPO_TECNICO" Role="EQUIPO_TECNICO" Multiplicity="0..1" />
+          <End Type="Modelo.INSUMO" Role="INSUMO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EQUIPO_TECNICO">
+              <PropertyRef Name="ID_EQUIPO" />
+            </Principal>
+            <Dependent Role="INSUMO">
+              <PropertyRef Name="ID_EQUIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1378,6 +1358,8 @@ FROM "OKCASA"."EQUIPO_INSUMO" "EQUIPO_INSUMO"</DefiningQuery>
           <EntitySetMapping Name="INSUMO">
             <EntityTypeMapping TypeName="Modelo.INSUMO">
               <MappingFragment StoreEntitySet="INSUMO">
+                <ScalarProperty Name="ID_EQUIPO" ColumnName="ID_EQUIPO" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="ID_INSUMO" ColumnName="ID_INSUMO" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
               </MappingFragment>
@@ -1460,14 +1442,6 @@ FROM "OKCASA"."EQUIPO_INSUMO" "EQUIPO_INSUMO"</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="EQUIPO_INSUMO" TypeName="Modelo.EQUIPO_INSUMO" StoreEntitySet="EQUIPO_INSUMO">
-            <EndProperty Name="INSUMO">
-              <ScalarProperty Name="ID_INSUMO" ColumnName="ID_INSUMO" />
-            </EndProperty>
-            <EndProperty Name="EQUIPO_TECNICO">
-              <ScalarProperty Name="ID_EQUIPO" ColumnName="ID_EQUIPO" />
-            </EndProperty>
-          </AssociationSetMapping>
           <EntitySetMapping Name="BANCO_ESTADO">
             <EntityTypeMapping TypeName="Modelo.BANCO_ESTADO">
               <MappingFragment StoreEntitySet="BANCO_ESTADO">

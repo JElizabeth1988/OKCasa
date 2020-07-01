@@ -182,9 +182,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AsignarInsumo.xaml.cs">
+      <DependentUpon>AsignarInsumo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ComboBoxItem1.cs" />
     <Compile Include="ConsultarBanco.xaml.cs">
       <DependentUpon>ConsultarBanco.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DevolverInsumo.xaml.cs">
+      <DependentUpon>DevolverInsumo.xaml</DependentUpon>
     </Compile>
     <Compile Include="FormularioInspeccion.xaml.cs">
       <DependentUpon>FormularioInspeccion.xaml</DependentUpon>
@@ -194,6 +200,9 @@
     </Compile>
     <Compile Include="ListadoInspectores.xaml.cs">
       <DependentUpon>ListadoInspectores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuInsumo.xaml.cs">
+      <DependentUpon>MenuInsumo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Service References\WSBancoEstado\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -214,11 +223,19 @@
     <Compile Include="Tecnico.xaml.cs">
       <DependentUpon>Tecnico.xaml</DependentUpon>
     </Compile>
+    <Page Include="AsignarInsumo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Cliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ConsultarBanco.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DevolverInsumo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -284,6 +301,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MenuInsumo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -461,6 +482,10 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Screw-Driver.png" />
+    <Resource Include="img\Wire-Stripper.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

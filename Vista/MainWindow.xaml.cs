@@ -113,7 +113,7 @@ namespace Vista
         //Insumos
         private void Tile_Click_Insumos(object sender, RoutedEventArgs e)
         {
-            Insumo ins = new Insumo();
+            MenuInsumo ins = new MenuInsumo();
             ins.ShowDialog();
         }
         //Solicitud

@@ -14,14 +14,11 @@ namespace BibliotecaDALC
     
     public partial class INSUMO
     {
-        public INSUMO()
-        {
-            this.EQUIPO_TECNICO = new HashSet<EQUIPO_TECNICO>();
-        }
-    
         public int ID_INSUMO { get; set; }
         public string NOMBRE { get; set; }
+        public string ESTADO { get; set; }
+        public Nullable<int> ID_EQUIPO { get; set; }
     
-        public virtual ICollection<EQUIPO_TECNICO> EQUIPO_TECNICO { get; set; }
+        public virtual EQUIPO_TECNICO EQUIPO_TECNICO { get; set; }
     }
 }

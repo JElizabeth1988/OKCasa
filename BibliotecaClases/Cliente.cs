@@ -365,23 +365,6 @@ namespace BibliotecaNegocio
 
             }
         }
-        public class ListillaCliente
-        {
-            public string Rut { get; set; }
-            public string Nombre { get; set; }
-            public string Segundo_Nombre { get; set; }
-            public string Apellido_paterno { get; set; }
-            public string Apellido_Materno { get; set; }
-            public string Dirección { get; set; }
-            public int Teléfono { get; set; }
-            public string Email { get; set; }
-            public string Comuna { get; set; }//Nombre no id
-
-
-            public ListillaCliente()
-            {
-
-            }
-        }
+        
     }
 }

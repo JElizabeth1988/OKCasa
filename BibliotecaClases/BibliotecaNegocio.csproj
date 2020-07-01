@@ -56,7 +56,6 @@
     <Compile Include="CommonBC.cs" />
     <Compile Include="Comuna.cs" />
     <Compile Include="DaoErrores.cs" />
-    <Compile Include="EquipoInsumo.cs" />
     <Compile Include="EquipoTecnico.cs" />
     <Compile Include="Informe.cs" />
     <Compile Include="InstAguaPotable.cs" />

@@ -11,27 +11,19 @@
                       
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="Administrador Insumos" Height="503.166" Width="618.667" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Icon="Imagenes/logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal">
-    <Grid Background="#FFDBDFE3">
-
-        <Button x:Name="btnSalir" Content="Cancelar" Margin="489,428,41.333,0" VerticalAlignment="Top"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
-        <GroupBox x:Name="gbFiltrar" Header="Administrar Insumos" HorizontalAlignment="Left" Margin="41,15,0,0" VerticalAlignment="Top" Height="206" Width="430"  Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
-            <Grid HorizontalAlignment="Left" Height="178" Margin="2,2,-0.667,-8" VerticalAlignment="Top" Width="418">
-                <Button x:Name="btnBuscar" Content="Buscar" Margin="317,4,27,0" VerticalAlignment="Top"  FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
-                <Label x:Name="label" Content="Código:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,4,0,0"/>
-                <TextBox x:Name="txtCodigo"  Controls:TextBoxHelper.Watermark="Ingrese Código" HorizontalAlignment="Left" Height="23" Margin="114,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
-                <Label x:Name="label_Copy" Content="Descripción:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,62,0,0"/>
-                <Button x:Name="btnGuardar" Content="Guardar" Margin="317,126,22,0" VerticalAlignment="Top"  FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
-                <Button x:Name="btnActualizar" Content="Actualizar" Margin="201,126,140,0" VerticalAlignment="Top"  FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
-                <TextBox x:Name="txtDesc" HorizontalAlignment="Left" Height="44" Margin="112,69,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="251" FontWeight="Normal"/>
-                <Label x:Name="label_Copy1" Content="Nombre:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,32,0,0"/>
-                <TextBox x:Name="txtNombre"  Controls:TextBoxHelper.Watermark="Ingrese Nombre" HorizontalAlignment="Left" Height="23" Margin="114,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
+        Title="Administrador Insumos" Height="450.745" Width="510.195" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Icon="Imagenes/logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal">
+    <Grid Background="#FFDBDFE3" Margin="0,0,0.667,0.333">
+        <GroupBox x:Name="gbFiltrar" Header="Administrar Insumos" HorizontalAlignment="Left" Margin="41,15,0,0" VerticalAlignment="Top" Height="100" Width="430"  Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
+            <Grid HorizontalAlignment="Left" Height="59" Margin="2,2,-0.667,0" VerticalAlignment="Top" Width="418">
+                <Button x:Name="btnGuardar" Content="Guardar" Margin="296,9,43,0" VerticalAlignment="Top"  FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnGuardar_Click"/>
+                <Label x:Name="label_Copy1" Content="Nombre:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13,8,0,0"/>
+                <TextBox x:Name="txtNombre"  Controls:TextBoxHelper.Watermark="Ingrese Nombre" HorizontalAlignment="Left" Height="23" Margin="85,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" FontWeight="Normal" Controls:TextBoxHelper.ClearTextButton="True"/>
             </Grid>
         </GroupBox>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="73" Margin="476,82,0,0" VerticalAlignment="Top" Width="127" Source="Imagenes/logo12.png" Grid.ColumnSpan="2"/>
-        <GroupBox x:Name="groupBox" Header="Listado de insumos" HorizontalAlignment="Left" Margin="41,232,0,0" VerticalAlignment="Top" Height="178" Width="530" Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
-            <Grid HorizontalAlignment="Left" Height="147" Margin="0,0,-0.667,-4.333" VerticalAlignment="Top" Width="520">
-                <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" Height="84" Width="470" FontWeight="Normal" >
+        <Image x:Name="image" HorizontalAlignment="Left" Height="38" Margin="366,154,0,0" VerticalAlignment="Top" Width="81" Source="Imagenes/logo12.png"/>
+        <GroupBox x:Name="groupBox" Header="Listado de insumos" HorizontalAlignment="Left" Margin="41,120,0,0" VerticalAlignment="Top" Height="277" Width="430" Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
+            <Grid HorizontalAlignment="Left" Height="242" VerticalAlignment="Top" Width="420">
+                <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="23,52,0,0" VerticalAlignment="Top" Height="136" Width="378" FontWeight="Normal" >
 
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridCell}">
@@ -44,7 +36,10 @@
                         </Style>
                     </DataGrid.Resources>
                 </DataGrid>
-                <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="435,105,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"   Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
+                <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="228,206,0,0" VerticalAlignment="Top" Width="75" FontWeight="Normal"   Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnEliminar_Click"/>
+                <Button x:Name="btnSalir" Content="Cancelar" Margin="327,206,19,0" VerticalAlignment="Top"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
+                <Button x:Name="btnActualizar" Content="Actualizar" Margin="23,206,324,0" VerticalAlignment="Top"  FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnActualizar_Click"/>
+                <Button x:Name="btnVer" Content="Ver Listado" Margin="23,10,324,0" VerticalAlignment="Top"  FontWeight="Normal"  Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnVer_Click"/>
             </Grid>
         </GroupBox>
 

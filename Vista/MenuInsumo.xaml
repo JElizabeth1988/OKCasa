@@ -1,0 +1,101 @@
+﻿<Controls:MetroWindow x:Class="Vista.MenuInsumo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                      
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      
+        xmlns:local="clr-namespace:Vista"
+        mc:Ignorable="d"
+        Title="Menú de Insumos" Height="376.745" Width="672.862" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Icon="Imagenes/logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal">
+    <Grid Background="#FFDBDFE3" Margin="0,0,0.667,0.333">
+        <GroupBox x:Name="gbFiltrar" Header="Seleccione una Opción" HorizontalAlignment="Left" Margin="41,15,0,0" VerticalAlignment="Top" Height="308" Width="584"  Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
+            <Grid HorizontalAlignment="Left" Height="267" Margin="2,2,0,0" VerticalAlignment="Top" Width="572">
+                <Controls:Tile  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_Insumos" Margin="30,71,405,75">
+                    <Controls:Tile.Effect>
+                        <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
+                    </Controls:Tile.Effect>
+                    <Controls:Tile.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                            <GradientStop Color="#FF3B76FF" Offset="0.988"/>
+                            <GradientStop Color="#FF8B382C" Offset="0.005"/>
+                            <GradientStop Color="#FF823E42" Offset="0.297"/>
+                            <GradientStop Color="#FF704B70" Offset="0.61"/>
+                        </LinearGradientBrush>
+                    </Controls:Tile.Background>
+                    <Grid Height="100" Width="108">
+                        <Image x:Name="image16" HorizontalAlignment="Left" Margin="28,8,0,41" Width="65" Source="img/Tools-02.png">
+                            <Image.Effect>
+                                <DropShadowEffect Opacity="0.8"/>
+                            </Image.Effect>
+                        </Image>
+                        <Label x:Name="label12" Content="Administrar &#xA;   Insumos" HorizontalAlignment="Left" Margin="8,49,0,0" VerticalAlignment="Top" Width="96" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="1" Height="51">
+                            <Label.Effect>
+                                <DropShadowEffect Opacity="0.9" ShadowDepth="2" BlurRadius="6"/>
+                            </Label.Effect>
+                        </Label>
+
+                    </Grid>
+                </Controls:Tile>
+                <Controls:Tile  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_Asignar" Margin="218,71,219,74">
+                    <Controls:Tile.Effect>
+                        <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
+                    </Controls:Tile.Effect>
+                    <Controls:Tile.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                            <GradientStop Color="#FFFFC43B" Offset="0.987"/>
+                            <GradientStop Color="#FFFF2525" Offset="0.005"/>
+                            <GradientStop Color="#FFFF4729" Offset="0.36"/>
+                        </LinearGradientBrush>
+                    </Controls:Tile.Background>
+                    <Grid Height="100" Width="108">
+                        <Image x:Name="image1" HorizontalAlignment="Left" Margin="28,8,0,41" Width="65" Source="img/Wire-Stripper.png">
+                            <Image.Effect>
+                                <DropShadowEffect Opacity="0.8"/>
+                            </Image.Effect>
+                        </Image>
+                        <Label x:Name="label1" Content="    Asignar &#xA;   Insumos" HorizontalAlignment="Left" Margin="8,49,0,0" VerticalAlignment="Top" Width="96" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="1" Height="51">
+                            <Label.Effect>
+                                <DropShadowEffect Opacity="0.9" ShadowDepth="2" BlurRadius="6"/>
+                            </Label.Effect>
+                        </Label>
+
+                    </Grid>
+                </Controls:Tile>
+                <Controls:Tile  Width="Auto" Controls:ControlsHelper.MouseOverBorderBrush="#FF361010" Height="Auto" Click="Tile_Click_Devolver" Margin="397,71,38,73">
+                    <Controls:Tile.Effect>
+                        <DropShadowEffect BlurRadius="6" Color="#FF361010"/>
+                    </Controls:Tile.Effect>
+                    <Controls:Tile.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                            <GradientStop Color="#FFED3BFF" Offset="0.987"/>
+                            <GradientStop Color="#FF25FFFF" Offset="0.005"/>
+                            <GradientStop Color="#FF7064BB" Offset="0.57"/>
+                            <GradientStop Color="#FFB671C2" Offset="0.872"/>
+                        </LinearGradientBrush>
+                    </Controls:Tile.Background>
+                    <Grid Height="100" Width="98">
+                        <Image x:Name="image2" HorizontalAlignment="Left" Margin="3,-20,-14,22" Width="109" Source="img/Screw-Driver.png">
+                            <Image.Effect>
+                                <DropShadowEffect Opacity="0.8"/>
+                            </Image.Effect>
+                        </Image>
+                        <Label x:Name="label2" Content="   Devolver&#xA;   Insumos" HorizontalAlignment="Left" Margin="3,49,-1,0" VerticalAlignment="Top" Width="96" Foreground="White" FontSize="14" FontWeight="Bold" BorderThickness="1" Height="51">
+                            <Label.Effect>
+                                <DropShadowEffect Opacity="0.9" ShadowDepth="2" BlurRadius="6"/>
+                            </Label.Effect>
+                        </Label>
+
+                    </Grid>
+                </Controls:Tile>
+            </Grid>
+        </GroupBox>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="87" Margin="410,55,0,0" VerticalAlignment="Top" Width="140" Source="Imagenes/logo12.png"/>
+
+
+    </Grid>
+</Controls:MetroWindow>

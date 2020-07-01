@@ -43,10 +43,10 @@
         <AssociationConnector Association="Modelo.INFORME_TIPO_VIV_FK" ManuallyRouted="false" />
         <AssociationConnector Association="Modelo.SOLICITUD_SERVICIO_FK" ManuallyRouted="false" />
         <AssociationConnector Association="Modelo.USUARIO_TIPO_USUARIO_FK" ManuallyRouted="false" />
-        <AssociationConnector Association="Modelo.EQUIPO_INSUMO" ManuallyRouted="false" />
         <AssociationConnector Association="Modelo.INFORME_COMUNA_FK" />
         <EntityTypeShape EntityType="Modelo.BANCO_ESTADO" Width="1.5" PointX="8.375" PointY="0.75" />
         <EntityTypeShape EntityType="Modelo.PAGO_EXTERNO" Width="1.5" PointX="5.375" PointY="0.75" />
+        <AssociationConnector Association="Modelo.INSUMO_EQUIPO_TECNICO_FK" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

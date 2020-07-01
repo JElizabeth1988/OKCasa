@@ -511,3 +511,9 @@ C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\Insumo.baml
 C:\Users\yobit\Downloads\OKCasa-c863900be812ef8093875a7f8b96de32650b25da\Vista\bin\Debug\Vista.exe.config
 C:\Users\yobit\Downloads\OKCasa-c863900be812ef8093875a7f8b96de32650b25da\Vista\obj\Debug\Vista.exe
 C:\Users\yobit\Downloads\OKCasa-c863900be812ef8093875a7f8b96de32650b25da\Vista\obj\Debug\Vista.pdb
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\AsignarInsumo.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\DevolverInsumo.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\MenuInsumo.g.cs
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\AsignarInsumo.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\DevolverInsumo.baml
+C:\Users\yobit\Desktop\Repositorios\OKCasa\Vista\obj\Debug\MenuInsumo.baml

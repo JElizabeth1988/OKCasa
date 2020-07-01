@@ -124,6 +124,8 @@
     <EntitySetMapping Name="INSUMO">
       <EntityTypeMapping TypeName="Modelo.INSUMO">
         <MappingFragment StoreEntitySet="INSUMO">
+          <ScalarProperty Name="ID_EQUIPO" ColumnName="ID_EQUIPO" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
           <ScalarProperty Name="ID_INSUMO" ColumnName="ID_INSUMO" />
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
         </MappingFragment>
@@ -206,14 +208,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="EQUIPO_INSUMO" TypeName="Modelo.EQUIPO_INSUMO" StoreEntitySet="EQUIPO_INSUMO">
-      <EndProperty Name="INSUMO">
-        <ScalarProperty Name="ID_INSUMO" ColumnName="ID_INSUMO" />
-      </EndProperty>
-      <EndProperty Name="EQUIPO_TECNICO">
-        <ScalarProperty Name="ID_EQUIPO" ColumnName="ID_EQUIPO" />
-      </EndProperty>
-    </AssociationSetMapping>
     <EntitySetMapping Name="BANCO_ESTADO">
       <EntityTypeMapping TypeName="Modelo.BANCO_ESTADO">
         <MappingFragment StoreEntitySet="BANCO_ESTADO">
