@@ -12,7 +12,7 @@
                       
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="Disponibilidad de Agenda" Height="585.333" Width="443.333" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Icon="Imagenes/logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal">
+        Title="administrar de Agenda" Height="585.333" Width="443.333" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Icon="Imagenes/logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal">
 
     <Window.Resources>
         <Style TargetType="StackPanel">
@@ -48,7 +48,7 @@
                 <Label x:Name="label_Copy2" Content=":" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="187,244,0,0"/>
                 <Label x:Name="label_Copy4" Content="Hora Hasta:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,284,0,0"/>
                 <TextBox x:Name="txtHoraHasta" HorizontalAlignment="Left" Height="23" Margin="98,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" IsEnabled="False" />
-                <TextBox x:Name="txtMinHasta" HorizontalAlignment="Left" Height="23" Margin="201,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" IsEnabled="False" />
+                <TextBox x:Name="txtMinHasta" HorizontalAlignment="Left" Height="23" Margin="202,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" IsEnabled="False" />
                 <Button x:Name="btnMasHoraHasta" Content="▲" HorizontalAlignment="Left" Margin="139,284,0,0" VerticalAlignment="Top" Width="20"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnMasHoraHasta_Click"/>
                 <Button x:Name="btnMenosHoraHasta" Content="▼" HorizontalAlignment="Left" Margin="163,284,0,0" VerticalAlignment="Top" Width="20"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnMenosHoraHasta_Click"/>
                 <Button x:Name="btnMasMinHasta" Content="▲" HorizontalAlignment="Left" Margin="243,284,0,0" VerticalAlignment="Top" Width="20"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnMasMinHasta_Click" />

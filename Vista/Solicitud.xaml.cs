@@ -82,18 +82,18 @@ namespace Vista
                     sol.Hora = dr.GetValue(8).ToString();
 
                     lista.Add(sol);
-                    contador = lista.Count();
+                    contador ++;//Si trajo resultados a la lista el contador aumento
                 }
                 conn.Close();
-                if ( contador >0)
+                if ( contador >0)//Si el contador es mayor a 0 muestra el botón confirmar y llena el grid
                 {
                     btnConfirmar.Visibility = Visibility.Visible;
                     dgResultado.ItemsSource = lista;
-                    //dgResultado.Columns[0].Visibility = Visibility.Visible;
+                    dgResultado.Columns[0].Visibility = Visibility.Collapsed;
                     
                 }
                 else
-                {
+                {   //Sino
                     btnConfirmar.Visibility = Visibility.Hidden;
                     dgResultado.ItemsSource = null;
                     DataTable dt = new DataTable();
