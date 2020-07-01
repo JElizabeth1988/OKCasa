@@ -12,7 +12,7 @@
                       
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="Disponibilidad de Agenda" Height="650.333" Width="845" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Icon="Imagenes/logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal">
+        Title="Disponibilidad de Agenda" Height="585.333" Width="443.333" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Icon="Imagenes/logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal">
 
     <Window.Resources>
         <Style TargetType="StackPanel">
@@ -33,80 +33,38 @@
     </Window.Resources>
 
     <Grid Background="#FFDBDFE3">
-        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="708,572,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
-        <GroupBox x:Name="gbFiltrar" Header="agenda Mensual de Inspecciones" HorizontalAlignment="Left" Margin="31,154,0,0" VerticalAlignment="Top" Height="405" Width="769"  Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
-            <Grid HorizontalAlignment="Left" Height="367" Margin="0,0,-21,0" VerticalAlignment="Top" Width="763">
-                <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="340" Margin="20,16,0,0" VerticalAlignment="Top" Width="719">
-                    <TabItem Header="Semana 1" Margin="0,0,2.333,1" Controls:ControlsHelper.HeaderFontSize="18">
-                        <Grid Background="#FFE5E5E5" Margin="0,0,2.667,1.667">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="109*"/>
-                                <ColumnDefinition Width="113*"/>
-                                <ColumnDefinition Width="124*"/>
-                                <ColumnDefinition Width="121*"/>
-                                <ColumnDefinition Width="125*"/>
-                                <ColumnDefinition Width="118*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="44*"/>
-                                <RowDefinition Height="63*"/>
-                                <RowDefinition Height="66*"/>
-                                <RowDefinition Height="59*"/>
-                                <RowDefinition Height="60*"/>
-                            </Grid.RowDefinitions>
-
-                            <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,113,0" >Horario</TextBlock>
-                            <TextBlock Grid.Column="1" Grid.Row="0" >Lunes</TextBlock>
-                            <TextBlock Grid.Column="2" Grid.Row="0" >Martes</TextBlock>
-                            <TextBlock Grid.Column="3" Grid.Row="0" >Miércoles</TextBlock>
-                            <TextBlock Grid.Column="4" Grid.Row="0" >Jueves</TextBlock>
-                            <TextBlock Grid.Column="5" Grid.Row="0" >Viernes</TextBlock>
-
-                            <TextBlock Grid.Column="0" Grid.Row="1" >10:00 - 12:00</TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="2" >13:00 - 15:00</TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="3" >15:00 - 17:00</TextBlock>
-                            <TextBlock Grid.Column="0" Grid.Row="4" >17:00 - 19:00</TextBlock>
-
-                            <StackPanel Grid.Column="3" Grid.Row="2" Height="59" Margin="5,1.667,4.333,5.333" Background="Coral">
-                                <TextBlock > Visita</TextBlock>
-                                <TextBlock Style="{StaticResource AgnedaStyle}">Av. Siempre</TextBlock>
-                                <TextBlock Style="{StaticResource AgnedaStyle}">Viva 142</TextBlock>
-                            </StackPanel>
-
-                            <StackPanel Grid.Column="5" Height="59" Margin="5,43,4,5.333" Background="Coral" Grid.RowSpan="2">
-                                <TextBlock > 2da. Visita</TextBlock>
-                                <TextBlock Style="{StaticResource AgnedaStyle}">Calle el Sol</TextBlock>
-                                <TextBlock Style="{StaticResource AgnedaStyle}">443</TextBlock>
-                            </StackPanel>
-                        </Grid>
-                    </TabItem>
-                    <TabItem Header="Semana 2" Margin="1.667,0,-2.333,1" Controls:ControlsHelper.HeaderFontSize="18">
-                        <Grid Background="#FFE5E5E5"/>
-                    </TabItem>
-                    <TabItem Header="Semana 3" Margin="9,0,-8.667,1" Controls:ControlsHelper.HeaderFontSize="18">
-                        <Grid Background="#FFE5E5E5"/>
-                    </TabItem>
-                    <TabItem Header="Semana 4" Margin="14.667,0,-15,1" Controls:ControlsHelper.HeaderFontSize="18" HorizontalAlignment="Left" Width="111">
-                        <Grid Background="#FFE5E5E5"/>
-                    </TabItem>
-                    <TabItem Header="Semana 5" Margin="21,0,-20.667,1" Controls:ControlsHelper.HeaderFontSize="18">
-                        <Grid Background="#FFE5E5E5"/>
-                    </TabItem>
-                </TabControl>
+        <Button x:Name="btnSalir" Content="Cancelar" HorizontalAlignment="Left" Margin="335,509,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Click="btnSalir_Click" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12"/>
+        <GroupBox x:Name="gbFiltrar" Header="agenda de Inspecciones" HorizontalAlignment="Left" Margin="31,118,0,0" VerticalAlignment="Top" Height="386" Width="379"  Background="#FF0971B8" mah:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
+            <Grid HorizontalAlignment="Left" Height="341" VerticalAlignment="Top" Width="360">
+                <Label x:Name="label_Copy3" Content="Fecha:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,19,0,0"/>
+                <Calendar x:Name="ClFecha" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="98,19,0,0" Width="190" Height="209"/>
+                <TextBox x:Name="txtHora" HorizontalAlignment="Left" Height="23" Margin="98,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" IsEnabled="False"/>
+                <TextBox x:Name="txtMinuto" HorizontalAlignment="Left" Height="23" Margin="201,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" IsEnabled="False" />
+                <Button x:Name="btnMasHora" Content="▲" HorizontalAlignment="Left" Margin="139,244,0,0" VerticalAlignment="Top" Width="20"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnMasHora_Click_1" />
+                <Button x:Name="btnMenosHora_Copy" Content="▼" HorizontalAlignment="Left" Margin="163,244,0,0" VerticalAlignment="Top" Width="20"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnMenosHora_Copy_Click" />
+                <Button x:Name="btnMasMin" Content="▲" HorizontalAlignment="Left" Margin="243,244,0,0" VerticalAlignment="Top" Width="20"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnMasMin_Click" />
+                <Button x:Name="btnMenosMin" Content="▼" HorizontalAlignment="Left" Margin="268,244,0,0" VerticalAlignment="Top" Width="20"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnMenosMin_Click" />
+                <Label x:Name="label_Copy1" Content="Hora Desde:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,243,0,0"/>
+                <Label x:Name="label_Copy2" Content=":" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="187,244,0,0"/>
+                <Label x:Name="label_Copy4" Content="Hora Hasta:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,284,0,0"/>
+                <TextBox x:Name="txtHoraHasta" HorizontalAlignment="Left" Height="23" Margin="98,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" IsEnabled="False" />
+                <TextBox x:Name="txtMinHasta" HorizontalAlignment="Left" Height="23" Margin="201,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="37" IsEnabled="False" />
+                <Button x:Name="btnMasHoraHasta" Content="▲" HorizontalAlignment="Left" Margin="139,284,0,0" VerticalAlignment="Top" Width="20"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnMasHoraHasta_Click"/>
+                <Button x:Name="btnMenosHoraHasta" Content="▼" HorizontalAlignment="Left" Margin="163,284,0,0" VerticalAlignment="Top" Width="20"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnMenosHoraHasta_Click"/>
+                <Button x:Name="btnMasMinHasta" Content="▲" HorizontalAlignment="Left" Margin="243,284,0,0" VerticalAlignment="Top" Width="20"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnMasMinHasta_Click" />
+                <Button x:Name="btnMenosMinHasta" Content="▼" HorizontalAlignment="Left" Margin="268,284,0,0" VerticalAlignment="Top" Width="20"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnMenosMinHasta_Click" />
+                <Label x:Name="label_Copy5" Content=":" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="187,284,0,0"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="gbFiltrar_Copy" Header="Datos de Equipo" HorizontalAlignment="Left" Margin="31,18,0,0" VerticalAlignment="Top" Height="87" Width="379"  Background="#FF0971B8" Controls:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
+            <Grid HorizontalAlignment="Left" Height="47" Margin="10,4,-0.333,0" VerticalAlignment="Top" Width="359">
+                <Label x:Name="label_Copy" Content="Equipo Técnico:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,6,0,0"/>
+                <ComboBox x:Name="cbEquipo" HorizontalAlignment="Left" Margin="129,7,0,0" VerticalAlignment="Top" Width="146"/>
+                <Image x:Name="image" HorizontalAlignment="Left" Height="33" Margin="279,6,0,0" VerticalAlignment="Top" Width="70" Source="Imagenes/logo12.png"/>
 
             </Grid>
         </GroupBox>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="101" Margin="506,33,0,0" VerticalAlignment="Top" Width="217" Source="Imagenes/logo12.png"/>
-        <GroupBox x:Name="gbFiltrar_Copy" Header="Datos" HorizontalAlignment="Left" Margin="77,19,0,0" VerticalAlignment="Top" Height="122" Width="359"  Background="#FF0971B8" Controls:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
-            <Grid HorizontalAlignment="Left" Height="84" Margin="10,4,-0.333,0" VerticalAlignment="Top" Width="339">
-                <Label x:Name="label_Copy" Content="Equipo Técnico:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,8,0,0"/>
-                <ComboBox x:Name="cbEquipo" HorizontalAlignment="Left" Margin="155,10,0,0" VerticalAlignment="Top" Width="156"/>
-                <Label x:Name="label_Copy3" Content="Fecha:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,43,0,0"/>
-                <DatePicker x:Name="dtfechaSol"  HorizontalAlignment="Left" Margin="155,45,0,0" VerticalAlignment="Top"  SelectedDate="{x:Static sys:DateTime.Now}" FontWeight="Normal" Height="17"/>
-
-            </Grid>
-        </GroupBox>
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="586,572,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnGuardar_Click"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="148,509,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnGuardar_Click"/>
 
     </Grid>
 </Controls:MetroWindow>

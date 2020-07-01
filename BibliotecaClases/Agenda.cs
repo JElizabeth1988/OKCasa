@@ -11,11 +11,15 @@ namespace BibliotecaNegocio
     {
         //Crear objeto de la Bdd
         private OkCasa_Entities bdd = new OkCasa_Entities();
+        //Capturar Errores
+        DaoErrores err = new DaoErrores();
+        public DaoErrores retornar() { return err; }
 
         //Creacion de los atributos
         public int id_agenda { get; set; }
         public DateTime dia { get; set; }
         public string hora { get; set; }
+        public string disponible { get; set; }
         public int id_equipo { get; set; }
 
 
@@ -24,7 +28,7 @@ namespace BibliotecaNegocio
 
         }
 
-        //CRUD
+        /*//CRUD
         //Guardar
         public Boolean Guardar()
         {
@@ -172,7 +176,7 @@ namespace BibliotecaNegocio
             {
                 return null;
             }
-        }
+        }*/
 
         
 
@@ -180,8 +184,9 @@ namespace BibliotecaNegocio
         public class ListaAgenda
         {
             public int Id { get; set; }
-            public DateTime Dia { get; set; }
+            public string Fecha { get; set; }
             public string Hora { get; set; }
+            public string Disponibilidad { get; set; }
             public string Equipo { get; set; }
            
 
