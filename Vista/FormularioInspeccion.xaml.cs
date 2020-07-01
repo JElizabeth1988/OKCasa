@@ -176,8 +176,8 @@ namespace Vista
                 e.Handled = true;
             }
         }
-        //-------------BOTÓN LIMPIAR----------------------------
-        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        //------------Método lompiar
+        private void Limpiar()
         {
             lblNumForm.Content = DateTime.Now.ToString("yyMMddHHmmss");
             dtfechaIns.SelectedDate = DateTime.Now;
@@ -206,12 +206,12 @@ namespace Vista
             cbTipoAg.SelectedIndex = 0;
             cbTipoV.SelectedIndex = 0;
 
-            RbNoFuego.IsChecked = true;
-            RbSiFuego.IsChecked = false;
-            RbNoHab.IsChecked = true;
-            RbSiHab.IsChecked = false;
-            RbNoTerm.IsChecked = true;
-            RbSiTerm.IsChecked = false;
+            RbNoFuego.IsChecked = false;
+            RbSiFuego.IsChecked = true;
+            RbNoHab.IsChecked = false;
+            RbSiHab.IsChecked = true;
+            RbNoTerm.IsChecked = false;
+            RbSiTerm.IsChecked = true;
 
             txtTotalReal.Text = "0";
             txtTotalReg.Text = "0";
@@ -234,8 +234,11 @@ namespace Vista
             btnGuardar.Visibility = Visibility.Visible;
             txtRutTecnico.IsEnabled = true;
             txtRutCliente.IsEnabled = true;
-
-
+        }
+        //-------------BOTÓN LIMPIAR----------------------------
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            Limpiar();
         }
 
         //---------------------CRUD-------------------------------------------------
@@ -287,7 +290,7 @@ namespace Vista
                 CMD.Parameters.Add(new OracleParameter("P_ID_ELECTRICA", OracleDbType.Int32)).Value = inf.id_electrica;
                 CMD.Parameters.Add(new OracleParameter("P_ID_AGUA", OracleDbType.Int32)).Value = inf.id_agua;
                 CMD.Parameters.Add(new OracleParameter("P_ID_AGUA_POTABLE", OracleDbType.Int32)).Value = inf.id_agua_potable;
-                CMD.Parameters.Add(new OracleParameter("P_ID_COMUNA", OracleDbType.Int32)).Value = inf.num_pisos;
+                CMD.Parameters.Add(new OracleParameter("P_ID_COMUNA", OracleDbType.Int32)).Value = inf.id_comuna;
                 //asi se indica que es parametro de salida// parametro de direccion, y hacia donde es
                 //CMD.Parameters.Add(new OracleParameter("P_RESP", OracleDbType.Int32)).Direction = System.Data.ParameterDirection.Output;
                 //se abre la conexion

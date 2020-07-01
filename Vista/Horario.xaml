@@ -12,7 +12,7 @@
                       
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="administrar de Agenda" Height="585.333" Width="443.333" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Icon="Imagenes/logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal">
+        Title="Administrar de Agenda" Height="585.333" Width="443.333" WindowTitleBrush="Black" WindowStyle="ToolWindow" Background="#FFD2DBEC" FontWeight="Bold" WindowStartupLocation="CenterScreen" Icon="Imagenes/logo yo.jpg" ResizeMode="NoResize" TitleCharacterCasing="Normal">
 
     <Window.Resources>
         <Style TargetType="StackPanel">
