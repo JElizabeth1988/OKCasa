@@ -30,7 +30,10 @@ namespace Vista
     public partial class Horario : MetroWindow
     {
         OracleConnection conn = null;
-        int hora = 0, minutos=0;
+        int horaDesde = int.Parse(DateTime.Now.Hour.ToString()), 
+            minDesde= int.Parse(DateTime.Now.Minute.ToString()), 
+            horaHasta = int.Parse(DateTime.Now.Hour.ToString()), 
+            minHasta = int.Parse(DateTime.Now.Minute.ToString());
         public Horario()
         {
             InitializeComponent();
@@ -41,6 +44,7 @@ namespace Vista
             txtMinuto.Text = DateTime.Now.Minute.ToString();
             txtHoraHasta.Text = DateTime.Now.Hour.ToString();
             txtMinHasta.Text = DateTime.Now.Minute.ToString();
+            ClFecha.SelectedDate = DateTime.Now;
 
             foreach (EquipoTecnico item in new EquipoTecnico().ReadAll())
             {
@@ -94,7 +98,31 @@ namespace Vista
             try
             {
                 DateTime Fecha = ClFecha.SelectedDate.Value.Date;
-                string Hora = txtHora.Text + ":" + txtMinuto.Text + " - " + txtHoraHasta.Text + ":" + txtMinHasta.Text;
+
+                string horaDesde = txtHora.Text;
+                if (horaDesde.Length < 10)
+                {
+                    horaDesde = "0" + txtHora.Text;
+                }
+
+                string MinDesde = txtMinuto.Text;
+                if (MinDesde.Length < 10)
+                {
+                    MinDesde = "0" + txtMinuto.Text;
+                }
+
+                string horaHasta = txtHoraHasta.Text;
+                if (horaHasta.Length < 10)
+                {
+                    horaHasta = "0" + txtHoraHasta.Text;
+                }
+
+                string minHasta = txtMinHasta.Text;
+                if (minHasta.Length < 10)
+                {
+                    minHasta = "0" + txtMinHasta.Text;
+                }
+                string Hora = horaDesde + ":" + MinDesde + " - " + horaHasta + ":" + minHasta;
                 int equipo = ((comboBoxItem1)cbEquipo.SelectedItem).id;//Guardo el id
 
                 BibliotecaNegocio.Agenda c = new BibliotecaNegocio.Agenda()
@@ -138,85 +166,85 @@ namespace Vista
             }
         }
 
-
         private void btnMasHora_Click_1(object sender, RoutedEventArgs e)
         {
-            hora++;
-            if (hora > 24)
+            horaDesde++;
+            if (horaDesde == 24)
             {
-                hora = 0;
+                horaDesde = 0;
             }
-            txtHora.Text = hora.ToString();
+            txtHora.Text = horaDesde.ToString();
         }
 
         private void btnMenosHora_Copy_Click(object sender, RoutedEventArgs e)
         {
-            hora--;
-            if (hora < 0)
+            horaDesde--;
+            if (horaDesde <0)
             {
-                hora = 24;
+                horaDesde = 23;
             }
-            txtHora.Text = hora.ToString();
+            txtHora.Text = horaDesde.ToString();
         }
 
         private void btnMasMin_Click(object sender, RoutedEventArgs e)
         {
-            minutos++;
-            if (minutos > 59)
+            minDesde++;
+            if (minDesde == 60)
             {
-                minutos = 0;
+                minDesde = 0;
             }
-            txtMinuto.Text = minutos.ToString();
+ 
+            txtMinuto.Text = minDesde.ToString();
         }
 
         private void btnMasHoraHasta_Click(object sender, RoutedEventArgs e)
         {
-            hora++;
-            if (hora > 24)
+            horaHasta++;
+            if (horaHasta == 24)
             {
-                hora = 0;
+                horaHasta = 0;
             }
-            txtHora.Text = hora.ToString();
+            txtHoraHasta.Text = horaHasta.ToString();
         }
 
         private void btnMenosHoraHasta_Click(object sender, RoutedEventArgs e)
         {
-            hora--;
-            if (hora < 0)
+            horaHasta--;
+            if (horaHasta <0)
             {
-                hora = 24;
+                horaHasta = 23;
             }
-            txtHora.Text = hora.ToString();
+            txtHoraHasta.Text = horaHasta.ToString();
         }
 
         private void btnMasMinHasta_Click(object sender, RoutedEventArgs e)
         {
-            minutos++;
-            if (minutos > 59)
+            minHasta++;
+            if (minHasta ==60)
             {
-                minutos = 0;
+                minHasta = 0;
             }
-            txtMinuto.Text = minutos.ToString();
+            txtMinHasta.Text = minHasta.ToString();
         }
 
         private void btnMenosMinHasta_Click(object sender, RoutedEventArgs e)
         {
-            minutos--;
-            if (minutos < 0)
+            minHasta--;
+            if (minHasta < 0)
             {
-                minutos = 59;
+                minHasta = 59;
             }
-            txtMinuto.Text = minutos.ToString();
+            txtMinHasta.Text = minHasta.ToString();
         }
 
         private void btnMenosMin_Click(object sender, RoutedEventArgs e)
         {
-            minutos--;
-            if (minutos < 0)
+            minDesde--;
+            if (minDesde < 0)
             {
-                minutos = 59;
+                minDesde = 59;
             }
-            txtMinuto.Text = minutos.ToString();
+            txtMinuto.Text = minDesde.ToString();
         }      
 
 
