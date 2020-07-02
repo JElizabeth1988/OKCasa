@@ -34,9 +34,9 @@ namespace Vista
         public Cliente()
         {
             InitializeComponent();
-            conn = new Conexion().Getcone();
+            conn = new Conexion().Getcone();//Instanciar la conexión
 
-            txtDV.IsEnabled = false;
+            txtDV.IsEnabled = false;//DV no se puede editar
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
             btnEliminar.Visibility = Visibility.Hidden;
             txtRut.Focus();
@@ -133,9 +133,9 @@ namespace Vista
                 CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = client.telefono;
                 CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 50)).Value = client.email;
                 CMD.Parameters.Add(new OracleParameter("P_ID_COMUNA", OracleDbType.Int32)).Value = client.id_comuna;
-                
+                //Seabre la conexión
                 conn.Open();
-                //se ejecuta la query CON  VARIABLE DE SALIDA en caso de tener
+                //se ejecuta la query 
                 CMD.ExecuteNonQuery();
                 //se cierra la conexioin
                 conn.Close();
@@ -230,7 +230,6 @@ namespace Vista
             {
                 string rut = txtRut.Text+"-"+txtDV.Text;
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -246,10 +245,7 @@ namespace Vista
                 CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = client.telefono;
                 CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 50)).Value = client.email;
                 CMD.Parameters.Add(new OracleParameter("P_ID_COMUNA", OracleDbType.Int32)).Value = client.id_comuna;
-
-                //asi se indica que es parametro de salida// parametro de direccion, y hacia donde es
-                //CMD.Parameters.Add(new OracleParameter("P_RESP", OracleDbType.Int32)).Direction = System.Data.ParameterDirection.Output;
-                //se abre la conexion
+                //Abrir conexión
                 conn.Open();
                 //se ejecuta la query CON  VARIABLE DE SALIDA (si tiene)
                 CMD.ExecuteNonQuery();
@@ -340,12 +336,10 @@ namespace Vista
 
                 if (rut.Length == 9)
                 {
-                    rut = "0" + txtRut.Text + "-" + txtDV.Text;
+                    rut = "0" + txtRut.Text + "-" + txtDV.Text;//Seagrega un 0 al inicio, rut queda de 10 caracteres
                 }
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
-
                 List<BibliotecaNegocio.Cliente> clie = new List<BibliotecaNegocio.Cliente>();
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -433,7 +427,7 @@ namespace Vista
                     rut = "0" + txtRut.Text + "-" + txtDV.Text;
                 }
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 
                 List<BibliotecaNegocio.Cliente> clie = new List<BibliotecaNegocio.Cliente>();
@@ -524,7 +518,7 @@ namespace Vista
                     rut = "0" + txtRut.Text + "-" + txtDV.Text;
                 }
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -535,7 +529,7 @@ namespace Vista
 
                 //se abre la conexion
                 conn.Open();
-                //se ejecuta la query CON  VARIABLE DE SALIDA en caso de tener
+                //se ejecuta la query
                 CMD.ExecuteNonQuery();
                 //se cierra la conexioin
                 conn.Close();

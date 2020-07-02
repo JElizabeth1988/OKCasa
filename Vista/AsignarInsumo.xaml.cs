@@ -57,10 +57,14 @@ namespace Vista
                 OracleCommand cmd = new OracleCommand();
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Connection = conn;
+                //---------Procedimiento
                 cmd.CommandText = "SP_INSUMOS_DISPONIBLES";
+                //------------------------------------Parámetro de Salida, tipo de dato
                 cmd.Parameters.Add(new OracleParameter("INSUMOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+                //Abrir conexión
                 conn.Open();
                 OracleDataReader dr = cmd.ExecuteReader();
+                //Mientras lee
                 while (dr.Read())
                 {
                     BibliotecaNegocio.Insumo.ListaInsumos i = new BibliotecaNegocio.Insumo.ListaInsumos();
@@ -118,7 +122,6 @@ namespace Vista
                 int id_insumo = cli.id;
                 int id_equipo = ((comboBoxItem1)cbEquipo.SelectedItem).id;//Guardo el id
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -128,7 +131,7 @@ namespace Vista
                 CMD.Parameters.Add(new OracleParameter("P_ID_INSUMO", OracleDbType.Int32)).Value = id_insumo;
                 CMD.Parameters.Add(new OracleParameter("P_ID_EQUIPO", OracleDbType.Int32)).Value = id_equipo;
                 conn.Open();
-                //se ejecuta la query CON  VARIABLE DE SALIDA (si tiene)
+                //se ejecuta la query
                 CMD.ExecuteNonQuery();
                 //se cierra la conexioin
                 conn.Close();

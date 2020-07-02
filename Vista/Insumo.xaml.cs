@@ -88,7 +88,7 @@ namespace Vista
         }
 
         //----------------Método agregar----------------------
-        public bool Agregar(BibliotecaNegocio.Insumo serv)
+        public bool Agregar(BibliotecaNegocio.Insumo ins)
         {
             try
             {
@@ -100,7 +100,7 @@ namespace Vista
                 //nombre del procedimeinto almacenado
                 CMD.CommandText = "SP_AGREGAR_INSUMO";
                 //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
-                CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 50)).Value = serv.nombre;
+                CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 50)).Value = ins.nombre;
                 //se abre la conexion
                 conn.Open();
                 //se ejecuta la query CON  VARIABLE DE SALIDA en caso de tener
@@ -149,7 +149,8 @@ namespace Vista
                 }
                 else
                 {
-                    txtNombre.Clear();
+                    
+                    Limpiar();
                 }
             }
             catch (ArgumentException exa)//mensajes de reglas de negocios
@@ -205,9 +206,9 @@ namespace Vista
         {
             try
             {
-                BibliotecaNegocio.Insumo cli = (BibliotecaNegocio.Insumo)dgLista.SelectedItem;
-                int id = cli.id_insumo;
-                string nomb = cli.nombre;
+                BibliotecaNegocio.Insumo.ListaInsumos cli = (BibliotecaNegocio.Insumo.ListaInsumos)dgLista.SelectedItem;
+                int id = cli.id;
+                string nomb = cli.Nombre;
 
                 BibliotecaNegocio.Insumo c = new BibliotecaNegocio.Insumo()
                 {
@@ -237,6 +238,7 @@ namespace Vista
                 else
                 {
                     Limpiar();
+                    
                 }
 
             }

@@ -128,6 +128,7 @@ namespace Vista
         public ListadoFormulario(FormularioInspeccion origen)
         {
             InitializeComponent();
+            conn = new Conexion().Getcone();
             formu = origen;
 
             btnPasar.Visibility = Visibility.Visible;//el botón traspasar se ve

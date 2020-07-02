@@ -119,35 +119,6 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
             }
         }
-        //--------Llamado desde Técnico------------------------------------
-        public ListadoInspectores(Tecnico origen)
-        {
-            InitializeComponent();
-            tec = origen;
-            txtFiltroRut.Focus();
-
-            btnPasar.Visibility = Visibility.Visible;//Btn no se ve
-            btnPasarInf.Visibility = Visibility.Hidden;
-            
-            btnRefrescarInf.Visibility = Visibility.Hidden;
-            btnFiltrarRut.Visibility = Visibility.Visible;
-            btnFiltrarRutInf.Visibility = Visibility.Hidden;
-            btnFiltrarEquipo.Visibility = Visibility.Visible;
-            btnFiltrarEquipoInf.Visibility = Visibility.Hidden;
-
-            //llenar CB
-            foreach (EquipoTecnico item in new EquipoTecnico().ReadAll())
-            {
-                comboBoxItem1 cb = new comboBoxItem1();
-                cb.id = item.id_equipo;
-                cb.nombre = item.nombre;
-                cbEquipo.Items.Add(cb);
-            }
-
-            cbEquipo.SelectedIndex = 0;
-            CargarGrilla();
-            
-        }
         //-----Cargar Grilla para informe-----------------
         private void CargarInforme()
         {
@@ -162,9 +133,6 @@ namespace Vista
                 cmd.Connection = conn;
                 //procedimiento
                 cmd.CommandText = "SP_LISTAR_TECNICO_INF";
-
-                //cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
-                //Se agrega el parametro de salida
                 cmd.Parameters.Add(new OracleParameter("TECNICOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
                 //se abre la conexion
                 conn.Open();
@@ -196,10 +164,42 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
             }
         }
+        //--------Llamado desde Técnico------------------------------------
+        public ListadoInspectores(Tecnico origen)
+        {
+            InitializeComponent();
+            conn = new Conexion().Getcone();
+            tec = origen;
+            txtFiltroRut.Focus();
+
+            btnPasar.Visibility = Visibility.Visible;//Btn no se ve
+            btnPasarInf.Visibility = Visibility.Hidden;
+            
+            btnRefrescarInf.Visibility = Visibility.Hidden;
+            btnFiltrarRut.Visibility = Visibility.Visible;
+            btnFiltrarRutInf.Visibility = Visibility.Hidden;
+            btnFiltrarEquipo.Visibility = Visibility.Visible;
+            btnFiltrarEquipoInf.Visibility = Visibility.Hidden;
+
+            //llenar CB
+            foreach (EquipoTecnico item in new EquipoTecnico().ReadAll())
+            {
+                comboBoxItem1 cb = new comboBoxItem1();
+                cb.id = item.id_equipo;
+                cb.nombre = item.nombre;
+                cbEquipo.Items.Add(cb);
+            }
+
+            cbEquipo.SelectedIndex = 0;
+            CargarGrilla();
+            
+        }
+       
         //-----------Llamado desde Informe-----------------------------------
         public ListadoInspectores(FormularioInspeccion origen)
         {
             InitializeComponent();
+            conn = new Conexion().Getcone();
             form = origen;
             txtFiltroRut.Focus();
 
@@ -240,32 +240,49 @@ namespace Vista
         //-----------------Filtro equipo------------------------------
         private async void btnFiltrarEquipo_Click(object sender, RoutedEventArgs e)
         {
+            btnFiltrarEquipo.Visibility = Visibility.Visible;
+            btnFiltrarEquipoInf.Visibility = Visibility.Hidden;
             try
             {
+                int equipo = ((comboBoxItem1)cbEquipo.SelectedItem).id;//Recupero el id
+                OracleCommand CMD = new OracleCommand();
+                //que tipo de tipo voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
 
-                comboBoxItem1 eq = (comboBoxItem1)cbEquipo.SelectedItem;
-                List<BibliotecaNegocio.Tecnico.ListaTecnico> lf = new BibliotecaNegocio.Tecnico().FiltroEquipo(eq.nombre);
-                dgLista.ItemsSource = lf;
-            }
-            catch (Exception ex)
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Error al filtrar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
-                Logger.Mensaje(ex.Message);
-                dgLista.Items.Refresh();
-            }
-        }
-        //-------------Filtro Rut-----------------------------------------------
-        private async void btnFiltrarRut_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
+                List<BibliotecaNegocio.Tecnico.ListaTecnico> clie = new List<BibliotecaNegocio.Tecnico.ListaTecnico>();
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_FILTRAR_TECNICO_EQUIPO";
+                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
+                CMD.Parameters.Add(new OracleParameter("P_ID_EQUIPO", OracleDbType.Int32)).Value = equipo;
+                CMD.Parameters.Add(new OracleParameter("TECNICOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
 
-                string rut = txtFiltroRut.Text;
+                //se abre la conexion
+                conn.Open();
+                OracleDataReader reader = CMD.ExecuteReader();
+                BibliotecaNegocio.Tecnico.ListaTecnico c = null;
+                while (reader.Read())
+                {
+                    c = new BibliotecaNegocio.Tecnico.ListaTecnico();
 
-                List<BibliotecaNegocio.Tecnico.ListaTecnico> lc = new BibliotecaNegocio.Tecnico().FiltroRut(rut);
-                dgLista.ItemsSource = lc;
+                    c.Rut = reader[0].ToString();
+                    c.Nombre = reader[1].ToString();
+                    c.Segundo_Nombre = reader[2].ToString();
+                    c.ApellidoPaterno = reader[3].ToString();
+                    c.ApellidoMaterno = reader[4].ToString();
+                    c.Dirección = reader[5].ToString();
+                    c.Teléfono = int.Parse(reader[6].ToString());
+                    c.Email = reader[7].ToString();
+                    c.Equipo = reader[8].ToString();
+                    c.Comuna = reader[9].ToString();
+                   
+                    clie.Add(c);
+
+                }
+                dgLista.ItemsSource = clie;
+                conn.Close();
+
             }
             catch (Exception ex)
             {
@@ -422,6 +439,63 @@ namespace Vista
                 }
                 conn.Close();
                 dgLista.ItemsSource = clie;
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                      string.Format("Error al filtrar la Información"));
+                /*MessageBox.Show("error al Filtrar Información");*/
+                Logger.Mensaje(ex.Message);
+
+                dgLista.Items.Refresh();
+            }
+        }
+        //------------Filtrar por rut------------------------------------------
+        private async void btnFiltrarRut_Click(object sender, RoutedEventArgs e)
+        {
+            btnFiltrarRut.Visibility = Visibility.Visible;
+            btnFiltrarRutInf.Visibility = Visibility.Hidden;
+            try
+            {
+                string rut = txtFiltroRut.Text;
+                OracleCommand CMD = new OracleCommand();
+                //que tipo de tipo voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+
+                List<BibliotecaNegocio.Tecnico.ListaTecnico> clie = new List<BibliotecaNegocio.Tecnico.ListaTecnico>();
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_FILTRAR_TECNICO_RUT";
+                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
+                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2,20)).Value = rut;
+                CMD.Parameters.Add(new OracleParameter("TECNICOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+
+                //se abre la conexion
+                conn.Open();
+                OracleDataReader reader = CMD.ExecuteReader();
+                BibliotecaNegocio.Tecnico.ListaTecnico c = null;
+                while (reader.Read())
+                {
+                    c = new BibliotecaNegocio.Tecnico.ListaTecnico();
+
+                    c.Rut = reader[0].ToString();
+                    c.Nombre = reader[1].ToString();
+                    c.Segundo_Nombre = reader[2].ToString();
+                    c.ApellidoPaterno = reader[3].ToString();
+                    c.ApellidoMaterno = reader[4].ToString();
+                    c.Dirección = reader[5].ToString();
+                    c.Teléfono = int.Parse(reader[6].ToString());
+                    c.Email = reader[7].ToString();
+                    c.Equipo = reader[8].ToString();
+                    c.Comuna = reader[9].ToString();
+
+                    clie.Add(c);
+
+                }
+                dgLista.ItemsSource = clie;
+                conn.Close();
+
             }
             catch (Exception ex)
             {

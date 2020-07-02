@@ -1250,6 +1250,8 @@ namespace Vista
 
                     btnActualizar.Visibility = Visibility.Visible;
                     btnGuardar.Visibility = Visibility.Hidden;
+                    txtRutCliente.IsEnabled = false;
+                    txtRutTecnico.IsEnabled = false;
 
                 }
                 else

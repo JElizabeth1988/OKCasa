@@ -132,6 +132,7 @@ namespace Vista
         public ListadoCliente(FormularioInspeccion origen)
         {
             InitializeComponent();
+            conn = new Conexion().Getcone();
             form = origen;
 
             btnPasarAForm.Visibility = Visibility.Visible;//el botón traspasar se ve
@@ -206,6 +207,7 @@ namespace Vista
         public ListadoCliente(Cliente origen)
         {
             InitializeComponent();
+            conn = new Conexion().Getcone();
             cli = origen;
 
             btnPasar.Visibility = Visibility.Visible;//el botón traspasar se ve
@@ -298,14 +300,48 @@ namespace Vista
         //---------------Filtro para Cliente-----------(No sirve para formulario)
         private async void btnFiltrarRut_Click(object sender, RoutedEventArgs e)
         {
-            
+
+            btnFiltrarRut.Visibility = Visibility.Visible;
+            btnFiltrarRutFor.Visibility = Visibility.Hidden;
             try
             {
                 string rut = txtFiltroRut.Text;
+                OracleCommand CMD = new OracleCommand();
+                //que tipo de tipo voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
 
-                List<BibliotecaNegocio.Cliente.ListaClientes> lc = new BibliotecaNegocio.Cliente().FiltroRut(rut);
-                dgLista.ItemsSource = lc;
-                dgLista.Items.Refresh();
+                List<BibliotecaNegocio.Cliente.ListaClientes> clie = new List<BibliotecaNegocio.Cliente.ListaClientes>();
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_FILTRAR_RUT";
+                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
+                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 20)).Value = rut;
+                CMD.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+
+                //se abre la conexion
+                conn.Open();
+                OracleDataReader reader = CMD.ExecuteReader();
+                BibliotecaNegocio.Cliente.ListaClientes c = null;
+                while (reader.Read())
+                {
+                    c = new BibliotecaNegocio.Cliente.ListaClientes();
+
+                    c.Rut = reader[0].ToString();
+                    c.Nombre = reader[1].ToString();
+                    c.Segundo_Nombre = reader[2].ToString();
+                    c.Apellido_paterno = reader[3].ToString();
+                    c.Apellido_Materno = reader[4].ToString();
+                    c.Dirección = reader[5].ToString();
+                    c.Teléfono = int.Parse(reader[6].ToString());
+                    c.Email = reader[7].ToString();
+                    c.Comuna = reader[8].ToString();
+
+                    clie.Add(c);
+
+                }
+                conn.Close();
+                dgLista.ItemsSource = clie;
             }
             catch (Exception ex)
             {

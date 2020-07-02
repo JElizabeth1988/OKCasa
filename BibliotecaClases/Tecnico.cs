@@ -111,24 +111,7 @@ namespace BibliotecaNegocio
             }
         }
         public int telefono { get; set; }
-        /* private int _telefono;
-
-        public int telefono
-        {
-            get { return _telefono; }
-            set
-            {
-                if (value != 0 && value > 90000000 && value < 10000000)
-                {
-                    _telefono = value;
-                }
-                else
-                {
-                    err.AgregarError("Campo Teléfono no puede estar Vacío y debe tener un largo de 9 dígitos");
-                    //throw new ArgumentException("- Campo Teléfono no puede estar Vacío y debe tener un largo de 9 dígitos");
-                }
-            }
-        }*/
+        
         public string email { get; set; }
         public int id_equipo { get; set; }
         public int id_comuna { get; set; }
@@ -138,7 +121,7 @@ namespace BibliotecaNegocio
         {
 
         }
-
+/*
         //CRUD
         //Guardar
         public Boolean Guardar()
@@ -353,7 +336,7 @@ namespace BibliotecaNegocio
 
             return eq.ToList();
         }
-
+        */
 
         //Lista para read all2
         public class ListaTecnico
