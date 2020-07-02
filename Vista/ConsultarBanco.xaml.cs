@@ -19,9 +19,7 @@ using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
 
 using Oracle.ManagedDataAccess.Client;
-using Oracle.ManagedDataAccess.Types;
 
-using System.Configuration;
 using System.Data;
 
 namespace Vista
@@ -35,6 +33,7 @@ namespace Vista
         public ConsultarBanco()
         {
             InitializeComponent();
+            conn = new Conexion().Getcone();
             txtRut.Focus();
             btnInvitación.Visibility = Visibility.Hidden;//Esconder botón hasta que el resultado de la busqueda sea positivo
 
@@ -56,10 +55,10 @@ namespace Vista
 
         private async void btnConsultar_Click(object sender, RoutedEventArgs e)
         {
-            //Crear Cliente del WS
+            //Se instancia al cliente
             WSBancoEstado.WS_BANCOClient cliente = new WSBancoEstado.WS_BANCOClient();
 
-            //Capturar Dato
+            //Capturar rut
             string rut = txtRut.Text;
             if (rut != "")
             {
@@ -70,8 +69,6 @@ namespace Vista
                     {
                         try
                         {
-                            string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                            conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
                             //se crea una lista de tipo cine
                             List<BancoEstado> lista_tipos = new List<BancoEstado>();
                             //se crea un comando de oracle

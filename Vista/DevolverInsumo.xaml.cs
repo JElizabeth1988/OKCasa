@@ -12,15 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BibliotecaNegocio;
+using BibliotecaDALC;
 
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
 
 using Oracle.ManagedDataAccess.Client;
-using Oracle.ManagedDataAccess.Types;
 
-using System.Configuration;
 using System.Data;
 
 
@@ -35,6 +34,7 @@ namespace Vista
         public DevolverInsumo()
         {
             InitializeComponent();
+            conn = new Conexion().Getcone();
 
         }
 
@@ -44,8 +44,6 @@ namespace Vista
             try
             {
                 int contador = 0;
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
                 List<BibliotecaNegocio.Insumo.ListaInsumos2> lista = new List<BibliotecaNegocio.Insumo.ListaInsumos2>();
                 OracleCommand cmd = new OracleCommand();
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -102,9 +100,6 @@ namespace Vista
             {
                 BibliotecaNegocio.Insumo.ListaInsumos2 cli = (BibliotecaNegocio.Insumo.ListaInsumos2)dgLista.SelectedItem;
                 int id_insumo = cli.id_insumo;
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //nucna una instruccion sql en el sistema solo en base de datos
                 OracleCommand CMD = new OracleCommand();
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;

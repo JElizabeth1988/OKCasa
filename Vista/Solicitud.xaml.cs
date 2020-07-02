@@ -12,15 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BibliotecaNegocio;
+using BibliotecaDALC;
 
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
 
 using Oracle.ManagedDataAccess.Client;
-using Oracle.ManagedDataAccess.Types;
 
-using System.Configuration;
 using System.Data;
 
 namespace Vista
@@ -35,6 +34,7 @@ namespace Vista
         {
 
             InitializeComponent();
+            conn = new Conexion().Getcone();
             CargarGrilla();
             //----ComboBox-------
             foreach (BibliotecaNegocio.Servicio item in new BibliotecaNegocio.Servicio().ReadAll())
@@ -55,8 +55,6 @@ namespace Vista
             try
             {
                 btnConfirmar.Visibility = Visibility.Hidden;
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
                 int contador = 0;
                 List<BibliotecaNegocio.Solicitud.ListaSolicitud2> lista = new List<BibliotecaNegocio.Solicitud.ListaSolicitud2>();
                 OracleCommand cmd = new OracleCommand();
@@ -123,9 +121,7 @@ namespace Vista
             {
                 BibliotecaNegocio.Solicitud.ListaSolicitud2 cli = (BibliotecaNegocio.Solicitud.ListaSolicitud2)dgResultado.SelectedItem;
                 int id = cli.id;
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //nucna una instruccion sql en el sistema solo en base de datos
+
                 OracleCommand CMD = new OracleCommand();
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
@@ -158,9 +154,6 @@ namespace Vista
             try
             {
                 string nombre = cbFiltro.Text;
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //nucna una instruccion sql en el sistema solo en base de datos
                 OracleCommand CMD = new OracleCommand();
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;

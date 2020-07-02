@@ -72,6 +72,7 @@
     <Compile Include="COMUNA.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Conexion.cs" />
     <Compile Include="EQUIPO_TECNICO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>

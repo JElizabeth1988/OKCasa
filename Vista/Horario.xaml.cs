@@ -12,15 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BibliotecaNegocio;
+using BibliotecaDALC;
 
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
 
 using Oracle.ManagedDataAccess.Client;
-using Oracle.ManagedDataAccess.Types;
 
-using System.Configuration;
 using System.Data;
 
 namespace Vista
@@ -35,6 +34,7 @@ namespace Vista
         public Horario()
         {
             InitializeComponent();
+            conn = new Conexion().Getcone();
             cbEquipo.Focus();
             cbEquipo.SelectedIndex = 0;
             txtHora.Text = DateTime.Now.Hour.ToString();
@@ -60,9 +60,7 @@ namespace Vista
         {
             try
             {
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //nunca una instruccion sql en el sistema solo en base de datos
+                
                 OracleCommand CMD = new OracleCommand();
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;

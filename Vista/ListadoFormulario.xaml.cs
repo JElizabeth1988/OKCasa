@@ -12,22 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BibliotecaNegocio;
+using BibliotecaDALC;
 
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
 
 using Oracle.ManagedDataAccess.Client;
-using Oracle.ManagedDataAccess.Types;
 
-using System.Configuration;
 using System.Data;
 
 namespace Vista
 {
-    /// <summary>
-    /// Lógica de interacción para ListadoFormulario.xaml
-    /// </summary>
+    
     public partial class ListadoFormulario : MetroWindow
     {
         FormularioInspeccion formu;
@@ -36,6 +33,7 @@ namespace Vista
         public ListadoFormulario()
         {
             InitializeComponent();
+            conn = new Conexion().Getcone();
             txtFiltroNumero.Focus();
 
             btnPasar.Visibility = Visibility.Hidden;
@@ -48,9 +46,6 @@ namespace Vista
         {
             try
             {
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //se crea una lista 
                 List<BibliotecaNegocio.Informe.ListaInforme> lista = new List<BibliotecaNegocio.Informe.ListaInforme>();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
@@ -180,9 +175,6 @@ namespace Vista
             try
             {
                 long numero = long.Parse(txtFiltroNumero.Text);
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //nucna una instruccion sql en el sistema solo en base de datos
                 OracleCommand CMD = new OracleCommand();
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
@@ -265,9 +257,6 @@ namespace Vista
             try
             {
                 string rut = txtFiltroRut.Text;
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //nucna una instruccion sql en el sistema solo en base de datos
                 OracleCommand CMD = new OracleCommand();
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;

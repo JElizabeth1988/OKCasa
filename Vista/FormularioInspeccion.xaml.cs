@@ -12,15 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BibliotecaNegocio;
+using BibliotecaDALC;
 
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
 
 using Oracle.ManagedDataAccess.Client;
-using Oracle.ManagedDataAccess.Types;
 
-using System.Configuration;
 using System.Data;
 
 namespace Vista
@@ -35,6 +34,7 @@ namespace Vista
         public FormularioInspeccion()
         {
             InitializeComponent();
+            conn = new Conexion().Getcone();
             this.DataContext = this;
             txtRutCliente.Focus();
 
@@ -248,8 +248,6 @@ namespace Vista
         {
             try
             {
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
                 //nunca una instruccion sql en el sistema solo en base de datos
                 OracleCommand CMD = new OracleCommand();
                 //que tipo de tipo voy a ejecutar
@@ -453,62 +451,7 @@ namespace Vista
                 }
                 if (resp == true)
                 {
-                    lblNumForm.Content = DateTime.Now.ToString("yyMMddHHmmss");
-                    dtfechaIns.SelectedDate = DateTime.Now;
-                    dtfechaSol.SelectedDate = DateTime.Now;
-                    txtRutCliente.Focus();
-                    rbPrimera.IsChecked = true;
-                    rbSegunda.IsChecked = false;
-                    rbCierre.IsChecked = false;
-
-                    txtNFormBuscar.Clear();
-                    txtRutCliente.Clear();
-                    txtRutTecnico.Clear();
-                    txtPisos.Text = "0";
-                    txtObserv.Clear();
-                    txtNombreCliente.Clear();
-                    txtHabitac.Text = "0";
-                    txtEquipo.Clear();
-                    txtDireccion.Clear();
-                    txtConstr.Clear();
-                    txtNombreTec.Clear();
-                    cbAlcanta.SelectedIndex = 0;
-                    cbElectrica.SelectedIndex = 0;
-                    cbGas.SelectedIndex = 0;
-                    cbInstAgua.SelectedIndex = 0;
-                    cbRedAgua.SelectedIndex = 0;
-                    cbTipoAg.SelectedIndex = 0;
-                    cbTipoV.SelectedIndex = 0;
-                    cbComuna.SelectedIndex = 0;
-
-                    RbNoFuego.IsChecked = true;
-                    RbSiFuego.IsChecked = false;
-                    RbNoHab.IsChecked = true;
-                    RbSiHab.IsChecked = false;
-                    RbNoTerm.IsChecked = true;
-                    RbSiTerm.IsChecked = false;
-
-                    txtTotalReal.Text = "0";
-                    txtTotalReg.Text = "0";
-                    txtIConstReal.Text = "0";
-                    txtConsReg.Text = "0";
-                    txtDistancia.Text = "0";
-                    txtEmisividad.Text = "0";
-                    txtTempRefle.Text = "0";
-                    txtTempAtmo.Text = "0";
-                    txtHumedad.Text = "0";
-
-
-                    rbBueno.IsChecked = true;
-                    rbDeficiente.IsChecked = false;
-                    rbMalo.IsChecked = false;
-                    rbRegular.IsChecked = false;
-
-                    lblIdSolicitud.Visibility = Visibility.Hidden;
-                    btnActualizar.Visibility = Visibility.Hidden;
-                    btnGuardar.Visibility = Visibility.Visible;
-                    txtRutTecnico.IsEnabled = true;
-                    txtRutCliente.IsEnabled = true;
+                    Limpiar();
                 }
             }
             catch (ArgumentException exa)//mensajes de reglas de negocios
@@ -532,9 +475,7 @@ namespace Vista
             try
             {
                 string numero = lblNumForm.Content.ToString();
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //nucna una instruccion sql en el sistema solo en base de datos
+                
                 OracleCommand CMD = new OracleCommand();
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
@@ -735,62 +676,7 @@ namespace Vista
                 }
                 if (resp == true)
                 {
-                    lblNumForm.Content = DateTime.Now.ToString("yyMMddHHmmss");
-                    dtfechaIns.SelectedDate = DateTime.Now;
-                    dtfechaSol.SelectedDate = DateTime.Now;
-                    txtRutCliente.Focus();
-                    rbPrimera.IsChecked = true;
-                    rbSegunda.IsChecked = false;
-                    rbCierre.IsChecked = false;
-
-                    txtNFormBuscar.Clear();
-                    txtRutCliente.Clear();
-                    txtRutTecnico.Clear();
-                    txtPisos.Text = "0";
-                    txtObserv.Clear();
-                    txtNombreCliente.Clear();
-                    txtHabitac.Text = "0";
-                    txtEquipo.Clear();
-                    txtDireccion.Clear();
-                    txtConstr.Clear();
-                    txtNombreTec.Clear();
-                    cbAlcanta.SelectedIndex = 0;
-                    cbElectrica.SelectedIndex = 0;
-                    cbGas.SelectedIndex = 0;
-                    cbInstAgua.SelectedIndex = 0;
-                    cbRedAgua.SelectedIndex = 0;
-                    cbTipoAg.SelectedIndex = 0;
-                    cbTipoV.SelectedIndex = 0;
-                    cbComuna.SelectedIndex = 0;
-
-                    RbNoFuego.IsChecked = true;
-                    RbSiFuego.IsChecked = false;
-                    RbNoHab.IsChecked = true;
-                    RbSiHab.IsChecked = false;
-                    RbNoTerm.IsChecked = true;
-                    RbSiTerm.IsChecked = false;
-
-                    txtTotalReal.Text = "0";
-                    txtTotalReg.Text = "0";
-                    txtIConstReal.Text = "0";
-                    txtConsReg.Text = "0";
-                    txtDistancia.Text = "0";
-                    txtEmisividad.Text = "0";
-                    txtTempRefle.Text = "0";
-                    txtTempAtmo.Text = "0";
-                    txtHumedad.Text = "0";
-
-
-                    rbBueno.IsChecked = true;
-                    rbDeficiente.IsChecked = false;
-                    rbMalo.IsChecked = false;
-                    rbRegular.IsChecked = false;
-
-                    lblIdSolicitud.Visibility = Visibility.Hidden;
-                    btnActualizar.Visibility = Visibility.Hidden;
-                    btnGuardar.Visibility = Visibility.Visible;
-                    txtRutTecnico.IsEnabled = true;
-                    txtRutCliente.IsEnabled = true;
+                    Limpiar();
                 }
 
             }
@@ -814,9 +700,8 @@ namespace Vista
             try
             {
                 long numero = long.Parse(txtNFormBuscar.Text);
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //nucna una instruccion sql en el sistema solo en base de datos
+               
+                
                 OracleCommand CMD = new OracleCommand();
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
@@ -1035,9 +920,7 @@ namespace Vista
             try
             {
                 string rut = txtRutCliente.Text;
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //nucna una instruccion sql en el sistema solo en base de datos
+              
                 OracleCommand CMD = new OracleCommand();
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
@@ -1110,9 +993,7 @@ namespace Vista
             try
             {
                 string rut = txtRutTecnico.Text;
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //nucna una instruccion sql en el sistema solo en base de datos
+
                 OracleCommand CMD = new OracleCommand();
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
@@ -1177,9 +1058,6 @@ namespace Vista
             try
             {
                 long numero = long.Parse(txtNFormBuscar.Text);
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //nucna una instruccion sql en el sistema solo en base de datos
                 OracleCommand CMD = new OracleCommand();
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
@@ -1397,9 +1275,6 @@ namespace Vista
             try
             {
                 string rut = txtRutCliente.Text;
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //nucna una instruccion sql en el sistema solo en base de datos
                 OracleCommand CMD = new OracleCommand();
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
@@ -1471,9 +1346,7 @@ namespace Vista
             try
             {
                 string rut = txtRutTecnico.Text;
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //nucna una instruccion sql en el sistema solo en base de datos
+
                 OracleCommand CMD = new OracleCommand();
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;

@@ -12,15 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BibliotecaNegocio;
+using BibliotecaDALC;
 
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
 
 using Oracle.ManagedDataAccess.Client;
-using Oracle.ManagedDataAccess.Types;
 
-using System.Configuration;
 using System.Data;
 namespace Vista
 {
@@ -39,6 +38,7 @@ namespace Vista
         public ListadoInspectores()
         {
             InitializeComponent();
+            conn = new Conexion().Getcone();
             txtFiltroRut.Focus();
 
             btnPasar.Visibility = Visibility.Hidden;//Btn no se ve
@@ -68,9 +68,6 @@ namespace Vista
         {
             try
             {
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //se crea una lista de tipo cine
                 List<BibliotecaNegocio.Tecnico.ListaTecnico> lista = new List<BibliotecaNegocio.Tecnico.ListaTecnico>();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
@@ -156,9 +153,6 @@ namespace Vista
         {
             try
             {
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //se crea una lista 
                 List<BibliotecaNegocio.Tecnico.ListaTecnico2> lista = new List<BibliotecaNegocio.Tecnico.ListaTecnico2>();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
@@ -349,9 +343,6 @@ namespace Vista
             try
             {
                 string rut = txtFiltroRut.Text;
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //nucna una instruccion sql en el sistema solo en base de datos
                 OracleCommand CMD = new OracleCommand();
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
@@ -401,9 +392,6 @@ namespace Vista
             try
             {
                 string nombre = cbEquipo.Text;
-                string connectionString = ConfigurationManager.ConnectionStrings["OkCasa_Entities"].ConnectionString;
-                conn = new OracleConnection("Data Source=localhost:1521/XE;User Id=OKCasa;Password=OKCasa");
-                //nucna una instruccion sql en el sistema solo en base de datos
                 OracleCommand CMD = new OracleCommand();
                 //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
