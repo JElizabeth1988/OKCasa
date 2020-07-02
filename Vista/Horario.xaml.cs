@@ -100,25 +100,25 @@ namespace Vista
                 DateTime Fecha = ClFecha.SelectedDate.Value.Date;
 
                 string horaDesde = txtHora.Text;
-                if (horaDesde.Length < 10)
+                if (horaDesde.Length < 2)
                 {
                     horaDesde = "0" + txtHora.Text;
                 }
 
                 string MinDesde = txtMinuto.Text;
-                if (MinDesde.Length < 10)
+                if (MinDesde.Length < 2)
                 {
                     MinDesde = "0" + txtMinuto.Text;
                 }
 
                 string horaHasta = txtHoraHasta.Text;
-                if (horaHasta.Length < 10)
+                if (horaHasta.Length < 2)
                 {
                     horaHasta = "0" + txtHoraHasta.Text;
                 }
 
                 string minHasta = txtMinHasta.Text;
-                if (minHasta.Length < 10)
+                if (minHasta.Length < 2)
                 {
                     minHasta = "0" + txtMinHasta.Text;
                 }
@@ -165,7 +165,49 @@ namespace Vista
 
             }
         }
+        private void CargarGrilla()
+        {
+            try
+            {
+                List<BibliotecaNegocio.Agenda.ListaAgenda> lista = new List<BibliotecaNegocio.Agenda.ListaAgenda>();
+                OracleCommand cmd = new OracleCommand();
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Connection = conn;
+                cmd.CommandText = "SP_LISTAR_AGENDA";
+                cmd.Parameters.Add(new OracleParameter("AGENDAS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
+                conn.Open();
+                OracleDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    BibliotecaNegocio.Agenda.ListaAgenda s = new BibliotecaNegocio.Agenda.ListaAgenda();
 
+                    //se obtiene el valor con getvalue es lo mismo pero con get
+                    s.Id = int.Parse(dr.GetValue(0).ToString());
+                    s.Fecha = dr.GetValue(1).ToString();
+                    s.Hora = dr.GetValue(2).ToString();
+                    s.Disponibilidad = dr.GetValue(3).ToString();
+                    s.Equipo = dr.GetValue(4).ToString();
+
+                    lista.Add(s);
+                }
+                conn.Close();
+
+                dgLista.ItemsSource = lista;
+                dgLista.Columns[0].Visibility = Visibility.Collapsed;//Ocullto la columna id, para que no sea modificada
+                
+            }
+            catch (Exception ex)
+            {
+
+                Logger.Mensaje(ex.Message);
+            }
+
+
+        }
+        private async void btnLista_Click(object sender, RoutedEventArgs e)
+        {
+            CargarGrilla();
+        }
         private void btnMasHora_Click_1(object sender, RoutedEventArgs e)
         {
             horaDesde++;
