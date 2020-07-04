@@ -13,7 +13,7 @@
         Title="Informe"  Height="648" Width="850"  WindowTitleBrush="Black" ResizeMode="NoResize" Icon="imagenes/logo yo.jpg" WindowStartupLocation="CenterScreen" TitleCharacterCasing="Normal"  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" GlowBrush="Black" NonActiveBorderBrush="#FF0A0202" WindowTransitionsEnabled="False" BorderThickness="0" FontWeight="Bold" >
 
     <Grid Background="#FFDCDDDF" Margin="0,0,-4.333,-904">
-        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" Margin="0,0,5,902">
+        <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto" Margin="0,0,5,901">
             <Grid Height="1516" Width="820">
                 <GroupBox x:Name="ContenedorPrincipal" Header="                                                                                                                          Informe Técnico" HorizontalAlignment="Left" Margin="35,18,0,0" VerticalAlignment="Top" Height="1473" Width="761" Background="#FF0971B8" Controls:ControlsHelper.ContentCharacterCasing="Upper" Controls:ControlsHelper.HeaderFontSize="10" TextOptions.TextHintingMode="Animated">
                     <Grid HorizontalAlignment="Left" Margin="10,0,0,0" Width="741" Height="1437" VerticalAlignment="Top">
@@ -30,9 +30,9 @@
                                 <TextBox x:Name="txtDireccion" mah:TextBoxHelper.Watermark="" Height="8" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal"  mah:TextBoxHelper.ClearTextButton="True" Margin="165,2,188.334,0"/>
                                 <Label x:Name="label5" Content="Constructora:" HorizontalAlignment="Left" Margin="18,32,0,64"/>
                                 <TextBox x:Name="txtConstr" HorizontalAlignment="Left" mah:TextBoxHelper.Watermark="" Height="8" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" FontWeight="Normal" mah:TextBoxHelper.ClearTextButton="True" Margin="165,32,0,0"/>
-                                <Label x:Name="label7" Content="Tipo de Vivienda:" Margin="18,63,542.334,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label7" Content="Tipo de Vivienda:" Margin="18,63,524.334,0" VerticalAlignment="Top"/>
                                 <ComboBox x:Name="cbTipoV" Margin="165,63,341.334,0" VerticalAlignment="Top" FontWeight="Normal"/>
-                                <Label x:Name="label8" Content="Tipo de Agrupamiento:" Margin="18,93,503.334,0" VerticalAlignment="Top"/>
+                                <Label x:Name="label8" Content="Tipo de Agrupamiento:" Margin="18,93,495.334,0" VerticalAlignment="Top"/>
                                 <ComboBox x:Name="cbTipoAg" Margin="165,94,341.334,0" VerticalAlignment="Top" FontWeight="Normal"/>
                                 <Label x:Name="label8_Copy" Content="N° de Habitaciones:" Margin="365,93,171.334,0" VerticalAlignment="Top"/>
                                 <Label x:Name="label8_Copy1" Content="N° de Pisos:" Margin="365,63,210.334,0" VerticalAlignment="Top"/>
