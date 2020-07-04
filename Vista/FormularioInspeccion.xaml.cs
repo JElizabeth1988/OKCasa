@@ -41,6 +41,7 @@ namespace Vista
             lblNumForm.Content = DateTime.Now.ToString("yyMMddHHmmss");//Fecha y hora actual
 
             btnActualizar.Visibility = Visibility.Hidden;
+            btnEliminar.Visibility = Visibility.Hidden;
 
             //---------llenar el combo box ---------------------------------------
             foreach (InstAlcantarillado item in new InstAlcantarillado().ReadAll())
@@ -231,6 +232,7 @@ namespace Vista
 
             lblIdSolicitud.Visibility = Visibility.Hidden;
             btnActualizar.Visibility = Visibility.Hidden;
+            btnEliminar.Visibility = Visibility.Hidden;
             btnGuardar.Visibility = Visibility.Visible;
             txtRutTecnico.IsEnabled = true;
             txtRutCliente.IsEnabled = true;
@@ -1249,6 +1251,7 @@ namespace Vista
 
 
                     btnActualizar.Visibility = Visibility.Visible;
+                    btnEliminar.Visibility = Visibility.Visible;
                     btnGuardar.Visibility = Visibility.Hidden;
                     txtRutCliente.IsEnabled = false;
                     txtRutTecnico.IsEnabled = false;
@@ -1405,10 +1408,84 @@ namespace Vista
 
             }
         }
+        //-----------.--Método Eliminar-----------------------------------
+        public bool Eliminar(BibliotecaNegocio.Informe client)
+        {
+            try
+            {
+                long numero = long.Parse(lblNumForm.Content.ToString());
+                //long numero = client.num_formulario;
+                OracleCommand CMD = new OracleCommand();
+                //que tipo voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_ELIMINAR_INFORME";
+                //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
+                CMD.Parameters.Add(new OracleParameter("P_NUM_FORMULARIO", OracleDbType.Int64)).Value = numero;
+                //se abre la conexion
+                conn.Open();
+                //se ejecuta la query
+                CMD.ExecuteNonQuery();
+                //se cierra la conexioin
+                conn.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
 
+                return false;
+                Logger.Mensaje(ex.Message);
 
+            }
+        }
 
+        //--------------Botón Eliminar------------------------------------
+        private async void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                BibliotecaNegocio.Informe cli = new BibliotecaNegocio.Informe();
+                long numero = long.Parse(lblNumForm.Content.ToString());
+                var x = await this.ShowMessageAsync("Eliminar Datos: ",
+                         "¿Está Seguro de eliminar el informe n° " + numero + "?",
+                        MessageDialogStyle.AffirmativeAndNegative);
+                if (x == MessageDialogResult.Affirmative)
+                {
+                    bool resp = Eliminar(cli);
+                    if (resp == true)
+                    {
+                        await this.ShowMessageAsync("Éxito:",
+                          string.Format("Informe Eliminado"));
+                        /*MessageBox.Show("Cliente eliminado"); */
+                        Limpiar();
 
+                    }
+                    else
+                    {
+                        await this.ShowMessageAsync("Error:",
+                          string.Format("No Eliminado"));
+                        /*MessageBox.Show("No se eliminó al Cliente");*/
+                    }
 
+                }
+                else
+                {
+                    await this.ShowMessageAsync("Mensaje:",
+                          string.Format("Operación Cancelada"));
+                    /*MessageBox.Show("Operación Cancelada");*/
+                }
+            }
+            catch (Exception ex)
+            {
+
+                await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Error al Eliminar la Información"));
+                /*MessageBox.Show("error al Filtrar Información");*/
+                Logger.Mensaje(ex.Message);
+            }
+
+        }
     }
 }
