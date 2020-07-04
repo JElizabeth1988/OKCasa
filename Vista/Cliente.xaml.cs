@@ -122,7 +122,7 @@ namespace Vista
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_AGREGAR_CLIENTE";
+                CMD.CommandText = "SP_AGREGAR_CLIENTE2";
                 //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
                 CMD.Parameters.Add(new OracleParameter("P_RUT_CLIENTE", OracleDbType.Varchar2, 10)).Value = client.rut_cliente;
                 CMD.Parameters.Add(new OracleParameter("P_PRIMER_NOMBRE", OracleDbType.Varchar2, 20)).Value = client.primer_nombre;
@@ -234,7 +234,7 @@ namespace Vista
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_ACTUALIZAR_CLIENTE";
+                CMD.CommandText = "SP_ACTUALIZAR_CLIENTE2";
                 //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al de la clase
                 CMD.Parameters.Add(new OracleParameter("P_RUT_CLIENTE", OracleDbType.Varchar2, 10)).Value = rut;
                 CMD.Parameters.Add(new OracleParameter("P_PRIMER_NOMBRE", OracleDbType.Varchar2, 20)).Value = client.primer_nombre;
@@ -344,7 +344,7 @@ namespace Vista
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_BUSCAR_CLIENTE";
+                CMD.CommandText = "SP_BUSCAR_CLIENTE2";
                 //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// 
                 CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 10)).Value = rut;
                 CMD.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
@@ -434,7 +434,7 @@ namespace Vista
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_BUSCAR_CLIENTE";
+                CMD.CommandText = "SP_BUSCAR_CLIENTE2";
                 //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
                 CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 10)).Value = rut;
                 CMD.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
@@ -523,7 +523,7 @@ namespace Vista
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_ELIMINAR_CLIENTE";
+                CMD.CommandText = "SP_ELIMINAR_CLIENTE2";
                 //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
                 CMD.Parameters.Add(new OracleParameter("P_RUT_CLIENTE", OracleDbType.Varchar2, 20)).Value = rut;
 

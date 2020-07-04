@@ -173,7 +173,7 @@ namespace Vista
                 OracleCommand cmd = new OracleCommand();
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Connection = conn;
-                cmd.CommandText = "SP_LISTAR_AGENDA";
+                cmd.CommandText = "SP_LISTAR_AGENDA2";
                 cmd.Parameters.Add(new OracleParameter("AGENDAS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
                 conn.Open();
                 OracleDataReader dr = cmd.ExecuteReader();

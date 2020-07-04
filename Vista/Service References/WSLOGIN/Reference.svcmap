@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1e76e542-54e3-45e4-9e3c-8f3ff73dc9a1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d9142ef7-a202-48bb-9c41-d35dbf053380" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:32908/WSOKCasa/WSLOGIN?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WSLOGIN.xsd" MetadataType="Schema" ID="1472b5dc-5697-4899-b760-3c46677428df" SourceId="1" SourceUrl="http://localhost:32908/WSOKCasa/WSLOGIN?xsd=1" />
-    <MetadataFile FileName="WSLOGIN.wsdl" MetadataType="Wsdl" ID="3f7233cc-eeba-4cd0-b124-f4c8c327e0de" SourceId="1" SourceUrl="http://localhost:32908/WSOKCasa/WSLOGIN?WSDL" />
+    <MetadataFile FileName="WSLOGIN.xsd" MetadataType="Schema" ID="6a2acc81-4f6d-4cff-a1f5-a4d9770b15f9" SourceId="1" SourceUrl="http://localhost:32908/WSOKCasa/WSLOGIN?xsd=1" />
+    <MetadataFile FileName="WSLOGIN.wsdl" MetadataType="Wsdl" ID="4001e9d0-e6a1-42cc-a95d-77dd1c9f9059" SourceId="1" SourceUrl="http://localhost:32908/WSOKCasa/WSLOGIN?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

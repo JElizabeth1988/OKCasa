@@ -76,7 +76,7 @@ namespace Vista
                 //conexion
                 cmd.Connection = conn;
                 //procedimiento
-                cmd.CommandText = "SP_LISTAR_TECNICO";
+                cmd.CommandText = "SP_LISTAR_TECNICO2";
 
                 //cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
                 //Se agrega el parametro de salida

@@ -67,7 +67,7 @@
         <GroupBox x:Name="gbFiltrar_Copy1" Header="Listado de Agenda" HorizontalAlignment="Left" Margin="398,118,0,0" VerticalAlignment="Top" Height="386" Width="473"  Background="#FF0971B8" Controls:ControlsHelper.ContentCharacterCasing="Upper" FontSize="13.333">
             <Grid HorizontalAlignment="Left" Height="353" VerticalAlignment="Top" Width="463" Margin="0,0,-0.333,-2.333">
                 <Button x:Name="btnLista" Content="Ver Listado" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Width="80"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnLista_Click"/>
-                <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Height="300" Width="443"/>
+                <DataGrid x:Name="dgLista" HorizontalAlignment="Left" Margin="10,43,0,0" VerticalAlignment="Top" Height="300" Width="443" FontWeight="Normal"/>
             </Grid>
         </GroupBox>
         <Image x:Name="image" HorizontalAlignment="Left" Height="70" Margin="487,27,0,0" VerticalAlignment="Top" Width="198" Source="Imagenes/logo12.png"/>

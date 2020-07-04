@@ -110,7 +110,7 @@ namespace Vista
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_BUSCAR_TECNICO";
+                CMD.CommandText = "SP_BUSCAR_TECNICO2";
                 //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al tiposito.ID
                 CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 10)).Value = rut;
                 CMD.Parameters.Add(new OracleParameter("TECNICOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
@@ -149,8 +149,8 @@ namespace Vista
 
                     txtNombre.Text = c.primer_nombre;
                     txtSegNombre.Text = c.segundo_nombre;
-                    txtApeMaterno.Text = c.ap_paterno;
-                    txtApPaterno.Text = c.ap_materno;
+                    txtApPaterno.Text = c.ap_paterno;
+                    txtApeMaterno.Text = c.ap_materno;
                     txtEmail.Text = c.email;
                     txtDireccion.Text = c.direccion;
                     txtTelefono.Text = c.telefono.ToString();
@@ -235,7 +235,7 @@ namespace Vista
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_BUSCAR_TECNICO";
+                CMD.CommandText = "SP_BUSCAR_TECNICO2";
                 //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al tiposito.ID
                 CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 10)).Value = rut;
                 CMD.Parameters.Add(new OracleParameter("TECNICOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
@@ -323,7 +323,7 @@ namespace Vista
                 //nombre del procedimeinto almacenado
                 //NO INGRESA YA QUE TIENE EL ESTADO Y DEVUELVE 0 o 1 DE FILAS AFECTADAS
                 //SI CAE EN LA EXCEPCION DEVUELVE 0 Y SI NO CAE DEVUELVE 1
-                CMD.CommandText = "SP_AGREGAR_TECNICO";
+                CMD.CommandText = "SP_AGREGAR_TECNICO2";
                 //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al tiposito.ID
                 CMD.Parameters.Add(new OracleParameter("P_RUT_TECNICO", OracleDbType.Varchar2, 10)).Value = client.rut_tecnico;
                 CMD.Parameters.Add(new OracleParameter("P_PRIMER_NOMBRE", OracleDbType.Varchar2, 20)).Value = client.primer_nombre;
@@ -453,7 +453,7 @@ namespace Vista
                 //nombre del procedimeinto almacenado
                 //NO INGRESA YA QUE TIENE EL ESTADO Y DEVUELVE 0 o 1 DE FILAS AFECTADAS
                 //SI CAE EN LA EXCEPCION DEVUELVE 0 Y SI NO CAE DEVUELVE 1
-                CMD.CommandText = "SP_ACTUALIZAR_TECNICO";
+                CMD.CommandText = "SP_ACTUALIZAR_TECNICO2";
                 //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al tiposito.ID
                 CMD.Parameters.Add(new OracleParameter("P_RUT_TECNICO", OracleDbType.Varchar2, 10)).Value = rut;
                 CMD.Parameters.Add(new OracleParameter("P_PRIMER_NOMBRE", OracleDbType.Varchar2, 20)).Value = tec.primer_nombre;
@@ -639,7 +639,7 @@ namespace Vista
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_ELIMINAR_TECNICO";
+                CMD.CommandText = "SP_ELIMINAR_TECNICO2";
                 //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
                 CMD.Parameters.Add(new OracleParameter("P_RUT_TECNICO", OracleDbType.Varchar2, 20)).Value = rut;
 

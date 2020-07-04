@@ -454,18 +454,6 @@
     <WCFMetadataStorage Include="Service References\WSLOGIN\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\WSLOGIN\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WSLOGIN\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WSLOGIN\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Imagenes\logo12.png" />
   </ItemGroup>
   <ItemGroup>
@@ -486,6 +474,18 @@
   <ItemGroup>
     <Resource Include="img\Screw-Driver.png" />
     <Resource Include="img\Wire-Stripper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSLOGIN\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSLOGIN\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSLOGIN\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
