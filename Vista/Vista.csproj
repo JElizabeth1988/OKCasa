@@ -360,6 +360,9 @@
     <None Include="Service References\WSLOGIN\Vista.WSLOGIN.LoginResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\WSLOGIN\Vista.WSLOGIN.Rut_clienteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WSLOGIN\WSLOGIN.wsdl" />
     <None Include="Service References\WSLOGIN\WSLOGIN.xsd">
       <SubType>Designer</SubType>
@@ -460,18 +463,6 @@
     <Resource Include="img\Medicion1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\WSBancoEstado\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WSBancoEstado\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WSBancoEstado\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="img\Screw-Driver.png" />
     <Resource Include="img\Wire-Stripper.png" />
   </ItemGroup>
@@ -483,6 +474,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\WSLOGIN\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSBancoEstado\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSBancoEstado\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WSBancoEstado\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

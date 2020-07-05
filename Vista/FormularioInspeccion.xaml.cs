@@ -130,7 +130,7 @@ namespace Vista
             txtHumedad.Text = "0";
             cbComuna.SelectedIndex = 0;
 
-            lblIdSolicitud.Visibility = Visibility.Hidden;
+           // lblIdSolicitud.Visibility = Visibility.Hidden;
         }
         //--------BOTÓN CANCELAR-----------------------------------------------
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
@@ -181,6 +181,7 @@ namespace Vista
         private void Limpiar()
         {
             lblNumForm.Content = DateTime.Now.ToString("yyMMddHHmmss");
+            lblIdSolicitud.Content = string.Empty;
             dtfechaIns.SelectedDate = DateTime.Now;
             dtfechaSol.SelectedDate = DateTime.Now;
             txtRutCliente.Focus();
@@ -895,6 +896,7 @@ namespace Vista
 
 
                     btnActualizar.Visibility = Visibility.Visible;
+                    btnEliminar.Visibility = Visibility.Visible;
                     btnGuardar.Visibility = Visibility.Hidden;
 
                 }

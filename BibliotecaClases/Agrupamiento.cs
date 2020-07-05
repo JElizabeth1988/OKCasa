@@ -44,7 +44,7 @@ namespace BibliotecaNegocio
                 foreach (AGRUPAMIENTO item in lista_agru_bdd)
                 {
                     Agrupamiento agr = new Agrupamiento();
-                    agr.id_agrup = item.ID_AGRUP;//number no los toma el int
+                    agr.id_agrup = item.ID_AGRUP;
                     agr.nombre_agr = item.NOMBRE_AGR;
                     lista.Add(agr);
                 }

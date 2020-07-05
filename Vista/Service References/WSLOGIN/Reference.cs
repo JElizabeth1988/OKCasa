@@ -21,6 +21,13 @@ namespace Vista.WSLOGIN {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://ws/WSLOGIN/LoginRequest", ReplyAction="http://ws/WSLOGIN/LoginResponse")]
         System.Threading.Tasks.Task<Vista.WSLOGIN.LoginResponse> LoginAsync(Vista.WSLOGIN.LoginRequest request);
+        
+        // CODEGEN: Se está generando un contrato de mensaje, ya que el nombre de elemento user del espacio de nombres  no está marcado para aceptar valores nil.
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws/WSLOGIN/Rut_clienteRequest", ReplyAction="http://ws/WSLOGIN/Rut_clienteResponse")]
+        Vista.WSLOGIN.Rut_clienteResponse Rut_cliente(Vista.WSLOGIN.Rut_clienteRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://ws/WSLOGIN/Rut_clienteRequest", ReplyAction="http://ws/WSLOGIN/Rut_clienteResponse")]
+        System.Threading.Tasks.Task<Vista.WSLOGIN.Rut_clienteResponse> Rut_clienteAsync(Vista.WSLOGIN.Rut_clienteRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -95,6 +102,78 @@ namespace Vista.WSLOGIN {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Rut_clienteRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Rut_cliente", Namespace="http://ws/", Order=0)]
+        public Vista.WSLOGIN.Rut_clienteRequestBody Body;
+        
+        public Rut_clienteRequest() {
+        }
+        
+        public Rut_clienteRequest(Vista.WSLOGIN.Rut_clienteRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class Rut_clienteRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string user;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string pass;
+        
+        public Rut_clienteRequestBody() {
+        }
+        
+        public Rut_clienteRequestBody(string user, string pass) {
+            this.user = user;
+            this.pass = pass;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class Rut_clienteResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="Rut_clienteResponse", Namespace="http://ws/", Order=0)]
+        public Vista.WSLOGIN.Rut_clienteResponseBody Body;
+        
+        public Rut_clienteResponse() {
+        }
+        
+        public Rut_clienteResponse(Vista.WSLOGIN.Rut_clienteResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="")]
+    public partial class Rut_clienteResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string @return;
+        
+        public Rut_clienteResponseBody() {
+        }
+        
+        public Rut_clienteResponseBody(string @return) {
+            this.@return = @return;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface WSLOGINChannel : Vista.WSLOGIN.WSLOGIN, System.ServiceModel.IClientChannel {
     }
@@ -147,6 +226,33 @@ namespace Vista.WSLOGIN {
             inValue.Body.user = user;
             inValue.Body.pass = pass;
             return ((Vista.WSLOGIN.WSLOGIN)(this)).LoginAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Vista.WSLOGIN.Rut_clienteResponse Vista.WSLOGIN.WSLOGIN.Rut_cliente(Vista.WSLOGIN.Rut_clienteRequest request) {
+            return base.Channel.Rut_cliente(request);
+        }
+        
+        public string Rut_cliente(string user, string pass) {
+            Vista.WSLOGIN.Rut_clienteRequest inValue = new Vista.WSLOGIN.Rut_clienteRequest();
+            inValue.Body = new Vista.WSLOGIN.Rut_clienteRequestBody();
+            inValue.Body.user = user;
+            inValue.Body.pass = pass;
+            Vista.WSLOGIN.Rut_clienteResponse retVal = ((Vista.WSLOGIN.WSLOGIN)(this)).Rut_cliente(inValue);
+            return retVal.Body.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Vista.WSLOGIN.Rut_clienteResponse> Vista.WSLOGIN.WSLOGIN.Rut_clienteAsync(Vista.WSLOGIN.Rut_clienteRequest request) {
+            return base.Channel.Rut_clienteAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Vista.WSLOGIN.Rut_clienteResponse> Rut_clienteAsync(string user, string pass) {
+            Vista.WSLOGIN.Rut_clienteRequest inValue = new Vista.WSLOGIN.Rut_clienteRequest();
+            inValue.Body = new Vista.WSLOGIN.Rut_clienteRequestBody();
+            inValue.Body.user = user;
+            inValue.Body.pass = pass;
+            return ((Vista.WSLOGIN.WSLOGIN)(this)).Rut_clienteAsync(inValue);
         }
     }
 }

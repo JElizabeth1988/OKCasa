@@ -11,15 +11,34 @@
   <message name="LoginResponse">
     <part name="parameters" element="tns:LoginResponse" />
   </message>
+  <message name="Rut_cliente">
+    <part name="parameters" element="tns:Rut_cliente" />
+  </message>
+  <message name="Rut_clienteResponse">
+    <part name="parameters" element="tns:Rut_clienteResponse" />
+  </message>
   <portType name="WSLOGIN">
     <operation name="Login">
       <input wsam:Action="http://ws/WSLOGIN/LoginRequest" message="tns:Login" />
       <output wsam:Action="http://ws/WSLOGIN/LoginResponse" message="tns:LoginResponse" />
     </operation>
+    <operation name="Rut_cliente">
+      <input wsam:Action="http://ws/WSLOGIN/Rut_clienteRequest" message="tns:Rut_cliente" />
+      <output wsam:Action="http://ws/WSLOGIN/Rut_clienteResponse" message="tns:Rut_clienteResponse" />
+    </operation>
   </portType>
   <binding name="WSLOGINPortBinding" type="tns:WSLOGIN">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <operation name="Login">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="Rut_cliente">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

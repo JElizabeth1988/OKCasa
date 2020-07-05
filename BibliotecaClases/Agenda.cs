@@ -180,7 +180,7 @@ namespace BibliotecaNegocio
 
         
 
-        //Lista para read all2
+        //Para retornar datos sin id
         public class ListaAgenda
         {
             public int Id { get; set; }

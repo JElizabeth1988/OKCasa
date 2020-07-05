@@ -101,14 +101,12 @@ namespace Vista
                             }
                             conn.Close();
                             dgLista.ItemsSource = lista_tipos;
-                            //dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
                             btnInvitación.Visibility = Visibility.Visible;//Botón se ve
 
 
                         }
                         catch (Exception ex)
                         {
-                            //System.Console.WriteLine("Excepcion Base de Datos Oracle: {0}", ex.ToString());
                             await this.ShowMessageAsync("Error:",
                                          string.Format("Excepcion Base de Datos Oracle: {0}", ex.ToString()));
                             Logger.Mensaje(ex.Message);
@@ -144,6 +142,7 @@ namespace Vista
 
         private async void btnInvitación_Click(object sender, RoutedEventArgs e)
         {
+            //Proximamente enviará correos, por tiempo no se pudo :(
             //Mostrar mensajes de envío(Solo visual)
             var x = await this.ShowProgressAsync("Por Favor Espere... ", "Enviando Invitación...");
 

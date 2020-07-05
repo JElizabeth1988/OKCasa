@@ -147,11 +147,12 @@ namespace Vista
             CargarInforme();            
 
         }
-        //----------Cargar Grilla para el informe(Sólo clientes con solicitudes)-----------
+        //----------Cargar Grilla para el informe(Sólo clientes con solicitudes confirmadas y sin revisión)-----------
         private void CargarInforme()
         {
             try
             {
+                int contador = 0; //Contador para que presente o no información en la grilla
                 List<BibliotecaNegocio.Solicitud.ListaSolicitud> lista = new List<BibliotecaNegocio.Solicitud.ListaSolicitud>();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
@@ -185,11 +186,23 @@ namespace Vista
 
 
                     lista.Add(C);
+                    contador++;
                 }
                 conn.Close();
-                dgLista.ItemsSource = lista;
-                dgLista.Items.Refresh();
-                //dgLista.Columns[3].Visibility = Visibility.Collapsed;//Esconder campo id---> No funciona :/
+                if (contador >0)
+                {
+                    dgLista.ItemsSource = lista;
+                    dgLista.Items.Refresh();
+                }
+                else
+                {
+                    //Mostrar texto en la Grilla
+                    dgLista.ItemsSource = null;
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("Listado: ");
+                    dt.Rows.Add("No existen clientes con  Solicitudes de servicio");
+                    dgLista.ItemsSource = dt.DefaultView;
+                }
 
                 btnRefrescar.Visibility = Visibility.Hidden;
 
