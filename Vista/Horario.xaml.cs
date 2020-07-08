@@ -245,7 +245,77 @@ namespace Vista
             }
             txtHoraHasta.Text = horaHasta.ToString();
         }
+       
+        //----------Método Borrar
+        public bool Borrar(BibliotecaNegocio.Agenda.ListaAgenda ag)
+        {
+            try
+            {
+                BibliotecaNegocio.Agenda.ListaAgenda age = (BibliotecaNegocio.Agenda.ListaAgenda)dgLista.SelectedItem;
+                int num = age.Id;
+                OracleCommand CMD = new OracleCommand();
+                //que tipo de comando voy a ejecutar
+                CMD.CommandType = System.Data.CommandType.StoredProcedure;
+                //nombre de la conexion
+                CMD.Connection = conn;
+                //nombre del procedimeinto almacenado
+                CMD.CommandText = "SP_ELIMINAR_AGENDA";
+                //////////se crea un nuevo de tipo parametro//nombre parámetro//el tipo//el largo// y el valor es igual al de la clase
+                CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Int32)).Value = num;
 
+                //se abre la conexion
+                conn.Open();
+                //se ejecuta la query 
+                CMD.ExecuteNonQuery();
+                //se cierra la conexioin
+                conn.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+                Logger.Mensaje(ex.Message);
+            }
+        }
+        //------Eliminar--------------------------
+        private async void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                BibliotecaNegocio.Agenda.ListaAgenda agen = new BibliotecaNegocio.Agenda.ListaAgenda();
+
+                var x = await this.ShowMessageAsync("Eliminar Datos: ",
+                         "¿Está Seguro de eliminar agenda?",
+                        MessageDialogStyle.AffirmativeAndNegative);
+                if (x == MessageDialogResult.Affirmative)
+                {
+                    bool resp = Borrar(agen);
+                    if (resp == true)
+                    {
+                        await this.ShowMessageAsync("Éxito:",
+                          string.Format("Agenda Eliminada"));
+                        CargarGrilla();
+                    }
+                    else
+                    {
+                        await this.ShowMessageAsync("Error:",
+                          string.Format("No Eliminado"));
+                    }
+                }
+                else
+                {
+                    await this.ShowMessageAsync("Mensaje:",
+                          string.Format("Operación Cancelada"));
+                }
+            }
+            catch (Exception ex)
+            {
+                await this.ShowMessageAsync("Mensaje:",
+                     string.Format("Error al Eliminar la Información"));
+                Logger.Mensaje(ex.Message);
+            }
+        }
+        //---------Botones´+ y - ------------------------
         private void btnMasMinHasta_Click(object sender, RoutedEventArgs e)
         {
             minHasta++;

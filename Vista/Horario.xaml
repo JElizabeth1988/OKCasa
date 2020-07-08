@@ -71,6 +71,7 @@
             </Grid>
         </GroupBox>
         <Image x:Name="image" HorizontalAlignment="Left" Height="70" Margin="487,27,0,0" VerticalAlignment="Top" Width="198" Source="Imagenes/logo12.png"/>
+        <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="745,510,0,0" VerticalAlignment="Top" Width="75"  FontWeight="Normal" Controls:ButtonHelper.PreserveTextCase="True" RenderTransformOrigin="1.662,0.727" Style="{StaticResource AccentedSquareButtonStyle}" Background="#FF0971B8" FontSize="12" Click="btnEliminar_Click"/>
 
     </Grid>
 </Controls:MetroWindow>
