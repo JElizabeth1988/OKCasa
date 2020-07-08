@@ -23,16 +23,13 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace Vista
 {
-    /// <summary>
-    /// Lógica de interacción para EquiposInspeccion.xaml
-    /// </summary>
     public partial class EquipoInspeccion : MetroWindow
     {
         OracleConnection conn = null;
         public EquipoInspeccion()
         {
             InitializeComponent();
-            conn = new Conexion().Getcone();
+            conn = new Conexion().Getcone();//SE instancia la conexión con DB
             txtNombre.Focus();
             btnActualizar.Visibility = Visibility.Hidden;
             btnEliminar.Visibility = Visibility.Hidden;
@@ -42,7 +39,7 @@ namespace Vista
         {
             Close();
         }
-        //-------------Cargar Grilla
+        //-------------Cargar Grilla-----------------
         private void cargarGrilla()
         {
             try
@@ -73,13 +70,9 @@ namespace Vista
                     btnActualizar.Visibility = Visibility.Visible;
                     btnEliminar.Visibility = Visibility.Visible;
                 }
-
             }
-
-
             catch (Exception ex)
             {
-
                 Logger.Mensaje(ex.Message);
             }
         }
@@ -96,7 +89,6 @@ namespace Vista
             try
             {
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -114,10 +106,8 @@ namespace Vista
             }
             catch (Exception ex)
             {
-
                 return false;
                 Logger.Mensaje(ex.Message);
-
             }
         }
 
@@ -135,36 +125,16 @@ namespace Vista
                 bool resp = Agregar(c);
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format(resp ? "Guardado" : "No Guardado"));
-                /*MessageBox.Show(resp ? "Guardado" : "No Guardado");*/
 
-                //-----------------------------------------------------------------------------------------------
-                //MOSTRAR LISTA DE ERRORES (validación de la clase)
-                if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
-                {
-                    DaoErrores de = c.retornar();
-                    string li = "";
-                    foreach (string item in de.ListarErrores())
-                    {
-                        li += item + " \n";
-                    }
-                    await this.ShowMessageAsync("Mensaje:",
-                        string.Format(li));
-                }
-                else
+                if (resp == true)
                 {
                     Limpiar();
                 }
-            }
-            catch (ArgumentException exa)//mensajes de reglas de negocios
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                      string.Format((exa.Message)));
             }
             catch (Exception ex)
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error de ingreso de datos"));
-                /*MessageBox.Show("Error de ingreso de datos");*/
                 Logger.Mensaje(ex.Message);
 
             }
@@ -185,7 +155,7 @@ namespace Vista
                 BibliotecaNegocio.EquipoTecnico cli = (BibliotecaNegocio.EquipoTecnico)dgLista.SelectedItem;
                 int id = cli.id_equipo;
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando q voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -194,10 +164,9 @@ namespace Vista
                 //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al de la clase
                 CMD.Parameters.Add(new OracleParameter("P_ID", OracleDbType.Int32)).Value = id;
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 20)).Value = eq.nombre;
-
                 //se abre la conexion
                 conn.Open();
-                //se ejecuta la query CON  VARIABLE DE SALIDA (si tiene)
+                //se ejecuta la query 
                 CMD.ExecuteNonQuery();
                 //se cierra la conexioin
                 conn.Close();
@@ -227,32 +196,11 @@ namespace Vista
                 bool resp = Actualizar(c);
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Actualizado" : "No Actualizado"));
-                /*MessageBox.Show(resp ? "Actualizado" : "No Actualizado, (El rut no se debe modificar)");*/
 
-                //-----------------------------------------------------------------------------------------------
-                //MOSTRAR LISTA DE ERRORES
-                if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
-                {
-
-                    DaoErrores de = c.retornar();
-                    string li = "";
-                    foreach (string item in de.ListarErrores())
-                    {
-                        li += item + " \n";
-                    }
-                    await this.ShowMessageAsync("Mensaje:",
-                        string.Format(li));
-                }
-                else
+                if (resp == true)
                 {
                     Limpiar();
                 }
-
-            }
-            catch (ArgumentException exa)//mensajes de reglas de negocios
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                      string.Format((exa.Message)));
             }
             catch (Exception ex)
             {
@@ -272,7 +220,7 @@ namespace Vista
                 BibliotecaNegocio.EquipoTecnico cli = (BibliotecaNegocio.EquipoTecnico)dgLista.SelectedItem;
                 int num = cli.id_equipo;
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando q voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -314,7 +262,6 @@ namespace Vista
                     {
                         await this.ShowMessageAsync("Éxito:",
                           string.Format("Equipo Eliminado"));
-                        /*MessageBox.Show("Cliente eliminado"); */
                         Limpiar();
 
                     }
@@ -322,7 +269,6 @@ namespace Vista
                     {
                         await this.ShowMessageAsync("Error:",
                           string.Format("No Eliminado"));
-                        /*MessageBox.Show("No se eliminó al Cliente");*/
                     }
 
                 }
@@ -330,7 +276,6 @@ namespace Vista
                 {
                     await this.ShowMessageAsync("Mensaje:",
                           string.Format("Operación Cancelada"));
-                    /*MessageBox.Show("Operación Cancelada");*/
                 }
             }
             catch (Exception ex)
@@ -338,7 +283,6 @@ namespace Vista
 
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format("Error al Eliminar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
             }
         }

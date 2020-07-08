@@ -33,12 +33,10 @@ namespace Vista
         public ListadoFormulario()
         {
             InitializeComponent();
-            conn = new Conexion().Getcone();
+            conn = new Conexion().Getcone();//Conexión
             txtFiltroNumero.Focus();
-
             btnPasar.Visibility = Visibility.Hidden;
             CargarGrilla();
-
         }
 
         //-----------------Cargar Grilla--------------------
@@ -55,8 +53,6 @@ namespace Vista
                 cmd.Connection = conn;
                 //procedimiento
                 cmd.CommandText = "SP_LISTAR_INFORME";
-
-                //cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
                 //Se agrega el parametro de salida
                 cmd.Parameters.Add(new OracleParameter("INFORMES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
                 //se abre la conexion
@@ -106,20 +102,15 @@ namespace Vista
                     i.Solicitud = int.Parse(dr.GetValue(34).ToString());
                     i.Fecha_solicitud = DateTime.Parse(dr.GetValue(35).ToString());
 
-
                     lista.Add(i);
                 }
+                //Cerrar conexión
                 conn.Close();
 
                 dgLista.ItemsSource = lista;
-                // dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
-
-
-
             }
             catch (Exception ex)
             {
-
                 Logger.Mensaje(ex.Message);
             }
         }
@@ -128,13 +119,10 @@ namespace Vista
         public ListadoFormulario(FormularioInspeccion origen)
         {
             InitializeComponent();
-            conn = new Conexion().Getcone();
+            conn = new Conexion().Getcone();//Conexión
             formu = origen;
-
             btnPasar.Visibility = Visibility.Visible;//el botón traspasar se ve
-
             CargarGrilla();
-
         }
 
 
@@ -163,10 +151,8 @@ namespace Vista
             }
             catch (Exception ex)
             {
-
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format("Error al traspasar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
             }
         }
@@ -177,7 +163,7 @@ namespace Vista
             {
                 long numero = long.Parse(txtFiltroNumero.Text);
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
 
                 List<BibliotecaNegocio.Informe.ListaInforme> clie = new List<BibliotecaNegocio.Informe.ListaInforme>();
@@ -245,10 +231,7 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error al filtrar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
-
-                dgLista.Items.Refresh();
             }
         }
 
@@ -259,7 +242,7 @@ namespace Vista
             {
                 string rut = txtFiltroRut.Text;
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
 
                 List<BibliotecaNegocio.Informe.ListaInforme> clie = new List<BibliotecaNegocio.Informe.ListaInforme>();
@@ -320,6 +303,7 @@ namespace Vista
 
                 }
                 dgLista.ItemsSource = clie;
+                //Cerrar conexión
                 conn.Close();
 
             }
@@ -327,15 +311,11 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error al filtrar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
 
                 dgLista.Items.Refresh();
             }
         }
         
-       
-
-
     }
 }

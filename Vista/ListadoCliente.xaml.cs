@@ -28,45 +28,24 @@ namespace Vista
     
     public partial class ListadoCliente : MetroWindow
     {
-        //This
+        //This (Origen)
         Cliente cli;
         FormularioInspeccion form;
-        ListadoFormulario liForm;
 
         OracleConnection conn = null;
 
         public ListadoCliente()
         {
             InitializeComponent();
+            //Se instancia la conexión a la BD
             conn = new Conexion().Getcone();
-
-            txtFiltroRut.Focus();
-
+            txtFiltroRut.Focus();//Cursor inicia en la casilla de filtro
             btnPasar.Visibility = Visibility.Hidden;//el botón traspasar no se ve
             btnPasarAForm.Visibility = Visibility.Hidden;//no se ve
-
-            btnFiltrarRut.Visibility = Visibility.Visible;
-            btnFiltrarRutFor.Visibility = Visibility.Hidden;
-
-            btnRefrescar2.Visibility = Visibility.Hidden;
-            CargarGrilla();
-           
-
-            /*try-----------> Código sin procedure
-            {
-                BibliotecaNegocio.Cliente cl = new BibliotecaNegocio.Cliente();
-                dgLista.ItemsSource = cl.ReadAll2();
-                dgLista.Items.Refresh();
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("Error!" + ex.Message);
-                Logger.Mensaje(ex.Message);
-            }*/
-
-
+            btnFiltrarRut.Visibility = Visibility.Visible;//Se ve
+            btnFiltrarRutFor.Visibility = Visibility.Hidden;//No se ve
+            btnRefrescar2.Visibility = Visibility.Hidden;//No se ve
+            CargarGrilla();          
         }
 
         //------------Cargar Grilla---------------------
@@ -74,18 +53,17 @@ namespace Vista
         {
             try
             {
+                //Lista de cleintes
                 List<BibliotecaNegocio.Cliente.ListaClientes> lista = new List<BibliotecaNegocio.Cliente.ListaClientes>();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
-                //se ejecutan los comandos de procedimeintos
+                //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 //conexion
                 cmd.Connection = conn;
                 //procedimiento
                 cmd.CommandText = "SP_LISTAR_CLIENTE2";
-
-                //cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
-                //Se agrega el parametro de salida
+                //Se agrega el parámetro de salida
                 cmd.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
                 //se abre la conexion
                 conn.Open();
@@ -113,9 +91,6 @@ namespace Vista
                 conn.Close();
 
                 dgLista.ItemsSource = lista;
-                // dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
-
-
 
             }
             catch (Exception ex)
@@ -132,21 +107,20 @@ namespace Vista
         public ListadoCliente(FormularioInspeccion origen)
         {
             InitializeComponent();
+            //Instanciar la conexión a la BD
             conn = new Conexion().Getcone();
             form = origen;
-
-            btnPasarAForm.Visibility = Visibility.Visible;//el botón traspasar se ve
-            
+            //Ocultar (Hidden) y mostrar (Visible) botones
+            btnPasarAForm.Visibility = Visibility.Visible;
             btnPasar.Visibility = Visibility.Hidden;
-
             btnRefrescar.Visibility = Visibility.Hidden;
             btnRefrescar2.Visibility = Visibility.Visible;
-
             btnFiltrarRut.Visibility = Visibility.Hidden;
             btnFiltrarRutFor.Visibility = Visibility.Visible;
             CargarInforme();            
 
         }
+
         //----------Cargar Grilla para el informe(Sólo clientes con solicitudes confirmadas y sin revisión)-----------
         private void CargarInforme()
         {
@@ -156,14 +130,12 @@ namespace Vista
                 List<BibliotecaNegocio.Solicitud.ListaSolicitud> lista = new List<BibliotecaNegocio.Solicitud.ListaSolicitud>();
                 //se crea un comando de oracle
                 OracleCommand cmd = new OracleCommand();
-                //se ejecutan los comandos de procedimeintos
+                //se ejecutan los comandos de procedimientos
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 //conexion
                 cmd.Connection = conn;
                 //procedimiento
                 cmd.CommandText = "SP_LISTAR_CLIENTE_INF";
-
-                //cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
                 //Se agrega el parametro de salida
                 cmd.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
                 //se abre la conexion
@@ -184,30 +156,33 @@ namespace Vista
                     C.id_solicitud = int.Parse(dr.GetValue(5).ToString());
                     C.Comuna = dr.GetValue(6).ToString();
 
-
                     lista.Add(C);
-                    contador++;
+                    contador = 1;//Contador aumenta 1 si encontró resultados
                 }
                 conn.Close();
-                if (contador >0)
+                if (contador > 0)//En caso de que el cursor traíga datos
                 {
                     dgLista.ItemsSource = lista;
                     dgLista.Items.Refresh();
+                    btnPasarAForm.Visibility = Visibility.Visible;
+                    txtFiltroRut.IsEnabled = true;
+                    btnFiltrarRutFor.Visibility = Visibility.Visible;
                 }
                 else
                 {
                     //Mostrar texto en la Grilla
                     dgLista.ItemsSource = null;
                     DataTable dt = new DataTable();
-                    dt.Columns.Add("Listado: ");
-                    dt.Rows.Add("No existen clientes con  Solicitudes de servicio");
+                    dt.Columns.Add("Listado:");
+                    dt.Rows.Add("No existen clientes con solicitudes confirmadas");
                     dgLista.ItemsSource = dt.DefaultView;
+                    //Esconder botones que no son necesarios en caso de que no exista información
+                    btnPasarAForm.Visibility = Visibility.Hidden;
+                    txtFiltroRut.IsEnabled = false;
+                    btnFiltrarRut.Visibility = Visibility.Hidden;
+                    btnFiltrarRutFor.Visibility = Visibility.Hidden;
                 }
-
                 btnRefrescar.Visibility = Visibility.Hidden;
-
-
-
             }
             catch (Exception ex)
             {
@@ -220,36 +195,34 @@ namespace Vista
         public ListadoCliente(Cliente origen)
         {
             InitializeComponent();
+            //Instanciar conexión a BD
             conn = new Conexion().Getcone();
             cli = origen;
-
-            btnPasar.Visibility = Visibility.Visible;//el botón traspasar se ve
-           
+            //Mostrar(Visibility) y esconder(Hidden) botones
+            btnPasar.Visibility = Visibility.Visible;        
             btnPasarAForm.Visibility = Visibility.Hidden;
             btnRefrescar.Visibility = Visibility.Visible;
             btnRefrescar2.Visibility = Visibility.Hidden;
-
             btnFiltrarRut.Visibility = Visibility.Visible;
             btnFiltrarRutFor.Visibility = Visibility.Hidden;
             CargarGrilla();
         }
 
-        //-----------Botón Refrescar readAll2-------------------------------
+        //-----------Botón Refrescar -------------------------------
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {
             btnFiltrarRut.Visibility = Visibility.Visible;
             btnFiltrarRutFor.Visibility = Visibility.Hidden;
-
             CargarGrilla();
         }
-        //-----------Refrescar 2---------------------------------------------------------
+
+        //-----------Refrescar 2 (informe)---------------------------------------------------------
         private void btnRefrescar2_Click(object sender, RoutedEventArgs e)
         {
 
             btnRefrescar.Visibility = Visibility.Hidden;
             btnPasar.Visibility = Visibility.Hidden;
             btnPasarAForm.Visibility = Visibility.Visible;
-
             btnFiltrarRut.Visibility = Visibility.Hidden;
             btnFiltrarRutFor.Visibility = Visibility.Visible;
 
@@ -267,11 +240,9 @@ namespace Vista
             try
             {
                 BibliotecaNegocio.Cliente.ListaClientes cl = (BibliotecaNegocio.Cliente.ListaClientes)dgLista.SelectedItem;
-                string rutbuscar;
-                rutbuscar = cli.txtRut + "-" + cli.txtDV;
+                string rutbuscar = cli.txtRut + "-" + cli.txtDV;
                 cli.txtRut.Text = cl.Rut;
                 cli.Buscar();
-
 
                 Close();
             }
@@ -293,12 +264,9 @@ namespace Vista
             try
             {
                 BibliotecaNegocio.Solicitud.ListaSolicitud cl = (BibliotecaNegocio.Solicitud.ListaSolicitud)dgLista.SelectedItem;
-                string rutbuscar;
-                rutbuscar = form.txtRutCliente.Text;
+                string rutbuscar = form.txtRutCliente.Text;
                 form.txtRutCliente.Text = cl.Rut;
                 form.Buscar();
-
-
                 Close();
             }
             catch (Exception ex)
@@ -306,7 +274,6 @@ namespace Vista
 
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format("Error al traspasar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
             }
         }
@@ -320,9 +287,8 @@ namespace Vista
             {
                 string rut = txtFiltroRut.Text;
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
-
                 List<BibliotecaNegocio.Cliente.ListaClientes> clie = new List<BibliotecaNegocio.Cliente.ListaClientes>();
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -333,9 +299,11 @@ namespace Vista
                 CMD.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
 
                 //se abre la conexion
-                conn.Open();
+                conn.Open(); 
+                //Reader
                 OracleDataReader reader = CMD.ExecuteReader();
                 BibliotecaNegocio.Cliente.ListaClientes c = null;
+                //Mientras lee
                 while (reader.Read())
                 {
                     c = new BibliotecaNegocio.Cliente.ListaClientes();
@@ -360,13 +328,11 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error al filtrar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
-
-                dgLista.Items.Refresh();
+                CargarGrilla();
             }
         }
-
+        //Filtro Rut que sirve para informe (Clientes con solicitudes)
         private async void btnFiltrarRutFor_Click(object sender, RoutedEventArgs e)
         {
             btnFiltrarRut.Visibility = Visibility.Hidden;
@@ -375,7 +341,7 @@ namespace Vista
             {
                 string rut = txtFiltroRut.Text;
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
 
                 List<BibliotecaNegocio.Solicitud.ListaSolicitud> clie = new List<BibliotecaNegocio.Solicitud.ListaSolicitud>();
@@ -416,7 +382,7 @@ namespace Vista
                 /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
 
-                dgLista.Items.Refresh();
+                CargarInforme();
             }
         }
     }

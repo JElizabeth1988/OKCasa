@@ -19,9 +19,6 @@ using MahApps.Metro.Behaviours;
 
 namespace Vista
 {
-    /// <summary>
-    /// Lógica de interacción para Login.xaml
-    /// </summary>
     public partial class Login : MetroWindow
     {
         public Login()

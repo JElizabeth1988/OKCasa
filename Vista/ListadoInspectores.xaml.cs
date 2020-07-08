@@ -23,22 +23,18 @@ using Oracle.ManagedDataAccess.Client;
 using System.Data;
 namespace Vista
 {
-    /// <summary>
-    /// Lógica de interacción para ListadoInspectores.xaml
-    /// </summary>
     public partial class ListadoInspectores : MetroWindow
     {
         //This
         Tecnico tec;
         FormularioInspeccion form;
-        ListadoFormulario liForm;
 
         OracleConnection conn = null;
 
         public ListadoInspectores()
         {
             InitializeComponent();
-            conn = new Conexion().Getcone();
+            conn = new Conexion().Getcone();//Conexión
             txtFiltroRut.Focus();
 
             btnPasar.Visibility = Visibility.Hidden;//Btn no se ve
@@ -59,9 +55,7 @@ namespace Vista
             }
 
             cbEquipo.SelectedIndex = 0;
-            CargarGrilla();
-            
-            
+            CargarGrilla();         
         }
         //-------------Cargar Grilla------------------------------
         private void CargarGrilla()
@@ -77,8 +71,6 @@ namespace Vista
                 cmd.Connection = conn;
                 //procedimiento
                 cmd.CommandText = "SP_LISTAR_TECNICO2";
-
-                //cmd.Parameters.Add(new OracleParameter("RUT", OracleDbType.Varchar2)).Value = rut;
                 //Se agrega el parametro de salida
                 cmd.Parameters.Add(new OracleParameter("TECNICOS", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
                 //se abre la conexion
@@ -105,17 +97,13 @@ namespace Vista
 
                     lista.Add(C);
                 }
+                //Cerrar conn
                 conn.Close();
 
                 dgLista.ItemsSource = lista;
-                //dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
-
-
-
             }
             catch (Exception ex)
             {
-
                 Logger.Mensaje(ex.Message);
             }
         }
@@ -150,17 +138,13 @@ namespace Vista
 
                     lista.Add(C);
                 }
+                //Cerrar
                 conn.Close();
 
                 dgLista.ItemsSource = lista;
-                //dgLista.Columns[0].Visibility = Visibility.Collapsed;//Esconder campo id
-
-
-
             }
             catch (Exception ex)
             {
-
                 Logger.Mensaje(ex.Message);
             }
         }
@@ -168,7 +152,7 @@ namespace Vista
         public ListadoInspectores(Tecnico origen)
         {
             InitializeComponent();
-            conn = new Conexion().Getcone();
+            conn = new Conexion().Getcone();//Conexión
             tec = origen;
             txtFiltroRut.Focus();
 
@@ -199,7 +183,7 @@ namespace Vista
         public ListadoInspectores(FormularioInspeccion origen)
         {
             InitializeComponent();
-            conn = new Conexion().Getcone();
+            conn = new Conexion().Getcone();//Conexión
             form = origen;
             txtFiltroRut.Focus();
 
@@ -246,7 +230,7 @@ namespace Vista
             {
                 int equipo = ((comboBoxItem1)cbEquipo.SelectedItem).id;//Recupero el id
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
 
                 List<BibliotecaNegocio.Tecnico.ListaTecnico> clie = new List<BibliotecaNegocio.Tecnico.ListaTecnico>();
@@ -288,10 +272,7 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error al filtrar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
-
-                dgLista.Items.Refresh();
             }
         }
         
@@ -301,24 +282,17 @@ namespace Vista
             btnPasar.Visibility = Visibility.Visible;
             try
             {
-
-
                 BibliotecaNegocio.Tecnico.ListaTecnico cl = (BibliotecaNegocio.Tecnico.ListaTecnico)dgLista.SelectedItem;
                 string rutbuscar;
                 rutbuscar = tec.txtRut + "-" + tec.txtDV;
                 tec.txtRut.Text = cl.Rut;
                 tec.Buscar();
-
-
-
                 Close();
             }
             catch (Exception ex)
             {
-
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format("Error al traspasar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
             }
         }
@@ -334,16 +308,12 @@ namespace Vista
                 rutbuscar = form.txtRutTecnico.Text;
                 form.txtRutTecnico.Text = cl.Rut;
                 form.BuscarTec();
-
-
                 Close();
             }
             catch (Exception ex)
             {
-
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format("Error al traspasar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
             }
         }
@@ -352,7 +322,7 @@ namespace Vista
         {
             CargarInforme();
         }
-
+        //-------Filtro rut informe
         private async void btnFiltrarRutInf_Click(object sender, RoutedEventArgs e)
         {
             btnFiltrarRut.Visibility = Visibility.Hidden;
@@ -361,7 +331,7 @@ namespace Vista
             {
                 string rut = txtFiltroRut.Text;
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
 
                 List<BibliotecaNegocio.Tecnico.ListaTecnico2> clie = new List<BibliotecaNegocio.Tecnico.ListaTecnico2>();
@@ -395,7 +365,6 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error al filtrar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
 
                 dgLista.Items.Refresh();
@@ -410,7 +379,7 @@ namespace Vista
             {
                 string nombre = cbEquipo.Text;
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
 
                 List<BibliotecaNegocio.Tecnico.ListaTecnico2> clie = new List<BibliotecaNegocio.Tecnico.ListaTecnico2>();
@@ -444,7 +413,6 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error al filtrar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
 
                 dgLista.Items.Refresh();
@@ -459,7 +427,7 @@ namespace Vista
             {
                 string rut = txtFiltroRut.Text;
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comand voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
 
                 List<BibliotecaNegocio.Tecnico.ListaTecnico> clie = new List<BibliotecaNegocio.Tecnico.ListaTecnico>();
@@ -501,7 +469,6 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error al filtrar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
 
                 dgLista.Items.Refresh();

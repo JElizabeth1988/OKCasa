@@ -25,9 +25,6 @@ using BibliotecaDALC;
 
 namespace Vista
 {
-    /// <summary>
-    /// Lógica de interacción para Cliente.xaml
-    /// </summary>
     public partial class Cliente : MetroWindow
     {
         OracleConnection conn = null;
@@ -39,7 +36,7 @@ namespace Vista
             txtDV.IsEnabled = false;//DV no se puede editar
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
             btnEliminar.Visibility = Visibility.Hidden;
-            txtRut.Focus();
+            txtRut.Focus();//Focus en el rut
 
             //llenar el combo box 
             foreach (Comuna item in new Comuna().ReadAll())
@@ -51,9 +48,7 @@ namespace Vista
             }
             
             cboComuna.SelectedIndex = 0;
-            txtTelefono.Text = "0";
-
-            
+            txtTelefono.Text = "0";            
         }
         //----------Validación Solo acepta valores numéricos
         private void txtNumeros_KeyDown(object sender, KeyEventArgs e)
@@ -61,7 +56,6 @@ namespace Vista
             if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
             {
                 e.Handled = false;
-
             }
             else
             {
@@ -117,7 +111,7 @@ namespace Vista
             try
             {
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -133,12 +127,13 @@ namespace Vista
                 CMD.Parameters.Add(new OracleParameter("P_TELEFONO", OracleDbType.Int32)).Value = client.telefono;
                 CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 50)).Value = client.email;
                 CMD.Parameters.Add(new OracleParameter("P_ID_COMUNA", OracleDbType.Int32)).Value = client.id_comuna;
-                //Seabre la conexión
+                //Se abre la conexión
                 conn.Open();
                 //se ejecuta la query 
                 CMD.ExecuteNonQuery();
                 //se cierra la conexioin
                 conn.Close();
+                //Retorno
                return true;
             }
             catch (Exception ex)
@@ -183,14 +178,10 @@ namespace Vista
                     email = mail,
                     id_comuna = Comuna
                     
-                    
-                    
                 };
                 bool resp = Agregar(c);
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format(resp ? "Guardado" : "No Guardado"));
-                /*MessageBox.Show(resp ? "Guardado" : "No Guardado");*/
-                
                 //-----------------------------------------------------------------------------------------------
                 //MOSTRAR LISTA DE ERRORES (validación de la clase)
                 if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
@@ -247,10 +238,11 @@ namespace Vista
                 CMD.Parameters.Add(new OracleParameter("P_ID_COMUNA", OracleDbType.Int32)).Value = client.id_comuna;
                 //Abrir conexión
                 conn.Open();
-                //se ejecuta la query CON  VARIABLE DE SALIDA (si tiene)
+                //se ejecuta la query
                 CMD.ExecuteNonQuery();
                 //se cierra la conexioin
                 conn.Close();
+                //Retorno
                 return true;
             }
             catch (Exception ex)
@@ -290,7 +282,6 @@ namespace Vista
                 bool resp = Actualizar(c);
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Actualizado" : "No Actualizado"));
-                /*MessageBox.Show(resp ? "Actualizado" : "No Actualizado, (El rut no se debe modificar)");*/
 
                 //-----------------------------------------------------------------------------------------------
                 //MOSTRAR LISTA DE ERRORES
@@ -370,6 +361,7 @@ namespace Vista
                     clie.Add(c);
 
                 }
+                //Cerrar conexión
                 conn.Close();
                 if (c != null)//Si la lista no esta vacía entrego parámetros a los textBox y CB
                 {
@@ -392,98 +384,6 @@ namespace Vista
                     cboComuna.Text = co.nombre;//Cambiar a nombre
                     //--------------------
                     btnModificar.Visibility = Visibility.Visible;
-                    btnGuardar.Visibility = Visibility.Hidden;//Guardar desaparece
-                    btnEliminar.Visibility = Visibility.Visible;
-
-                }
-                else
-                {
-                    await this.ShowMessageAsync("Mensaje:",
-                        string.Format("No se encontraron resultados!"));
-                    /*MessageBox.Show("No se encontraron resultados!");*/
-                }
-            }
-            catch (Exception ex)
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Error al Buscar Información! "));
-                /*MessageBox.Show("error al buscar");*/
-                Logger.Mensaje(ex.Message);
-
-            }
-        }
-
-
-       
-        //----------------------Botón Buscar (de administrar cliente)---------------
-        private async void btnBuscar_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                string rut = txtRut.Text + "-" + txtDV.Text;
-
-                if (rut.Length == 9)
-                {
-                    rut = "0" + txtRut.Text + "-" + txtDV.Text;
-                }
-                OracleCommand CMD = new OracleCommand();
-                //que tipo de comando voy a ejecutar
-                CMD.CommandType = System.Data.CommandType.StoredProcedure;
-                
-                List<BibliotecaNegocio.Cliente> clie = new List<BibliotecaNegocio.Cliente>();
-                //nombre de la conexion
-                CMD.Connection = conn;
-                //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_BUSCAR_CLIENTE2";
-                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
-                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 10)).Value = rut;
-                CMD.Parameters.Add(new OracleParameter("CLIENTES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
-
-                //se abre la conexion
-                conn.Open();
-                OracleDataReader reader = CMD.ExecuteReader();
-                BibliotecaNegocio.Cliente c = null;
-                while (reader.Read())
-                {
-                    c = new BibliotecaNegocio.Cliente();
-
-                    c.rut_cliente = reader[0].ToString();
-                    c.primer_nombre = reader[1].ToString();
-                    c.segundo_nombre = reader[2].ToString();
-                    c.ap_paterno = reader[3].ToString();
-                    c.ap_materno = reader[4].ToString();
-                    c.direccion = reader[5].ToString();
-                    c.telefono = int.Parse(reader[6].ToString());
-                    c.email = reader[7].ToString();
-                    c.id_comuna = int.Parse(reader[8].ToString());
-
-                    clie.Add(c);
-
-                }
-                    conn.Close();
-                   
-                    
-                if (c !=null)
-                {
-                    txtRut.Text = c.rut_cliente.Substring(0, 8);
-                    txtDV.Text = c.rut_cliente.Substring(9, 1);
-                    txtRut.IsEnabled = false;
-                    txtDV.IsEnabled = false;
-
-                    txtNombre.Text = c.primer_nombre;
-                    txtSegNombre.Text = c.segundo_nombre;
-                    txtApeMaterno.Text = c.ap_paterno;
-                    txtApPaterno.Text = c.ap_materno;
-                    txtEmail.Text = c.email;
-                    txtDireccion.Text = c.direccion;
-                    txtTelefono.Text = c.telefono.ToString();
-
-                    Comuna co = new Comuna();
-                    co.id_comuna = c.id_comuna;
-                    co.Read();
-                    cboComuna.Text = co.nombre;//Cambiar a nombre
-
-                    btnModificar.Visibility = Visibility.Visible;
                     btnGuardar.Visibility = Visibility.Hidden;
                     btnEliminar.Visibility = Visibility.Visible;
 
@@ -492,20 +392,21 @@ namespace Vista
                 {
                     await this.ShowMessageAsync("Mensaje:",
                         string.Format("No se encontraron resultados!"));
-                    /*MessageBox.Show("No se encontraron resultados!");*/
                 }
             }
             catch (Exception ex)
             {
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format("Error al Buscar Información! "));
-                /*MessageBox.Show("error al buscar");*/
                 Logger.Mensaje(ex.Message);
-
             }
         }
-
-
+       
+        //----------------------Botón Buscar (de administrar cliente)---------------
+        private async void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            Buscar();
+        }
 
         //---------Método Eliminar-----------------------------------------------
         public bool Eliminar(BibliotecaNegocio.Cliente client)
@@ -560,23 +461,18 @@ namespace Vista
                     {
                         await this.ShowMessageAsync("Éxito:",
                           string.Format("Cliente Eliminado"));
-                        /*MessageBox.Show("Cliente eliminado"); */
                         Limpiar();
-
                     }
                     else
                     {
                         await this.ShowMessageAsync("Error:",
                           string.Format("No Eliminado"));
-                        /*MessageBox.Show("No se eliminó al Cliente");*/
                     }
-
                 }
                 else
                 {
                     await this.ShowMessageAsync("Mensaje:",
                           string.Format("Operación Cancelada"));
-                    /*MessageBox.Show("Operación Cancelada");*/
                 }
             }
             catch (Exception ex)
@@ -645,9 +541,9 @@ namespace Vista
                     //Si se uso rutFormateado = rut.ToString("N0"); la salida esperada para el ejemplo es 99.999.999-K
                     txtRut.Text = rutFormateado;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
+                    Logger.Mensaje(ex.Message);
                 }
             }
             else
@@ -656,5 +552,4 @@ namespace Vista
             }
         }
     }
-
 }

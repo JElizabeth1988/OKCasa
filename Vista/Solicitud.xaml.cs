@@ -24,9 +24,6 @@ using System.Data;
 
 namespace Vista
 {
-    /// <summary>
-    /// Lógica de interacción para Solicitud.xaml
-    /// </summary>
     public partial class Solicitud : MetroWindow
     {
         OracleConnection conn = null;
@@ -34,7 +31,7 @@ namespace Vista
         {
 
             InitializeComponent();
-            conn = new Conexion().Getcone();
+            conn = new Conexion().Getcone();//Conexión
             CargarGrilla();
             //----ComboBox-------
             foreach (BibliotecaNegocio.Servicio item in new BibliotecaNegocio.Servicio().ReadAll())
@@ -44,10 +41,7 @@ namespace Vista
                 cb.nombre = item.nombre;
                 cbFiltro.Items.Add(cb);
             }
-
             cbFiltro.SelectedIndex = 0;
-
-
         }
     
         private void CargarGrilla()
@@ -99,22 +93,18 @@ namespace Vista
                     dt.Rows.Add("No existen solicitudes Pendientes");
                     dgResultado.ItemsSource = dt.DefaultView;
                 }
-
-
-
             }
             catch (Exception ex)
             {
-
                 Logger.Mensaje(ex.Message);
             }
         }
-
+        //-----Salir---------------
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
+        //-----Confirmar-----------------------------
         private async void btnConfirmar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -123,7 +113,7 @@ namespace Vista
                 int id = cli.id;
 
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -132,7 +122,7 @@ namespace Vista
                 //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al de la clase
                 CMD.Parameters.Add(new OracleParameter("P_SOLICITUD", OracleDbType.Int32)).Value = id;
                 conn.Open();
-                //se ejecuta la query CON  VARIABLE DE SALIDA (si tiene)
+                //se ejecuta la query 
                 CMD.ExecuteNonQuery();
                 //se cierra la conexioin
                 conn.Close();
@@ -144,18 +134,17 @@ namespace Vista
             catch (Exception ex)
             {
                 Logger.Mensaje(ex.Message);
-
             }
 
         }
-
+        //--------Filtro---------------
         private async void btnFiltro_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 string nombre = cbFiltro.Text;
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
 
                 List<BibliotecaNegocio.Solicitud.ListaSolicitud2> clie = new List<BibliotecaNegocio.Solicitud.ListaSolicitud2>();
@@ -194,13 +183,12 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error al filtrar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
 
                 dgResultado.Items.Refresh();
             }
         }
-
+        //-------Btn Refrescar------------------
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {
             CargarGrilla();

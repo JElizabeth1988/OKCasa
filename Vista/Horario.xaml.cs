@@ -24,9 +24,6 @@ using System.Data;
 
 namespace Vista
 {
-    /// <summary>
-    /// Lógica de interacción para Horario.xaml
-    /// </summary>
     public partial class Horario : MetroWindow
     {
         OracleConnection conn = null;
@@ -37,15 +34,15 @@ namespace Vista
         public Horario()
         {
             InitializeComponent();
-            conn = new Conexion().Getcone();
+            conn = new Conexion().Getcone();//Instanciar conexión
             cbEquipo.Focus();
             cbEquipo.SelectedIndex = 0;
-            txtHora.Text = DateTime.Now.Hour.ToString();
-            txtMinuto.Text = DateTime.Now.Minute.ToString();
-            txtHoraHasta.Text = DateTime.Now.Hour.ToString();
-            txtMinHasta.Text = DateTime.Now.Minute.ToString();
-            ClFecha.SelectedDate = DateTime.Now;
-
+            txtHora.Text = DateTime.Now.Hour.ToString();//Hora
+            txtMinuto.Text = DateTime.Now.Minute.ToString();//Minuto
+            txtHoraHasta.Text = DateTime.Now.Hour.ToString();//Hora
+            txtMinHasta.Text = DateTime.Now.Minute.ToString();//Minuto
+            ClFecha.SelectedDate = DateTime.Now;//Día actual
+            //ComboBox
             foreach (EquipoTecnico item in new EquipoTecnico().ReadAll())
             {
                 comboBoxItem1 cb = new comboBoxItem1();
@@ -55,18 +52,19 @@ namespace Vista
             }
 
         }
-        
+        //---------Botón Salir-----------------
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
+        //---------Método Agregar------------------
         private bool Agregar(BibliotecaNegocio.Agenda ag)
         {
             try
             {
                 
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -78,10 +76,11 @@ namespace Vista
                 CMD.Parameters.Add(new OracleParameter("P_ID_EQUIPO", OracleDbType.Int32)).Value = ag.id_equipo;
                 //se abre la conexion
                 conn.Open();
-                //se ejecuta la query CON  VARIABLE DE SALIDA en caso de tener
+                //se ejecuta la query 
                 CMD.ExecuteNonQuery();
                 //se cierra la conexioin
                 conn.Close();
+                //Retorno
                 return true;
             }
 
@@ -102,7 +101,7 @@ namespace Vista
                 string horaDesde = txtHora.Text;
                 if (horaDesde.Length < 2)
                 {
-                    horaDesde = "0" + txtHora.Text;
+                    horaDesde = "0" + txtHora.Text;//agrego un cero antes si es de 1 dígito
                 }
 
                 string MinDesde = txtMinuto.Text;
@@ -134,37 +133,28 @@ namespace Vista
                 bool resp = Agregar(c);
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format(resp ? "Guardado" : "No Guardado"));
-                /*MessageBox.Show(resp ? "Guardado" : "No Guardado");*/
 
-                //-----------------------------------------------------------------------------------------------
-                //MOSTRAR LISTA DE ERRORES (validación de la clase)
-                if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
+                if (resp == true)
                 {
-                    DaoErrores de = c.retornar();
-                    string li = "";
-                    foreach (string item in de.ListarErrores())
-                    {
-                        li += item + " \n";
-                    }
-                    await this.ShowMessageAsync("Mensaje:",
-                        string.Format(li));
+                    cbEquipo.Focus();
+                    cbEquipo.SelectedIndex = 0;
+                    txtHora.Text = DateTime.Now.Hour.ToString();//Hora
+                    txtMinuto.Text = DateTime.Now.Minute.ToString();//Minuto
+                    txtHoraHasta.Text = DateTime.Now.Hour.ToString();//Hora
+                    txtMinHasta.Text = DateTime.Now.Minute.ToString();//Minuto
+                    ClFecha.SelectedDate = DateTime.Now;//Día actual
+
                 }
                 
-            }
-            catch (ArgumentException exa)//mensajes de reglas de negocios
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                      string.Format((exa.Message)));
             }
             catch (Exception ex)
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error de ingreso de datos"));
-                /*MessageBox.Show("Error de ingreso de datos");*/
                 Logger.Mensaje(ex.Message);
-
             }
         }
+        //Cargar Data Grid
         private void CargarGrilla()
         {
             try
@@ -193,17 +183,14 @@ namespace Vista
                 conn.Close();
 
                 dgLista.ItemsSource = lista;
-                dgLista.Columns[0].Visibility = Visibility.Collapsed;//Ocullto la columna id, para que no sea modificada
-                
+                dgLista.Columns[0].Visibility = Visibility.Collapsed;//Ocullto la columna id                
             }
             catch (Exception ex)
             {
-
                 Logger.Mensaje(ex.Message);
             }
-
-
         }
+        //-------Listado----------------
         private async void btnLista_Click(object sender, RoutedEventArgs e)
         {
             CargarGrilla();

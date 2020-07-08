@@ -25,15 +25,13 @@ using System.Data;
 
 namespace Vista
 {
-    /// <summary>
-    /// Lógica de interacción para DevolverInsumo.xaml
-    /// </summary>
     public partial class DevolverInsumo : MetroWindow
     {
         OracleConnection conn = null;
         public DevolverInsumo()
         {
             InitializeComponent();
+            //Instanciar conexión con DB
             conn = new Conexion().Getcone();
 
         }
@@ -101,18 +99,12 @@ namespace Vista
                 BibliotecaNegocio.Insumo.ListaInsumos2 cli = (BibliotecaNegocio.Insumo.ListaInsumos2)dgLista.SelectedItem;
                 int id_insumo = cli.id_insumo;
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
-                //nombre de la conexion
                 CMD.Connection = conn;
-                //nombre del procedimeinto almacenado
                 CMD.CommandText = "SP_DEVOLVER_INSUMO";
-                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al de la clase
                 CMD.Parameters.Add(new OracleParameter("P_ID_INSUMO", OracleDbType.Int32)).Value = id_insumo;
                 conn.Open();
-                //se ejecuta la query CON  VARIABLE DE SALIDA (si tiene)
                 CMD.ExecuteNonQuery();
-                //se cierra la conexioin
                 conn.Close();
 
                 await this.ShowMessageAsync("Mensaje:",

@@ -26,16 +26,13 @@ using System.Data;
 
 namespace Vista
 {
-    /// <summary>
-    /// Lógica de interacción para Servicio.xaml
-    /// </summary>
     public partial class Servicio : MetroWindow
     {
         OracleConnection conn = null;
         public Servicio()
         {
             InitializeComponent();
-            conn = new Conexion().Getcone();
+            conn = new Conexion().Getcone();//Conexión
             btnActualizar.Visibility = Visibility.Hidden;
             btnEliminar.Visibility = Visibility.Hidden;
             txtNombre.Focus();
@@ -90,7 +87,7 @@ namespace Vista
                 BibliotecaNegocio.Servicio cli = (BibliotecaNegocio.Servicio)dgLista.SelectedItem;
                 int id = cli.id_servicio;
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -102,7 +99,7 @@ namespace Vista
                 
                 //se abre la conexion
                 conn.Open();
-                //se ejecuta la query CON  VARIABLE DE SALIDA (si tiene)
+                //se ejecuta la query
                 CMD.ExecuteNonQuery();
                 //se cierra la conexioin
                 conn.Close();
@@ -132,38 +129,15 @@ namespace Vista
                 bool resp = Actualizar(c);
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Actualizado" : "No Actualizado"));
-                /*MessageBox.Show(resp ? "Actualizado" : "No Actualizado, (El rut no se debe modificar)");*/
-
-                //-----------------------------------------------------------------------------------------------
-                //MOSTRAR LISTA DE ERRORES
-                if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
-                {
-
-                    DaoErrores de = c.retornar();
-                    string li = "";
-                    foreach (string item in de.ListarErrores())
-                    {
-                        li += item + " \n";
-                    }
-                    await this.ShowMessageAsync("Mensaje:",
-                        string.Format(li));
-                }
-                else
+                if (resp == true)
                 {
                     Limpiar();
                 }
-
-            }
-            catch (ArgumentException exa)//mensajes de reglas de negocios
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                      string.Format((exa.Message)));
             }
             catch (Exception ex)
             {
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format("Error al Actualizar Datos"));
-                /*MessageBox.Show("Error al Actualizar");*/
                 Logger.Mensaje(ex.Message);
 
             }
@@ -180,7 +154,7 @@ namespace Vista
             try
             {
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -190,7 +164,7 @@ namespace Vista
                 CMD.Parameters.Add(new OracleParameter("P_NOMBRE", OracleDbType.Varchar2, 50)).Value = serv.nombre;
                 //se abre la conexion
                 conn.Open();
-                //se ejecuta la query CON  VARIABLE DE SALIDA en caso de tener
+                //se ejecuta la query
                 CMD.ExecuteNonQuery();
                 //se cierra la conexioin
                 conn.Close();
@@ -198,10 +172,8 @@ namespace Vista
             }
             catch (Exception ex)
             {
-
                 return false;
                 Logger.Mensaje(ex.Message);
-
             }
         }
 
@@ -219,38 +191,17 @@ namespace Vista
                 bool resp = Agregar(c);
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format(resp ? "Guardado" : "No Guardado"));
-                /*MessageBox.Show(resp ? "Guardado" : "No Guardado");*/
 
-                //-----------------------------------------------------------------------------------------------
-                //MOSTRAR LISTA DE ERRORES (validación de la clase)
-                if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
-                {
-                    DaoErrores de = c.retornar();
-                    string li = "";
-                    foreach (string item in de.ListarErrores())
-                    {
-                        li += item + " \n";
-                    }
-                    await this.ShowMessageAsync("Mensaje:",
-                        string.Format(li));
-                }
-                else
+                if (resp == true)
                 {
                     Limpiar();
                 }
-            }
-            catch (ArgumentException exa)//mensajes de reglas de negocios
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                      string.Format((exa.Message)));
             }
             catch (Exception ex)
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error de ingreso de datos"));
-                /*MessageBox.Show("Error de ingreso de datos");*/
                 Logger.Mensaje(ex.Message);
-
             }
         }
         //---------Método Eliminar-----------------------------------------------
@@ -261,7 +212,7 @@ namespace Vista
                 BibliotecaNegocio.Servicio cli = (BibliotecaNegocio.Servicio)dgLista.SelectedItem;
                 int num = cli.id_servicio;
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -272,7 +223,7 @@ namespace Vista
 
                 //se abre la conexion
                 conn.Open();
-                //se ejecuta la query CON  VARIABLE DE SALIDA en caso de tener
+                //se ejecuta la query 
                 CMD.ExecuteNonQuery();
                 //se cierra la conexioin
                 conn.Close();
@@ -280,10 +231,8 @@ namespace Vista
             }
             catch (Exception ex)
             {
-
                 return false;
                 Logger.Mensaje(ex.Message);
-
             }
         }
         //-------------Botón Eliminar------------------------------------------------------
@@ -303,31 +252,24 @@ namespace Vista
                     {
                         await this.ShowMessageAsync("Éxito:",
                           string.Format("Servicio Eliminado"));
-                        /*MessageBox.Show("Cliente eliminado"); */
                         Limpiar();
-
                     }
                     else
                     {
                         await this.ShowMessageAsync("Error:",
                           string.Format("No Eliminado"));
-                        /*MessageBox.Show("No se eliminó al Cliente");*/
                     }
-
                 }
                 else
                 {
                     await this.ShowMessageAsync("Mensaje:",
                           string.Format("Operación Cancelada"));
-                    /*MessageBox.Show("Operación Cancelada");*/
                 }
             }
             catch (Exception ex)
             {
-
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format("Error al Eliminar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
             }
         }

@@ -24,52 +24,48 @@ using System.Data;
 
 namespace Vista
 {
-    /// <summary>
-    /// Lógica de interacción para ConsultarBanco.xaml
-    /// </summary>
     public partial class ConsultarBanco : MetroWindow
     {
         OracleConnection conn = null;
         public ConsultarBanco()
         {
             InitializeComponent();
+            //Instanciar la conexión a la BD
             conn = new Conexion().Getcone();
             txtRut.Focus();
             btnInvitación.Visibility = Visibility.Hidden;//Esconder botón hasta que el resultado de la busqueda sea positivo
 
-        }
-
+        }   
+        //---------Botón Salir----------------------------
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
+        //-----------Botón Refrescar----------------------------------
         private void btnRefrescar_Click(object sender, RoutedEventArgs e)
         {
             dgLista.ItemsSource = null;
             btnInvitación.Visibility = Visibility.Hidden;
             txtRut.Focus();
-
-
         }
-
+        //--------Botón Consultar--------------------------------------
         private async void btnConsultar_Click(object sender, RoutedEventArgs e)
         {
             //Se instancia al cliente
             WSBancoEstado.WS_BANCOClient cliente = new WSBancoEstado.WS_BANCOClient();
 
-            //Capturar rut
+            //Entregar parámetro (Rut)
             string rut = txtRut.Text;
+
             if (rut != "")
             {
                 if (rut.Length ==10)
                 {
-                    //Validar Datos en el WS
+                    //Validar Datos en el WS mediante método TipoCliente
                     if (cliente.TipoCliente(rut) == 1)
                     {
                         try
                         {
-                            //se crea una lista de tipo cine
                             List<BancoEstado> lista_tipos = new List<BancoEstado>();
                             //se crea un comando de oracle
                             OracleCommand cmd = new OracleCommand();
@@ -99,6 +95,7 @@ namespace Vista
 
                                 lista_tipos.Add(be);
                             }
+                            //Cerrar conexión
                             conn.Close();
                             dgLista.ItemsSource = lista_tipos;
                             btnInvitación.Visibility = Visibility.Visible;//Botón se ve

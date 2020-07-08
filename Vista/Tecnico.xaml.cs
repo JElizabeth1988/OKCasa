@@ -25,16 +25,13 @@ using BibliotecaDALC;
 
 namespace Vista
 {
-    /// <summary>
-    /// Lógica de interacción para Tecnico.xaml
-    /// </summary>
     public partial class Tecnico : MetroWindow
     {
         OracleConnection conn = null;
         public Tecnico()
         {
             InitializeComponent();
-            conn = new Conexion().Getcone();
+            conn = new Conexion().Getcone();//Conexión
 
             txtDV.IsEnabled = false;
             btnModificar.Visibility = Visibility.Hidden;//el botón Modificar no se ve
@@ -103,9 +100,7 @@ namespace Vista
                     rut = "0" + txtRut.Text + "-" + txtDV.Text;
                 }
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
-
                 List<BibliotecaNegocio.Tecnico> tec = new List<BibliotecaNegocio.Tecnico>();
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -137,9 +132,8 @@ namespace Vista
                     tec.Add(c);
 
                 }
+                //Cerrar conn
                 conn.Close();
-
-
                 if (c != null)
                 {
                     txtRut.Text = c.rut_tecnico.Substring(0, 8);
@@ -173,16 +167,13 @@ namespace Vista
                 {
                     await this.ShowMessageAsync("Mensaje:",
                         string.Format("No se encontraron resultados!"));
-                    /*MessageBox.Show("No se encontraron resultados!");*/
                 }
             }
             catch (Exception ex)
             {
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format("Error al Buscar Información! "));
-                /*MessageBox.Show("error al buscar");*/
                 Logger.Mensaje(ex.Message);
-
             }
 
         }
@@ -298,14 +289,12 @@ namespace Vista
                 {
                     await this.ShowMessageAsync("Mensaje:",
                         string.Format("No se encontraron resultados!"));
-                    /*MessageBox.Show("No se encontraron resultados!");*/
                 }
             }
             catch (Exception ex)
             {
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format("Error al Buscar Información! "));
-                /*MessageBox.Show("error al buscar");*/
                 Logger.Mensaje(ex.Message);
 
             }
@@ -335,25 +324,16 @@ namespace Vista
                 CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 50)).Value = client.email;
                 CMD.Parameters.Add(new OracleParameter("P_ID_EQUIPO", OracleDbType.Int32)).Value = client.id_equipo;
                 CMD.Parameters.Add(new OracleParameter("P_ID_COMUNA", OracleDbType.Int32)).Value = client.id_comuna;
-                
-
-                //asi se indica que es parametro de salida// parametro de direccion, y hacia donde es
-                //CMD.Parameters.Add(new OracleParameter("P_RESP", OracleDbType.Int32)).Direction = System.Data.ParameterDirection.Output;
                 //se abre la conexion
                 conn.Open();
                 //se ejecuta la query CON  VARIABLE DE SALIDA UNA DE SALIDA
                 CMD.ExecuteNonQuery();
-                // SE CONVIERTE EL P_RESP EN INT 32
-                //int cantidad = Convert.ToInt32(CMD.Parameters["P_RESP"].Value);
                 //se cierra la conexioin
                 conn.Close();
-                //se ven las filas afectadas
-                //return cantidad > 0;
                 return true;
             }
             catch (Exception ex)
             {
-
                 return false;
             }
         }
@@ -433,9 +413,7 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error de ingreso de datos"));
-                /*MessageBox.Show("Error de ingreso de datos");*/
                 Logger.Mensaje(ex.Message);
-
             }
         }
 
@@ -446,15 +424,13 @@ namespace Vista
             {
                 string rut = txtRut.Text + "-" + txtDV.Text;
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
                 CMD.Connection = conn;
                 //nombre del procedimeinto almacenado
-                //NO INGRESA YA QUE TIENE EL ESTADO Y DEVUELVE 0 o 1 DE FILAS AFECTADAS
-                //SI CAE EN LA EXCEPCION DEVUELVE 0 Y SI NO CAE DEVUELVE 1
                 CMD.CommandText = "SP_ACTUALIZAR_TECNICO2";
-                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al tiposito.ID
+                //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo
                 CMD.Parameters.Add(new OracleParameter("P_RUT_TECNICO", OracleDbType.Varchar2, 10)).Value = rut;
                 CMD.Parameters.Add(new OracleParameter("P_PRIMER_NOMBRE", OracleDbType.Varchar2, 20)).Value = tec.primer_nombre;
                 CMD.Parameters.Add(new OracleParameter("P_SEGUNDO_NOMBRE", OracleDbType.Varchar2, 20)).Value = tec.segundo_nombre;
@@ -465,9 +441,6 @@ namespace Vista
                 CMD.Parameters.Add(new OracleParameter("P_EMAIL", OracleDbType.Varchar2, 50)).Value = tec.email;
                 CMD.Parameters.Add(new OracleParameter("P_ID_EQUIPO", OracleDbType.Int32)).Value = tec.id_equipo;
                 CMD.Parameters.Add(new OracleParameter("P_ID_COMUNA", OracleDbType.Int32)).Value = tec.id_comuna;
-
-                //asi se indica que es parametro de salida// parametro de direccion, y hacia donde es
-                //CMD.Parameters.Add(new OracleParameter("P_RESP", OracleDbType.Int32)).Direction = System.Data.ParameterDirection.Output;
                 //se abre la conexion
                 conn.Open();
                 //se ejecuta la query CON  VARIABLE DE SALIDA
@@ -515,8 +488,6 @@ namespace Vista
                 bool resp = Actualizar(c);
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format(resp ? "Actualizado" : "No Actualizado"));
-                /*MessageBox.Show(resp ? "Actualizado" : "No Actualizado, (El rut no se debe modificar)");*/
-
                 //-----------------------------------------------------------------------------------------------
                 //MOSTRAR LISTA DE ERRORES
                 if (resp == false)//If para que no muestre mensaje en blanco en caso de éxito
@@ -536,9 +507,7 @@ namespace Vista
                     Limpiar();
                 }
 
-
                 //-----------------------------------------------------------------------------------------------
-
             }
             catch (ArgumentException exa)//mensajes de reglas de negocios
             {
@@ -549,7 +518,6 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format("Error al Actualizar Datos"));
-                /*MessageBox.Show("Error al Actualizar");*/
                 Logger.Mensaje(ex.Message);
 
             }
@@ -634,7 +602,7 @@ namespace Vista
                     rut = "0" + txtRut.Text + "-" + txtDV.Text;
                 }
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -645,7 +613,7 @@ namespace Vista
 
                 //se abre la conexion
                 conn.Open();
-                //se ejecuta la query CON  VARIABLE DE SALIDA en caso de tener
+                //se ejecuta la query 
                 CMD.ExecuteNonQuery();
                 //se cierra la conexioin
                 conn.Close();
@@ -684,15 +652,12 @@ namespace Vista
                     {
                         await this.ShowMessageAsync("Error:",
                           string.Format("No Eliminado"));
-                        /*MessageBox.Show("No se eliminó al Cliente");*/
                     }
-
                 }
                 else
                 {
                     await this.ShowMessageAsync("Mensaje:",
                           string.Format("Operación Cancelada"));
-                    /*MessageBox.Show("Operación Cancelada");*/
                 }
             }
             catch (Exception ex)
@@ -700,7 +665,6 @@ namespace Vista
 
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format("Error al Eliminar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
             }
         }

@@ -24,9 +24,6 @@ using System.Data;
 
 namespace Vista
 {
-    /// <summary>
-    /// Lógica de interacción para FormularioInspeccion.xaml
-    /// </summary>
     public partial class FormularioInspeccion : MetroWindow
     {
         OracleConnection conn = null;
@@ -34,6 +31,7 @@ namespace Vista
         public FormularioInspeccion()
         {
             InitializeComponent();
+            //Se instancia la conexión
             conn = new Conexion().Getcone();
             this.DataContext = this;
             txtRutCliente.Focus();
@@ -130,7 +128,7 @@ namespace Vista
             txtHumedad.Text = "0";
             cbComuna.SelectedIndex = 0;
 
-           // lblIdSolicitud.Visibility = Visibility.Hidden;
+            lblIdSolicitud.Visibility = Visibility.Hidden;
         }
         //--------BOTÓN CANCELAR-----------------------------------------------
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
@@ -144,13 +142,7 @@ namespace Vista
             ListadoCliente liCli = new ListadoCliente(this);
             liCli.ShowDialog();
         }
-        //----REVISAR!!!!!!!!!!!!!!!!!
-        //-------BOTÓN PREGUNTA BUSCAR FORMULARIO (LLAMA AL LISTADO DE CLIENTES?)----------
-        private void btnListarCli_Click(object sender, RoutedEventArgs e)
-        {
-            ListadoCliente liCli = new ListadoCliente(this);
-            liCli.ShowDialog();
-        }
+
         //-------BOTÓN PREGUNTA BUSCAR FORMULARIO (LLAMA AL LISTADO DE FORMULARIOS)----------
         private void btnListarForm_Click(object sender, RoutedEventArgs e)
         {
@@ -253,7 +245,7 @@ namespace Vista
             {
                 //nunca una instruccion sql en el sistema solo en base de datos
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando q voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -292,8 +284,7 @@ namespace Vista
                 CMD.Parameters.Add(new OracleParameter("P_ID_AGUA", OracleDbType.Int32)).Value = inf.id_agua;
                 CMD.Parameters.Add(new OracleParameter("P_ID_AGUA_POTABLE", OracleDbType.Int32)).Value = inf.id_agua_potable;
                 CMD.Parameters.Add(new OracleParameter("P_ID_COMUNA", OracleDbType.Int32)).Value = inf.id_comuna;
-                //asi se indica que es parametro de salida// parametro de direccion, y hacia donde es
-                //CMD.Parameters.Add(new OracleParameter("P_RESP", OracleDbType.Int32)).Direction = System.Data.ParameterDirection.Output;
+              
                 //se abre la conexion
                 conn.Open();
                 //se ejecuta la query CON  VARIABLE DE SALIDA en caso de tener
@@ -304,10 +295,8 @@ namespace Vista
             }
             catch (Exception ex)
             {
-
                 return false;
                 Logger.Mensaje(ex.Message);
-
             }
         }
 
@@ -466,9 +455,7 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                       string.Format("Error de ingreso de datos"));
-                /*MessageBox.Show("Error de ingreso de datos");*/
                 Logger.Mensaje(ex.Message);
-
             }
         }
 
@@ -480,7 +467,7 @@ namespace Vista
                 string numero = lblNumForm.Content.ToString();
                 
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
                 //nombre de la conexion
                 CMD.Connection = conn;
@@ -520,9 +507,9 @@ namespace Vista
                 CMD.Parameters.Add(new OracleParameter("P_ID_AGUA_POTABLE", OracleDbType.Int32)).Value = inf.id_agua_potable;
                 CMD.Parameters.Add(new OracleParameter("P_ID_COMUNA", OracleDbType.Int32)).Value = inf.id_comuna;
 
-                
+                //Se abre la conexión
                 conn.Open();
-                //se ejecuta la query CON  VARIABLE DE SALIDA (si tiene)
+                //se ejecuta la query 
                 CMD.ExecuteNonQuery();
                 //se cierra la conexioin
                 conn.Close();
@@ -530,7 +517,6 @@ namespace Vista
             }
             catch (Exception ex)
             {
-
                 return false;
             }
         }
@@ -692,7 +678,6 @@ namespace Vista
             {
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format("Error al Actualizar Datos"));
-                /*MessageBox.Show("Error al Actualizar");*/
                 Logger.Mensaje(ex.Message);
 
             }
@@ -700,361 +685,19 @@ namespace Vista
         //---------- Buscar Informe por Número------------------------------------------
         private async void btnBuscarForm_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                long numero = long.Parse(txtNFormBuscar.Text);
-               
-                
-                OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
-                CMD.CommandType = System.Data.CommandType.StoredProcedure;
-
-                List<BibliotecaNegocio.Informe.ListaInforme> clie = new List<BibliotecaNegocio.Informe.ListaInforme>();
-                //nombre de la conexion
-                CMD.Connection = conn;
-                //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_BUSCAR_INFORME_NUM";
-                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
-                CMD.Parameters.Add(new OracleParameter("P_NUM_FORMULARIO", OracleDbType.Int64)).Value = numero;
-                CMD.Parameters.Add(new OracleParameter("INFORMES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
-
-                //se abre la conexion
-                conn.Open();
-                OracleDataReader reader = CMD.ExecuteReader();
-                BibliotecaNegocio.Informe.ListaInforme c = null;
-                while (reader.Read())
-                {
-                    c = new BibliotecaNegocio.Informe.ListaInforme();
-
-                    c.Numero = long.Parse(reader[0].ToString());
-                    c.Estado_Servicio = reader[1].ToString();
-                    c.Fecha_Inspeccion = DateTime.Parse(reader[2].ToString());
-                    c.Rut_Cliente = reader[3].ToString();
-                    c.Cliente = reader[4].ToString();
-                    c.Dirección = reader[5].ToString();
-                    c.Comuna = reader[6].ToString();
-                    c.Constructora = reader[7].ToString();
-                    c.N_Habitaciones = int.Parse(reader[8].ToString());
-                    c.N_Pisos = int.Parse(reader[9].ToString());
-                    c.Tipo_Agrupamiento = reader[10].ToString();
-                    c.Tipo_Vivienda = reader[11].ToString();
-                    c.Rut_Tecnico = reader[12].ToString();
-                    c.Técnico = reader[13].ToString();
-                    c.Equipo = reader[14].ToString();
-                    c.Resultado = reader[15].ToString();
-                    c.Observacion = reader[16].ToString();
-                    c.habitabilidad = reader[17].ToString();
-                    c.Resistencia_Térmica = reader[18].ToString();
-                    c.Resistencia_Fuego = reader[19].ToString();
-                    c.Area_regis = int.Parse(reader[20].ToString());
-                    c.Area_real = int.Parse(reader[21].ToString());
-                    c.sup_construida_reg = int.Parse(reader[22].ToString());
-                    c.Sup_construida_real = int.Parse(reader[23].ToString());
-                    c.Emisividad = int.Parse(reader[24].ToString());
-                    c.Temp_reflejada = int.Parse(reader[25].ToString());
-                    c.Distancia = int.Parse(reader[26].ToString());
-                    c.Humedad_relativa = int.Parse(reader[27].ToString());
-                    c.temp_atmosferica = int.Parse(reader[28].ToString());
-                    c.Inst_Agua_Potable = reader[29].ToString();
-                    c.Inst_Alcantarillado = reader[30].ToString();
-                    c.Inst_Gas = reader[31].ToString();
-                    c.Inst_Electrica = reader[32].ToString();
-                    c.Red_Agua = reader[33].ToString();
-                    c.Solicitud = int.Parse(reader[34].ToString());
-                    c.Fecha_solicitud = DateTime.Parse(reader[35].ToString());
-
-                    clie.Add(c);
-
-                }
-                conn.Close();
-
-
-                if (c != null)
-                {
-                    lblNumForm.Content = c.Numero;
-                    if (c.Estado_Servicio == "Primera Revisión")
-                    {
-                        rbPrimera.IsChecked = true;
-                    }
-                    else
-                    {
-                        rbPrimera.IsChecked = false;
-                    }
-                    if (c.Estado_Servicio == "Segunda Revisión")
-                    {
-                        rbSegunda.IsChecked = true;
-                    }
-                    else
-                    {
-                        rbSegunda.IsChecked = false;
-                    }
-                    if (c.Estado_Servicio == "Cierre")
-                    {
-                        rbCierre.IsChecked = true;
-                    }
-                    else
-                    {
-                        rbCierre.IsChecked = false;
-                    }
-                    dtfechaIns.Text = c.Fecha_Inspeccion.ToString();
-                    if (c.Resultado == "Bueno")
-                    {
-                        rbBueno.IsChecked = true;
-                    }
-                    else
-                    {
-                        rbBueno.IsChecked = false;
-                    }
-                    if (c.Resultado == "Regular")
-                    {
-                        rbRegular.IsChecked = true;
-                    }
-                    else
-                    {
-                        rbRegular.IsChecked = false;
-                    }
-                    if (c.Resultado == "Malo")
-                    {
-                        rbMalo.IsChecked = true;
-                    }
-                    else
-                    {
-                        rbMalo.IsChecked = false;
-                    }
-                    if (c.Resultado == "Deficiente")
-                    {
-                        rbDeficiente.IsChecked = true;
-                    }
-                    else
-                    {
-                        rbDeficiente.IsChecked = false;
-                    }                
-
-                    txtHabitac.Text = c.N_Habitaciones.ToString();
-                    txtPisos.Text = c.N_Pisos.ToString();
-                    txtDireccion.Text = c.Dirección;
-                    txtConstr.Text = c.Constructora;
-                    txtObserv.Text = c.Observacion;
-                    if (c.habitabilidad == "Si")
-                    {
-                        RbSiHab.IsChecked = true;
-                        RbNoHab.IsChecked = false;
-                    }
-                    else
-                    {
-                            RbNoHab.IsChecked = true;
-                            RbSiHab.IsChecked = false;                     
-                    }
-                    if (c.Resistencia_Térmica == "Si")
-                    {
-                        RbSiTerm.IsChecked = true;
-                        RbNoTerm.IsChecked = false;
-                    }
-                    else
-                    {
-                            RbNoTerm.IsChecked = true;
-                            RbSiTerm.IsChecked = false;
-
-                    }
-                    if (c.Resistencia_Fuego == "Si")
-                    {
-                        RbSiFuego.IsChecked = true;
-                        RbNoFuego.IsChecked = false;
-                    }
-                    else
-                    {
-                            RbNoFuego.IsChecked = true;
-                            RbSiFuego.IsChecked = false;
-                        
-                    }
-                   
-                    txtTotalReg.Text = c.Area_regis.ToString();
-                    txtTotalReal.Text = c.Area_real.ToString();
-                    txtConsReg.Text = c.sup_construida_reg.ToString();
-                    txtIConstReal.Text = c.Sup_construida_real.ToString();
-                    txtEmisividad.Text = c.Emisividad.ToString();
-                    txtTempRefle.Text = c.Temp_reflejada.ToString();
-                    txtDistancia.Text = c.Distancia.ToString();
-                    txtHumedad.Text = c.Humedad_relativa.ToString();
-                    txtTempAtmo.Text = c.temp_atmosferica.ToString();
-                    txtRutCliente.Text = c.Rut_Cliente.ToString();
-                    txtRutTecnico.Text = c.Rut_Tecnico.ToString();
-                    cbTipoV.Text = c.Tipo_Vivienda;
-                    cbTipoAg.Text = c.Tipo_Agrupamiento;
-                    lblIdSolicitud.Content = c.Solicitud;
-                    lblIdSolicitud.Visibility = Visibility.Hidden;
-                    cbAlcanta.Text = c.Inst_Alcantarillado;
-                    cbGas.Text = c.Inst_Gas;
-                    cbElectrica.Text = c.Inst_Electrica;
-                    cbRedAgua.Text = c.Red_Agua;
-                    cbInstAgua.Text = c.Inst_Agua_Potable;
-                    cbComuna.Text = c.Comuna;
-                    dtfechaSol.Text = c.Fecha_solicitud.ToString();
-                    txtNombreCliente.Text = c.Cliente;
-                    txtNombreTec.Text = c.Técnico;
-                    txtEquipo.Text = c.Equipo;
-
-
-                    btnActualizar.Visibility = Visibility.Visible;
-                    btnEliminar.Visibility = Visibility.Visible;
-                    btnGuardar.Visibility = Visibility.Hidden;
-
-                }
-                else
-                {
-                    await this.ShowMessageAsync("Mensaje:",
-                        string.Format("No se encontraron resultados!"));
-                    /*MessageBox.Show("No se encontraron resultados!");*/
-                }
-            }
-            catch (Exception ex)
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Error al Buscar Información! "));
-                /*MessageBox.Show("error al buscar");*/
-                Logger.Mensaje(ex.Message);
-
-            }
-
+            BuscarInf();
         }
         
         //--------- Buscar Cliente y solicitud------------------------------------------------------
         private async void btnBuscarRutC1_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                string rut = txtRutCliente.Text;
-              
-                OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
-                CMD.CommandType = System.Data.CommandType.StoredProcedure;
-
-                List<BibliotecaNegocio.Solicitud.ListaSolicitud> clie = new List<BibliotecaNegocio.Solicitud.ListaSolicitud>();
-                //nombre de la conexion
-                CMD.Connection = conn;
-                //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_BUSCAR_CLI";
-                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
-                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2,20)).Value = rut;
-                CMD.Parameters.Add(new OracleParameter("INFORMES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
-
-                //se abre la conexion
-                conn.Open();
-                OracleDataReader reader = CMD.ExecuteReader();
-                BibliotecaNegocio.Solicitud.ListaSolicitud c = null;
-                while (reader.Read())
-                {
-                    c = new BibliotecaNegocio.Solicitud.ListaSolicitud();
-
-                    c.Rut = reader[0].ToString();
-                    c.Nombre = reader[1].ToString();
-                    c.Fecha = DateTime.Parse(reader[2].ToString());
-                    c.id_solicitud = int.Parse(reader[3].ToString());
-                    c.Direccion = reader[4].ToString();
-                    c.Constructora = reader[5].ToString();
-                    c.Comuna = reader[6].ToString();
-
-                    clie.Add(c);
-
-                }
-                conn.Close();
-
-
-                if (c != null)
-                {
-                    txtRutCliente.Text = c.Rut;
-                    txtNombreCliente.Text = c.Nombre;
-                    dtfechaSol.Text = c.Fecha.ToString();
-                    lblIdSolicitud.Content = c.id_solicitud;
-                    txtDireccion.Text = c.Direccion;
-                    txtConstr.Text = c.Constructora;
-                    cbComuna.Text = c.Comuna;
-                    
-                    lblIdSolicitud.Visibility = Visibility.Hidden;
-                    txtRutCliente.IsEnabled = false;
-                    
-                }
-                else
-                {
-                    await this.ShowMessageAsync("Mensaje:",
-                        string.Format("No se encontraron resultados!"));
-                    /*MessageBox.Show("No se encontraron resultados!");*/
-                }
-            }
-            catch (Exception ex)
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Error al Buscar Información! "));
-                /*MessageBox.Show("error al buscar");*/
-                Logger.Mensaje(ex.Message);
-
-            }
+            Buscar();          
         }
 
         //-----------Buscar Técnico-----------------------------------------------------
         private async void btnBuscarRutT_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                string rut = txtRutTecnico.Text;
-
-                OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
-                CMD.CommandType = System.Data.CommandType.StoredProcedure;
-
-                List<BibliotecaNegocio.Informe.ListaInforme> clie = new List<BibliotecaNegocio.Informe.ListaInforme>();
-                //nombre de la conexion
-                CMD.Connection = conn;
-                //nombre del procedimeinto almacenado
-                CMD.CommandText = "SP_BUSCAR_TEC";
-                //////////se crea un nuevo de tipo parametro//P_Nombre//el tipo//el largo// 
-                CMD.Parameters.Add(new OracleParameter("P_RUT", OracleDbType.Varchar2, 20)).Value = rut;
-                CMD.Parameters.Add(new OracleParameter("INFORMES", OracleDbType.RefCursor)).Direction = System.Data.ParameterDirection.Output;
-
-                //se abre la conexion
-                conn.Open();
-                OracleDataReader reader = CMD.ExecuteReader();
-                BibliotecaNegocio.Informe.ListaInforme c = null;
-                while (reader.Read())
-                {
-                    c = new BibliotecaNegocio.Informe.ListaInforme();
-
-                    c.Rut_Tecnico = reader[0].ToString();
-                    c.Técnico = reader[1].ToString();
-                    c.Equipo = reader[2].ToString();
-                    
-                    clie.Add(c);
-
-                }
-                conn.Close();
-
-
-                if (c != null)
-                {
-                    txtRutTecnico.Text = c.Rut_Tecnico;
-                    txtNombreTec.Text = c.Técnico;
-                    txtEquipo.Text = c.Equipo;
-                    
-
-                    lblIdSolicitud.Visibility = Visibility.Hidden;
-                    txtRutTecnico.IsEnabled =false;
-
-                }
-                else
-                {
-                    await this.ShowMessageAsync("Mensaje:",
-                        string.Format("No se encontraron resultados!"));
-                    /*MessageBox.Show("No se encontraron resultados!");*/
-                }
-            }
-            catch (Exception ex)
-            {
-                await this.ShowMessageAsync("Mensaje:",
-                     string.Format("Error al Buscar Información! "));
-                /*MessageBox.Show("error al buscar");*/
-                Logger.Mensaje(ex.Message);
-
-            }
+            BuscarTec();
         }
         //----------Buscar para el traspasar (Listado de Informes)------------------------------
         public async void BuscarInf()
@@ -1063,7 +706,7 @@ namespace Vista
             {
                 long numero = long.Parse(txtNFormBuscar.Text);
                 OracleCommand CMD = new OracleCommand();
-                //que tipo de tipo voy a ejecutar
+                //que tipo de comando voy a ejecutar
                 CMD.CommandType = System.Data.CommandType.StoredProcedure;
 
                 List<BibliotecaNegocio.Informe.ListaInforme> clie = new List<BibliotecaNegocio.Informe.ListaInforme>();
@@ -1460,15 +1103,12 @@ namespace Vista
                     {
                         await this.ShowMessageAsync("Éxito:",
                           string.Format("Informe Eliminado"));
-                        /*MessageBox.Show("Cliente eliminado"); */
                         Limpiar();
-
                     }
                     else
                     {
                         await this.ShowMessageAsync("Error:",
                           string.Format("No Eliminado"));
-                        /*MessageBox.Show("No se eliminó al Cliente");*/
                     }
 
                 }
@@ -1476,7 +1116,6 @@ namespace Vista
                 {
                     await this.ShowMessageAsync("Mensaje:",
                           string.Format("Operación Cancelada"));
-                    /*MessageBox.Show("Operación Cancelada");*/
                 }
             }
             catch (Exception ex)
@@ -1484,7 +1123,6 @@ namespace Vista
 
                 await this.ShowMessageAsync("Mensaje:",
                      string.Format("Error al Eliminar la Información"));
-                /*MessageBox.Show("error al Filtrar Información");*/
                 Logger.Mensaje(ex.Message);
             }
 

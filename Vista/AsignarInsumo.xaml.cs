@@ -24,16 +24,13 @@ using System.Data;
 
 namespace Vista
 {
-    /// <summary>
-    /// Lógica de interacción para AsignarInsumo.xaml
-    /// </summary>
     public partial class AsignarInsumo : MetroWindow
     {
-
         OracleConnection conn = null;
         public AsignarInsumo()
         {
             InitializeComponent();
+            //Instanciar la conexión a BD
             conn = new Conexion().Getcone();
             cbEquipo.Focus();
             btnAsignar.Visibility = Visibility.Hidden;
@@ -101,19 +98,20 @@ namespace Vista
                 Logger.Mensaje(ex.Message);
             }
         }
-        //---------Limpiar
+        //---------Limpiar --------------------------------------
         private void Limpiar()
         {
             CargarGrilla();
             cbEquipo.SelectedIndex = 0;
             cbEquipo.Focus();
         }
+        //------Botón Ver listado-----------------------------------
         private void btnVer_Click(object sender, RoutedEventArgs e)
         {
             CargarGrilla();
         }
 
-        
+        //--------Botón Asignar insumo-------------------------
         private async void btnAsignar_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -130,6 +128,7 @@ namespace Vista
                 //////////se crea un nuevo de tipo parametro//P_ID//el tipo//el largo// y el valor es igual al de la clase
                 CMD.Parameters.Add(new OracleParameter("P_ID_INSUMO", OracleDbType.Int32)).Value = id_insumo;
                 CMD.Parameters.Add(new OracleParameter("P_ID_EQUIPO", OracleDbType.Int32)).Value = id_equipo;
+                //Abrir conexión
                 conn.Open();
                 //se ejecuta la query
                 CMD.ExecuteNonQuery();
